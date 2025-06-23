@@ -900,6 +900,14 @@
                 display: none;
             }
 
+            .nav-content {
+                justify-content: flex-end;
+            }
+
+            .theme-toggle {
+                display: block !important;
+            }
+
             .hero h1 {
                 font-size: 2.2rem;
             }
@@ -974,15 +982,17 @@
                 </svg>
                 <span>Ryan Andrew Pretzer</span>
             </div>
-            <ul class="nav-links">
-                <li><a href="#about">About</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#portfolio">Portfolio</a></li>
-                <li><a href="#pricing">Pricing</a></li>
-                <li><a href="#content">Insights</a></li>
-                <li><a href="#contact">Contact</a></li>
-                <li><button class="theme-toggle" id="theme-toggle">🌙 Dark</button></li>
-            </ul>
+            <div class="nav-content">
+                <ul class="nav-links">
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#portfolio">Portfolio</a></li>
+                    <li><a href="#pricing">Pricing</a></li>
+                    <li><a href="#content">Insights</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                <button class="theme-toggle" id="theme-toggle">🌙 Dark</button>
+            </div>
         </nav>
     </header>
 

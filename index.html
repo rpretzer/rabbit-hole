@@ -14,9 +14,229 @@
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
             line-height: 1.7;
-            color: #2a2a2a;
-            background: #fefefe;
+            color: #1a1a1a;
+            background: #ffffff;
             font-weight: 300;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        /* Dark mode styles */
+        body.dark-mode {
+            color: #e5e5e5;
+            background: #0f0f0f;
+        }
+
+        body.dark-mode header {
+            background: rgba(15, 15, 15, 0.92);
+            border-bottom: 1px solid rgba(229, 229, 229, 0.1);
+        }
+
+        body.dark-mode .logo {
+            color: #e5e5e5;
+        }
+
+        body.dark-mode .logo-icon path {
+            stroke: #e5e5e5;
+        }
+
+        body.dark-mode .nav-links a {
+            color: #e5e5e5;
+        }
+
+        body.dark-mode .nav-links a:hover {
+            color: #b0b0b0;
+        }
+
+        body.dark-mode .hero {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+            color: #e5e5e5;
+        }
+
+        body.dark-mode .hero p {
+            color: #b0b0b0;
+        }
+
+        body.dark-mode .cta-button {
+            background: #e5e5e5;
+            color: #1a1a1a;
+        }
+
+        body.dark-mode .cta-button:hover {
+            background: #ffffff;
+            box-shadow: 0 8px 25px rgba(229, 229, 229, 0.3);
+        }
+
+        body.dark-mode .about {
+            background: #0f0f0f;
+        }
+
+        body.dark-mode .about-image {
+            background: #2a2a2a;
+            color: #777777;
+        }
+
+        body.dark-mode .about-text {
+            color: #b0b0b0;
+        }
+
+        body.dark-mode .section-title {
+            color: #e5e5e5;
+        }
+
+        body.dark-mode .section-title::after {
+            background: #444444;
+        }
+
+        body.dark-mode .service-card {
+            background: #1a1a1a;
+            border-color: rgba(229, 229, 229, 0.1);
+        }
+
+        body.dark-mode .service-card:hover {
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+            border-color: rgba(229, 229, 229, 0.2);
+        }
+
+        body.dark-mode .service-title {
+            color: #e5e5e5;
+        }
+
+        body.dark-mode .service-card p {
+            color: #b0b0b0;
+        }
+
+        body.dark-mode .service-icon svg {
+            stroke: #e5e5e5;
+        }
+
+        body.dark-mode .portfolio {
+            background: #171717;
+        }
+
+        body.dark-mode .portfolio-item {
+            background: #1a1a1a;
+            border-color: rgba(229, 229, 229, 0.1);
+        }
+
+        body.dark-mode .portfolio-image {
+            background: #2a2a2a;
+            color: #777777;
+        }
+
+        body.dark-mode .portfolio-title {
+            color: #e5e5e5;
+        }
+
+        body.dark-mode .portfolio-description {
+            color: #b0b0b0;
+        }
+
+        body.dark-mode .pricing {
+            background: #0f0f0f;
+        }
+
+        body.dark-mode .pricing-intro {
+            color: #b0b0b0;
+        }
+
+        body.dark-mode .pricing-card {
+            background: #1a1a1a;
+            border-color: rgba(229, 229, 229, 0.1);
+        }
+
+        body.dark-mode .pricing-card.featured {
+            border-color: rgba(229, 229, 229, 0.2);
+        }
+
+        body.dark-mode .pricing-header {
+            border-bottom-color: rgba(229, 229, 229, 0.1);
+        }
+
+        body.dark-mode .pricing-header h3 {
+            color: #e5e5e5;
+        }
+
+        body.dark-mode .pricing-subtitle {
+            color: #b0b0b0;
+        }
+
+        body.dark-mode .availability,
+        body.dark-mode .price {
+            color: #e5e5e5;
+        }
+
+        body.dark-mode .pricing-option {
+            border-bottom-color: rgba(229, 229, 229, 0.1);
+        }
+
+        body.dark-mode .pricing-benefits h4 {
+            color: #e5e5e5;
+        }
+
+        body.dark-mode .pricing-benefits li {
+            color: #b0b0b0;
+        }
+
+        body.dark-mode .pricing-benefits li::before {
+            color: #777777;
+        }
+
+        body.dark-mode .project-note {
+            border-top-color: rgba(229, 229, 229, 0.1);
+        }
+
+        body.dark-mode .project-note p {
+            color: #777777;
+        }
+
+        body.dark-mode .content {
+            background: #171717;
+        }
+
+        body.dark-mode .content-item {
+            background: #1a1a1a;
+            border-color: rgba(229, 229, 229, 0.1);
+        }
+
+        body.dark-mode .content-type {
+            background: #e5e5e5;
+            color: #1a1a1a;
+        }
+
+        body.dark-mode .content-title {
+            color: #e5e5e5;
+        }
+
+        body.dark-mode .content-excerpt {
+            color: #b0b0b0;
+        }
+
+        body.dark-mode .read-more {
+            color: #e5e5e5;
+        }
+
+        body.dark-mode .read-more:hover {
+            color: #b0b0b0;
+        }
+
+        body.dark-mode .contact {
+            background: #1a1a1a;
+        }
+
+        body.dark-mode .contact .section-title::after {
+            background: rgba(229, 229, 229, 0.3);
+        }
+
+        body.dark-mode footer {
+            background: #000000;
+        }
+
+        body.dark-mode .social-link {
+            background: rgba(229, 229, 229, 0.1);
+        }
+
+        body.dark-mode .social-link:hover {
+            background: rgba(229, 229, 229, 0.2);
         }
 
         .container {
@@ -50,7 +270,7 @@
             gap: 0.8rem;
             font-size: 1.4rem;
             font-weight: 400;
-            color: #2a2a2a;
+            color: #1a1a1a;
             letter-spacing: -0.02em;
         }
 
@@ -61,13 +281,14 @@
 
         .nav-links {
             display: flex;
+            align-items: center;
             list-style: none;
             gap: 2rem;
         }
 
         .nav-links a {
             text-decoration: none;
-            color: #2a2a2a;
+            color: #1a1a1a;
             font-weight: 300;
             font-size: 0.95rem;
             transition: color 0.4s ease;
@@ -75,7 +296,35 @@
         }
 
         .nav-links a:hover {
-            color: #6b6b6b;
+            color: #555555;
+        }
+
+        /* Dark mode toggle */
+        .theme-toggle {
+            background: none;
+            border: 1px solid #1a1a1a;
+            border-radius: 20px;
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+            font-size: 0.85rem;
+            color: #1a1a1a;
+            transition: all 0.3s ease;
+            font-weight: 300;
+        }
+
+        .theme-toggle:hover {
+            background: #1a1a1a;
+            color: #ffffff;
+        }
+
+        body.dark-mode .theme-toggle {
+            border-color: #e5e5e5;
+            color: #e5e5e5;
+        }
+
+        body.dark-mode .theme-toggle:hover {
+            background: #e5e5e5;
+            color: #1a1a1a;
         }
 
         /* Hero Section */
@@ -161,7 +410,7 @@
             font-size: 2.2rem;
             font-weight: 200;
             margin-bottom: 4rem;
-            color: #2a2a2a;
+            color: #1a1a1a;
             letter-spacing: -0.02em;
             position: relative;
         }
@@ -174,7 +423,7 @@
             transform: translateX(-50%);
             width: 40px;
             height: 1px;
-            background: #e0e0e0;
+            background: #cccccc;
         }
 
         /* About Section */
@@ -732,6 +981,7 @@
                 <li><a href="#pricing">Pricing</a></li>
                 <li><a href="#content">Insights</a></li>
                 <li><a href="#contact">Contact</a></li>
+                <li><button class="theme-toggle" id="theme-toggle">🌙 Dark</button></li>
             </ul>
         </nav>
     </header>
@@ -753,7 +1003,7 @@
             <h2 class="section-title">About</h2>
             <div class="about-content">
                 <div class="about-image">
-                    [Your Professional Photo]
+                    <img src="data:image/jpeg;base64,[YOUR_PROFESSIONAL_PHOTO_BASE64]" alt="Ryan Andrew Pretzer - Product Design Consultant" style="width: 100%; height: 100%; object-fit: cover; border-radius: 2px;">
                 </div>
                 <div class="about-text">
                     <p>I'm a product design consultant who brings a unique perspective from the insurance and financial services world. Over 15+ years, I've worked with Fortune 500 companies like Progressive Insurance, USAA, Volkswagen Credit, and MVP Healthcare, focusing on mobile applications, design systems, and business process transformation.</p>
@@ -1097,6 +1347,29 @@
             section.style.transform = 'translateY(20px)';
             section.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
             observer.observe(section);
+        });
+
+        // Dark mode toggle functionality
+        const themeToggle = document.getElementById('theme-toggle');
+        const body = document.body;
+
+        // Check for saved theme preference or default to light mode
+        const currentTheme = localStorage.getItem('theme') || 'light';
+        if (currentTheme === 'dark') {
+            body.classList.add('dark-mode');
+            themeToggle.innerHTML = '☀️ Light';
+        }
+
+        themeToggle.addEventListener('click', () => {
+            body.classList.toggle('dark-mode');
+            
+            if (body.classList.contains('dark-mode')) {
+                themeToggle.innerHTML = '☀️ Light';
+                localStorage.setItem('theme', 'dark');
+            } else {
+                themeToggle.innerHTML = '🌙 Dark';
+                localStorage.setItem('theme', 'light');
+            }
         });
     </script>
 </body>

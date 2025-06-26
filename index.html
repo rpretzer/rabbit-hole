@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ryan Andrew Pretzer - Product Design Consultancy</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/4.3.0/marked.min.js"></script>
     <style>
         * {
             margin: 0;
@@ -37,7 +38,6 @@
             transition: all 0.4s ease;
         }
 
-        /* Light mode header styles */
         body:not(.dark-mode) header {
             background: rgba(255, 255, 255, 0.92);
         }
@@ -47,7 +47,6 @@
             box-shadow: 0 1px 20px rgba(26, 26, 26, 0.15);
         }
 
-        /* Dark mode header styles */
         body.dark-mode header {
             background: rgba(15, 15, 15, 0.92);
             border-bottom: 1px solid rgba(229, 229, 229, 0.1);
@@ -315,6 +314,7 @@
             border: 1px solid rgba(26, 26, 26, 0.08);
             transition: all 0.4s ease;
             margin-bottom: 1rem;
+            cursor: pointer;
         }
 
         .service-card:hover {
@@ -376,6 +376,7 @@
             overflow: hidden;
             border: 1px solid rgba(26, 26, 26, 0.08);
             transition: all 0.4s ease;
+            cursor: pointer;
         }
 
         .portfolio-item:hover {
@@ -597,6 +598,7 @@
             border-radius: 2px;
             border: 1px solid rgba(26, 26, 26, 0.08);
             transition: all 0.4s ease;
+            cursor: pointer;
         }
 
         .content-item:hover {
@@ -743,6 +745,12 @@
             font-size: 0.85rem;
             font-weight: 300;
             color: #999999;
+        }
+
+        /* Loading State */
+        .loading {
+            opacity: 0.5;
+            pointer-events: none;
         }
 
         /* Dark mode styles */
@@ -1069,21 +1077,17 @@
         <nav class="container">
             <div class="logo">
                 <svg class="logo-icon" width="60" height="35" viewBox="0 0 120 70" fill="none">
-                    <!-- R with bold entry, tapering -->
                     <path d="M10 20 Q10 15 15 15 L25 15 Q30 15 30 20 Q30 25 25 25 L20 25" stroke="#1a1a1a" stroke-width="3" fill="none"/>
                     <path d="M25 25 Q28 28 30 35 Q30 45 25 45" stroke="#1a1a1a" stroke-width="1.5" fill="none"/>
                     <path d="M10 15 Q10 45 15 45" stroke="#1a1a1a" stroke-width="2.8" fill="none"/>
                     
-                    <!-- S with rhythmic weight changes -->
                     <path d="M40 25 Q35 15 45 15 Q55 15 55 22" stroke="#1a1a1a" stroke-width="2.5" fill="none"/>
                     <path d="M55 22 Q55 30 45 30 Q35 30 35 38" stroke="#1a1a1a" stroke-width="1.5" fill="none"/>
                     <path d="M35 38 Q35 45 45 45 Q55 45 52 40" stroke="#1a1a1a" stroke-width="2.5" fill="none"/>
                     
-                    <!-- P with strong vertical, lighter horizontal -->
                     <path d="M65 15 Q65 45 70 45" stroke="#1a1a1a" stroke-width="3" fill="none"/>
                     <path d="M65 20 Q65 15 70 15 L80 15 Q85 15 85 20 Q85 25 80 25 L75 25" stroke="#1a1a1a" stroke-width="1.8" fill="none"/>
                     
-                    <!-- Subtle typewriter elements -->
                     <path d="M15 45 Q50 50 70 45" stroke="#1a1a1a" stroke-width="1.5" fill="none"/>
                     <path d="M35 10 Q40 8 50 8 L65 8 Q70 10 70 15" stroke="#1a1a1a" stroke-width="1.5" fill="none"/>
                 </svg>
@@ -1112,7 +1116,7 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="container">
-            <div class="hero-content">
+            <div class="hero-content" id="hero-content">
                 <h1>Dynamic Change Agent</h1>
                 <p>Challenging ways of working, promoting with purpose, and finding win-win solutions where outcomes and relationships trump process</p>
                 <a href="#contact" class="cta-button">Let's Work Together</a>
@@ -1128,14 +1132,8 @@
                 <div class="about-image">
                     <img src="photo.jpg" alt="Ryan Andrew Pretzer - Product Design Consultant" style="width: 100%; height: 100%; object-fit: cover; border-radius: 2px;">
                 </div>
-                <div class="about-text">
-                    <p>I'm a product design consultant who brings a unique perspective from the insurance and financial services world. Over 15+ years, I've worked with Fortune 500 companies like Progressive Insurance, USAA, Volkswagen Credit, and MVP Healthcare, focusing on mobile applications, design systems, and business process transformation.</p>
-                    
-                    <p>My approach combines deep experience in legal tech, mobile product ownership, and agile coaching. I've been called a "dynamic change agent" because I take seriously the role of challenging ways of working, promoting with purpose, and finding ways to compromise to a win-win. I believe outcomes and relationships trump process and adherence.</p>
-                    
-                    <p>Born and raised in Kalamazoo, Michigan – grew up poor and quasi-feral with hippie parents who never grew out of it, they just got tired. That pure Michigan grit runs deep: mental toughness, resilience, and a "do whatever the hell I want" attitude balanced with Midwestern generosity and openness. Now based in Cleveland, Ohio, but I carry that Michigan spirit in everything I do.</p>
-                    
-                    <p>When I'm not working, you can find me writing poetry influenced by Latin jazz polyrhythms, obsessing over hi-fi audio equipment, traveling to new places with my family, and engaging in purposeful distraction to stimulate creativity. Leo born in the year of the dog (1982) – fire sign energy with loyal, stubborn persistence.</p>
+                <div class="about-text" id="about-text">
+                    <!-- Content will be loaded from markdown -->
                 </div>
             </div>
         </div>
@@ -1145,72 +1143,8 @@
     <section id="services" class="services">
         <div class="container">
             <h2 class="section-title">Services</h2>
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-icon">
-                        <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
-                            <path d="M8 32L20 8L32 32" stroke="#1a1a1a" stroke-width="1.5" fill="none"/>
-                            <path d="M14 26H26" stroke="#1a1a1a" stroke-width="1.5"/>
-                        </svg>
-                    </div>
-                    <h3 class="service-title">Mobile Product Strategy</h3>
-                    <p>Mobile application product ownership, feature backlog management, and strategic roadmap development for enterprise-scale implementations.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">
-                        <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
-                            <rect x="8" y="12" width="24" height="16" stroke="#1a1a1a" stroke-width="1.5" fill="none"/>
-                            <circle cx="20" cy="20" r="3" stroke="#1a1a1a" stroke-width="1.5" fill="none"/>
-                        </svg>
-                    </div>
-                    <h3 class="service-title">Business Process Design</h3>
-                    <p>Transforming complex workflows into intuitive digital experiences. Sometimes the best solution isn't the obvious one - it's the one that actually works for people.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">
-                        <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
-                            <rect x="8" y="8" width="8" height="8" stroke="#1a1a1a" stroke-width="1.5" fill="none"/>
-                            <rect x="20" y="8" width="8" height="8" stroke="#1a1a1a" stroke-width="1.5" fill="none"/>
-                            <rect x="8" y="20" width="8" height="8" stroke="#1a1a1a" stroke-width="1.5" fill="none"/>
-                            <rect x="20" y="20" width="8" height="8" stroke="#1a1a1a" stroke-width="1.5" fill="none"/>
-                        </svg>
-                    </div>
-                    <h3 class="service-title">Design Systems</h3>
-                    <p>Building and managing scalable design systems for enterprise mobile applications, with proven experience at USAA and other Fortune 500 companies.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">
-                        <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
-                            <circle cx="20" cy="20" r="12" stroke="#1a1a1a" stroke-width="1.5" fill="none"/>
-                            <circle cx="20" cy="20" r="2" fill="#1a1a1a"/>
-                            <path d="M20 8V12" stroke="#1a1a1a" stroke-width="1.5"/>
-                            <path d="M20 28V32" stroke="#1a1a1a" stroke-width="1.5"/>
-                        </svg>
-                    </div>
-                    <h3 class="service-title">Agile Coaching</h3>
-                    <p>Helping teams adopt agile methodologies and design thinking practices that prioritize outcomes over adherence to process.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">
-                        <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
-                            <path d="M8 20L20 8L32 20L20 32Z" stroke="#1a1a1a" stroke-width="1.5" fill="none"/>
-                            <circle cx="20" cy="20" r="2" fill="#1a1a1a"/>
-                        </svg>
-                    </div>
-                    <h3 class="service-title">Change Management</h3>
-                    <p>Strategic change initiatives that find common ground and build sustainable transformation. Because the goal isn't perfect process - it's making things work better.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">
-                        <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
-                            <path d="M8 12H32" stroke="#1a1a1a" stroke-width="1.5"/>
-                            <path d="M8 20H28" stroke="#1a1a1a" stroke-width="1.5"/>
-                            <path d="M8 28H24" stroke="#1a1a1a" stroke-width="1.5"/>
-                        </svg>
-                    </div>
-                    <h3 class="service-title">Legal Tech Solutions</h3>
-                    <p>Specialized experience in legal review processes, state filing systems, and regulatory compliance for insurance and financial services.</p>
-                </div>
+            <div class="services-grid" id="services-grid">
+                <!-- Services will be loaded from JSON -->
             </div>
         </div>
     </section>
@@ -1219,28 +1153,8 @@
     <section id="portfolio" class="portfolio">
         <div class="container">
             <h2 class="section-title">Selected Work</h2>
-            <div class="portfolio-grid">
-                <div class="portfolio-item">
-                    <div class="portfolio-image">[Project Screenshot]</div>
-                    <div class="portfolio-content">
-                        <h3 class="portfolio-title">USAA Mobile Design System</h3>
-                        <p class="portfolio-description">Led product management for enterprise mobile design system, managing roadmap and backlog through PI planning for one of the largest financial services companies.</p>
-                    </div>
-                </div>
-                <div class="portfolio-item">
-                    <div class="portfolio-image">[Project Screenshot]</div>
-                    <div class="portfolio-content">
-                        <h3 class="portfolio-title">Progressive Insurance Legal Tech</h3>
-                        <p class="portfolio-description">Designed and implemented new business application and legal review systems for state filing processes, serving corporate legal operations.</p>
-                    </div>
-                </div>
-                <div class="portfolio-item">
-                    <div class="portfolio-image">[Project Screenshot]</div>
-                    <div class="portfolio-content">
-                        <h3 class="portfolio-title">MVP Healthcare Mobile Platform</h3>
-                        <p class="portfolio-description">Product owner for mobile application features, managing backlog and stakeholder alignment for healthcare digital transformation initiatives.</p>
-                    </div>
-                </div>
+            <div class="portfolio-grid" id="portfolio-grid">
+                <!-- Portfolio items will be loaded from JSON -->
             </div>
         </div>
     </section>
@@ -1249,70 +1163,11 @@
     <section id="pricing" class="pricing">
         <div class="container">
             <h2 class="section-title">Partnership Models</h2>
-            <div class="pricing-intro">
-                <p>I prefer working in ongoing partnership rather than one-off projects. This approach builds deeper understanding, drives better outcomes, and creates sustainable transformation.</p>
+            <div class="pricing-intro" id="pricing-intro">
+                <!-- Intro text will be loaded from JSON -->
             </div>
-            <div class="pricing-grid">
-                <div class="pricing-card featured">
-                    <div class="pricing-header">
-                        <h3>Retainer Partnership</h3>
-                        <p class="pricing-subtitle">Ongoing strategic collaboration</p>
-                    </div>
-                    <div class="pricing-content">
-                        <div class="pricing-options">
-                            <div class="pricing-option">
-                                <span class="availability">25% Availability</span>
-                                <span class="price">$8,500/month</span>
-                                <span class="description">~10 hours/week strategic input</span>
-                            </div>
-                            <div class="pricing-option">
-                                <span class="availability">50% Availability</span>
-                                <span class="price">$15,000/month</span>
-                                <span class="description">~20 hours/week embedded consultant</span>
-                            </div>
-                            <div class="pricing-option">
-                                <span class="availability">75% Availability</span>
-                                <span class="price">$20,000/month</span>
-                                <span class="description">~30 hours/week transformation lead</span>
-                            </div>
-                        </div>
-                        <div class="pricing-benefits">
-                            <h4>Partnership Benefits</h4>
-                            <ul>
-                                <li>Continuous strategic alignment</li>
-                                <li>Deep institutional knowledge</li>
-                                <li>Flexible scope adjustment</li>
-                                <li>Priority access and response</li>
-                                <li>Long-term relationship building</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="pricing-card">
-                    <div class="pricing-header">
-                        <h3>Project-Based</h3>
-                        <p class="pricing-subtitle">Custom scoped engagements</p>
-                    </div>
-                    <div class="pricing-content">
-                        <div class="project-pricing">
-                            <span class="price-range">$15,000 - $75,000</span>
-                            <span class="description">Depending on complexity and timeline</span>
-                        </div>
-                        <div class="pricing-benefits">
-                            <h4>Available For</h4>
-                            <ul>
-                                <li>Organizations with specific procurement requirements</li>
-                                <li>Defined scope transformation initiatives</li>
-                                <li>Design system audits and builds</li>
-                                <li>Strategic planning engagements</li>
-                                <li>Change management programs</li>
-                            </ul>
-                        </div>
-                        <div class="project-note">
-                            <p>Each project is custom scoped based on your specific requirements and desired outcomes.</p>
-                        </div>
-                    </div>
-                </div>
+            <div class="pricing-grid" id="pricing-grid">
+                <!-- Pricing cards will be loaded from JSON -->
             </div>
         </div>
     </section>
@@ -1321,31 +1176,8 @@
     <section id="content" class="content">
         <div class="container">
             <h2 class="section-title">Insights & Content</h2>
-            <div class="content-grid">
-                <div class="content-item">
-                    <span class="content-type">Article</span>
-                    <h3 class="content-title">Change Management as Practice</h3>
-                    <p class="content-excerpt">Simple, fundamental messages win when we're purposeful about finding common interest and learning to vibe with contextual background noise...</p>
-                    <a href="#" class="read-more">Read More →</a>
-                </div>
-                <div class="content-item">
-                    <span class="content-type">Whitepaper</span>
-                    <h3 class="content-title">Mobile Design Systems at Scale</h3>
-                    <p class="content-excerpt">Lessons learned from managing enterprise mobile design systems at Fortune 500 companies like USAA and Progressive Insurance...</p>
-                    <a href="#" class="read-more">Read More →</a>
-                </div>
-                <div class="content-item">
-                    <span class="content-type">Poetry</span>
-                    <h3 class="content-title">Polyrhythmic Verses</h3>
-                    <p class="content-excerpt">Poetry loosely cadenced on Latin jazz polyrhythms, exploring transformation, loss, and remembrance through assonant slant rhymes in liminal spaces between sleeping and waking...</p>
-                    <a href="#" class="read-more">Read More →</a>
-                </div>
-                <div class="content-item">
-                    <span class="content-type">Cosmic Check-In</span>
-                    <h3 class="content-title">Leo Season Reflections</h3>
-                    <p class="content-excerpt">A little cosmic perspective for fellow fire signs navigating change management, creativity, and the delightful chaos of transformation...</p>
-                    <a href="#" class="read-more">Read More →</a>
-                </div>
+            <div class="content-grid" id="content-grid">
+                <!-- Content items will be loaded from JSON -->
             </div>
         </div>
     </section>
@@ -1355,35 +1187,8 @@
         <div class="container">
             <h2 class="section-title">Let's Work Together</h2>
             <p>Ready to create something amazing? I'd love to hear about your project.</p>
-            <div class="contact-info">
-                <div class="contact-item">
-                    <div class="contact-icon">
-                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
-                            <rect x="2" y="4" width="20" height="16" stroke="#e0e0e0" stroke-width="2" fill="none"/>
-                            <path d="M2 6L12 13L22 6" stroke="#e0e0e0" stroke-width="2"/>
-                        </svg>
-                    </div>
-                    <p>rpretzer@gmail.com</p>
-                </div>
-                <div class="contact-item">
-                    <div class="contact-icon">
-                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
-                            <rect x="2" y="3" width="20" height="14" stroke="#e0e0e0" stroke-width="2" fill="none"/>
-                            <path d="M8 21L16 21" stroke="#e0e0e0" stroke-width="2"/>
-                            <path d="M12 17V21" stroke="#e0e0e0" stroke-width="2"/>
-                        </svg>
-                    </div>
-                    <p>LinkedIn Profile</p>
-                </div>
-                <div class="contact-item">
-                    <div class="contact-icon">
-                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
-                            <circle cx="12" cy="12" r="10" stroke="#e0e0e0" stroke-width="2" fill="none"/>
-                            <path d="M12 6V12L16 14" stroke="#e0e0e0" stroke-width="2"/>
-                        </svg>
-                    </div>
-                    <p>Schedule a Call</p>
-                </div>
+            <div class="contact-info" id="contact-info">
+                <!-- Contact items will be loaded from JSON -->
             </div>
         </div>
     </section>
@@ -1391,38 +1196,495 @@
     <!-- Footer -->
     <footer>
         <div class="container">
-            <div class="social-links">
-                <a href="#" class="social-link">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-                        <rect x="2" y="4" width="20" height="16" stroke="currentColor" stroke-width="1.5" fill="none"/>
-                        <path d="M2 6L12 13L22 6" stroke="currentColor" stroke-width="1.5"/>
-                    </svg>
-                </a>
-                <a href="#" class="social-link">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-                        <rect x="2" y="3" width="20" height="14" stroke="currentColor" stroke-width="1.5" fill="none"/>
-                        <path d="M8 21L16 21" stroke="currentColor" stroke-width="1.5"/>
-                        <path d="M12 17V21" stroke="currentColor" stroke-width="1.5"/>
-                    </svg>
-                </a>
-                <a href="#" class="social-link">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-                        <path d="M23 3C22.0424 3.67548 20.9821 4.19211 19.86 4.53C19.2577 3.83751 18.4573 3.34669 17.567 3.12393C16.6767 2.90116 15.7395 2.95718 14.8821 3.284C14.0247 3.61083 13.2884 4.19445 12.773 4.95372C12.2575 5.71299 11.9877 6.61234 12 7.53V8.53C10.2426 8.57557 8.50127 8.18581 6.93101 7.39624C5.36074 6.60667 4.01032 5.43666 3 4C3 4 -1 13 8 17C5.94053 18.398 3.48716 19.099 1 19C10 24 21 19 21 7.5C20.9991 7.22145 20.9723 6.94359 20.92 6.67C21.9406 5.66349 22.6608 4.39271 23 3V3Z" stroke="currentColor" stroke-width="1.5" fill="none"/>
-                    </svg>
-                </a>
-                <a href="#" class="social-link">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-                        <rect x="2" y="2" width="20" height="20" stroke="currentColor" stroke-width="1.5" fill="none"/>
-                        <circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.5" fill="none"/>
-                        <circle cx="18" cy="6" r="1" fill="currentColor"/>
-                    </svg>
-                </a>
+            <div class="social-links" id="social-links">
+                <!-- Social links will be loaded from JSON -->
             </div>
             <p>&copy; 2025 Ryan Andrew Pretzer. All rights reserved.</p>
         </div>
     </footer>
 
     <script>
+        // Content Management System
+        class ContentManager {
+            constructor() {
+                this.baseUrl = './content';
+                this.init();
+            }
+
+            async init() {
+                try {
+                    await this.loadAllContent();
+                } catch (error) {
+                    console.error('Error loading content:', error);
+                    this.loadFallbackContent();
+                }
+            }
+
+            async loadAllContent() {
+                // Load JSON data files
+                const [heroData, servicesData, portfolioData, pricingData, contentData, contactData] = await Promise.all([
+                    this.loadJSON('data/hero.json'),
+                    this.loadJSON('data/services.json'),
+                    this.loadJSON('data/portfolio.json'),
+                    this.loadJSON('data/pricing.json'),
+                    this.loadJSON('data/content.json'),
+                    this.loadJSON('data/contact.json')
+                ]);
+
+                // Load markdown content
+                const aboutContent = await this.loadMarkdown('markdown/about.md');
+
+                // Render content
+                this.renderHero(heroData);
+                this.renderAbout(aboutContent);
+                this.renderServices(servicesData);
+                this.renderPortfolio(portfolioData);
+                this.renderPricing(pricingData);
+                this.renderContent(contentData);
+                this.renderContact(contactData);
+            }
+
+            async loadJSON(path) {
+                const response = await fetch(`${this.baseUrl}/${path}`);
+                if (!response.ok) throw new Error(`Failed to load ${path}`);
+                return response.json();
+            }
+
+            async loadMarkdown(path) {
+                const response = await fetch(`${this.baseUrl}/${path}`);
+                if (!response.ok) throw new Error(`Failed to load ${path}`);
+                const markdown = await response.text();
+                return marked.parse(markdown);
+            }
+
+            renderHero(data) {
+                const heroContent = document.getElementById('hero-content');
+                if (data) {
+                    heroContent.innerHTML = `
+                        <h1>${data.title}</h1>
+                        <p>${data.subtitle}</p>
+                        <a href="${data.cta.link}" class="cta-button">${data.cta.text}</a>
+                    `;
+                }
+            }
+
+            renderAbout(htmlContent) {
+                const aboutText = document.getElementById('about-text');
+                aboutText.innerHTML = htmlContent;
+            }
+
+            renderServices(data) {
+                const servicesGrid = document.getElementById('services-grid');
+                servicesGrid.innerHTML = data.services.map(service => `
+                    <div class="service-card" data-slug="${service.slug}">
+                        <div class="service-icon">
+                            ${service.icon}
+                        </div>
+                        <h3 class="service-title">${service.title}</h3>
+                        <p>${service.description}</p>
+                    </div>
+                `).join('');
+
+                // Add click handlers for service cards
+                servicesGrid.querySelectorAll('.service-card').forEach(card => {
+                    card.addEventListener('click', () => {
+                        const slug = card.dataset.slug;
+                        // Navigate to service landing page
+                        window.location.href = `/services/${slug}`;
+                    });
+                });
+            }
+
+            renderPortfolio(data) {
+                const portfolioGrid = document.getElementById('portfolio-grid');
+                portfolioGrid.innerHTML = data.projects.map(project => `
+                    <div class="portfolio-item" data-slug="${project.slug}">
+                        <div class="portfolio-image">
+                            ${project.image ? `<img src="${project.image}" alt="${project.title}">` : '[Project Screenshot]'}
+                        </div>
+                        <div class="portfolio-content">
+                            <h3 class="portfolio-title">${project.title}</h3>
+                            <p class="portfolio-description">${project.description}</p>
+                        </div>
+                    </div>
+                `).join('');
+
+                // Add click handlers for portfolio items
+                portfolioGrid.querySelectorAll('.portfolio-item').forEach(item => {
+                    item.addEventListener('click', () => {
+                        const slug = item.dataset.slug;
+                        // Navigate to project case study
+                        window.location.href = `/portfolio/${slug}`;
+                    });
+                });
+            }
+
+            renderPricing(data) {
+                const pricingIntro = document.getElementById('pricing-intro');
+                const pricingGrid = document.getElementById('pricing-grid');
+
+                pricingIntro.innerHTML = `<p>${data.intro}</p>`;
+
+                pricingGrid.innerHTML = data.models.map(model => `
+                    <div class="pricing-card ${model.featured ? 'featured' : ''}">
+                        <div class="pricing-header">
+                            <h3>${model.title}</h3>
+                            <p class="pricing-subtitle">${model.subtitle}</p>
+                        </div>
+                        <div class="pricing-content">
+                            ${model.options ? `
+                                <div class="pricing-options">
+                                    ${model.options.map(option => `
+                                        <div class="pricing-option">
+                                            <span class="availability">${option.availability}</span>
+                                            <span class="price">${option.price}</span>
+                                            <span class="description">${option.description}</span>
+                                        </div>
+                                    `).join('')}
+                                </div>
+                            ` : ''}
+                            ${model.projectPricing ? `
+                                <div class="project-pricing">
+                                    <span class="price-range">${model.projectPricing.range}</span>
+                                    <span class="description">${model.projectPricing.description}</span>
+                                </div>
+                            ` : ''}
+                            <div class="pricing-benefits">
+                                <h4>${model.benefits.title}</h4>
+                                <ul>
+                                    ${model.benefits.items.map(item => `<li>${item}</li>`).join('')}
+                                </ul>
+                            </div>
+                            ${model.note ? `
+                                <div class="project-note">
+                                    <p>${model.note}</p>
+                                </div>
+                            ` : ''}
+                        </div>
+                    </div>
+                `).join('');
+            }
+
+            renderContent(data) {
+                const contentGrid = document.getElementById('content-grid');
+                contentGrid.innerHTML = data.items.map(item => `
+                    <div class="content-item" data-slug="${item.slug}">
+                        <span class="content-type">${item.type}</span>
+                        <h3 class="content-title">${item.title}</h3>
+                        <p class="content-excerpt">${item.excerpt}</p>
+                        <a href="#" class="read-more">Read More →</a>
+                    </div>
+                `).join('');
+
+                // Add click handlers for content items
+                contentGrid.querySelectorAll('.content-item').forEach(item => {
+                    item.addEventListener('click', () => {
+                        const slug = item.dataset.slug;
+                        // Navigate to content page
+                        window.location.href = `/insights/${slug}`;
+                    });
+                });
+            }
+
+            renderContact(data) {
+                const contactInfo = document.getElementById('contact-info');
+                contactInfo.innerHTML = data.methods.map(method => `
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            ${method.icon}
+                        </div>
+                        <p>${method.label}</p>
+                    </div>
+                `).join('');
+
+                // Render social links
+                const socialLinks = document.getElementById('social-links');
+                socialLinks.innerHTML = data.social.map(social => `
+                    <a href="${social.url}" class="social-link" target="_blank" rel="noopener">
+                        ${social.icon}
+                    </a>
+                `).join('');
+            }
+
+            loadFallbackContent() {
+                // Keep the existing static content as fallback
+                console.log('Loading fallback content...');
+                
+                // Render static about content
+                document.getElementById('about-text').innerHTML = `
+                    <p>I'm a product design consultant who brings a unique perspective from the insurance and financial services world. Over 15+ years, I've worked with Fortune 500 companies like Progressive Insurance, USAA, Volkswagen Credit, and MVP Healthcare, focusing on mobile applications, design systems, and business process transformation.</p>
+                    <p>My approach combines deep experience in legal tech, mobile product ownership, and agile coaching. I've been called a "dynamic change agent" because I take seriously the role of challenging ways of working, promoting with purpose, and finding ways to compromise to a win-win. I believe outcomes and relationships trump process and adherence.</p>
+                    <p>Born and raised in Kalamazoo, Michigan – grew up poor and quasi-feral with hippie parents who never grew out of it, they just got tired. That pure Michigan grit runs deep: mental toughness, resilience, and a "do whatever the hell I want" attitude balanced with Midwestern generosity and openness. Now based in Cleveland, Ohio, but I carry that Michigan spirit in everything I do.</p>
+                    <p>When I'm not working, you can find me writing poetry influenced by Latin jazz polyrhythms, obsessing over hi-fi audio equipment, traveling to new places with my family, and engaging in purposeful distraction to stimulate creativity. Leo born in the year of the dog (1982) – fire sign energy with loyal, stubborn persistence.</p>
+                `;
+
+                // Add static services
+                this.renderStaticServices();
+                this.renderStaticPortfolio();
+                this.renderStaticPricing();
+                this.renderStaticContent();
+                this.renderStaticContact();
+            }
+
+            renderStaticServices() {
+                const servicesGrid = document.getElementById('services-grid');
+                servicesGrid.innerHTML = `
+                    <div class="service-card" data-slug="mobile-strategy">
+                        <div class="service-icon">
+                            <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+                                <path d="M8 32L20 8L32 32" stroke="#1a1a1a" stroke-width="1.5" fill="none"/>
+                                <path d="M14 26H26" stroke="#1a1a1a" stroke-width="1.5"/>
+                            </svg>
+                        </div>
+                        <h3 class="service-title">Mobile Product Strategy</h3>
+                        <p>Mobile application product ownership, feature backlog management, and strategic roadmap development for enterprise-scale implementations.</p>
+                    </div>
+                    <div class="service-card" data-slug="business-process">
+                        <div class="service-icon">
+                            <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+                                <rect x="8" y="12" width="24" height="16" stroke="#1a1a1a" stroke-width="1.5" fill="none"/>
+                                <circle cx="20" cy="20" r="3" stroke="#1a1a1a" stroke-width="1.5" fill="none"/>
+                            </svg>
+                        </div>
+                        <h3 class="service-title">Business Process Design</h3>
+                        <p>Transforming complex workflows into intuitive digital experiences. Sometimes the best solution isn't the obvious one - it's the one that actually works for people.</p>
+                    </div>
+                    <div class="service-card" data-slug="design-systems">
+                        <div class="service-icon">
+                            <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+                                <rect x="8" y="8" width="8" height="8" stroke="#1a1a1a" stroke-width="1.5" fill="none"/>
+                                <rect x="20" y="8" width="8" height="8" stroke="#1a1a1a" stroke-width="1.5" fill="none"/>
+                                <rect x="8" y="20" width="8" height="8" stroke="#1a1a1a" stroke-width="1.5" fill="none"/>
+                                <rect x="20" y="20" width="8" height="8" stroke="#1a1a1a" stroke-width="1.5" fill="none"/>
+                            </svg>
+                        </div>
+                        <h3 class="service-title">Design Systems</h3>
+                        <p>Building and managing scalable design systems for enterprise mobile applications, with proven experience at USAA and other Fortune 500 companies.</p>
+                    </div>
+                    <div class="service-card" data-slug="agile-coaching">
+                        <div class="service-icon">
+                            <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+                                <circle cx="20" cy="20" r="12" stroke="#1a1a1a" stroke-width="1.5" fill="none"/>
+                                <circle cx="20" cy="20" r="2" fill="#1a1a1a"/>
+                                <path d="M20 8V12" stroke="#1a1a1a" stroke-width="1.5"/>
+                                <path d="M20 28V32" stroke="#1a1a1a" stroke-width="1.5"/>
+                            </svg>
+                        </div>
+                        <h3 class="service-title">Agile Coaching</h3>
+                        <p>Helping teams adopt agile methodologies and design thinking practices that prioritize outcomes over adherence to process.</p>
+                    </div>
+                    <div class="service-card" data-slug="change-management">
+                        <div class="service-icon">
+                            <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+                                <path d="M8 20L20 8L32 20L20 32Z" stroke="#1a1a1a" stroke-width="1.5" fill="none"/>
+                                <circle cx="20" cy="20" r="2" fill="#1a1a1a"/>
+                            </svg>
+                        </div>
+                        <h3 class="service-title">Change Management</h3>
+                        <p>Strategic change initiatives that find common ground and build sustainable transformation. Because the goal isn't perfect process - it's making things work better.</p>
+                    </div>
+                    <div class="service-card" data-slug="legal-tech">
+                        <div class="service-icon">
+                            <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+                                <path d="M8 12H32" stroke="#1a1a1a" stroke-width="1.5"/>
+                                <path d="M8 20H28" stroke="#1a1a1a" stroke-width="1.5"/>
+                                <path d="M8 28H24" stroke="#1a1a1a" stroke-width="1.5"/>
+                            </svg>
+                        </div>
+                        <h3 class="service-title">Legal Tech Solutions</h3>
+                        <p>Specialized experience in legal review processes, state filing systems, and regulatory compliance for insurance and financial services.</p>
+                    </div>
+                `;
+            }
+
+            renderStaticPortfolio() {
+                const portfolioGrid = document.getElementById('portfolio-grid');
+                portfolioGrid.innerHTML = `
+                    <div class="portfolio-item" data-slug="usaa-design-system">
+                        <div class="portfolio-image">[Project Screenshot]</div>
+                        <div class="portfolio-content">
+                            <h3 class="portfolio-title">USAA Mobile Design System</h3>
+                            <p class="portfolio-description">Led product management for enterprise mobile design system, managing roadmap and backlog through PI planning for one of the largest financial services companies.</p>
+                        </div>
+                    </div>
+                    <div class="portfolio-item" data-slug="progressive-legal-tech">
+                        <div class="portfolio-image">[Project Screenshot]</div>
+                        <div class="portfolio-content">
+                            <h3 class="portfolio-title">Progressive Insurance Legal Tech</h3>
+                            <p class="portfolio-description">Designed and implemented new business application and legal review systems for state filing processes, serving corporate legal operations.</p>
+                        </div>
+                    </div>
+                    <div class="portfolio-item" data-slug="mvp-healthcare">
+                        <div class="portfolio-image">[Project Screenshot]</div>
+                        <div class="portfolio-content">
+                            <h3 class="portfolio-title">MVP Healthcare Mobile Platform</h3>
+                            <p class="portfolio-description">Product owner for mobile application features, managing backlog and stakeholder alignment for healthcare digital transformation initiatives.</p>
+                        </div>
+                    </div>
+                `;
+            }
+
+            renderStaticPricing() {
+                const pricingIntro = document.getElementById('pricing-intro');
+                const pricingGrid = document.getElementById('pricing-grid');
+
+                pricingIntro.innerHTML = `<p>I prefer working in ongoing partnership rather than one-off projects. This approach builds deeper understanding, drives better outcomes, and creates sustainable transformation.</p>`;
+
+                pricingGrid.innerHTML = `
+                    <div class="pricing-card featured">
+                        <div class="pricing-header">
+                            <h3>Retainer Partnership</h3>
+                            <p class="pricing-subtitle">Ongoing strategic collaboration</p>
+                        </div>
+                        <div class="pricing-content">
+                            <div class="pricing-options">
+                                <div class="pricing-option">
+                                    <span class="availability">25% Availability</span>
+                                    <span class="price">$8,500/month</span>
+                                    <span class="description">~10 hours/week strategic input</span>
+                                </div>
+                                <div class="pricing-option">
+                                    <span class="availability">50% Availability</span>
+                                    <span class="price">$15,000/month</span>
+                                    <span class="description">~20 hours/week embedded consultant</span>
+                                </div>
+                                <div class="pricing-option">
+                                    <span class="availability">75% Availability</span>
+                                    <span class="price">$20,000/month</span>
+                                    <span class="description">~30 hours/week transformation lead</span>
+                                </div>
+                            </div>
+                            <div class="pricing-benefits">
+                                <h4>Partnership Benefits</h4>
+                                <ul>
+                                    <li>Continuous strategic alignment</li>
+                                    <li>Deep institutional knowledge</li>
+                                    <li>Flexible scope adjustment</li>
+                                    <li>Priority access and response</li>
+                                    <li>Long-term relationship building</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pricing-card">
+                        <div class="pricing-header">
+                            <h3>Project-Based</h3>
+                            <p class="pricing-subtitle">Custom scoped engagements</p>
+                        </div>
+                        <div class="pricing-content">
+                            <div class="project-pricing">
+                                <span class="price-range">$15,000 - $75,000</span>
+                                <span class="description">Depending on complexity and timeline</span>
+                            </div>
+                            <div class="pricing-benefits">
+                                <h4>Available For</h4>
+                                <ul>
+                                    <li>Organizations with specific procurement requirements</li>
+                                    <li>Defined scope transformation initiatives</li>
+                                    <li>Design system audits and builds</li>
+                                    <li>Strategic planning engagements</li>
+                                    <li>Change management programs</li>
+                                </ul>
+                            </div>
+                            <div class="project-note">
+                                <p>Each project is custom scoped based on your specific requirements and desired outcomes.</p>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }
+
+            renderStaticContent() {
+                const contentGrid = document.getElementById('content-grid');
+                contentGrid.innerHTML = `
+                    <div class="content-item" data-slug="change-management-practice">
+                        <span class="content-type">Article</span>
+                        <h3 class="content-title">Change Management as Practice</h3>
+                        <p class="content-excerpt">Simple, fundamental messages win when we're purposeful about finding common interest and learning to vibe with contextual background noise...</p>
+                        <a href="#" class="read-more">Read More →</a>
+                    </div>
+                    <div class="content-item" data-slug="mobile-design-systems-scale">
+                        <span class="content-type">Whitepaper</span>
+                        <h3 class="content-title">Mobile Design Systems at Scale</h3>
+                        <p class="content-excerpt">Lessons learned from managing enterprise mobile design systems at Fortune 500 companies like USAA and Progressive Insurance...</p>
+                        <a href="#" class="read-more">Read More →</a>
+                    </div>
+                    <div class="content-item" data-slug="polyrhythmic-verses">
+                        <span class="content-type">Poetry</span>
+                        <h3 class="content-title">Polyrhythmic Verses</h3>
+                        <p class="content-excerpt">Poetry loosely cadenced on Latin jazz polyrhythms, exploring transformation, loss, and remembrance through assonant slant rhymes in liminal spaces between sleeping and waking...</p>
+                        <a href="#" class="read-more">Read More →</a>
+                    </div>
+                    <div class="content-item" data-slug="leo-season-reflections">
+                        <span class="content-type">Cosmic Check-In</span>
+                        <h3 class="content-title">Leo Season Reflections</h3>
+                        <p class="content-excerpt">A little cosmic perspective for fellow fire signs navigating change management, creativity, and the delightful chaos of transformation...</p>
+                        <a href="#" class="read-more">Read More →</a>
+                    </div>
+                `;
+            }
+
+            renderStaticContact() {
+                const contactInfo = document.getElementById('contact-info');
+                contactInfo.innerHTML = `
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
+                                <rect x="2" y="4" width="20" height="16" stroke="#e0e0e0" stroke-width="2" fill="none"/>
+                                <path d="M2 6L12 13L22 6" stroke="#e0e0e0" stroke-width="2"/>
+                            </svg>
+                        </div>
+                        <p>rpretzer@gmail.com</p>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
+                                <rect x="2" y="3" width="20" height="14" stroke="#e0e0e0" stroke-width="2" fill="none"/>
+                                <path d="M8 21L16 21" stroke="#e0e0e0" stroke-width="2"/>
+                                <path d="M12 17V21" stroke="#e0e0e0" stroke-width="2"/>
+                            </svg>
+                        </div>
+                        <p>LinkedIn Profile</p>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
+                                <circle cx="12" cy="12" r="10" stroke="#e0e0e0" stroke-width="2" fill="none"/>
+                                <path d="M12 6V12L16 14" stroke="#e0e0e0" stroke-width="2"/>
+                            </svg>
+                        </div>
+                        <p>Schedule a Call</p>
+                    </div>
+                `;
+
+                const socialLinks = document.getElementById('social-links');
+                socialLinks.innerHTML = `
+                    <a href="#" class="social-link">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                            <rect x="2" y="3" width="20" height="14" stroke="currentColor" stroke-width="1.5" fill="none"/>
+                            <path d="M8 21L16 21" stroke="currentColor" stroke-width="1.5"/>
+                            <path d="M12 17V21" stroke="currentColor" stroke-width="1.5"/>
+                        </svg>
+                    </a>
+                    <a href="#" class="social-link">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                            <path d="M23 3C22.0424 3.67548 20.9821 4.19211 19.86 4.53C19.2577 3.83751 18.4573 3.34669 17.567 3.12393C16.6767 2.90116 15.7395 2.95718 14.8821 3.284C14.0247 3.61083 13.2884 4.19445 12.773 4.95372C12.2575 5.71299 11.9877 6.61234 12 7.53V8.53C10.2426 8.57557 8.50127 8.18581 6.93101 7.39624C5.36074 6.60667 4.01032 5.43666 3 4C3 4 -1 13 8 17C5.94053 18.398 3.48716 19.099 1 19C10 24 21 19 21 7.5C20.9991 7.22145 20.9723 6.94359 20.92 6.67C21.9406 5.66349 22.6608 4.39271 23 3V3Z" stroke="currentColor" stroke-width="1.5" fill="none"/>
+                        </svg>
+                    </a>
+                    <a href="#" class="social-link">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                            <rect x="2" y="2" width="20" height="20" stroke="currentColor" stroke-width="1.5" fill="none"/>
+                            <circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.5" fill="none"/>
+                            <circle cx="18" cy="6" r="1" fill="currentColor"/>
+                        </svg>
+                    </a>
+                `;
+            }
+        }
+
+        // Initialize content management
+        const contentManager = new ContentManager();
+
         // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
@@ -1437,7 +1699,7 @@
             });
         });
 
-        // Header background on scroll - fixed to respect dark mode
+        // Header background on scroll
         window.addEventListener('scroll', () => {
             const header = document.querySelector('header');
             if (window.scrollY > 100) {
@@ -1470,7 +1732,7 @@
             observer.observe(section);
         });
 
-        // Dark mode toggle functionality - completely rewritten
+        // Dark mode toggle functionality
         const themeToggle = document.getElementById('theme-toggle');
         const body = document.body;
         const labels = document.querySelectorAll('.theme-label');
@@ -1504,4 +1766,10 @@
         });
     </script>
 </body>
-</html>
+</html>24" fill="none">
+                            <rect x="2" y="4" width="20" height="16" stroke="currentColor" stroke-width="1.5" fill="none"/>
+                            <path d="M2 6L12 13L22 6" stroke="currentColor" stroke-width="1.5"/>
+                        </svg>
+                    </a>
+                    <a href="#" class="social-link">
+                        <svg width="20" height="20" viewBox="0 0 24

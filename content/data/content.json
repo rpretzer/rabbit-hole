@@ -1,0 +1,32 @@
+{
+  "items": [
+    {
+      "slug": "change-management-practice",
+      "type": "Article",
+      "title": "Change Management as Practice",
+      "excerpt": "Simple, fundamental messages win when we're purposeful about finding common interest and learning to vibe with contextual background noise...",
+      "hasPage": true
+    },
+    {
+      "slug": "mobile-design-systems-scale",
+      "type": "Whitepaper",
+      "title": "Mobile Design Systems at Scale",
+      "excerpt": "Lessons learned from managing enterprise mobile design systems at Fortune 500 companies like USAA and Progressive Insurance...",
+      "hasPage": true
+    },
+    {
+      "slug": "polyrhythmic-verses",
+      "type": "Poetry",
+      "title": "Polyrhythmic Verses",
+      "excerpt": "Poetry loosely cadenced on Latin jazz polyrhythms, exploring transformation, loss, and remembrance through assonant slant rhymes in liminal spaces between sleeping and waking...",
+      "hasPage": true
+    },
+    {
+      "slug": "leo-season-reflections",
+      "type": "Cosmic Check-In",
+      "title": "Leo Season Reflections",
+      "excerpt": "A little cosmic perspective for fellow fire signs navigating change management, creativity, and the delightful chaos of transformation...",
+      "hasPage": true
+    }
+  ]
+}

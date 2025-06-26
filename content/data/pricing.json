@@ -1,0 +1,57 @@
+{
+  "intro": "I prefer working in ongoing partnership rather than one-off projects. This approach builds deeper understanding, drives better outcomes, and creates sustainable transformation.",
+  "models": [
+    {
+      "title": "Retainer Partnership",
+      "subtitle": "Ongoing strategic collaboration",
+      "featured": true,
+      "options": [
+        {
+          "availability": "25% Availability",
+          "price": "$8,500/month",
+          "description": "~10 hours/week strategic input"
+        },
+        {
+          "availability": "50% Availability",
+          "price": "$15,000/month",
+          "description": "~20 hours/week embedded consultant"
+        },
+        {
+          "availability": "75% Availability",
+          "price": "$20,000/month",
+          "description": "~30 hours/week transformation lead"
+        }
+      ],
+      "benefits": {
+        "title": "Partnership Benefits",
+        "items": [
+          "Continuous strategic alignment",
+          "Deep institutional knowledge",
+          "Flexible scope adjustment",
+          "Priority access and response",
+          "Long-term relationship building"
+        ]
+      }
+    },
+    {
+      "title": "Project-Based",
+      "subtitle": "Custom scoped engagements",
+      "featured": false,
+      "projectPricing": {
+        "range": "$15,000 - $75,000",
+        "description": "Depending on complexity and timeline"
+      },
+      "benefits": {
+        "title": "Available For",
+        "items": [
+          "Organizations with specific procurement requirements",
+          "Defined scope transformation initiatives",
+          "Design system audits and builds",
+          "Strategic planning engagements",
+          "Change management programs"
+        ]
+      },
+      "note": "Each project is custom scoped based on your specific requirements and desired outcomes."
+    }
+  ]
+}

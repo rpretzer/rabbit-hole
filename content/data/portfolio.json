@@ -1,0 +1,28 @@
+{
+  "projects": [
+    {
+      "slug": "usaa-design-system",
+      "title": "USAA Mobile Design System",
+      "description": "Led product management for enterprise mobile design system, managing roadmap and backlog through PI planning for one of the largest financial services companies.",
+      "image": null,
+      "tags": ["Design Systems", "Product Management", "Enterprise"],
+      "hasCase Study": true
+    },
+    {
+      "slug": "progressive-legal-tech",
+      "title": "Progressive Insurance Legal Tech",
+      "description": "Designed and implemented new business application and legal review systems for state filing processes, serving corporate legal operations.",
+      "image": null,
+      "tags": ["Legal Tech", "Process Design", "Insurance"],
+      "hasCaseStudy": true
+    },
+    {
+      "slug": "mvp-healthcare",
+      "title": "MVP Healthcare Mobile Platform",
+      "description": "Product owner for mobile application features, managing backlog and stakeholder alignment for healthcare digital transformation initiatives.",
+      "image": null,
+      "tags": ["Mobile", "Healthcare", "Product Ownership"],
+      "hasCaseStudy": true
+    }
+  ]
+}

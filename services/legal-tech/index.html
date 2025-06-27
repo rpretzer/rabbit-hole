@@ -1,0 +1,787 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Legal Tech Solutions | Ryan Andrew Pretzer</title>
+    <meta name="description" content="Specialized experience in legal review processes, state filing systems, and regulatory compliance for insurance and financial services. Transform your legal operations.">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.7;
+            color: #1a1a1a;
+            background: #ffffff;
+            font-weight: 300;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        .header {
+            background: #ffffff;
+            border-bottom: 1px solid rgba(26, 26, 26, 0.08);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.2rem;
+            font-weight: 400;
+            color: #1a1a1a;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #666;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #1a1a1a;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #0056B3 0%, #004494 100%);
+            padding: 5rem 0;
+            text-align: center;
+            color: white;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 200;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.02em;
+            line-height: 1.1;
+        }
+
+        .hero .subtitle {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            opacity: 0.95;
+        }
+
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 4rem;
+            margin: 3rem 0;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2rem;
+            border-radius: 8px;
+            backdrop-filter: blur(10px);
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2.8rem;
+            font-weight: 200;
+            color: #fff;
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            opacity: 0.9;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        .cta-primary {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: 1rem 2rem;
+            text-decoration: none;
+            border-radius: 2px;
+            font-weight: 400;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            margin-top: 1rem;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .cta-primary:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-1px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Section Styles */
+        .section {
+            padding: 5rem 0;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 200;
+            text-align: center;
+            margin-bottom: 3rem;
+            letter-spacing: -0.02em;
+        }
+
+        /* Overview Section */
+        .overview {
+            background: #ffffff;
+        }
+
+        .overview-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .overview-text h3 {
+            font-size: 1.8rem;
+            font-weight: 300;
+            margin-bottom: 1.5rem;
+            color: #1a1a1a;
+        }
+
+        .overview-text p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            color: #333;
+        }
+
+        .overview-visual {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 8px;
+            border-left: 4px solid #0056B3;
+        }
+
+        .overview-stats {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+
+        .overview-stat {
+            text-align: center;
+            padding: 1.5rem;
+            background: white;
+            border-radius: 4px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .overview-stat-number {
+            font-size: 2rem;
+            font-weight: 200;
+            color: #0056B3;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .overview-stat-label {
+            font-size: 0.9rem;
+            color: #555;
+        }
+
+        /* Solutions Section */
+        .solutions {
+            background: #f8f9fa;
+        }
+
+        .solutions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .solution-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            border-top: 4px solid #0056B3;
+        }
+
+        .solution-icon {
+            width: 60px;
+            height: 60px;
+            background: #0056B3;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .solution-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            font-weight: 400;
+            color: #1a1a1a;
+        }
+
+        .solution-card p {
+            color: #555;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .solution-features {
+            list-style: none;
+        }
+
+        .solution-features li {
+            padding: 0.3rem 0;
+            font-size: 0.9rem;
+            color: #666;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+
+        .solution-features li::before {
+            content: '⚖️';
+            position: absolute;
+            left: 0;
+            font-size: 0.8rem;
+        }
+
+        /* Case Study Section */
+        .case-study {
+            background: #1a1a1a;
+            color: white;
+        }
+
+        .case-study .section-title {
+            color: white;
+        }
+
+        .case-study-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .case-study-text h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            font-weight: 300;
+        }
+
+        .case-study-text p {
+            color: #e0e0e0;
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+
+        .case-study-metrics {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 2rem;
+            border-radius: 8px;
+            backdrop-filter: blur(10px);
+        }
+
+        .metric-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .metric-row:last-child {
+            border-bottom: none;
+        }
+
+        .metric-label {
+            color: #e0e0e0;
+            font-size: 0.95rem;
+        }
+
+        .metric-value {
+            font-size: 1.8rem;
+            font-weight: 200;
+            color: #fff;
+        }
+
+        .metric-positive {
+            color: #28a745;
+        }
+
+        /* Process Section */
+        .process {
+            background: #ffffff;
+        }
+
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .process-step {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 8px;
+            text-align: center;
+            position: relative;
+            border-left: 4px solid #0056B3;
+        }
+
+        .step-icon {
+            width: 80px;
+            height: 80px;
+            background: #0056B3;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            margin: 0 auto 1.5rem;
+        }
+
+        .process-step h3 {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            font-weight: 400;
+            color: #1a1a1a;
+        }
+
+        .process-step p {
+            color: #555;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* Industries Section */
+        .industries {
+            background: #f8f9fa;
+        }
+
+        .industries-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .industry-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            text-align: center;
+        }
+
+        .industry-icon {
+            width: 60px;
+            height: 60px;
+            background: #f8f9fa;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin: 0 auto 1rem;
+        }
+
+        .industry-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            font-weight: 400;
+            color: #1a1a1a;
+        }
+
+        .industry-card p {
+            color: #555;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 5rem 0;
+            background: #ffffff;
+            text-align: center;
+        }
+
+        .cta-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .cta-section h2 {
+            font-size: 2.2rem;
+            font-weight: 200;
+            margin-bottom: 1.5rem;
+        }
+
+        .cta-section p {
+            font-size: 1.1rem;
+            color: #555;
+            margin-bottom: 2rem;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .cta-primary-dark {
+            display: inline-block;
+            background: #0056B3;
+            color: white;
+            padding: 1rem 2rem;
+            text-decoration: none;
+            border-radius: 2px;
+            font-weight: 400;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .cta-primary-dark:hover {
+            background: #004494;
+            transform: translateY(-1px);
+            box-shadow: 0 8px 25px rgba(0, 86, 179, 0.2);
+        }
+
+        .cta-secondary {
+            display: inline-block;
+            border: 2px solid #0056B3;
+            color: #0056B3;
+            padding: 1rem 2rem;
+            text-decoration: none;
+            border-radius: 2px;
+            font-weight: 400;
+            transition: all 0.3s ease;
+        }
+
+        .cta-secondary:hover {
+            background: #0056B3;
+            color: white;
+        }
+
+        /* Footer */
+        .footer {
+            background: #1a1a1a;
+            color: #e0e0e0;
+            padding: 2rem 0;
+            text-align: center;
+        }
+
+        .footer a {
+            color: #e0e0e0;
+            text-decoration: none;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .hero-stats {
+                flex-direction: column;
+                gap: 2rem;
+            }
+            
+            .overview-content,
+            .case-study-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="/" class="logo">Ryan Andrew Pretzer</a>
+                <nav>
+                    <ul class="nav-links">
+                        <li><a href="/#about">About</a></li>
+                        <li><a href="/#services">Services</a></li>
+                        <li><a href="/#portfolio">Portfolio</a></li>
+                        <li><a href="/#content">Insights</a></li>
+                        <li><a href="/#contact">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Legal Tech Solutions</h1>
+            <p class="subtitle">Specialized experience in legal review processes, state filing systems, and regulatory compliance for insurance and financial services.</p>
+            
+            <div class="hero-stats">
+                <div class="stat">
+                    <span class="stat-number">50</span>
+                    <span class="stat-label">States Covered</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">60%</span>
+                    <span class="stat-label">Faster Reviews</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">75%</span>
+                    <span class="stat-label">Fewer Compliance Issues</span>
+                </div>
+            </div>
+            
+            <a href="#contact" class="cta-primary">Discuss Your Legal Tech Needs</a>
+        </div>
+    </section>
+
+    <!-- Overview Section -->
+    <section class="overview section">
+        <div class="container">
+            <h2 class="section-title">Transforming Legal Operations</h2>
+            
+            <div class="overview-content">
+                <div class="overview-text">
+                    <h3>From Bottleneck to Business Enabler</h3>
+                    <p>Legal review processes in regulated industries often become the critical path that slows everything down. After designing systems for companies like Progressive Insurance and working with legal teams at multiple Fortune 500 companies, I've learned how to transform legal operations from bottlenecks into business enablers.</p>
+                    
+                    <p>My approach combines deep understanding of regulatory requirements with human-centered design principles, creating systems that satisfy compliance needs while actually working for the people who use them daily.</p>
+                </div>
+                <div class="overview-visual">
+                    <div class="overview-stats">
+                        <div class="overview-stat">
+                            <span class="overview-stat-number">14+</span>
+                            <span class="overview-stat-label">Years Experience</span>
+                        </div>
+                        <div class="overview-stat">
+                            <span class="overview-stat-number">50+</span>
+                            <span class="overview-stat-label">Regulatory Frameworks</span>
+                        </div>
+                        <div class="overview-stat">
+                            <span class="overview-stat-number">3</span>
+                            <span class="overview-stat-label">Fortune 500 Companies</span>
+                        </div>
+                        <div class="overview-stat">
+                            <span class="overview-stat-number">85%</span>
+                            <span class="overview-stat-label">User Satisfaction</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solutions Section -->
+    <section class="solutions section">
+        <div class="container">
+            <h2 class="section-title">Legal Technology Solutions</h2>
+            
+            <div class="solutions-grid">
+                <div class="solution-card">
+                    <div class="solution-icon">📋</div>
+                    <h3>Regulatory Review Systems</h3>
+                    <p>Transform manual legal review processes into efficient digital workflows that prevent issues before they occur.</p>
+                    <ul class="solution-features">
+                        <li>State-specific compliance engines</li>
+                        <li>Automated routing and assignment</li>
+                        <li>Real-time collaboration tools</li>
+                        <li>Audit trail and documentation</li>
+                        <li>Predictive compliance analysis</li>
+                    </ul>
+                </div>
+                <div class="solution-card">
+                    <div class="solution-icon">🏛️</div>
+                    <h3>State Filing Automation</h3>
+                    <p>Streamline complex state filing processes across multiple jurisdictions with intelligent automation.</p>
+                    <ul class="solution-features">
+                        <li>Multi-state filing coordination</li>
+                        <li>Deadline tracking and alerts</li>
+                        <li>Document generation and assembly</li>
+                        <li>Regulatory change management</li>
+                        <li>Approval workflow optimization</li>
+                    </ul>
+                </div>
+                <div class="solution-card">
+                    <div class="solution-icon">⚖️</div>
+                    <h3>Compliance Management</h3>
+                    <p>Build proactive compliance systems that integrate legal requirements into business processes.</p>
+                    <ul class="solution-features">
+                        <li>Compliance risk assessment</li>
+                        <li>Policy management systems</li>
+                        <li>Training and certification tracking</li>
+                        <li>Incident reporting and resolution</li>
+                        <li>Regulatory update integration</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Case Study Section -->
+    <section class="case-study section">
+        <div class="container">
+            <h2 class="section-title">Case Study: Progressive Insurance</h2>
+            
+            <div class="case-study-content">
+                <div class="case-study-text">
+                    <h3>The Challenge</h3>
+                    <p>Progressive Insurance needed to streamline legal review processes for state filing requirements across all 50 states. Each state had unique regulatory requirements creating bottlenecks in product development and marketing campaigns.</p>
+                    
+                    <h3>The Solution</h3>
+                    <p>Designed collaborative workflow that integrated legal review into content creation process rather than treating it as separate approval gate. Built early-warning system that flagged potential legal issues during content creation.</p>
+                    
+                    <h3>The Innovation</h3>
+                    <p>Shifted from reactive approval to proactive guidance, preventing legal issues before they required formal review. This fundamental change in approach transformed legal from gatekeeper to enabler.</p>
+                </div>
+                <div class="case-study-metrics">
+                    <div class="metric-row">
+                        <span class="metric-label">Review Cycle Time</span>
+                        <span class="metric-value metric-positive">-60%</span>
+                    </div>
+                    <div class="metric-row">
+                        <span class="metric-label">Compliance Issues</span>
+                        <span class="metric-value metric-positive">-75%</span>
+                    </div>
+                    <div class="metric-row">
+                        <span class="metric-label">Rework Required</span>
+                        <span class="metric-value metric-positive">-50%</span>
+                    </div>
+                    <div class="metric-row">
+                        <span class="metric-label">User Satisfaction</span>
+                        <span class="metric-value">85%</span>
+                    </div>
+                    <div class="metric-row">
+                        <span class="metric-label">Process Adoption</span>
+                        <span class="metric-value">95%</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="process section">
+        <div class="container">
+            <h2 class="section-title">Legal Tech Implementation Process</h2>
+            
+            <div class="process-steps">
+                <div class="process-step">
+                    <div class="step-icon">🔍</div>
+                    <h3>Discovery & Analysis</h3>
+                    <p>Map current legal workflows, identify pain points, and understand regulatory requirements across jurisdictions.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-icon">🎯</div>
+                    <h3>Solution Design</h3>
+                    <p>Create technology solutions that balance compliance requirements with user experience and efficiency.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-icon">🔧</div>
+                    <h3>Build & Integrate</h3>
+                    <p>Develop systems with robust APIs, automated workflows, and seamless integration with existing tools.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-icon">📈</div>
+                    <h3>Optimize & Scale</h3>
+                    <p>Monitor performance, gather feedback, and continuously improve based on real-world usage patterns.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Industries Section -->
+    <section class="industries section">
+        <div class="container">
+            <h2 class="section-title">Industry Expertise</h2>
+            
+            <div class="industries-grid">
+                <div class="industry-card">
+                    <div class="industry-icon">🏦</div>
+                    <h3>Insurance</h3>
+                    <p>State filing systems, product compliance, claims processes, and regulatory reporting for P&C, life, and health insurers.</p>
+                </div>
+                <div class="industry-card">
+                    <div class="industry-icon">💼</div>
+                    <h3>Financial Services</h3>
+                    <p>Regulatory compliance systems, disclosure management, audit processes, and risk management workflows.</p>
+                </div>
+                <div class="industry-card">
+                    <div class="industry-icon">🏥</div>
+                    <h3>Healthcare</h3>
+                    <p>HIPAA compliance systems, patient privacy workflows, clinical trial management, and regulatory documentation.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section" id="contact">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Ready to Transform Your Legal Operations?</h2>
+                <p>Let's discuss how technology can streamline your legal processes while maintaining compliance and improving team satisfaction.</p>
+                
+                <div class="cta-buttons">
+                    <a href="mailto:rpretzer@gmail.com?subject=Legal Tech Consultation" class="cta-primary-dark">Schedule Legal Tech Review</a>
+                    <a href="/portfolio/progressive-legal-tech" class="cta-secondary">View Case Study</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Ryan Andrew Pretzer. <a href="/">Back to main site</a></p>
+        </div>
+    </footer>
+</body>
+</html>

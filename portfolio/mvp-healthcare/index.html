@@ -1,0 +1,1086 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MVP Healthcare Mobile Platform | Ryan Andrew Pretzer Portfolio</title>
+    <meta name="description" content="Case study: Product owner for mobile application features at MVP Healthcare, managing backlog and stakeholder alignment for healthcare digital transformation initiatives.">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.7;
+            color: #1a1a1a;
+            background: #ffffff;
+            font-weight: 300;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        .header {
+            background: #ffffff;
+            border-bottom: 1px solid rgba(26, 26, 26, 0.08);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.2rem;
+            font-weight: 400;
+            color: #1a1a1a;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #666;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #1a1a1a;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #2E8B57 0%, #228B22 100%);
+            padding: 5rem 0;
+            color: white;
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .hero-text h1 {
+            font-size: 3.2rem;
+            font-weight: 200;
+            margin-bottom: 1rem;
+            letter-spacing: -0.02em;
+            line-height: 1.1;
+        }
+
+        .hero-text .subtitle {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+            line-height: 1.6;
+        }
+
+        .project-meta {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .meta-item {
+            text-align: center;
+        }
+
+        .meta-label {
+            font-size: 0.8rem;
+            opacity: 0.8;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 0.5rem;
+        }
+
+        .meta-value {
+            font-size: 1.2rem;
+            font-weight: 400;
+        }
+
+        .hero-visual {
+            background: rgba(255, 255, 255, 0.1);
+            height: 400px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        /* Context Section */
+        .context {
+            padding: 5rem 0;
+            background: #ffffff;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 200;
+            margin-bottom: 3rem;
+            letter-spacing: -0.02em;
+            text-align: center;
+        }
+
+        .context-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 4rem;
+            margin-top: 3rem;
+        }
+
+        .context-content h3 {
+            font-size: 1.8rem;
+            font-weight: 300;
+            margin-bottom: 1.5rem;
+            color: #1a1a1a;
+        }
+
+        .context-content p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            color: #333;
+        }
+
+        .healthcare-challenges {
+            list-style: none;
+            margin: 2rem 0;
+        }
+
+        .healthcare-challenges li {
+            padding: 0.8rem 0;
+            position: relative;
+            padding-left: 2rem;
+            font-size: 1rem;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .healthcare-challenges li::before {
+            content: '🏥';
+            position: absolute;
+            left: 0;
+            font-size: 1rem;
+        }
+
+        .stakeholder-map {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 8px;
+            border-left: 4px solid #2E8B57;
+        }
+
+        .stakeholder-map h4 {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            font-weight: 400;
+            text-align: center;
+        }
+
+        .stakeholder-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+            border-bottom: 1px solid #e9ecef;
+        }
+
+        .stakeholder-item:last-child {
+            border-bottom: none;
+        }
+
+        .stakeholder-role {
+            color: #555;
+            font-size: 0.9rem;
+        }
+
+        .stakeholder-priority {
+            font-size: 1.2rem;
+            font-weight: 300;
+            color: #2E8B57;
+        }
+
+        /* Mobile Strategy Section */
+        .mobile-strategy {
+            padding: 5rem 0;
+            background: #f8f9fa;
+        }
+
+        .strategy-intro {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 4rem;
+        }
+
+        .strategy-intro p {
+            font-size: 1.2rem;
+            color: #555;
+            line-height: 1.8;
+        }
+
+        .strategy-pillars {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .pillar-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            border-left: 4px solid #2E8B57;
+        }
+
+        .pillar-icon {
+            width: 60px;
+            height: 60px;
+            background: #2E8B57;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .pillar-card h3 {
+            font-size: 1.3rem;
+            font-weight: 400;
+            margin-bottom: 1rem;
+            color: #1a1a1a;
+        }
+
+        .pillar-card p {
+            color: #555;
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+
+        .pillar-features {
+            list-style: none;
+        }
+
+        .pillar-features li {
+            padding: 0.3rem 0;
+            font-size: 0.9rem;
+            color: #666;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+
+        .pillar-features li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #28a745;
+            font-weight: bold;
+        }
+
+        /* Product Management Section */
+        .product-management {
+            padding: 5rem 0;
+            background: #2E8B57;
+            color: white;
+        }
+
+        .product-management .section-title {
+            color: white;
+        }
+
+        .pm-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            margin-top: 3rem;
+            align-items: center;
+        }
+
+        .pm-text h3 {
+            font-size: 1.8rem;
+            font-weight: 300;
+            margin-bottom: 1.5rem;
+        }
+
+        .pm-text p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            opacity: 0.95;
+        }
+
+        .pm-methods {
+            list-style: none;
+            margin: 2rem 0;
+        }
+
+        .pm-methods li {
+            padding: 0.8rem 0;
+            position: relative;
+            padding-left: 2rem;
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+
+        .pm-methods li::before {
+            content: '📋';
+            position: absolute;
+            left: 0;
+            font-size: 1rem;
+        }
+
+        .pm-visual {
+            background: rgba(255, 255, 255, 0.1);
+            height: 350px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        /* Digital Transformation Section */
+        .transformation {
+            padding: 5rem 0;
+            background: #ffffff;
+        }
+
+        .transformation-timeline {
+            position: relative;
+            max-width: 900px;
+            margin: 3rem auto 0;
+        }
+
+        .timeline-item {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 4rem;
+            position: relative;
+        }
+
+        .timeline-item:nth-child(even) .timeline-content {
+            order: 1;
+        }
+
+        .timeline-item:nth-child(even) .timeline-visual {
+            order: 2;
+        }
+
+        .timeline-content {
+            background: #f8f9fa;
+            padding: 2.5rem;
+            border-radius: 8px;
+            border-left: 4px solid #2E8B57;
+        }
+
+        .timeline-phase {
+            font-size: 0.8rem;
+            color: #2E8B57;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .timeline-title {
+            font-size: 1.4rem;
+            font-weight: 400;
+            margin-bottom: 1rem;
+            color: #1a1a1a;
+        }
+
+        .timeline-description {
+            font-size: 1rem;
+            line-height: 1.7;
+            color: #555;
+            margin-bottom: 1.5rem;
+        }
+
+        .timeline-outcomes {
+            list-style: none;
+        }
+
+        .timeline-outcomes li {
+            padding: 0.3rem 0;
+            font-size: 0.9rem;
+            color: #666;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+
+        .timeline-outcomes li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: #2E8B57;
+            font-weight: bold;
+        }
+
+        .timeline-visual {
+            background: #e9ecef;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #666;
+            font-size: 1rem;
+            min-height: 200px;
+        }
+
+        /* Results Section */
+        .results {
+            padding: 5rem 0;
+            background: #f8f9fa;
+        }
+
+        .results-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .result-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            border-top: 4px solid #2E8B57;
+        }
+
+        .result-number {
+            font-size: 3.5rem;
+            font-weight: 200;
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #2E8B57;
+        }
+
+        .result-label {
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            font-weight: 400;
+        }
+
+        .result-description {
+            font-size: 0.9rem;
+            color: #555;
+            line-height: 1.6;
+        }
+
+        /* Healthcare Insights Section */
+        .insights {
+            padding: 5rem 0;
+            background: #ffffff;
+        }
+
+        .insights-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .insight-card {
+            background: #f8f9fa;
+            padding: 2.5rem;
+            border-radius: 8px;
+            border-left: 4px solid #228B22;
+        }
+
+        .insight-type {
+            font-size: 0.8rem;
+            color: #228B22;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .insight-card h3 {
+            font-size: 1.3rem;
+            font-weight: 400;
+            margin-bottom: 1rem;
+            color: #1a1a1a;
+        }
+
+        .insight-card p {
+            color: #555;
+            line-height: 1.7;
+        }
+
+        /* Technical Section */
+        .technical {
+            padding: 5rem 0;
+            background: #f8f9fa;
+        }
+
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .tech-category {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .tech-category h3 {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            font-weight: 400;
+            color: #1a1a1a;
+        }
+
+        .tech-list {
+            list-style: none;
+        }
+
+        .tech-list li {
+            padding: 0.4rem 0;
+            color: #555;
+            font-size: 0.9rem;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+
+        .tech-list li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: #2E8B57;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 5rem 0;
+            background: #ffffff;
+            text-align: center;
+        }
+
+        .cta-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .cta-section h2 {
+            font-size: 2.2rem;
+            font-weight: 200;
+            margin-bottom: 1.5rem;
+        }
+
+        .cta-section p {
+            font-size: 1.1rem;
+            color: #555;
+            margin-bottom: 2rem;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .cta-primary {
+            display: inline-block;
+            background: #2E8B57;
+            color: white;
+            padding: 1rem 2rem;
+            text-decoration: none;
+            border-radius: 2px;
+            font-weight: 400;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .cta-primary:hover {
+            background: #228B22;
+            transform: translateY(-1px);
+            box-shadow: 0 8px 25px rgba(46, 139, 87, 0.2);
+        }
+
+        .cta-secondary {
+            display: inline-block;
+            border: 2px solid #2E8B57;
+            color: #2E8B57;
+            padding: 1rem 2rem;
+            text-decoration: none;
+            border-radius: 2px;
+            font-weight: 400;
+            transition: all 0.3s ease;
+        }
+
+        .cta-secondary:hover {
+            background: #2E8B57;
+            color: white;
+        }
+
+        /* Footer */
+        .footer {
+            background: #1a1a1a;
+            color: #e0e0e0;
+            padding: 2rem 0;
+            text-align: center;
+        }
+
+        .footer a {
+            color: #e0e0e0;
+            text-decoration: none;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .hero-text h1 {
+                font-size: 2.4rem;
+            }
+            
+            .context-grid,
+            .pm-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .timeline-item {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            
+            .timeline-item:nth-child(even) .timeline-content,
+            .timeline-item:nth-child(even) .timeline-visual {
+                order: initial;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="/" class="logo">Ryan Andrew Pretzer</a>
+                <nav>
+                    <ul class="nav-links">
+                        <li><a href="/#about">About</a></li>
+                        <li><a href="/#services">Services</a></li>
+                        <li><a href="/#portfolio">Portfolio</a></li>
+                        <li><a href="/#contact">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>MVP Healthcare Mobile Platform</h1>
+                    <p class="subtitle">Product owner for mobile application features, managing backlog and stakeholder alignment for healthcare digital transformation initiatives serving 700,000+ members.</p>
+                    
+                    <div class="project-meta">
+                        <div class="meta-item">
+                            <div class="meta-label">Role</div>
+                            <div class="meta-value">Product Owner</div>
+                        </div>
+                        <div class="meta-item">
+                            <div class="meta-label">Duration</div>
+                            <div class="meta-value">12 Months</div>
+                        </div>
+                        <div class="meta-item">
+                            <div class="meta-label">Members</div>
+                            <div class="meta-value">700K+</div>
+                        </div>
+                        <div class="meta-item">
+                            <div class="meta-label">Platform</div>
+                            <div class="meta-value">Mobile + Web</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="hero-visual">
+                    [MVP Healthcare Mobile App Interface]
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Context Section -->
+    <section class="context">
+        <div class="container">
+            <h2 class="section-title">Healthcare Digital Transformation Context</h2>
+            
+            <div class="context-grid">
+                <div class="context-content">
+                    <h3>The Healthcare Challenge</h3>
+                    <p>MVP Healthcare, serving over 700,000 members across Vermont and northern New York, needed to modernize their digital member experience while navigating complex healthcare regulations, diverse member needs, and integration challenges with legacy systems.</p>
+                    
+                    <p>As product owner for mobile features, I managed the strategic roadmap and stakeholder alignment for initiatives that would transform how members interact with their healthcare benefits, from enrollment to claims management.</p>
+                    
+                    <ul class="healthcare-challenges">
+                        <li>Complex healthcare regulations and compliance requirements</li>
+                        <li>Diverse member demographics with varying tech comfort levels</li>
+                        <li>Legacy system integration and data migration challenges</li>
+                        <li>Multiple stakeholder groups with competing priorities</li>
+                        <li>Seasonal enrollment periods with high usage spikes</li>
+                        <li>Privacy and security requirements (HIPAA compliance)</li>
+                    </ul>
+                </div>
+                <div class="stakeholder-map">
+                    <h4>Key Stakeholder Groups</h4>
+                    <div class="stakeholder-item">
+                        <span class="stakeholder-role">Members (Patients)</span>
+                        <span class="stakeholder-priority">High</span>
+                    </div>
+                    <div class="stakeholder-item">
+                        <span class="stakeholder-role">Clinical Teams</span>
+                        <span class="stakeholder-priority">High</span>
+                    </div>
+                    <div class="stakeholder-item">
+                        <span class="stakeholder-role">Member Services</span>
+                        <span class="stakeholder-priority">High</span>
+                    </div>
+                    <div class="stakeholder-item">
+                        <span class="stakeholder-role">Compliance/Legal</span>
+                        <span class="stakeholder-priority">Critical</span>
+                    </div>
+                    <div class="stakeholder-item">
+                        <span class="stakeholder-role">IT/Security</span>
+                        <span class="stakeholder-priority">High</span>
+                    </div>
+                    <div class="stakeholder-item">
+                        <span class="stakeholder-role">Business Operations</span>
+                        <span class="stakeholder-priority">Medium</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mobile Strategy Section -->
+    <section class="mobile-strategy">
+        <div class="container">
+            <h2 class="section-title">Mobile-First Healthcare Strategy</h2>
+            <div class="strategy-intro">
+                <p>Healthcare members increasingly expect mobile-first experiences, but healthcare apps face unique challenges around privacy, accessibility, and complex workflows that require careful product strategy.</p>
+            </div>
+            
+            <div class="strategy-pillars">
+                <div class="pillar-card">
+                    <div class="pillar-icon">👥</div>
+                    <h3>Member-Centric Design</h3>
+                    <p>Prioritized member experience over internal process efficiency, designing workflows that made sense from the patient perspective rather than the healthcare system perspective.</p>
+                    <ul class="pillar-features">
+                        <li>User journey mapping across care continuum</li>
+                        <li>Accessibility compliance for diverse abilities</li>
+                        <li>Simplified healthcare terminology and guidance</li>
+                        <li>Multi-generational interface design</li>
+                    </ul>
+                </div>
+                <div class="pillar-card">
+                    <div class="pillar-icon">🏥</div>
+                    <h3>Integrated Care Experience</h3>
+                    <p>Connected digital touchpoints with existing healthcare workflows, ensuring the mobile experience enhanced rather than disrupted established care relationships.</p>
+                    <ul class="pillar-features">
+                        <li>Provider directory and appointment scheduling</li>
+                        <li>Claims tracking and explanation of benefits</li>
+                        <li>Prescription management and refill reminders</li>
+                        <li>Care team communication and messaging</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Product Management Section -->
+    <section class="product-management">
+        <div class="container">
+            <h2 class="section-title">Strategic Product Ownership</h2>
+            
+            <div class="pm-content">
+                <div class="pm-text">
+                    <h3>Balancing Competing Healthcare Priorities</h3>
+                    <p>Healthcare product ownership requires unique skills in balancing member needs, clinical workflows, regulatory requirements, and business objectives. Success depends on understanding the healthcare ecosystem and translating between different stakeholder languages.</p>
+                    
+                    <ul class="pm-methods">
+                        <li>Cross-functional stakeholder alignment and priority negotiation</li>
+                        <li>Regulatory requirement translation into user stories</li>
+                        <li>Member feedback integration with clinical best practices</li>
+                        <li>Legacy system constraints balanced with modern UX expectations</li>
+                        <li>Seasonal planning for enrollment periods and usage spikes</li>
+                    </ul>
+                </div>
+                <div class="pm-visual">
+                    [Product Roadmap & Stakeholder Alignment Framework]
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Digital Transformation Section -->
+    <section class="transformation">
+        <div class="container">
+            <h2 class="section-title">Healthcare Digital Transformation Journey</h2>
+            
+            <div class="transformation-timeline">
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-phase">Phase 1</div>
+                        <h3 class="timeline-title">Foundation & Member Research</h3>
+                        <p class="timeline-description">Conducted comprehensive member research to understand current healthcare journey pain points and digital readiness across diverse demographics.</p>
+                        <ul class="timeline-outcomes">
+                            <li>Surveyed 2,000+ members across age groups and health conditions</li>
+                            <li>Mapped current healthcare journey touchpoints and frustrations</li>
+                            <li>Identified mobile app feature priorities based on member needs</li>
+                            <li>Established accessibility requirements for diverse abilities</li>
+                        </ul>
+                    </div>
+                    <div class="timeline-visual">
+                        [Member Research & Journey Mapping]
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-phase">Phase 2</div>
+                        <h3 class="timeline-title">Core Features & MVP Launch</h3>
+                        <p class="timeline-description">Prioritized and launched essential mobile features that provided immediate member value while establishing technical foundation for future enhancements.</p>
+                        <ul class="timeline-outcomes">
+                            <li>Launched secure member authentication and profile management</li>
+                            <li>Implemented claims tracking and digital ID card features</li>
+                            <li>Established provider directory with search and filtering</li>
+                            <li>Achieved 40% member adoption within first 6 months</li>
+                        </ul>
+                    </div>
+                    <div class="timeline-visual">
+                        [MVP Features & Adoption Metrics]
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-phase">Phase 3</div>
+                        <h3 class="timeline-title">Advanced Health Management</h3>
+                        <p class="timeline-description">Expanded platform with sophisticated health management tools that integrated with existing clinical workflows and member care plans.</p>
+                        <ul class="timeline-outcomes">
+                            <li>Added prescription management and refill reminders</li>
+                            <li>Implemented secure messaging with care teams</li>
+                            <li>Launched preventive care tracking and reminders</li>
+                            <li>Achieved 85% user satisfaction rating</li>
+                        </ul>
+                    </div>
+                    <div class="timeline-visual">
+                        [Advanced Features & Care Integration]
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-phase">Phase 4</div>
+                        <h3 class="timeline-title">Personalization & Analytics</h3>
+                        <p class="timeline-description">Implemented personalized member experiences and analytics capabilities that provided insights for continuous improvement and member engagement.</p>
+                        <ul class="timeline-outcomes">
+                            <li>Deployed personalized health recommendations</li>
+                            <li>Implemented usage analytics and member feedback loops</li>
+                            <li>Launched wellness program integration</li>
+                            <li>Achieved 70% monthly active user rate</li>
+                        </ul>
+                    </div>
+                    <div class="timeline-visual">
+                        [Personalization Engine & Analytics Dashboard]
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Results Section -->
+    <section class="results">
+        <div class="container">
+            <h2 class="section-title">Member & Business Impact</h2>
+            
+            <div class="results-grid">
+                <div class="result-card">
+                    <span class="result-number">70%</span>
+                    <div class="result-label">Monthly Active Users</div>
+                    <p class="result-description">Strong sustained engagement with mobile platform across diverse member demographics</p>
+                </div>
+                <div class="result-card">
+                    <span class="result-number">85%</span>
+                    <div class="result-label">User Satisfaction</div>
+                    <p class="result-description">High satisfaction scores from members using the mobile platform for healthcare management</p>
+                </div>
+                <div class="result-card">
+                    <span class="result-number">45%</span>
+                    <div class="result-label">Call Center Reduction</div>
+                    <p class="result-description">Decreased member service calls through self-service mobile capabilities</p>
+                </div>
+                <div class="result-card">
+                    <span class="result-number">90%</span>
+                    <div class="result-label">Claims Digital Adoption</div>
+                    <p class="result-description">Members shifted from paper to digital claims tracking and management</p>
+                </div>
+                <div class="result-card">
+                    <span class="result-number">60%</span>
+                    <div class="result-label">Faster Member Onboarding</div>
+                    <p class="result-description">Streamlined digital enrollment and setup processes</p>
+                </div>
+                <div class="result-card">
+                    <span class="result-number">100%</span>
+                    <div class="result-label">HIPAA Compliance</div>
+                    <p class="result-description">Full regulatory compliance maintained throughout digital transformation</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Healthcare Insights Section -->
+    <section class="insights">
+        <div class="container">
+            <h2 class="section-title">Healthcare Product Management Insights</h2>
+            
+            <div class="insights-grid">
+                <div class="insight-card">
+                    <div class="insight-type">Stakeholder Management</div>
+                    <h3>Clinical vs. Digital Perspectives</h3>
+                    <p>Healthcare product ownership requires translating between clinical best practices and digital user experience expectations. Success comes from finding solutions that enhance rather than disrupt established care relationships.</p>
+                </div>
+                <div class="insight-card">
+                    <div class="insight-type">Regulatory Navigation</div>
+                    <h3>Privacy as Product Feature</h3>
+                    <p>HIPAA compliance and privacy requirements can become competitive advantages when built thoughtfully into user experience. Members appreciate transparent control over their health information.</p>
+                </div>
+                <div class="insight-card">
+                    <div class="insight-type">User Experience</div>
+                    <h3>Accessibility-First Healthcare</h3>
+                    <p>Healthcare members have diverse abilities and technology comfort levels. Designing for accessibility from the start creates better experiences for all users, not just those with specific needs.</p>
+                </div>
+                <div class="insight-card">
+                    <div class="insight-type">Technical Strategy</div>
+                    <h3>Legacy System Integration</h3>
+                    <p>Healthcare organizations have complex technical ecosystems. Modern mobile experiences must integrate gracefully with existing clinical and administrative systems without disrupting critical workflows.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technical Section -->
+    <section class="technical">
+        <div class="container">
+            <h2 class="section-title">Technical Implementation & Compliance</h2>
+            
+            <div class="tech-grid">
+                <div class="tech-category">
+                    <h3>Healthcare Platform Architecture</h3>
+                    <ul class="tech-list">
+                        <li>HIPAA-compliant cloud infrastructure</li>
+                        <li>HL7 FHIR integration for clinical data</li>
+                        <li>Multi-tenant architecture for member segmentation</li>
+                        <li>Real-time data synchronization with EHR systems</li>
+                        <li>Disaster recovery and business continuity planning</li>
+                    </ul>
+                </div>
+                <div class="tech-category">
+                    <h3>Mobile Development</h3>
+                    <ul class="tech-list">
+                        <li>React Native for cross-platform development</li>
+                        <li>Offline-first architecture for reliability</li>
+                        <li>Push notifications for care reminders</li>
+                        <li>Biometric authentication for security</li>
+                        <li>Accessibility compliance (WCAG 2.1 AA)</li>
+                    </ul>
+                </div>
+                <div class="tech-category">
+                    <h3>Security & Compliance</h3>
+                    <ul class="tech-list">
+                        <li>End-to-end encryption for PHI</li>
+                        <li>OAuth 2.0 and SAML integration</li>
+                        <li>Comprehensive audit logging</li>
+                        <li>Regular security assessments and penetration testing</li>
+                        <li>HITRUST CSF certification requirements</li>
+                    </ul>
+                </div>
+                <div class="tech-category">
+                    <h3>Analytics & Insights</h3>
+                    <ul class="tech-list">
+                        <li>Privacy-compliant user analytics</li>
+                        <li>Member engagement tracking and optimization</li>
+                        <li>A/B testing framework for feature improvements</li>
+                        <li>Clinical outcome correlation analysis</li>
+                        <li>Real-time performance monitoring</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section" id="contact">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Transform Your Healthcare Digital Experience?</h2>
+                <p>Interested in learning how strategic product ownership can drive successful healthcare digital transformation while maintaining compliance and member satisfaction?</p>
+                
+                <div class="cta-buttons">
+                    <a href="mailto:rpretzer@gmail.com?subject=Healthcare Product Strategy Discussion" class="cta-primary">Discuss Your Healthcare Challenge</a>
+                    <a href="/services/mobile-strategy/" class="cta-secondary">Learn About Mobile Strategy</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Ryan Andrew Pretzer. <a href="/">Back to portfolio</a> | <a href="/#portfolio">View other projects</a></p>
+        </div>
+    </footer>
+</body>
+</html>

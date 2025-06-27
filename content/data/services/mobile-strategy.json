@@ -1,1 +1,71 @@
-
+{
+  "pageTitle": "Mobile Product Strategy | Ryan Andrew Pretzer",
+  "metaDescription": "Strategic mobile product ownership and roadmap development for enterprise-scale implementations. Transform your mobile capability with proven Fortune 500 experience.",
+  "hero": {
+    "title": "Mobile Product Strategy",
+    "subtitle": "Transform your mobile capability with strategic product ownership, roadmap development, and enterprise-scale implementation expertise.",
+    "stats": [
+      {
+        "number": "50+",
+        "label": "Development Teams"
+      },
+      {
+        "number": "15+",
+        "label": "Years Experience"
+      },
+      {
+        "number": "3",
+        "label": "Fortune 500 Companies"
+      }
+    ],
+    "cta": {
+      "text": "Schedule Strategy Call",
+      "link": "#contact"
+    }
+  },
+  "sections": [
+    {
+      "title": "The Mobile Strategy Challenge",
+      "type": "text",
+      "content": "Enterprise mobile development often struggles with fragmented strategy, competing priorities, and the complexity of coordinating multiple teams toward shared goals."
+    },
+    {
+      "title": "Strategic Mobile Product Ownership",
+      "type": "list",
+      "intro": "I help enterprise organizations build unified mobile product strategies that align development teams, business stakeholders, and user needs into cohesive roadmaps that drive measurable outcomes.",
+      "items": [
+        "Cross-platform product strategy and roadmap development",
+        "Feature backlog management with business value prioritization",
+        "Stakeholder alignment and communication frameworks",
+        "Team coordination across multiple development groups",
+        "User research integration and feedback loop optimization",
+        "Success metrics definition and tracking systems"
+      ]
+    },
+    {
+      "title": "Case Study: USAA Mobile Platform",
+      "type": "caseStudy",
+      "description": "USAA needed to coordinate mobile development across 50+ teams while maintaining consistency and accelerating feature delivery for their financial services platform.",
+      "approach": "Led product management for enterprise mobile design system and coordinated cross-team roadmap through PI planning process, establishing shared components and development patterns.",
+      "results": "Enabled unified mobile experience across multiple business units while reducing development time and improving code quality through strategic product ownership."
+    },
+    {
+      "title": "Mobile Strategy Expertise",
+      "type": "grid",
+      "items": [
+        {
+          "title": "Product Strategy",
+          "description": "Cross-platform roadmap development, feature prioritization frameworks, business value alignment, user research integration, competitive analysis"
+        },
+        {
+          "title": "Team Coordination",
+          "description": "Agile/SAFe methodology implementation, PI planning facilitation, cross-team dependency management, stakeholder communication, backlog management"
+        },
+        {
+          "title": "Enterprise Context",
+          "description": "Fortune 500 experience, regulatory compliance understanding, legacy system integration, security and governance, change management"
+        }
+      ]
+    }
+  ]
+}

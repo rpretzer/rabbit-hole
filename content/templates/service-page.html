@@ -1,1 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{pageTitle}}</title>
+    <meta name="description" content="{{metaDescription}}">
+    <link rel="stylesheet" href="/styles/main.css">
+    <link rel="stylesheet" href="/styles/services.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="/" class="logo">Ryan Andrew Pretzer</a>
+                <nav>
+                    <ul class="nav-links">
+                        <li><a href="/#about">About</a></li>
+                        <li><a href="/#services">Services</a></li>
+                        <li><a href="/#portfolio">Portfolio</a></li>
+                        <li><a href="/#content">Insights</a></li>
+                        <li><a href="/#contact">Contact</a></li>
+                    </ul>
+                    <button class="mobile-menu-toggle" aria-label="Toggle menu">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                </nav>
+            </div>
+        </div>
+    </header>
 
+    <!-- Hero Section -->
+    <section class="hero {{heroClass}}">
+        <div class="container">
+            <div class="breadcrumb">
+                <a href="/">Home</a> / <a href="/#services">Services</a> / {{serviceCategory}}
+            </div>
+            <h1>{{hero.title}}</h1>
+            <p class="subtitle">{{hero.subtitle}}</p>
+            
+            {{#if hero.stats}}
+            <div class="hero-stats">
+                {{#each hero.stats}}
+                <div class="stat">
+                    <span class="stat-number">{{number}}</span>
+                    <span class="stat-label">{{label}}</span>
+                </div>
+                {{/each}}
+            </div>
+            {{/if}}
+            
+            {{#if hero.valueProposition}}
+            <div class="hero-value-prop">
+                <h2>{{hero.valueProposition.title}}</h2>
+                <p>{{hero.valueProposition.description}}</p>
+            </div>
+            {{/if}}
+            
+            <a href="{{hero.cta.link}}" class="cta-primary">{{hero.cta.text}}</a>
+        </div>
+    </section>
+
+    <!-- Dynamic Sections -->
+    {{#each sections}}
+    <section class="{{className}}">
+        <div class="container">
+            {{#if title}}<h2 class="section-title">{{title}}</h2>{{/if}}
+            
+            {{#if intro}}
+            <div class="section-intro">
+                <p>{{intro}}</p>
+            </div>
+            {{/if}}
+            
+            {{#switch type}}
+                {{#case "text"}}
+                    <div class="text-content">{{content}}</div>
+                {{/case}}
+                {{#case "grid"}}
+                    {{> grid-section}}
+                {{/case}}
+                {{#case "list"}}
+                    {{> list-section}}
+                {{/case}}
+                {{#case "caseStudy"}}
+                    {{> case-study-section}}
+                {{/case}}
+                {{#case "process"}}
+                    {{> process-section}}
+                {{/case}}
+                {{#default}}
+                    {{> generic-section}}
+                {{/default}}
+            {{/switch}}
+        </div>
+    </section>
+    {{/each}}
+
+    <!-- Markdown Content -->
+    {{#if markdownContent}}
+    <section class="markdown-content">
+        <div class="container">
+            {{markdownContent}}
+        </div>
+    </section>
+    {{/if}}
+
+    <!-- CTA Section -->
+    <section class="cta-section" id="contact">
+        <div class="container">
+            <div class="cta-content">
+                <h2>{{ctaTitle}}</h2>
+                <p>{{ctaDescription}}</p>
+                <div class="cta-buttons">
+                    <a href="mailto:rpretzer@gmail.com?subject={{ctaEmailSubject}}" class="cta-primary">{{ctaPrimaryText}}</a>
+                    {{#if ctaSecondaryText}}
+                    <a href="{{ctaSecondaryLink}}" class="cta-secondary">{{ctaSecondaryText}}</a>
+                    {{/if}}
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Ryan Andrew Pretzer. <a href="/">Back to main site</a></p>
+        </div>
+    </footer>
+
+    <script src="/scripts/main.js"></script>
+</body>
+</html>

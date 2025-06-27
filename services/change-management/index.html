@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Change Management | Ryan Andrew Pretzer</title>
+    <meta name="description" content="Strategic change initiatives that find common ground and build sustainable transformation. Because the goal isn't perfect process - it's making things work better.">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.7;
+            color: #1a1a1a;
+            background: #ffffff;
+            font-weight: 300;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        .header {
+            background: #ffffff;
+            border-bottom: 1px solid rgba(26, 26, 26, 0.08);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.2rem;
+            font-weight: 400;
+            color: #1a1a1a;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #666;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #1a1a1a;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+            padding: 5rem 0;
+            text-align: center;
+            color: white;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 200;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.02em;
+            line-height: 1.1;
+        }
+
+        .hero .subtitle {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            opacity: 0.95;
+        }
+
+        .hero-quote {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2rem;
+            border-radius: 8px;
+            margin: 3rem auto;
+            max-width: 600px;
+            border-left: 4px solid rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(10px);
+        }
+
+        .hero-quote p {
+            font-style: italic;
+            font-size: 1.1rem;
+            opacity: 0.95;
+        }
+
+        .cta-primary {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: 1rem 2rem;
+            text-decoration: none;
+            border-radius: 2px;
+            font-weight: 400;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            margin-top: 1rem;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .cta-primary:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-1px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Section Styles */
+        .section {
+            padding: 5rem 0;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 200;
+            text-align: center;
+            margin-bottom: 3rem;
+            letter-spacing: -0.02em;
+        }
+
+        /* Philosophy Section */
+        .philosophy {
+            background: #ffffff;
+        }
+
+        .philosophy-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .philosophy-content p {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            color: #333;
+        }
+
+        .philosophy-principles {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .principle-card {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 8px;
+            border-left: 4px solid #1a1a1a;
+        }
+
+        .principle-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            font-weight: 400;
+        }
+
+        .principle-card p {
+            color: #555;
+            font-size: 0.95rem;
+        }
+
+        /* Approach Section */
+        .approach {
+            background: #f8f9fa;
+        }
+
+        .approach-intro {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 3rem;
+        }
+
+        .approach-intro p {
+            font-size: 1.1rem;
+            color: #555;
+            line-height: 1.8;
+        }
+
+        .approach-phases {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .phase-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: relative;
+            transition: transform 0.3s ease;
+        }
+
+        .phase-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        }
+
+        .phase-number {
+            position: absolute;
+            top: -20px;
+            left: 2rem;
+            background: #1a1a1a;
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            font-weight: 400;
+        }
+
+        .phase-card h3 {
+            font-size: 1.2rem;
+            margin: 1rem 0;
+            font-weight: 400;
+            color: #1a1a1a;
+        }
+
+        .phase-card p {
+            color: #555;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* Services Section */
+        .services {
+            background: #ffffff;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .service-card {
+            background: #f8f9fa;
+            padding: 2.5rem;
+            border-radius: 8px;
+            border-top: 4px solid #1a1a1a;
+        }
+
+        .service-icon {
+            width: 60px;
+            height: 60px;
+            background: #1a1a1a;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .service-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            font-weight: 400;
+            color: #1a1a1a;
+        }
+
+        .service-card p {
+            color: #555;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .service-features {
+            list-style: none;
+        }
+
+        .service-features li {
+            padding: 0.3rem 0;
+            font-size: 0.9rem;
+            color: #666;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+
+        .service-features li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #28a745;
+            font-weight: bold;
+        }
+
+        /* Results Section */
+        .results {
+            background: #1a1a1a;
+            color: white;
+        }
+
+        .results .section-title {
+            color: white;
+        }
+
+        .results-intro {
+            text-align: center;
+            color: #e0e0e0;
+            max-width: 800px;
+            margin: 0 auto 3rem;
+            font-size: 1.1rem;
+        }
+
+        .results-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .result-card {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 2rem;
+            border-radius: 8px;
+            text-align: center;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .result-number {
+            font-size: 3rem;
+            font-weight: 200;
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #fff;
+        }
+
+        .result-label {
+            font-size: 1rem;
+            opacity: 0.9;
+            margin-bottom: 0.5rem;
+        }
+
+        .result-description {
+            font-size: 0.85rem;
+            opacity: 0.8;
+        }
+
+        /* Expertise Section */
+        .expertise {
+            background: #f8f9fa;
+        }
+
+        .expertise-areas {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .expertise-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .expertise-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            font-weight: 400;
+            color: #1a1a1a;
+        }
+
+        .expertise-list {
+            list-style: none;
+        }
+
+        .expertise-list li {
+            padding: 0.3rem 0;
+            font-size: 0.9rem;
+            color: #555;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+
+        .expertise-list li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: #1a1a1a;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 5rem 0;
+            background: #ffffff;
+            text-align: center;
+        }
+
+        .cta-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .cta-section h2 {
+            font-size: 2.2rem;
+            font-weight: 200;
+            margin-bottom: 1.5rem;
+        }
+
+        .cta-section p {
+            font-size: 1.1rem;
+            color: #555;
+            margin-bottom: 2rem;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .cta-primary-dark {
+            display: inline-block;
+            background: #1a1a1a;
+            color: white;
+            padding: 1rem 2rem;
+            text-decoration: none;
+            border-radius: 2px;
+            font-weight: 400;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .cta-primary-dark:hover {
+            background: #000;
+            transform: translateY(-1px);
+            box-shadow: 0 8px 25px rgba(26, 26, 26, 0.2);
+        }
+
+        .cta-secondary {
+            display: inline-block;
+            border: 2px solid #1a1a1a;
+            color: #1a1a1a;
+            padding: 1rem 2rem;
+            text-decoration: none;
+            border-radius: 2px;
+            font-weight: 400;
+            transition: all 0.3s ease;
+        }
+
+        .cta-secondary:hover {
+            background: #1a1a1a;
+            color: white;
+        }
+
+        /* Footer */
+        .footer {
+            background: #1a1a1a;
+            color: #e0e0e0;
+            padding: 2rem 0;
+            text-align: center;
+        }
+
+        .footer a {
+            color: #e0e0e0;
+            text-decoration: none;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .philosophy-principles,
+            .approach-phases,
+            .services-grid,
+            .results-grid,
+            .expertise-areas {
+                grid-template-columns: 1fr;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="/" class="logo">Ryan Andrew Pretzer</a>
+                <nav>
+                    <ul class="nav-links">
+                        <li><a href="/#about">About</a></li>
+                        <li><a href="/#services">Services</a></li>
+                        <li><a href="/#portfolio">Portfolio</a></li>
+                        <li><a href="/#content">Insights</a></li>
+                        <li><a href="/#contact">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Change Management</h1>
+            <p class="subtitle">Strategic change initiatives that find common ground and build sustainable transformation. Because the goal isn't perfect process - it's making things work better.</p>
+            
+            <div class="hero-quote">
+                <p>"Outcomes and relationships trump process and adherence. The best change happens when people want it to succeed, not when they're forced to comply."</p>
+            </div>
+            
+            <a href="#contact" class="cta-primary">Discuss Your Change Initiative</a>
+        </div>
+    </section>
+
+    <!-- Philosophy Section -->
+    <section class="philosophy section">
+        <div class="container">
+            <h2 class="section-title">Change as Practice, Not Project</h2>
+            
+            <div class="philosophy-content">
+                <p>Change management isn't about perfecting process—it's about making things work better for actual people. After 15+ years leading transformation at companies like USAA and Progressive, I've learned that sustainable change happens when you solve human problems, not just business problems.</p>
+                
+                <p>My approach finds the win-win compromises that feel like victories for everyone involved, even when they're not perfect solutions.</p>
+            </div>
+            
+            <div class="philosophy-principles">
+                <div class="principle-card">
+                    <h3>Start with Shared Problems</h3>
+                    <p>The best change initiatives begin by identifying problems everyone agrees need solving, creating natural coalition from the start.</p>
+                </div>
+                <div class="principle-card">
+                    <h3>Listen to Resistance</h3>
+                    <p>Resistance isn't opposition—it's valuable data about fears, concerns, and context that must be addressed for success.</p>
+                </div>
+                <div class="principle-card">
+                    <h3>Adapt to Culture</h3>
+                    <p>Methodologies must flex to fit organizational reality. What works at one company may fail spectacularly at another.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Approach Section -->
+    <section class="approach section">
+        <div class="container">
+            <h2 class="section-title">Human-Centered Change Approach</h2>
+            
+            <div class="approach-intro">
+                <p>Change management works best as a practice, not a project. Like jazz improvisation, it requires strong fundamentals, deep listening, and responsive adaptation.</p>
+            </div>
+            
+            <div class="approach-phases">
+                <div class="phase-card">
+                    <div class="phase-number">1</div>
+                    <h3>Read the Room</h3>
+                    <p>Understand organizational dynamics, informal power structures, and the "background noise" that influences how change really happens.</p>
+                </div>
+                <div class="phase-card">
+                    <div class="phase-number">2</div>
+                    <h3>Find Natural Champions</h3>
+                    <p>Identify teams with problems your change can solve. Let them become advocates through success, not mandates.</p>
+                </div>
+                <div class="phase-card">
+                    <div class="phase-number">3</div>
+                    <h3>Build Coalition</h3>
+                    <p>Create change through conversation, not presentation. Build genuine buy-in across stakeholder groups.</p>
+                </div>
+                <div class="phase-card">
+                    <div class="phase-number">4</div>
+                    <h3>Sustain Momentum</h3>
+                    <p>Celebrate small wins, address concerns quickly, and adapt approach based on what's actually working.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services section">
+        <div class="container">
+            <h2 class="section-title">Change Management Services</h2>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">🎯</div>
+                    <h3>Strategic Change Planning</h3>
+                    <p>Design change initiatives that align with organizational culture and actually have a chance of succeeding.</p>
+                    <ul class="service-features">
+                        <li>Stakeholder mapping and analysis</li>
+                        <li>Change readiness assessment</li>
+                        <li>Win-win strategy development</li>
+                        <li>Communication planning</li>
+                        <li>Success metrics definition</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🚀</div>
+                    <h3>Implementation Support</h3>
+                    <p>Hands-on guidance through the messy middle of change, adapting approach as reality unfolds.</p>
+                    <ul class="service-features">
+                        <li>Change champion development</li>
+                        <li>Resistance pattern analysis</li>
+                        <li>Pilot program design</li>
+                        <li>Feedback loop creation</li>
+                        <li>Course correction facilitation</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🌱</div>
+                    <h3>Culture Transformation</h3>
+                    <p>Address the deeper cultural shifts needed for lasting change, not just surface process updates.</p>
+                    <ul class="service-features">
+                        <li>Cultural assessment and mapping</li>
+                        <li>Leadership alignment coaching</li>
+                        <li>Team dynamics improvement</li>
+                        <li>Psychological safety building</li>
+                        <li>Continuous improvement culture</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Results Section -->
+    <section class="results section">
+        <div class="container">
+            <h2 class="section-title">Real Change, Real Results</h2>
+            
+            <p class="results-intro">Change management success isn't just about adoption rates—it's about creating sustainable transformation that improves both outcomes and relationships.</p>
+            
+            <div class="results-grid">
+                <div class="result-card">
+                    <span class="result-number">80%</span>
+                    <div class="result-label">Voluntary Adoption</div>
+                    <p class="result-description">Average adoption rate through advocacy vs. 20% through mandates</p>
+                </div>
+                <div class="result-card">
+                    <span class="result-number">6 months</span>
+                    <div class="result-label">Time to Value</div>
+                    <p class="result-description">Typical time from pilot to organization-wide success</p>
+                </div>
+                <div class="result-card">
+                    <span class="result-number">90%</span>
+                    <div class="result-label">Stakeholder Satisfaction</div>
+                    <p class="result-description">Leaders and teams both feel heard and valued</p>
+                </div>
+                <div class="result-card">
+                    <span class="result-number">3x</span>
+                    <div class="result-label">ROI Improvement</div>
+                    <p class="result-description">Better returns from willing participation vs. compliance</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Expertise Section -->
+    <section class="expertise section">
+        <div class="container">
+            <h2 class="section-title">Change Management Expertise</h2>
+            
+            <div class="expertise-areas">
+                <div class="expertise-card">
+                    <h3>Digital Transformation</h3>
+                    <ul class="expertise-list">
+                        <li>Legacy system modernization</li>
+                        <li>Process digitization</li>
+                        <li>Tool adoption strategies</li>
+                        <li>Cross-functional alignment</li>
+                        <li>User experience transitions</li>
+                    </ul>
+                </div>
+                <div class="expertise-card">
+                    <h3>Organizational Restructuring</h3>
+                    <ul class="expertise-list">
+                        <li>Team consolidation</li>
+                        <li>Role redefinition</li>
+                        <li>Reporting structure changes</li>
+                        <li>Cultural integration</li>
+                        <li>Performance alignment</li>
+                    </ul>
+                </div>
+                <div class="expertise-card">
+                    <h3>Process Improvement</h3>
+                    <ul class="expertise-list">
+                        <li>Workflow optimization</li>
+                        <li>Agile transformation</li>
+                        <li>Quality initiatives</li>
+                        <li>Compliance updates</li>
+                        <li>Efficiency programs</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section" id="contact">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Ready for Change That Actually Works?</h2>
+                <p>Let's discuss how human-centered change management can help your organization transform while keeping people engaged and relationships strong.</p>
+                
+                <div class="cta-buttons">
+                    <a href="mailto:rpretzer@gmail.com?subject=Change Management Consultation" class="cta-primary-dark">Schedule Change Discussion</a>
+                    <a href="/insights/change-management-practice" class="cta-secondary">Read Change Philosophy</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Ryan Andrew Pretzer. <a href="/">Back to main site</a></p>
+        </div>
+    </footer>
+</body>
+</html>

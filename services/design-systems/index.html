@@ -1,0 +1,990 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enterprise Design Systems | Ryan Andrew Pretzer</title>
+    <meta name="description" content="Build and scale design systems for enterprise mobile applications. Proven experience with Fortune 500 companies like USAA and Progressive Insurance.">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.7;
+            color: #1a1a1a;
+            background: #ffffff;
+            font-weight: 300;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        .header {
+            background: #ffffff;
+            border-bottom: 1px solid rgba(26, 26, 26, 0.08);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.2rem;
+            font-weight: 400;
+            color: #1a1a1a;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #666;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #1a1a1a;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 5rem 0;
+            text-align: center;
+            color: white;
+        }
+
+        .hero h1 {
+            font-size: 3.2rem;
+            font-weight: 200;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.02em;
+            line-height: 1.1;
+        }
+
+        .hero .subtitle {
+            font-size: 1.4rem;
+            margin-bottom: 2rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            opacity: 0.95;
+        }
+
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 4rem;
+            margin: 3rem 0;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2rem;
+            border-radius: 8px;
+            backdrop-filter: blur(10px);
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2.8rem;
+            font-weight: 200;
+            color: #fff;
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            opacity: 0.9;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        .cta-primary {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: 1rem 2rem;
+            text-decoration: none;
+            border-radius: 2px;
+            font-weight: 400;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            margin-top: 1rem;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .cta-primary:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-1px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Scale Challenge Section */
+        .scale-challenge {
+            padding: 5rem 0;
+            background: #ffffff;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 200;
+            text-align: center;
+            margin-bottom: 3rem;
+            letter-spacing: -0.02em;
+        }
+
+        .challenge-intro {
+            text-align: center;
+            font-size: 1.2rem;
+            color: #555;
+            max-width: 800px;
+            margin: 0 auto 3rem;
+            line-height: 1.8;
+        }
+
+        .scale-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .scale-card {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 8px;
+            text-align: center;
+            border-top: 4px solid #667eea;
+        }
+
+        .scale-number {
+            font-size: 3rem;
+            font-weight: 200;
+            color: #667eea;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .scale-label {
+            font-size: 1rem;
+            font-weight: 400;
+            margin-bottom: 1rem;
+        }
+
+        .scale-description {
+            font-size: 0.9rem;
+            color: #555;
+        }
+
+        /* Solution Section */
+        .solution {
+            padding: 5rem 0;
+            background: #f8f9fa;
+        }
+
+        .solution-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            margin-top: 3rem;
+        }
+
+        .solution-text h3 {
+            font-size: 1.8rem;
+            font-weight: 300;
+            margin-bottom: 1.5rem;
+            color: #1a1a1a;
+        }
+
+        .solution-text p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        .solution-principles {
+            list-style: none;
+            margin: 2rem 0;
+        }
+
+        .solution-principles li {
+            padding: 0.8rem 0;
+            position: relative;
+            padding-left: 2rem;
+            font-size: 1rem;
+        }
+
+        .solution-principles li::before {
+            content: '◆';
+            position: absolute;
+            left: 0;
+            color: #667eea;
+            font-size: 1.2rem;
+        }
+
+        .solution-visual {
+            background: #e9ecef;
+            height: 400px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #666;
+            font-size: 1.1rem;
+        }
+
+        /* Case Study Section */
+        .case-study {
+            padding: 5rem 0;
+            background: #1a1a1a;
+            color: white;
+        }
+
+        .case-study .section-title {
+            color: white;
+        }
+
+        .case-study-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .case-study-subtitle {
+            font-size: 1.2rem;
+            color: #e0e0e0;
+            margin-top: 1rem;
+        }
+
+        .case-study-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 4rem;
+            margin-top: 3rem;
+        }
+
+        .case-study-details {
+            display: grid;
+            gap: 2rem;
+        }
+
+        .detail-card {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 2rem;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+        }
+
+        .detail-card h4 {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            font-weight: 400;
+            color: #fff;
+        }
+
+        .detail-card p {
+            color: #e0e0e0;
+            line-height: 1.7;
+        }
+
+        .impact-metrics {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 2rem;
+            border-radius: 8px;
+        }
+
+        .impact-metrics h4 {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            text-align: center;
+            color: #fff;
+        }
+
+        .metric-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .metric-item:last-child {
+            border-bottom: none;
+        }
+
+        .metric-value {
+            font-size: 1.8rem;
+            font-weight: 200;
+            color: #667eea;
+        }
+
+        .metric-label {
+            color: #e0e0e0;
+            font-size: 0.9rem;
+        }
+
+        /* Services Section */
+        .services {
+            padding: 5rem 0;
+            background: #ffffff;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .service-card {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+        }
+
+        .service-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            font-weight: 400;
+            color: #1a1a1a;
+        }
+
+        .service-card p {
+            color: #555;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .service-features {
+            list-style: none;
+        }
+
+        .service-features li {
+            padding: 0.3rem 0;
+            font-size: 0.9rem;
+            color: #666;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+
+        .service-features li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: #667eea;
+        }
+
+        /* Process Section */
+        .process {
+            padding: 5rem 0;
+            background: #f8f9fa;
+        }
+
+        .process-intro {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .process-intro p {
+            font-size: 1.1rem;
+            color: #555;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .process-timeline {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .process-phase {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: relative;
+        }
+
+        .phase-number {
+            position: absolute;
+            top: -15px;
+            left: 2rem;
+            background: #667eea;
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.9rem;
+            font-weight: 400;
+        }
+
+        .process-phase h3 {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            font-weight: 400;
+            color: #1a1a1a;
+            margin-top: 0.5rem;
+        }
+
+        .process-phase p {
+            color: #555;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .phase-deliverables {
+            margin-top: 1rem;
+            font-size: 0.85rem;
+            color: #666;
+            font-style: italic;
+        }
+
+        /* Technology Section */
+        .technology {
+            padding: 5rem 0;
+            background: #ffffff;
+        }
+
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .tech-category {
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .tech-icon {
+            width: 80px;
+            height: 80px;
+            background: #667eea;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            color: white;
+            font-size: 1.5rem;
+        }
+
+        .tech-category h3 {
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            font-weight: 400;
+        }
+
+        .tech-list {
+            list-style: none;
+            font-size: 0.9rem;
+            color: #555;
+        }
+
+        .tech-list li {
+            padding: 0.2rem 0;
+        }
+
+        /* ROI Section */
+        .roi {
+            padding: 5rem 0;
+            background: #667eea;
+            color: white;
+            text-align: center;
+        }
+
+        .roi .section-title {
+            color: white;
+        }
+
+        .roi-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .roi-metric {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2rem;
+            border-radius: 8px;
+            backdrop-filter: blur(10px);
+        }
+
+        .roi-number {
+            font-size: 3rem;
+            font-weight: 200;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .roi-label {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+
+        .roi-description {
+            font-size: 0.85rem;
+            opacity: 0.8;
+            margin-top: 0.5rem;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 5rem 0;
+            background: #ffffff;
+            text-align: center;
+        }
+
+        .cta-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .cta-section h2 {
+            font-size: 2.2rem;
+            font-weight: 200;
+            margin-bottom: 1.5rem;
+        }
+
+        .cta-section p {
+            font-size: 1.1rem;
+            color: #555;
+            margin-bottom: 2rem;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .cta-primary-dark {
+            display: inline-block;
+            background: #1a1a1a;
+            color: white;
+            padding: 1rem 2rem;
+            text-decoration: none;
+            border-radius: 2px;
+            font-weight: 400;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .cta-primary-dark:hover {
+            background: #000;
+            transform: translateY(-1px);
+            box-shadow: 0 8px 25px rgba(26, 26, 26, 0.2);
+        }
+
+        .cta-secondary {
+            display: inline-block;
+            border: 2px solid #1a1a1a;
+            color: #1a1a1a;
+            padding: 1rem 2rem;
+            text-decoration: none;
+            border-radius: 2px;
+            font-weight: 400;
+            transition: all 0.3s ease;
+        }
+
+        .cta-secondary:hover {
+            background: #1a1a1a;
+            color: white;
+        }
+
+        /* Footer */
+        .footer {
+            background: #1a1a1a;
+            color: #e0e0e0;
+            padding: 2rem 0;
+            text-align: center;
+        }
+
+        .footer a {
+            color: #e0e0e0;
+            text-decoration: none;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.4rem;
+            }
+            
+            .hero-stats {
+                flex-direction: column;
+                gap: 2rem;
+            }
+            
+            .solution-content,
+            .case-study-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="/" class="logo">Ryan Andrew Pretzer</a>
+                <nav>
+                    <ul class="nav-links">
+                        <li><a href="/#about">About</a></li>
+                        <li><a href="/#services">Services</a></li>
+                        <li><a href="/#portfolio">Portfolio</a></li>
+                        <li><a href="/#contact">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Enterprise Design Systems</h1>
+            <p class="subtitle">Build and scale design systems for enterprise mobile applications with proven Fortune 500 experience.</p>
+            
+            <div class="hero-stats">
+                <div class="stat">
+                    <span class="stat-number">50+</span>
+                    <span class="stat-label">Development Teams</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">80%</span>
+                    <span class="stat-label">Adoption Rate</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">40%</span>
+                    <span class="stat-label">Time Savings</span>
+                </div>
+            </div>
+            
+            <a href="#contact" class="cta-primary">Discuss Your Design System</a>
+        </div>
+    </section>
+
+    <!-- Scale Challenge Section -->
+    <section class="scale-challenge">
+        <div class="container">
+            <h2 class="section-title">The Enterprise Scale Challenge</h2>
+            <p class="challenge-intro">When you're designing for one app, you control the variables. When you're designing for 50+ teams across multiple business units, the variables control you.</p>
+            
+            <div class="scale-grid">
+                <div class="scale-card">
+                    <span class="scale-number">50+</span>
+                    <div class="scale-label">Development Teams</div>
+                    <p class="scale-description">Coordinating design decisions across dozens of teams with different priorities and timelines</p>
+                </div>
+                <div class="scale-card">
+                    <span class="scale-number">2-4</span>
+                    <div class="scale-label">Week Sprints</div>
+                    <p class="scale-description">Multiple release cycles requiring flexible components that work across different contexts</p>
+                </div>
+                <div class="scale-card">
+                    <span class="scale-number">iOS + Android</span>
+                    <div class="scale-label">Platforms</div>
+                    <p class="scale-description">Cross-platform consistency while respecting platform-specific design patterns</p>
+                </div>
+                <div class="scale-card">
+                    <span class="scale-number">Legacy</span>
+                    <div class="scale-label">System Integration</div>
+                    <p class="scale-description">Design systems that work with existing technology constraints and technical debt</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solution Section -->
+    <section class="solution">
+        <div class="container">
+            <h2 class="section-title">Systems That Scale With Organizations</h2>
+            
+            <div class="solution-content">
+                <div class="solution-text">
+                    <h3>People-First Design Systems</h3>
+                    <p>Enterprise design systems succeed when they solve people problems, not just design problems. After leading system initiatives at USAA and Progressive, I've learned that adoption comes through value creation, not mandates.</p>
+                    
+                    <ul class="solution-principles">
+                        <li>Start with high-pain teams to create early advocates</li>
+                        <li>Build components that make developers' jobs easier</li>
+                        <li>Create governance through collaboration, not control</li>
+                        <li>Measure relationship health alongside compliance metrics</li>
+                        <li>Design for organic adoption and community contribution</li>
+                    </ul>
+                </div>
+                <div class="solution-visual">
+                    [Design System Architecture Diagram]
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Case Study Section -->
+    <section class="case-study">
+        <div class="container">
+            <div class="case-study-header">
+                <h2 class="section-title">Case Study: USAA Mobile Design System</h2>
+                <p class="case-study-subtitle">Leading product management for enterprise mobile design system across 50+ development teams</p>
+            </div>
+            
+            <div class="case-study-content">
+                <div class="case-study-details">
+                    <div class="detail-card">
+                        <h4>The Challenge</h4>
+                        <p>USAA needed to coordinate mobile development across 50+ teams while maintaining consistency and accelerating feature delivery for their financial services platform serving 13+ million members.</p>
+                    </div>
+                    <div class="detail-card">
+                        <h4>The Approach</h4>
+                        <p>Led product management for enterprise mobile design system, managing roadmap and backlog through PI planning process. Established shared components, development patterns, and adoption strategies.</p>
+                    </div>
+                    <div class="detail-card">
+                        <h4>The Innovation</h4>
+                        <p>Created advocacy-driven adoption model where early adopter teams became champions, spreading system usage through peer influence rather than top-down mandates.</p>
+                    </div>
+                </div>
+                <div class="impact-metrics">
+                    <h4>Measurable Impact</h4>
+                    <div class="metric-item">
+                        <span class="metric-label">Development Time</span>
+                        <span class="metric-value">-40%</span>
+                    </div>
+                    <div class="metric-item">
+                        <span class="metric-label">System Adoption</span>
+                        <span class="metric-value">80%</span>
+                    </div>
+                    <div class="metric-item">
+                        <span class="metric-label">QA Issues</span>
+                        <span class="metric-value">-60%</span>
+                    </div>
+                    <div class="metric-item">
+                        <span class="metric-label">Team Satisfaction</span>
+                        <span class="metric-value">95%</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services">
+        <div class="container">
+            <h2 class="section-title">Design System Services</h2>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <h3>System Strategy & Planning</h3>
+                    <p>Develop comprehensive design system strategy aligned with business goals and technical constraints.</p>
+                    <ul class="service-features">
+                        <li>Current state assessment and gap analysis</li>
+                        <li>System architecture and governance planning</li>
+                        <li>Adoption strategy and rollout roadmap</li>
+                        <li>Success metrics and measurement framework</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <h3>Component Library Development</h3>
+                    <p>Build scalable component libraries that work across platforms and development teams.</p>
+                    <ul class="service-features">
+                        <li>Cross-platform component design and development</li>
+                        <li>API design for developer productivity</li>
+                        <li>Documentation and usage guidelines</li>
+                        <li>Testing and quality assurance processes</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <h3>Implementation & Adoption</h3>
+                    <p>Guide teams through system implementation with focus on sustainable adoption.</p>
+                    <ul class="service-features">
+                        <li>Team training and onboarding programs</li>
+                        <li>Migration strategies and support</li>
+                        <li>Community building and advocacy development</li>
+                        <li>Continuous improvement and iteration</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="process">
+        <div class="container">
+            <h2 class="section-title">Design System Development Process</h2>
+            <div class="process-intro">
+                <p>A proven methodology for building design systems that teams actually want to use, based on Fortune 500 experience.</p>
+            </div>
+            
+            <div class="process-timeline">
+                <div class="process-phase">
+                    <div class="phase-number">1</div>
+                    <h3>Discovery & Assessment</h3>
+                    <p>Audit current design and development practices, identify pain points, and establish system requirements with stakeholder interviews and technical assessment.</p>
+                    <div class="phase-deliverables">Deliverables: Assessment report, system requirements, success metrics</div>
+                </div>
+                <div class="process-phase">
+                    <div class="phase-number">2</div>
+                    <h3>Foundation & Architecture</h3>
+                    <p>Establish design tokens, component architecture, and governance model. Create pilot components with high-pain early adopter teams.</p>
+                    <div class="phase-deliverables">Deliverables: Design tokens, component library foundation, governance framework</div>
+                </div>
+                <div class="process-phase">
+                    <div class="phase-number">3</div>
+                    <h3>Core Library Development</h3>
+                    <p>Build essential components with proper documentation, testing, and developer tools. Focus on components that solve the biggest problems first.</p>
+                    <div class="phase-deliverables">Deliverables: Core component library, documentation site, developer tools</div>
+                </div>
+                <div class="process-phase">
+                    <div class="phase-number">4</div>
+                    <h3>Adoption & Scale</h3>
+                    <p>Roll out system through advocacy-driven adoption, provide training and support, establish feedback loops and continuous improvement processes.</p>
+                    <div class="phase-deliverables">Deliverables: Training materials, support processes, community guidelines</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technology Section -->
+    <section class="technology">
+        <div class="container">
+            <h2 class="section-title">Technology & Tools</h2>
+            
+            <div class="tech-grid">
+                <div class="tech-category">
+                    <div class="tech-icon">📱</div>
+                    <h3>Mobile Platforms</h3>
+                    <ul class="tech-list">
+                        <li>React Native</li>
+                        <li>iOS (Swift/SwiftUI)</li>
+                        <li>Android (Kotlin)</li>
+                        <li>Flutter</li>
+                    </ul>
+                </div>
+                <div class="tech-category">
+                    <div class="tech-icon">🎨</div>
+                    <h3>Design Tools</h3>
+                    <ul class="tech-list">
+                        <li>Figma</li>
+                        <li>Sketch</li>
+                        <li>Adobe Creative Suite</li>
+                        <li>Design Tokens</li>
+                    </ul>
+                </div>
+                <div class="tech-category">
+                    <div class="tech-icon">⚙️</div>
+                    <h3>Development</h3>
+                    <ul class="tech-list">
+                        <li>Storybook</li>
+                        <li>Component Libraries</li>
+                        <li>NPM/Yarn Packages</li>
+                        <li>Automated Testing</li>
+                    </ul>
+                </div>
+                <div class="tech-category">
+                    <div class="tech-icon">📚</div>
+                    <h3>Documentation</h3>
+                    <ul class="tech-list">
+                        <li>GitBook</li>
+                        <li>Notion</li>
+                        <li>Confluence</li>
+                        <li>Custom Documentation Sites</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ROI Section -->
+    <section class="roi">
+        <div class="container">
+            <h2 class="section-title">Design System ROI</h2>
+            
+            <div class="roi-grid">
+                <div class="roi-metric">
+                    <span class="roi-number">40%</span>
+                    <div class="roi-label">Faster Development</div>
+                    <p class="roi-description">Reduced time to implement common UI patterns</p>
+                </div>
+                <div class="roi-metric">
+                    <span class="roi-number">60%</span>
+                    <div class="roi-label">Fewer QA Issues</div>
+                    <p class="roi-description">Improved code quality through standardized components</p>
+                </div>
+                <div class="roi-metric">
+                    <span class="roi-number">3x</span>
+                    <div class="roi-label">Faster Onboarding</div>
+                    <p class="roi-description">New developers productive more quickly</p>
+                </div>
+                <div class="roi-metric">
+                    <span class="roi-number">90%</span>
+                    <div class="roi-label">Cross-Platform Consistency</div>
+                    <p class="roi-description">Unified user experience across iOS and Android</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section" id="contact">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Ready to Scale Your Design System?</h2>
+                <p>Let's discuss how a strategic approach to design systems can accelerate your mobile development and improve team collaboration.</p>
+                
+                <div class="cta-buttons">
+                    <a href="mailto:rpretzer@gmail.com?subject=Design System Consultation" class="cta-primary-dark">Schedule System Review</a>
+                    <a href="/insights/mobile-design-systems-scale" class="cta-secondary">Read the Whitepaper</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Ryan Andrew Pretzer. <a href="/">Back to main site</a></p>
+        </div>
+    </footer>
+</body>
+</html>

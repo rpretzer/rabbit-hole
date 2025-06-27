@@ -1,1 +1,52 @@
-
+{
+  "pageTitle": "Business Process Design | Ryan Andrew Pretzer",
+  "metaDescription": "Transform complex workflows into intuitive digital experiences. Expert business process design for enterprise organizations seeking operational efficiency.",
+  "hero": {
+    "title": "Business Process Design",
+    "subtitle": "Transforming complex workflows into intuitive digital experiences that actually work for people.",
+    "valueProposition": {
+      "title": "Sometimes the best solution isn't the obvious one",
+      "description": "It's the one that actually works for people, fits your organization's reality, and can be sustained long-term."
+    },
+    "cta": {
+      "text": "Discuss Your Process Challenge",
+      "link": "#contact"
+    }
+  },
+  "sections": [
+    {
+      "title": "People-First Process Design",
+      "type": "text",
+      "content": "Too often, business process design starts with technology capabilities or theoretical efficiency models. Better approach: start with how people actually work, then design processes that amplify their strengths while minimizing friction."
+    },
+    {
+      "title": "Common Process Design Failures",
+      "type": "grid",
+      "items": [
+        {
+          "title": "Technology-First Thinking",
+          "description": "Processes designed around system capabilities rather than user needs, leading to workarounds and shadow processes.",
+          "impact": "40% lower adoption rates, increased training costs"
+        },
+        {
+          "title": "Over-Optimization",
+          "description": "Pursuit of theoretical efficiency that ignores human factors like cognitive load, error recovery, and edge cases.",
+          "impact": "Brittle processes that break under real-world conditions"
+        },
+        {
+          "title": "Compliance Theater",
+          "description": "Processes designed to satisfy auditors rather than enable productive work, creating bureaucratic overhead.",
+          "impact": "Decreased productivity, increased resistance to change"
+        }
+      ]
+    },
+    {
+      "title": "Case Study: Progressive Insurance Legal Review Process",
+      "type": "caseStudy",
+      "description": "State filing processes required legal review coordination across multiple departments, creating bottlenecks and compliance risks.",
+      "approach": "Designed collaborative workflow that integrated legal review into development process rather than treating it as separate approval gate.",
+      "innovation": "Created early-warning system that flagged potential legal issues during content creation, preventing downstream bottlenecks.",
+      "results": "60% reduction in review cycle time, 75% fewer compliance issues, 85% process satisfaction improvement"
+    }
+  ]
+}

@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agile Coaching | Ryan Andrew Pretzer</title>
+    <meta name="description" content="Helping teams adopt agile methodologies and design thinking practices that prioritize outcomes over adherence to process. Expert agile transformation guidance.">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.7;
+            color: #1a1a1a;
+            background: #ffffff;
+            font-weight: 300;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        .header {
+            background: #ffffff;
+            border-bottom: 1px solid rgba(26, 26, 26, 0.08);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.2rem;
+            font-weight: 400;
+            color: #1a1a1a;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #666;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #1a1a1a;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #f5f5f5 0%, #e0e0e0 100%);
+            padding: 4rem 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 200;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.02em;
+            line-height: 1.1;
+        }
+
+        .hero .subtitle {
+            font-size: 1.3rem;
+            color: #555;
+            margin-bottom: 2rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin: 3rem 0;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 200;
+            color: #1a1a1a;
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: #666;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        .cta-primary {
+            display: inline-block;
+            background: #1a1a1a;
+            color: white;
+            padding: 1rem 2rem;
+            text-decoration: none;
+            border-radius: 2px;
+            font-weight: 400;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            margin-top: 1rem;
+        }
+
+        .cta-primary:hover {
+            background: #000;
+            transform: translateY(-1px);
+            box-shadow: 0 8px 25px rgba(26, 26, 26, 0.2);
+        }
+
+        /* Section Styles */
+        .section {
+            padding: 5rem 0;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 200;
+            text-align: center;
+            margin-bottom: 3rem;
+            letter-spacing: -0.02em;
+        }
+
+        /* Philosophy Section */
+        .philosophy {
+            background: #ffffff;
+        }
+
+        .philosophy-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .philosophy-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .philosophy-text h3 {
+            font-size: 1.5rem;
+            font-weight: 300;
+            margin-bottom: 1.5rem;
+            color: #1a1a1a;
+        }
+
+        .philosophy-quote {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 4px;
+            font-style: italic;
+            font-size: 1.2rem;
+            text-align: center;
+            border-left: 4px solid #1a1a1a;
+        }
+
+        /* Approach Section */
+        .approach {
+            background: #f8f9fa;
+        }
+
+        .approach-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .approach-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 4px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            border-top: 4px solid #1a1a1a;
+        }
+
+        .approach-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            font-weight: 400;
+        }
+
+        .approach-card p {
+            color: #555;
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+        }
+
+        .approach-list {
+            list-style: none;
+        }
+
+        .approach-list li {
+            padding: 0.3rem 0;
+            position: relative;
+            padding-left: 1.5rem;
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        .approach-list li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: #1a1a1a;
+        }
+
+        /* Services Section */
+        .services {
+            background: #ffffff;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .service-card {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 4px;
+            border-left: 4px solid #1a1a1a;
+        }
+
+        .service-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            font-weight: 400;
+            color: #1a1a1a;
+        }
+
+        .service-card p {
+            color: #555;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .service-features {
+            list-style: none;
+        }
+
+        .service-features li {
+            padding: 0.3rem 0;
+            font-size: 0.9rem;
+            color: #666;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+
+        .service-features li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: #1a1a1a;
+        }
+
+        /* Process Section */
+        .process {
+            background: #f8f9fa;
+        }
+
+        .process-timeline {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .process-phase {
+            background: white;
+            padding: 2rem;
+            border-radius: 4px;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: relative;
+        }
+
+        .phase-number {
+            width: 60px;
+            height: 60px;
+            background: #1a1a1a;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 300;
+            margin: 0 auto 1.5rem;
+        }
+
+        .process-phase h3 {
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            font-weight: 400;
+        }
+
+        .process-phase p {
+            color: #555;
+            font-size: 0.9rem;
+        }
+
+        /* Case Study Section */
+        .case-study {
+            background: #1a1a1a;
+            color: white;
+        }
+
+        .case-study .section-title {
+            color: white;
+        }
+
+        .case-study-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            margin-top: 3rem;
+        }
+
+        .case-study-text h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            font-weight: 300;
+        }
+
+        .case-study-text p {
+            color: #e0e0e0;
+            margin-bottom: 1.5rem;
+        }
+
+        .transformation-results {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 2rem;
+            border-radius: 4px;
+        }
+
+        .result-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .result-item:last-child {
+            border-bottom: none;
+        }
+
+        .result-metric {
+            font-size: 1.5rem;
+            font-weight: 300;
+            color: #fff;
+        }
+
+        .result-label {
+            color: #e0e0e0;
+            font-size: 0.9rem;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 5rem 0;
+            background: #ffffff;
+            text-align: center;
+        }
+
+        .cta-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .cta-section h2 {
+            font-size: 2.2rem;
+            font-weight: 200;
+            margin-bottom: 1.5rem;
+        }
+
+        .cta-section p {
+            font-size: 1.1rem;
+            color: #555;
+            margin-bottom: 2rem;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .cta-secondary {
+            display: inline-block;
+            border: 2px solid #1a1a1a;
+            color: #1a1a1a;
+            padding: 1rem 2rem;
+            text-decoration: none;
+            border-radius: 2px;
+            font-weight: 400;
+            transition: all 0.3s ease;
+        }
+
+        .cta-secondary:hover {
+            background: #1a1a1a;
+            color: white;
+        }
+
+        /* Footer */
+        .footer {
+            background: #1a1a1a;
+            color: #e0e0e0;
+            padding: 2rem 0;
+            text-align: center;
+        }
+
+        .footer a {
+            color: #e0e0e0;
+            text-decoration: none;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .hero-stats {
+                flex-direction: column;
+                gap: 2rem;
+            }
+            
+            .philosophy-content,
+            .case-study-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="/" class="logo">Ryan Andrew Pretzer</a>
+                <nav>
+                    <ul class="nav-links">
+                        <li><a href="/#about">About</a></li>
+                        <li><a href="/#services">Services</a></li>
+                        <li><a href="/#portfolio">Portfolio</a></li>
+                        <li><a href="/#content">Insights</a></li>
+                        <li><a href="/#contact">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Agile Coaching</h1>
+            <p class="subtitle">Helping teams adopt agile methodologies and design thinking practices that prioritize outcomes over adherence to process.</p>
+            
+            <div class="hero-stats">
+                <div class="stat">
+                    <span class="stat-number">50+</span>
+                    <span class="stat-label">Teams Coached</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">15+</span>
+                    <span class="stat-label">Years Experience</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">SAFe</span>
+                    <span class="stat-label">Certified</span>
+                </div>
+            </div>
+            
+            <a href="#contact" class="cta-primary">Schedule Coaching Session</a>
+        </div>
+    </section>
+
+    <!-- Philosophy Section -->
+    <section class="philosophy section">
+        <div class="container">
+            <h2 class="section-title">Agile as Practice, Not Process</h2>
+            
+            <div class="philosophy-content">
+                <div class="philosophy-text">
+                    <h3>Beyond Methodology Adherence</h3>
+                    <p>Too many agile transformations fail because they focus on perfect process execution rather than delivering value. After coaching teams at Fortune 500 companies like USAA and Progressive, I've learned that successful agile adoption happens when teams understand the principles, not just the practices.</p>
+                    
+                    <p>My approach combines traditional agile methodologies with design thinking and lean principles, creating frameworks that work for your specific context and culture.</p>
+                </div>
+                <div class="philosophy-quote">
+                    "Outcomes and relationships trump process and adherence. The goal isn't perfect scrum—it's delivering value to customers and creating sustainable team practices."
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Approach Section -->
+    <section class="approach section">
+        <div class="container">
+            <h2 class="section-title">Pragmatic Agile Coaching</h2>
+            
+            <div class="approach-grid">
+                <div class="approach-card">
+                    <h3>Team-Level Coaching</h3>
+                    <p>Work directly with development teams to improve their agile practices and delivery capabilities.</p>
+                    <ul class="approach-list">
+                        <li>Sprint planning and retrospective facilitation</li>
+                        <li>Backlog refinement and story writing</li>
+                        <li>Velocity improvement and predictability</li>
+                        <li>Cross-functional collaboration</li>
+                    </ul>
+                </div>
+                <div class="approach-card">
+                    <h3>Leadership Alignment</h3>
+                    <p>Help leaders understand and support agile transformation without micromanaging teams.</p>
+                    <ul class="approach-list">
+                        <li>Executive coaching on agile leadership</li>
+                        <li>Portfolio and program alignment</li>
+                        <li>Metrics that matter vs vanity metrics</li>
+                        <li>Creating psychological safety</li>
+                    </ul>
+                </div>
+                <div class="approach-card">
+                    <h3>Organizational Culture</h3>
+                    <p>Address the cultural changes needed for sustainable agile transformation.</p>
+                    <ul class="approach-list">
+                        <li>Moving from command to collaboration</li>
+                        <li>Embracing failure as learning</li>
+                        <li>Customer-centric mindset shift</li>
+                        <li>Continuous improvement culture</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services section">
+        <div class="container">
+            <h2 class="section-title">Agile Coaching Services</h2>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <h3>Team Transformation</h3>
+                    <p>Embedded coaching to help teams adopt and improve their agile practices for better delivery.</p>
+                    <ul class="service-features">
+                        <li>Scrum, Kanban, or hybrid implementation</li>
+                        <li>Sprint ceremony optimization</li>
+                        <li>Technical practice coaching (TDD, CI/CD)</li>
+                        <li>Metrics and continuous improvement</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <h3>SAFe Implementation</h3>
+                    <p>Guide enterprise-scale agile transformations using Scaled Agile Framework principles.</p>
+                    <ul class="service-features">
+                        <li>PI planning facilitation</li>
+                        <li>ART launch and optimization</li>
+                        <li>Value stream mapping</li>
+                        <li>Portfolio alignment</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <h3>Design Thinking Integration</h3>
+                    <p>Combine agile delivery with design thinking for truly customer-centric development.</p>
+                    <ul class="service-features">
+                        <li>User research integration</li>
+                        <li>Rapid prototyping workshops</li>
+                        <li>Customer feedback loops</li>
+                        <li>Innovation sprint facilitation</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="process section">
+        <div class="container">
+            <h2 class="section-title">Coaching Engagement Process</h2>
+            
+            <div class="process-timeline">
+                <div class="process-phase">
+                    <div class="phase-number">1</div>
+                    <h3>Assessment</h3>
+                    <p>Evaluate current practices, team dynamics, and organizational readiness for agile transformation.</p>
+                </div>
+                <div class="process-phase">
+                    <div class="phase-number">2</div>
+                    <h3>Customization</h3>
+                    <p>Design agile framework that fits your culture, constraints, and business objectives.</p>
+                </div>
+                <div class="process-phase">
+                    <div class="phase-number">3</div>
+                    <h3>Implementation</h3>
+                    <p>Hands-on coaching through initial sprints, establishing sustainable practices and rhythms.</p>
+                </div>
+                <div class="process-phase">
+                    <div class="phase-number">4</div>
+                    <h3>Optimization</h3>
+                    <p>Continuous improvement through metrics analysis, retrospectives, and practice refinement.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Case Study Section -->
+    <section class="case-study section">
+        <div class="container">
+            <h2 class="section-title">Transformation Success: USAA</h2>
+            
+            <div class="case-study-content">
+                <div class="case-study-text">
+                    <h3>The Challenge</h3>
+                    <p>USAA needed to coordinate agile practices across 50+ development teams while maintaining quality and compliance requirements for financial services.</p>
+                    
+                    <h3>The Approach</h3>
+                    <p>Implemented SAFe framework with customizations for USAA's unique context. Focused on building agile champions within teams rather than imposing top-down transformation.</p>
+                    
+                    <h3>The Impact</h3>
+                    <p>Teams achieved predictable delivery cadence, improved cross-team collaboration, and significantly reduced time-to-market for new features while maintaining compliance standards.</p>
+                </div>
+                <div class="transformation-results">
+                    <div class="result-item">
+                        <span class="result-label">Delivery Predictability</span>
+                        <span class="result-metric">85%</span>
+                    </div>
+                    <div class="result-item">
+                        <span class="result-label">Team Satisfaction</span>
+                        <span class="result-metric">90%</span>
+                    </div>
+                    <div class="result-item">
+                        <span class="result-label">Time to Market</span>
+                        <span class="result-metric">-40%</span>
+                    </div>
+                    <div class="result-item">
+                        <span class="result-label">Quality Metrics</span>
+                        <span class="result-metric">+35%</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section" id="contact">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Ready to Transform Your Teams?</h2>
+                <p>Let's discuss how pragmatic agile coaching can help your teams deliver better outcomes while building sustainable practices.</p>
+                
+                <div class="cta-buttons">
+                    <a href="mailto:rpretzer@gmail.com?subject=Agile Coaching Inquiry" class="cta-primary">Schedule Consultation</a>
+                    <a href="/insights/change-management-practice" class="cta-secondary">Read About Change Management</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Ryan Andrew Pretzer. <a href="/">Back to main site</a></p>
+        </div>
+    </footer>
+</body>
+</html>

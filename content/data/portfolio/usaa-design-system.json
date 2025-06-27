@@ -1,1 +1,80 @@
-
+{
+  "pageTitle": "USAA Mobile Design System | Ryan Andrew Pretzer Portfolio",
+  "metaDescription": "Case study: Leading product management for enterprise mobile design system across 50+ development teams at USAA, achieving 80% adoption and 40% development time reduction.",
+  "hero": {
+    "title": "USAA Mobile Design System",
+    "subtitle": "Leading product management for enterprise mobile design system across 50+ development teams, achieving 80% adoption and transforming mobile development capability.",
+    "projectMeta": [
+      {
+        "label": "Role",
+        "value": "Product Manager"
+      },
+      {
+        "label": "Duration", 
+        "value": "18 Months"
+      },
+      {
+        "label": "Team Size",
+        "value": "50+ Teams"
+      },
+      {
+        "label": "Platform",
+        "value": "iOS + Android"
+      }
+    ]
+  },
+  "sections": [
+    {
+      "title": "Project Overview",
+      "type": "overview",
+      "challenge": "USAA, serving 13+ million military members and their families, needed to coordinate mobile development across 50+ teams while maintaining consistency and accelerating feature delivery for their comprehensive financial services platform.",
+      "approach": "Rather than building a comprehensive system upfront and mandating adoption, we took an advocacy-driven approach that started with high-pain teams and grew through demonstrated value.",
+      "keyResults": [
+        {
+          "metric": "80%",
+          "label": "System Adoption Rate"
+        },
+        {
+          "metric": "40%", 
+          "label": "Development Time Reduction"
+        },
+        {
+          "metric": "60%",
+          "label": "QA Issues Reduction"
+        },
+        {
+          "metric": "95%",
+          "label": "Team Satisfaction Score"
+        }
+      ]
+    },
+    {
+      "title": "Strategic Implementation Process",
+      "type": "timeline",
+      "phases": [
+        {
+          "number": 1,
+          "title": "Discovery & Early Adopters",
+          "description": "Conducted comprehensive audit of existing mobile development practices and identified teams with the biggest pain points that our system could solve immediately.",
+          "outcomes": [
+            "Interviewed 20+ development teams",
+            "Identified accessibility compliance as key pain point", 
+            "Selected 3 early adopter teams with urgent needs",
+            "Established success metrics and feedback loops"
+          ]
+        },
+        {
+          "number": 2,
+          "title": "Foundation & Quick Wins", 
+          "description": "Built core components that solved immediate problems for early adopters, focusing on accessibility-compliant form components and navigation patterns.",
+          "outcomes": [
+            "Developed 8 core components with accessibility built-in",
+            "Created Storybook documentation and examples",
+            "Established design token foundation",
+            "Achieved 100% adoption within pilot teams"
+          ]
+        }
+      ]
+    }
+  ]
+}

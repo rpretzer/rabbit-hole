@@ -1,1 +1,108 @@
-
+{
+  "pageTitle": "MVP Healthcare Mobile Platform | Ryan Andrew Pretzer Portfolio",
+  "metaDescription": "Case study: Product owner for mobile application features at MVP Healthcare, managing backlog and stakeholder alignment for healthcare digital transformation initiatives.",
+  "hero": {
+    "title": "MVP Healthcare Mobile Platform",
+    "subtitle": "Product owner for mobile application features, managing backlog and stakeholder alignment for healthcare digital transformation initiatives serving 700,000+ members.",
+    "projectMeta": [
+      {
+        "label": "Role",
+        "value": "Product Owner"
+      },
+      {
+        "label": "Duration",
+        "value": "12 Months"
+      },
+      {
+        "label": "Members",
+        "value": "700K+"
+      },
+      {
+        "label": "Platform",
+        "value": "Mobile + Web"
+      }
+    ]
+  },
+  "sections": [
+    {
+      "title": "Project Overview",
+      "type": "overview",
+      "challenge": "MVP Healthcare, serving over 700,000 members across Vermont and northern New York, needed to modernize their digital member experience while navigating complex healthcare regulations, diverse member needs, and integration challenges with legacy systems.",
+      "approach": "As product owner for mobile features, I managed the strategic roadmap and stakeholder alignment for initiatives that would transform how members interact with their healthcare benefits, from enrollment to claims management.",
+      "keyResults": [
+        {
+          "metric": "70%",
+          "label": "Monthly Active Users"
+        },
+        {
+          "metric": "85%",
+          "label": "User Satisfaction"
+        },
+        {
+          "metric": "45%",
+          "label": "Call Center Reduction"
+        },
+        {
+          "metric": "90%",
+          "label": "Digital Claims Adoption"
+        }
+      ]
+    },
+    {
+      "title": "Healthcare Digital Transformation",
+      "type": "transformation",
+      "phases": [
+        {
+          "number": 1,
+          "title": "Member Research & Journey Mapping",
+          "description": "Conducted comprehensive member research to understand current healthcare journey pain points and digital readiness across diverse demographics.",
+          "outcomes": [
+            "Surveyed 2,000+ members across age groups",
+            "Mapped healthcare journey touchpoints",
+            "Identified mobile app feature priorities",
+            "Established accessibility requirements"
+          ]
+        },
+        {
+          "number": 2,
+          "title": "MVP Launch & Core Features",
+          "description": "Prioritized and launched essential mobile features that provided immediate member value while establishing technical foundation.",
+          "outcomes": [
+            "Secure member authentication and profiles",
+            "Claims tracking and digital ID cards",
+            "Provider directory with search",
+            "40% member adoption in 6 months"
+          ]
+        },
+        {
+          "number": 3,
+          "title": "Advanced Health Management",
+          "description": "Expanded platform with sophisticated health management tools integrated with clinical workflows and member care plans.",
+          "outcomes": [
+            "Prescription management and refills",
+            "Secure messaging with care teams",
+            "Preventive care tracking",
+            "85% user satisfaction rating"
+          ]
+        }
+      ]
+    }
+  ],
+  "insights": [
+    {
+      "type": "Stakeholder Management",
+      "title": "Clinical vs. Digital Perspectives",
+      "description": "Healthcare product ownership requires translating between clinical best practices and digital user experience expectations."
+    },
+    {
+      "type": "Regulatory Navigation",
+      "title": "Privacy as Product Feature",
+      "description": "HIPAA compliance and privacy requirements can become competitive advantages when built thoughtfully into user experience."
+    },
+    {
+      "type": "User Experience",
+      "title": "Accessibility-First Healthcare",
+      "description": "Healthcare members have diverse abilities and technology comfort levels. Designing for accessibility creates better experiences for all users."
+    }
+  ]
+}

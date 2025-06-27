@@ -1,0 +1,900 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>USAA Mobile Design System | Ryan Andrew Pretzer Portfolio</title>
+    <meta name="description" content="Case study: Leading product management for enterprise mobile design system across 50+ development teams at USAA, achieving 80% adoption and 40% development time reduction.">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.7;
+            color: #1a1a1a;
+            background: #ffffff;
+            font-weight: 300;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        .header {
+            background: #ffffff;
+            border-bottom: 1px solid rgba(26, 26, 26, 0.08);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.2rem;
+            font-weight: 400;
+            color: #1a1a1a;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #666;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #1a1a1a;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #003366 0%, #004d99 100%);
+            padding: 5rem 0;
+            color: white;
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .hero-text h1 {
+            font-size: 3.2rem;
+            font-weight: 200;
+            margin-bottom: 1rem;
+            letter-spacing: -0.02em;
+            line-height: 1.1;
+        }
+
+        .hero-text .subtitle {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+            line-height: 1.6;
+        }
+
+        .project-meta {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .meta-item {
+            text-align: center;
+        }
+
+        .meta-label {
+            font-size: 0.8rem;
+            opacity: 0.8;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 0.5rem;
+        }
+
+        .meta-value {
+            font-size: 1.2rem;
+            font-weight: 400;
+        }
+
+        .hero-visual {
+            background: rgba(255, 255, 255, 0.1);
+            height: 400px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        /* Overview Section */
+        .overview {
+            padding: 5rem 0;
+            background: #ffffff;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 200;
+            margin-bottom: 3rem;
+            letter-spacing: -0.02em;
+            text-align: center;
+        }
+
+        .overview-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 4rem;
+            margin-top: 3rem;
+        }
+
+        .overview-content h3 {
+            font-size: 1.8rem;
+            font-weight: 300;
+            margin-bottom: 1.5rem;
+            color: #1a1a1a;
+        }
+
+        .overview-content p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            color: #333;
+        }
+
+        .challenge-list {
+            list-style: none;
+            margin: 2rem 0;
+        }
+
+        .challenge-list li {
+            padding: 0.8rem 0;
+            position: relative;
+            padding-left: 2rem;
+            font-size: 1rem;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .challenge-list li::before {
+            content: '⚠️';
+            position: absolute;
+            left: 0;
+            font-size: 1rem;
+        }
+
+        .key-metrics {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 8px;
+            border-left: 4px solid #003366;
+        }
+
+        .key-metrics h4 {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            font-weight: 400;
+            text-align: center;
+        }
+
+        .metric-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+            border-bottom: 1px solid #e9ecef;
+        }
+
+        .metric-item:last-child {
+            border-bottom: none;
+        }
+
+        .metric-value {
+            font-size: 1.8rem;
+            font-weight: 200;
+            color: #003366;
+        }
+
+        .metric-label {
+            color: #555;
+            font-size: 0.9rem;
+        }
+
+        /* Process Section */
+        .process {
+            padding: 5rem 0;
+            background: #f8f9fa;
+        }
+
+        .process-intro {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 4rem;
+        }
+
+        .process-intro p {
+            font-size: 1.2rem;
+            color: #555;
+            line-height: 1.8;
+        }
+
+        .process-timeline {
+            position: relative;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .timeline-item {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 4rem;
+            position: relative;
+        }
+
+        .timeline-item:nth-child(even) .timeline-content {
+            order: 1;
+        }
+
+        .timeline-item:nth-child(even) .timeline-visual {
+            order: 2;
+        }
+
+        .timeline-content {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            border-left: 4px solid #003366;
+        }
+
+        .timeline-phase {
+            font-size: 0.8rem;
+            color: #003366;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .timeline-title {
+            font-size: 1.4rem;
+            font-weight: 400;
+            margin-bottom: 1rem;
+            color: #1a1a1a;
+        }
+
+        .timeline-description {
+            font-size: 1rem;
+            line-height: 1.7;
+            color: #555;
+            margin-bottom: 1.5rem;
+        }
+
+        .timeline-outcomes {
+            list-style: none;
+        }
+
+        .timeline-outcomes li {
+            padding: 0.3rem 0;
+            font-size: 0.9rem;
+            color: #666;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+
+        .timeline-outcomes li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #28a745;
+            font-weight: bold;
+        }
+
+        .timeline-visual {
+            background: #e9ecef;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #666;
+            font-size: 1rem;
+            min-height: 200px;
+        }
+
+        /* Impact Section */
+        .impact {
+            padding: 5rem 0;
+            background: #003366;
+            color: white;
+        }
+
+        .impact .section-title {
+            color: white;
+        }
+
+        .impact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .impact-card {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2.5rem;
+            border-radius: 8px;
+            text-align: center;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .impact-number {
+            font-size: 3.5rem;
+            font-weight: 200;
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #fff;
+        }
+
+        .impact-label {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            margin-bottom: 1rem;
+        }
+
+        .impact-description {
+            font-size: 0.9rem;
+            opacity: 0.8;
+            line-height: 1.6;
+        }
+
+        /* Lessons Section */
+        .lessons {
+            padding: 5rem 0;
+            background: #ffffff;
+        }
+
+        .lessons-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .lesson-card {
+            background: #f8f9fa;
+            padding: 2.5rem;
+            border-radius: 8px;
+            border-left: 4px solid #28a745;
+        }
+
+        .lesson-type {
+            font-size: 0.8rem;
+            color: #28a745;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .lesson-card h3 {
+            font-size: 1.3rem;
+            font-weight: 400;
+            margin-bottom: 1rem;
+            color: #1a1a1a;
+        }
+
+        .lesson-card p {
+            color: #555;
+            line-height: 1.7;
+        }
+
+        /* Technical Details Section */
+        .technical {
+            padding: 5rem 0;
+            background: #f8f9fa;
+        }
+
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .tech-category {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .tech-category h3 {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            font-weight: 400;
+            color: #1a1a1a;
+        }
+
+        .tech-list {
+            list-style: none;
+        }
+
+        .tech-list li {
+            padding: 0.4rem 0;
+            color: #555;
+            font-size: 0.9rem;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+
+        .tech-list li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: #003366;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 5rem 0;
+            background: #ffffff;
+            text-align: center;
+        }
+
+        .cta-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .cta-section h2 {
+            font-size: 2.2rem;
+            font-weight: 200;
+            margin-bottom: 1.5rem;
+        }
+
+        .cta-section p {
+            font-size: 1.1rem;
+            color: #555;
+            margin-bottom: 2rem;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .cta-primary {
+            display: inline-block;
+            background: #003366;
+            color: white;
+            padding: 1rem 2rem;
+            text-decoration: none;
+            border-radius: 2px;
+            font-weight: 400;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .cta-primary:hover {
+            background: #002244;
+            transform: translateY(-1px);
+            box-shadow: 0 8px 25px rgba(0, 51, 102, 0.2);
+        }
+
+        .cta-secondary {
+            display: inline-block;
+            border: 2px solid #003366;
+            color: #003366;
+            padding: 1rem 2rem;
+            text-decoration: none;
+            border-radius: 2px;
+            font-weight: 400;
+            transition: all 0.3s ease;
+        }
+
+        .cta-secondary:hover {
+            background: #003366;
+            color: white;
+        }
+
+        /* Footer */
+        .footer {
+            background: #1a1a1a;
+            color: #e0e0e0;
+            padding: 2rem 0;
+            text-align: center;
+        }
+
+        .footer a {
+            color: #e0e0e0;
+            text-decoration: none;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .hero-text h1 {
+                font-size: 2.4rem;
+            }
+            
+            .overview-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .timeline-item {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            
+            .timeline-item:nth-child(even) .timeline-content,
+            .timeline-item:nth-child(even) .timeline-visual {
+                order: initial;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="/" class="logo">Ryan Andrew Pretzer</a>
+                <nav>
+                    <ul class="nav-links">
+                        <li><a href="/#about">About</a></li>
+                        <li><a href="/#services">Services</a></li>
+                        <li><a href="/#portfolio">Portfolio</a></li>
+                        <li><a href="/#contact">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>USAA Mobile Design System</h1>
+                    <p class="subtitle">Leading product management for enterprise mobile design system across 50+ development teams, achieving 80% adoption and transforming mobile development capability.</p>
+                    
+                    <div class="project-meta">
+                        <div class="meta-item">
+                            <div class="meta-label">Role</div>
+                            <div class="meta-value">Product Manager</div>
+                        </div>
+                        <div class="meta-item">
+                            <div class="meta-label">Duration</div>
+                            <div class="meta-value">18 Months</div>
+                        </div>
+                        <div class="meta-item">
+                            <div class="meta-label">Team Size</div>
+                            <div class="meta-value">50+ Teams</div>
+                        </div>
+                        <div class="meta-item">
+                            <div class="meta-label">Platform</div>
+                            <div class="meta-value">iOS + Android</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="hero-visual">
+                    [USAA Design System Components Showcase]
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Overview Section -->
+    <section class="overview">
+        <div class="container">
+            <h2 class="section-title">Project Overview</h2>
+            
+            <div class="overview-grid">
+                <div class="overview-content">
+                    <h3>The Challenge</h3>
+                    <p>USAA, serving 13+ million military members and their families, needed to coordinate mobile development across 50+ teams while maintaining consistency and accelerating feature delivery for their comprehensive financial services platform.</p>
+                    
+                    <p>The existing development process was fragmented, with teams building similar components in isolation, leading to inconsistent user experiences, duplicated effort, and slow feature delivery across their mobile applications.</p>
+                    
+                    <ul class="challenge-list">
+                        <li>50+ development teams with minimal coordination</li>
+                        <li>Inconsistent UI patterns across iOS and Android</li>
+                        <li>Duplicated component development effort</li>
+                        <li>Slow feature delivery due to rebuild requirements</li>
+                        <li>Accessibility compliance challenges at scale</li>
+                        <li>Complex PI planning across multiple business units</li>
+                    </ul>
+                </div>
+                <div class="key-metrics">
+                    <h4>Key Results Achieved</h4>
+                    <div class="metric-item">
+                        <span class="metric-label">System Adoption Rate</span>
+                        <span class="metric-value">80%</span>
+                    </div>
+                    <div class="metric-item">
+                        <span class="metric-label">Development Time Reduction</span>
+                        <span class="metric-value">40%</span>
+                    </div>
+                    <div class="metric-item">
+                        <span class="metric-label">QA Issues Reduction</span>
+                        <span class="metric-value">60%</span>
+                    </div>
+                    <div class="metric-item">
+                        <span class="metric-label">Cross-Platform Consistency</span>
+                        <span class="metric-value">90%</span>
+                    </div>
+                    <div class="metric-item">
+                        <span class="metric-label">Team Satisfaction Score</span>
+                        <span class="metric-value">95%</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="process">
+        <div class="container">
+            <h2 class="section-title">Strategic Implementation Process</h2>
+            <div class="process-intro">
+                <p>Rather than building a comprehensive system upfront and mandating adoption, we took an advocacy-driven approach that started with high-pain teams and grew through demonstrated value.</p>
+            </div>
+            
+            <div class="process-timeline">
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-phase">Phase 1</div>
+                        <h3 class="timeline-title">Discovery & Early Adopters</h3>
+                        <p class="timeline-description">Conducted comprehensive audit of existing mobile development practices and identified teams with the biggest pain points that our system could solve immediately.</p>
+                        <ul class="timeline-outcomes">
+                            <li>Interviewed 20+ development teams</li>
+                            <li>Identified accessibility compliance as key pain point</li>
+                            <li>Selected 3 early adopter teams with urgent needs</li>
+                            <li>Established success metrics and feedback loops</li>
+                        </ul>
+                    </div>
+                    <div class="timeline-visual">
+                        [Team Interview & Pain Point Analysis]
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-phase">Phase 2</div>
+                        <h3 class="timeline-title">Foundation & Quick Wins</h3>
+                        <p class="timeline-description">Built core components that solved immediate problems for early adopters, focusing on accessibility-compliant form components and navigation patterns.</p>
+                        <ul class="timeline-outcomes">
+                            <li>Developed 8 core components with accessibility built-in</li>
+                            <li>Created Storybook documentation and examples</li>
+                            <li>Established design token foundation</li>
+                            <li>Achieved 100% adoption within pilot teams</li>
+                        </ul>
+                    </div>
+                    <div class="timeline-visual">
+                        [Component Library Foundation]
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-phase">Phase 3</div>
+                        <h3 class="timeline-title">Advocacy & Expansion</h3>
+                        <p class="timeline-description">Pilot teams became advocates, demonstrating value to peer teams through faster development and improved quality. Established office hours and community support.</p>
+                        <ul class="timeline-outcomes">
+                            <li>Pilot teams achieved 40% faster component implementation</li>
+                            <li>Established weekly office hours and Slack support</li>
+                            <li>Created component contribution guidelines</li>
+                            <li>Expanded to 15 teams through peer recommendations</li>
+                        </ul>
+                    </div>
+                    <div class="timeline-visual">
+                        [Adoption Metrics & Community Growth]
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-phase">Phase 4</div>
+                        <h3 class="timeline-title">Scale & Governance</h3>
+                        <p class="timeline-description">Implemented formal governance through Design System Council, established contribution processes, and integrated system into PI planning cycles.</p>
+                        <ul class="timeline-outcomes">
+                            <li>Created Design System Council with team representatives</li>
+                            <li>Integrated component roadmap into PI planning</li>
+                            <li>Established automated testing and release processes</li>
+                            <li>Achieved 80% adoption across 50+ teams</li>
+                        </ul>
+                    </div>
+                    <div class="timeline-visual">
+                        [Governance Structure & Scale Metrics]
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Impact Section -->
+    <section class="impact">
+        <div class="container">
+            <h2 class="section-title">Measurable Business Impact</h2>
+            
+            <div class="impact-grid">
+                <div class="impact-card">
+                    <span class="impact-number">40%</span>
+                    <div class="impact-label">Faster Development</div>
+                    <p class="impact-description">Reduced time to implement common UI patterns from weeks to days through reusable components</p>
+                </div>
+                <div class="impact-card">
+                    <span class="impact-number">80%</span>
+                    <div class="impact-label">Team Adoption</div>
+                    <p class="impact-description">Voluntary adoption across 50+ teams within 12 months through value demonstration</p>
+                </div>
+                <div class="impact-card">
+                    <span class="impact-number">60%</span>
+                    <div class="impact-label">Fewer QA Issues</div>
+                    <p class="impact-description">Improved code quality and consistency through standardized, tested components</p>
+                </div>
+                <div class="impact-card">
+                    <span class="impact-number">3x</span>
+                    <div class="impact-label">Faster Onboarding</div>
+                    <p class="impact-description">New mobile developers productive in days rather than weeks with comprehensive component library</p>
+                </div>
+                <div class="impact-card">
+                    <span class="impact-number">95%</span>
+                    <div class="impact-label">Team Satisfaction</div>
+                    <p class="impact-description">High satisfaction scores from developers who found the system made their work easier</p>
+                </div>
+                <div class="impact-card">
+                    <span class="impact-number">100%</span>
+                    <div class="impact-label">Accessibility Compliance</div>
+                    <p class="impact-description">Built-in accessibility features ensured compliance across all system-built components</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lessons Section -->
+    <section class="lessons">
+        <div class="container">
+            <h2 class="section-title">Key Insights & Lessons Learned</h2>
+            
+            <div class="lessons-grid">
+                <div class="lesson-card">
+                    <div class="lesson-type">Strategic Insight</div>
+                    <h3>Adoption Through Value, Not Mandates</h3>
+                    <p>Teams adopted the system because it made their work easier and faster, not because they were required to. Starting with teams that had the biggest problems our system could solve created natural advocates who spread adoption through peer influence.</p>
+                </div>
+                <div class="lesson-card">
+                    <div class="lesson-type">Product Management</div>
+                    <h3>Systems Thinking at Scale</h3>
+                    <p>Enterprise design systems require both technical architecture and social architecture. The relationships between teams, the governance model, and the contribution processes matter as much as the component APIs.</p>
+                </div>
+                <div class="lesson-card">
+                    <div class="lesson-type">Technical Learning</div>
+                    <h3>Progressive Enhancement Approach</h3>
+                    <p>Components designed with sensible defaults but powerful customization options allowed teams to adopt incrementally. Basic usage worked immediately, while advanced features supported complex use cases.</p>
+                </div>
+                <div class="lesson-card">
+                    <div class="lesson-type">Organizational Impact</div>
+                    <h3>Cross-Team Collaboration</h3>
+                    <p>The design system became a platform for cross-team collaboration. Teams started sharing solutions, contributing improvements, and coordinating development in ways that extended beyond the component library.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technical Details Section -->
+    <section class="technical">
+        <div class="container">
+            <h2 class="section-title">Technical Implementation</h2>
+            
+            <div class="tech-grid">
+                <div class="tech-category">
+                    <h3>Architecture & Platforms</h3>
+                    <ul class="tech-list">
+                        <li>React Native for cross-platform components</li>
+                        <li>iOS native Swift/SwiftUI components</li>
+                        <li>Android native Kotlin components</li>
+                        <li>Design tokens for consistent styling</li>
+                        <li>Automated testing and quality assurance</li>
+                    </ul>
+                </div>
+                <div class="tech-category">
+                    <h3>Development Tools</h3>
+                    <ul class="tech-list">
+                        <li>Storybook for component documentation</li>
+                        <li>NPM packages for distribution</li>
+                        <li>Automated build and release pipelines</li>
+                        <li>Jest and Detox for testing</li>
+                        <li>Figma integration for design handoff</li>
+                    </ul>
+                </div>
+                <div class="tech-category">
+                    <h3>Governance & Process</h3>
+                    <ul class="tech-list">
+                        <li>Design System Council for decision making</li>
+                        <li>PI planning integration for roadmap alignment</li>
+                        <li>Contribution guidelines and review process</li>
+                        <li>Office hours and community support</li>
+                        <li>Usage analytics and feedback collection</li>
+                    </ul>
+                </div>
+                <div class="tech-category">
+                    <h3>Quality & Compliance</h3>
+                    <ul class="tech-list">
+                        <li>WCAG 2.1 AA accessibility compliance</li>
+                        <li>Security review and approval processes</li>
+                        <li>Performance monitoring and optimization</li>
+                        <li>Cross-browser and device testing</li>
+                        <li>Documentation and training materials</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section" id="contact">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Ready to Scale Your Design System?</h2>
+                <p>Interested in learning how strategic product management can transform your enterprise design system adoption and development velocity?</p>
+                
+                <div class="cta-buttons">
+                    <a href="mailto:rpretzer@gmail.com?subject=Design System Strategy Discussion" class="cta-primary">Discuss Your System Strategy</a>
+                    <a href="/services/design-systems/" class="cta-secondary">Learn About Design Systems</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Ryan Andrew Pretzer. <a href="/">Back to portfolio</a> | <a href="/#portfolio">View other projects</a></p>
+        </div>
+    </footer>
+</body>
+</html>

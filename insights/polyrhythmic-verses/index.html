@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Polyrhythmic Verses | Ryan Andrew Pretzer</title>
+    <meta name="description" content="Poetry loosely cadenced on Latin jazz polyrhythms, exploring transformation, loss, and remembrance through assonant slant rhymes in liminal spaces between sleeping and waking.">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', 'Times New Roman', serif;
+            line-height: 1.8;
+            color: #1a1a1a;
+            background: #ffffff;
+            font-weight: 400;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        .header {
+            background: #ffffff;
+            border-bottom: 1px solid rgba(26, 26, 26, 0.08);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-size: 1.2rem;
+            font-weight: 400;
+            color: #1a1a1a;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            text-decoration: none;
+            color: #666;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #1a1a1a;
+        }
+
+        /* Article Header */
+        .article-header {
+            padding: 4rem 0 3rem;
+            background: linear-gradient(135deg, #ffd89b 0%, #19547b 100%);
+            text-align: center;
+            color: white;
+        }
+
+        .article-meta {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-size: 0.9rem;
+            opacity: 0.9;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        .article-title {
+            font-size: 3rem;
+            font-weight: 300;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.02em;
+            line-height: 1.1;
+            font-style: italic;
+        }
+
+        .article-subtitle {
+            font-size: 1.3rem;
+            opacity: 0.95;
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.6;
+            font-style: italic;
+        }
+
+        .article-info {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        /* Poetry Content */
+        .poetry-content {
+            padding: 4rem 0;
+        }
+
+        .poem {
+            margin-bottom: 5rem;
+            page-break-inside: avoid;
+        }
+
+        .poem-title {
+            font-size: 2rem;
+            font-weight: 400;
+            margin-bottom: 0.5rem;
+            color: #1a1a1a;
+            font-style: italic;
+        }
+
+        .poem-subtitle {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 2rem;
+            font-style: italic;
+        }
+
+        .poem-body {
+            white-space: pre-line;
+            font-size: 1.1rem;
+            line-height: 1.9;
+            color: #333;
+        }
+
+        .stanza {
+            margin-bottom: 2rem;
+        }
+
+        .poem-divider {
+            text-align: center;
+            margin: 4rem 0;
+            font-size: 1.5rem;
+            color: #999;
+        }
+
+        /* Notes Section */
+        .composition-notes {
+            background: #f8f9fa;
+            padding: 3rem 0;
+            margin-top: 4rem;
+            border-top: 1px solid #e0e0e0;
+        }
+
+        .notes-content {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-size: 0.95rem;
+            font-style: italic;
+            color: #555;
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+
+        /* Related Content */
+        .related-content {
+            background: #1a1a1a;
+            color: white;
+            padding: 3rem 0;
+        }
+
+        .related-content .section-title {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: white;
+            text-align: center;
+            font-size: 2rem;
+            font-weight: 200;
+            margin-bottom: 2rem;
+        }
+
+        .related-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .related-card {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 2rem;
+            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .related-type {
+            font-size: 0.8rem;
+            color: #ccc;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 0.5rem;
+        }
+
+        .related-card h3 {
+            color: white;
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            font-weight: 400;
+        }
+
+        .related-card p {
+            color: #e0e0e0;
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .related-link {
+            color: #ccc;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+        }
+
+        .related-link:hover {
+            color: white;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 4rem 0;
+            background: #ffffff;
+            text-align: center;
+        }
+
+        .cta-content {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .cta-section h2 {
+            font-size: 2.2rem;
+            font-weight: 200;
+            margin-bottom: 1.5rem;
+        }
+
+        .cta-section p {
+            font-size: 1.1rem;
+            color: #555;
+            margin-bottom: 2rem;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .cta-primary {
+            display: inline-block;
+            background: #1a1a1a;
+            color: white;
+            padding: 1rem 2rem;
+            text-decoration: none;
+            border-radius: 2px;
+            font-weight: 400;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .cta-primary:hover {
+            background: #000;
+            transform: translateY(-1px);
+            box-shadow: 0 8px 25px rgba(26, 26, 26, 0.2);
+        }
+
+        .cta-secondary {
+            display: inline-block;
+            border: 2px solid #1a1a1a;
+            color: #1a1a1a;
+            padding: 1rem 2rem;
+            text-decoration: none;
+            border-radius: 2px;
+            font-weight: 400;
+            transition: all 0.3s ease;
+        }
+
+        .cta-secondary:hover {
+            background: #1a1a1a;
+            color: white;
+        }
+
+        /* Footer */
+        .footer {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: #1a1a1a;
+            color: #e0e0e0;
+            padding: 2rem 0;
+            text-align: center;
+        }
+
+        .footer a {
+            color: #e0e0e0;
+            text-decoration: none;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .article-title {
+                font-size: 2.2rem;
+            }
+            
+            .article-info {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+            
+            .poem-body {
+                font-size: 1rem;
+            }
+            
+            .related-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="/" class="logo">Ryan Andrew Pretzer</a>
+                <nav>
+                    <ul class="nav-links">
+                        <li><a href="/#about">About</a></li>
+                        <li><a href="/#services">Services</a></li>
+                        <li><a href="/#portfolio">Portfolio</a></li>
+                        <li><a href="/#content">Insights</a></li>
+                        <li><a href="/#contact">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Article Header -->
+    <section class="article-header">
+        <div class="container">
+            <div class="article-meta">Poetry • A Collection</div>
+            <h1 class="article-title">Polyrhythmic Verses</h1>
+            <p class="article-subtitle">Poetry loosely cadenced on Latin jazz polyrhythms, exploring transformation, loss, and remembrance through assonant slant rhymes in liminal spaces between sleeping and waking.</p>
+            <div class="article-info">
+                <span>Published February 2025</span>
+                <span>Creative Writing</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Poetry Content -->
+    <section class="poetry-content">
+        <div class="container">
+            <div class="poem">
+                <h2 class="poem-title">Morning Montuno</h2>
+                <p class="poem-subtitle">4/4 over 3/4 time signature</p>
+                <div class="poem-body">
+<div class="stanza">Coffee steam spirals through             
+the space where certainty              
+used to live—now just                  
+tremolo fingers on porcelain,         
+memory's tumbao bass line              
+walking through kitchen light.</div>
+
+<div class="stanza">I count the polyrhythm:                
+heartbeat, breath, clock tick,         
+the syncopated silence                 
+where your voice                       
+still hangs                           
+like suspended chords.</div>
+
+<div class="stanza">Some mornings I wake to find           
+the melody changed                     
+but the changes, ah—                   
+the changes stay the same.</div>
+                </div>
+            </div>
+
+            <div class="poem-divider">◆ ◆ ◆</div>
+
+            <div class="poem">
+                <h2 class="poem-title">Transformation Clave</h2>
+                <p class="poem-subtitle">In 3-2 clave pattern</p>
+                <div class="poem-body">
+<div class="stanza">THREE beats: morning, noon, the space between—
+TWO beats: who I was, who I'm becoming.</div>
+
+<div class="stanza">Change arrives like                    
+unexpected percussion,                 
+off-beat but on-purpose,              
+disrupting the comfortable             
+four-four march of                     
+routine and responsibility.</div>
+
+<div class="stanza">I'm learning to improvise              
+over the standard progressions:        
+C major to somewhere                   
+unfamiliar, hands finding              
+new fingerings for old songs,          
+voice stretching into registers        
+I didn't know I had.</div>
+
+<div class="stanza">The bridge modulates                   
+and suddenly I'm                       
+not the same person                    
+who started this song.</div>
+                </div>
+            </div>
+
+            <div class="poem-divider">◆ ◆ ◆</div>
+
+            <div class="poem">
+                <h2 class="poem-title">Loss in 6/8</h2>
+                <p class="poem-subtitle">Compound time, felt in 2</p>
+                <div class="poem-body">
+<div class="stanza">Everything important                   
+moves in threes now:                   
+inhale, hold, release—                
+remember, grieve, let go—              
+morning, afternoon, the long           
+shadow that evening casts              
+across familiar rooms.</div>
+
+<div class="stanza">Your absence keeps                     
+perfect time,                         
+reliable as a metronome               
+I can't turn off.</div>
+
+<div class="stanza">But listen: underneath               
+the steady pulse of missing           
+something syncopated                  
+starts to emerge—                     
+a new rhythm made of                  
+empty spaces learning                 
+to sound like possibility.</div>
+                </div>
+            </div>
+
+            <div class="poem-divider">◆ ◆ ◆</div>
+
+            <div class="poem">
+                <h2 class="poem-title">Design System Blues</h2>
+                <p class="poem-subtitle">12-bar progression in the key of change management</p>
+                <div class="poem-body">
+<div class="stanza">I got the enterprise blues,            
+fifty teams and they all refuse        
+to use the components I designed.</div>
+
+<div class="stanza">I got those stakeholder blues,         
+requirements that shift and cruise     
+through every meeting like smoke.</div>
+
+<div class="stanza">But when the system starts to swing,   
+when adoption starts to sing           
+those sweet collaborative harmonies—</div>
+
+<div class="stanza">That's when the blues                  
+become the music                       
+we were meant to make.</div>
+
+<div class="stanza" style="font-style: italic; color: #666;">*Instrumental bridge*</div>
+                </div>
+            </div>
+
+            <div class="poem-divider">◆ ◆ ◆</div>
+
+            <div class="poem">
+                <h2 class="poem-title">Michigan Nocturne</h2>
+                <p class="poem-subtitle">Rubato tempo, dreamlike</p>
+                <div class="poem-body">
+<div class="stanza">In Kalamazoo we learned                
+that poverty has its own               
+complex time signature:                
+feast, famine, and the space           
+between where creativity               
+grows wild like dandelions             
+through sidewalk cracks.</div>
+
+<div class="stanza">Hippie parents who never              
+quite grew up, just got                
+tired of trying to explain            
+why normal felt like                   
+wearing someone else's clothes.</div>
+
+<div class="stanza">Now in Cleveland I practice            
+the same odd rhythms:                  
+stubborn persistence in               
+leo fire time,                        
+generous midwestern                    
+four-four kindness                    
+over latin jazz                       
+polyrhythm ambition.</div>
+
+<div class="stanza">Some nights I dream                   
+in both time signatures              
+simultaneously,                       
+and wake up knowing                   
+exactly who I am.</div>
+                </div>
+            </div>
+
+            <div class="poem-divider">◆ ◆ ◆</div>
+
+            <div class="poem">
+                <h2 class="poem-title">Agile Manifesto Variations</h2>
+                <p class="poem-subtitle">Theme and variations on a business theme</p>
+                <div class="poem-body">
+<div class="stanza"><strong>Theme</strong>: Individuals over process
+<strong>Variation 1</strong>: Relationships over adherence  
+<strong>Variation 2</strong>: Outcomes over methodology
+<strong>Variation 3</strong>: Jazz over classical</div>
+
+<div class="stanza">We tried to play it straight,         
+metronomic sprints and                
+perfectly documented user stories,    
+but the music kept wanting            
+to break free into improvisation.</div>
+
+<div class="stanza">So we learned to jam:                 
+loose structure, tight listening,     
+everyone gets a solo but              
+nobody forgets the song.</div>
+
+<div class="stanza">Retrospectives became                 
+sessions where we practiced           
+playing together better,              
+not just playing the parts            
+we were assigned.</div>
+                </div>
+            </div>
+
+            <div class="poem-divider">◆ ◆ ◆</div>
+
+            <div class="poem">
+                <h2 class="poem-title">Slant Rhyme for Liminal Spaces</h2>
+                <p class="poem-subtitle">Free time, conversational</p>
+                <div class="poem-body">
+<div class="stanza">Between sleeping and waking           
+there's a moment when                 
+all the day's certainties            
+soften into maybe,                   
+when the boundary between             
+dreaming and designing               
+dissolves like sugar                 
+in morning coffee.</div>
+
+<div class="stanza">I do my best thinking               
+in these threshold spaces:          
+airplane takeoffs,                  
+shower steam,                       
+the pause between                   
+question and answer.</div>
+
+<div class="stanza">Here, in the liminal,               
+transformation feels                
+less like work and more             
+like coming home                    
+to a song I've been                 
+humming all my life                 
+without knowing the words.</div>
+                </div>
+            </div>
+
+            <div class="poem-divider">◆ ◆ ◆</div>
+
+            <div class="poem">
+                <h2 class="poem-title">Cleveland Coda</h2>
+                <p class="poem-subtitle">Ritardando, ending in major</p>
+                <div class="poem-body">
+<div class="stanza">This city taught me                   
+that reinvention                     
+doesn't require                      
+abandoning what came before—         
+just learning to play               
+the same melody                     
+in a different key.</div>
+
+<div class="stanza">Lake Erie keeps time                
+like a patient bassist,             
+steady beneath all                  
+our urgent improvisations.</div>
+
+<div class="stanza">Some evenings the whole city        
+feels like one big session:         
+everyone playing their part,        
+some of us in tune,                 
+all of us trying                    
+to make something beautiful         
+from what we've been given.</div>
+
+<div class="stanza" style="font-style: italic; color: #666;">*Fade to silence*</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Composition Notes -->
+    <section class="composition-notes">
+        <div class="container">
+            <div class="notes-content">
+                <p>Notes on composition: These verses were written during morning practice sessions, coffee in hand, listening to the polyrhythmic patterns of city life outside my Cleveland windows. The poems attempt to capture the syncopated experience of transformation—how change rarely follows the steady 4/4 time we expect, but creates its own complex rhythms that eventually resolve into something that feels like home.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Related Content -->
+    <section class="related-content">
+        <div class="container">
+            <h2 class="section-title">Related Insights</h2>
+            <div class="related-grid">
+                <div class="related-card">
+                    <div class="related-type">Philosophy</div>
+                    <h3>Change Management as Practice</h3>
+                    <p>Simple, fundamental messages win when we're purposeful about finding common interest and learning to vibe with contextual background noise.</p>
+                    <a href="/insights/change-management-practice" class="related-link">Read more →</a>
+                </div>
+                <div class="related-card">
+                    <div class="related-type">Cosmic Check-In</div>
+                    <h3>Leo Season Reflections</h3>
+                    <p>A little cosmic perspective for fellow fire signs navigating change management, creativity, and the delightful chaos of transformation.</p>
+                    <a href="/insights/leo-season-reflections" class="related-link">Read more →</a>
+                </div>
+                <div class="related-card">
+                    <div class="related-type">Case Study</div>
+                    <h3>USAA Design System</h3>
+                    <p>How advocacy-driven adoption achieved 80% team engagement across 50+ development teams through strategic change management.</p>
+                    <a href="/portfolio/usaa-design-system" class="related-link">View case study →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section" id="contact">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Inspired by Transformation?</h2>
+                <p>Whether it's poetry or process design, I believe in finding the rhythm that makes change feel natural. Let's explore how creative approaches can transform your organization.</p>
+                
+                <div class="cta-buttons">
+                    <a href="mailto:rpretzer@gmail.com?subject=Creative Transformation Discussion" class="cta-primary">Start a Conversation</a>
+                    <a href="/#content" class="cta-secondary">Explore More Insights</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Ryan Andrew Pretzer. <a href="/">Back to main site</a> | <a href="/#content">More insights</a></p>
+        </div>
+    </footer>
+</body>
+</html>

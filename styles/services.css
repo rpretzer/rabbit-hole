@@ -92,4 +92,618 @@
     border-left: 4px solid #1a1a1a;
 }
 
-.
+.hero.gradient-mobile .hero-value-prop,
+.hero.gradient-design .hero-value-prop {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-left-color: rgba(255, 255, 255, 0.3);
+}
+
+.hero-value-prop h2 {
+    font-size: 1.1rem;
+    font-weight: 400;
+    margin-bottom: 1rem;
+    color: #1a1a1a;
+}
+
+.hero.gradient-mobile .hero-value-prop h2,
+.hero.gradient-design .hero-value-prop h2 {
+    color: #fff;
+}
+
+.hero-value-prop p {
+    color: #555;
+    font-size: 1rem;
+}
+
+.hero.gradient-mobile .hero-value-prop p,
+.hero.gradient-design .hero-value-prop p {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+/* Philosophy Section */
+.philosophy-section {
+    padding: 5rem 0;
+    background: #ffffff;
+}
+
+.philosophy-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+}
+
+.philosophy-text {
+    font-size: 1.1rem;
+    line-height: 1.8;
+}
+
+.philosophy-text h3 {
+    font-size: 1.5rem;
+    font-weight: 300;
+    margin-bottom: 1.5rem;
+    color: #1a1a1a;
+}
+
+.philosophy-quote {
+    background: #f8f9fa;
+    padding: 2rem;
+    border-radius: 4px;
+    font-style: italic;
+    font-size: 1.2rem;
+    text-align: center;
+    border-left: 4px solid #1a1a1a;
+}
+
+/* Problem/Challenge Section */
+.problem-section,
+.scale-challenge-section {
+    padding: 5rem 0;
+    background: #f8f9fa;
+}
+
+.challenge-intro {
+    text-align: center;
+    font-size: 1.2rem;
+    color: #555;
+    max-width: 800px;
+    margin: 0 auto 3rem;
+    line-height: 1.8;
+}
+
+.problem-grid,
+.scale-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.problem-card,
+.scale-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 4px;
+}
+
+.problem-card {
+    border-left: 4px solid #dc3545;
+}
+
+.scale-card {
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    text-align: center;
+    border-top: 4px solid #667eea;
+}
+
+.problem-card h3 {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    font-weight: 400;
+    color: #dc3545;
+}
+
+.scale-number {
+    font-size: 3rem;
+    font-weight: 200;
+    color: #667eea;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.scale-label {
+    font-size: 1rem;
+    font-weight: 400;
+    margin-bottom: 1rem;
+}
+
+.scale-description {
+    font-size: 0.9rem;
+    color: #555;
+}
+
+.problem-card p {
+    color: #555;
+    font-size: 0.95rem;
+}
+
+.problem-impact {
+    margin-top: 1rem;
+    font-size: 0.85rem;
+    color: #666;
+    font-style: italic;
+}
+
+/* Solution Section */
+.solution-section {
+    padding: 5rem 0;
+    background: #ffffff;
+}
+
+.solution-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+}
+
+.solution-text {
+    font-size: 1.1rem;
+    line-height: 1.8;
+}
+
+.solution-text h2,
+.solution-text h3 {
+    font-size: 2.2rem;
+    font-weight: 200;
+    margin-bottom: 2rem;
+    letter-spacing: -0.02em;
+}
+
+.solution-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.solution-card {
+    background: #f8f9fa;
+    padding: 2rem;
+    border-radius: 4px;
+    border-top: 4px solid #28a745;
+}
+
+.solution-card h3 {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    font-weight: 400;
+    color: #28a745;
+}
+
+.solution-features,
+.solution-principles {
+    list-style: none;
+    margin: 2rem 0;
+}
+
+.solution-features li,
+.solution-principles li {
+    padding: 0.5rem 0;
+    position: relative;
+    padding-left: 2rem;
+}
+
+.solution-features li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: #1a1a1a;
+    font-weight: bold;
+}
+
+.solution-principles li::before {
+    content: '◆';
+    position: absolute;
+    left: 0;
+    color: #667eea;
+    font-size: 1.2rem;
+}
+
+/* Services Grid Section */
+.services-section {
+    padding: 5rem 0;
+    background: #f8f9fa;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.service-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 8px;
+    border-left: 4px solid #667eea;
+}
+
+.service-card h3 {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+    font-weight: 400;
+    color: #1a1a1a;
+}
+
+.service-card p {
+    color: #555;
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+}
+
+.service-features {
+    list-style: none;
+}
+
+.service-features li {
+    padding: 0.3rem 0;
+    font-size: 0.9rem;
+    color: #666;
+    position: relative;
+    padding-left: 1.5rem;
+}
+
+.service-features li::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    color: #667eea;
+}
+
+/* Process Section */
+.process-section {
+    padding: 5rem 0;
+    background: #ffffff;
+}
+
+.process-intro {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.process-intro p {
+    font-size: 1.1rem;
+    color: #555;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.process-steps,
+.process-flow,
+.process-timeline {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.process-step,
+.process-phase {
+    text-align: center;
+    padding: 2rem 1rem;
+}
+
+.process-phase {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    position: relative;
+}
+
+.step-number,
+.phase-number {
+    width: 60px;
+    height: 60px;
+    background: #1a1a1a;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: 300;
+    margin: 0 auto 1.5rem;
+}
+
+.phase-number {
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 30px;
+    height: 30px;
+    font-size: 0.9rem;
+    background: #667eea;
+}
+
+.process-step h3,
+.process-phase h3 {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    font-weight: 400;
+}
+
+.process-step p,
+.process-phase p {
+    color: #555;
+    font-size: 0.9rem;
+}
+
+.process-tools,
+.phase-deliverables {
+    margin-top: 1rem;
+    font-size: 0.8rem;
+    color: #666;
+    font-style: italic;
+}
+
+/* Case Study Section */
+.case-study-section {
+    padding: 5rem 0;
+    background: #1a1a1a;
+    color: white;
+}
+
+.case-study-section .section-title {
+    color: white;
+}
+
+.case-study-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    margin-top: 3rem;
+}
+
+.case-study-text h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    font-weight: 300;
+}
+
+.case-study-text p {
+    color: #e0e0e0;
+    margin-bottom: 1.5rem;
+}
+
+.case-study-results {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 2rem;
+    border-radius: 4px;
+}
+
+.result-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.result-item:last-child {
+    border-bottom: none;
+}
+
+.result-metric {
+    font-size: 1.5rem;
+    font-weight: 300;
+    color: #fff;
+}
+
+.result-label {
+    color: #e0e0e0;
+    font-size: 0.9rem;
+}
+
+/* Expertise Section */
+.expertise-section {
+    padding: 5rem 0;
+    background: #f8f9fa;
+}
+
+.expertise-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.expertise-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 4px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.expertise-card h3 {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    font-weight: 400;
+}
+
+.expertise-card ul {
+    list-style: none;
+}
+
+.expertise-card li {
+    padding: 0.3rem 0;
+    color: #555;
+    font-size: 0.9rem;
+}
+
+/* Technology Section */
+.technology-section {
+    padding: 5rem 0;
+    background: #ffffff;
+}
+
+.tech-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.tech-category {
+    text-align: center;
+    padding: 2rem;
+}
+
+.tech-icon {
+    width: 80px;
+    height: 80px;
+    background: #667eea;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem;
+    color: white;
+    font-size: 1.5rem;
+}
+
+.tech-category h3 {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    font-weight: 400;
+}
+
+.tech-list {
+    list-style: none;
+    font-size: 0.9rem;
+    color: #555;
+}
+
+.tech-list li {
+    padding: 0.2rem 0;
+}
+
+/* ROI Section */
+.roi-section {
+    padding: 5rem 0;
+    background: #667eea;
+    color: white;
+    text-align: center;
+}
+
+.roi-section .section-title {
+    color: white;
+}
+
+.roi-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.roi-metric {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 2rem;
+    border-radius: 8px;
+    backdrop-filter: blur(10px);
+}
+
+.roi-number {
+    font-size: 3rem;
+    font-weight: 200;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.roi-label {
+    font-size: 1rem;
+    opacity: 0.9;
+}
+
+.roi-description {
+    font-size: 0.85rem;
+    opacity: 0.8;
+    margin-top: 0.5rem;
+}
+
+/* Markdown Content Section */
+.markdown-content {
+    padding: 5rem 0;
+    background: #ffffff;
+}
+
+.markdown-content h1 {
+    font-size: 2rem;
+    font-weight: 300;
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.markdown-content h2 {
+    font-size: 1.5rem;
+    font-weight: 400;
+    margin: 2rem 0 1rem;
+}
+
+.markdown-content h3 {
+    font-size: 1.2rem;
+    font-weight: 400;
+    margin: 1.5rem 0 1rem;
+}
+
+.markdown-content p {
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+}
+
+.markdown-content ul {
+    margin: 1rem 0 2rem 2rem;
+}
+
+.markdown-content li {
+    margin-bottom: 0.5rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 2.2rem;
+    }
+    
+    .hero-stats {
+        flex-direction: column;
+        gap: 2rem;
+    }
+    
+    .philosophy-content,
+    .solution-content,
+    .case-study-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .process-steps,
+    .process-flow,
+    .process-timeline {
+        grid-template-columns: 1fr;
+    }
+    
+    .problem-grid,
+    .scale-grid,
+    .solution-grid,
+    .services-grid,
+    .expertise-grid,
+    .tech-grid,
+    .roi-grid {
+        grid-template-columns: 1fr;
+    }
+}

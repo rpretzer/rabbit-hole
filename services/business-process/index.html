@@ -1,0 +1,824 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Business Process Design | Ryan Andrew Pretzer</title>
+    <meta name="description" content="Transform complex workflows into intuitive digital experiences. Expert business process design for enterprise organizations seeking operational efficiency.">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.7;
+            color: #1a1a1a;
+            background: #ffffff;
+            font-weight: 300;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        .header {
+            background: #ffffff;
+            border-bottom: 1px solid rgba(26, 26, 26, 0.08);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.2rem;
+            font-weight: 400;
+            color: #1a1a1a;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #666;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #1a1a1a;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #f1f3f4 0%, #e8eaed 100%);
+            padding: 4rem 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 200;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.02em;
+            line-height: 1.1;
+        }
+
+        .hero .subtitle {
+            font-size: 1.3rem;
+            color: #555;
+            margin-bottom: 2rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-value-prop {
+            background: rgba(255, 255, 255, 0.7);
+            padding: 2rem;
+            border-radius: 8px;
+            margin: 3rem auto;
+            max-width: 600px;
+            border-left: 4px solid #1a1a1a;
+        }
+
+        .hero-value-prop h2 {
+            font-size: 1.1rem;
+            font-weight: 400;
+            margin-bottom: 1rem;
+            color: #1a1a1a;
+        }
+
+        .hero-value-prop p {
+            color: #555;
+            font-size: 1rem;
+        }
+
+        .cta-primary {
+            display: inline-block;
+            background: #1a1a1a;
+            color: white;
+            padding: 1rem 2rem;
+            text-decoration: none;
+            border-radius: 2px;
+            font-weight: 400;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            margin-top: 1rem;
+        }
+
+        .cta-primary:hover {
+            background: #000;
+            transform: translateY(-1px);
+            box-shadow: 0 8px 25px rgba(26, 26, 26, 0.2);
+        }
+
+        /* Philosophy Section */
+        .philosophy {
+            padding: 5rem 0;
+            background: #ffffff;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 200;
+            text-align: center;
+            margin-bottom: 3rem;
+            letter-spacing: -0.02em;
+        }
+
+        .philosophy-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .philosophy-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .philosophy-text h3 {
+            font-size: 1.5rem;
+            font-weight: 300;
+            margin-bottom: 1.5rem;
+            color: #1a1a1a;
+        }
+
+        .philosophy-quote {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 4px;
+            font-style: italic;
+            font-size: 1.2rem;
+            text-align: center;
+            border-left: 4px solid #1a1a1a;
+        }
+
+        /* Problem Section */
+        .problem {
+            padding: 5rem 0;
+            background: #f8f9fa;
+        }
+
+        .problem-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .problem-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 4px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            border-top: 4px solid #dc3545;
+        }
+
+        .problem-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            font-weight: 400;
+            color: #dc3545;
+        }
+
+        .problem-card p {
+            color: #555;
+            font-size: 0.95rem;
+        }
+
+        .problem-impact {
+            margin-top: 1rem;
+            font-size: 0.85rem;
+            color: #666;
+            font-style: italic;
+        }
+
+        /* Solution Section */
+        .solution {
+            padding: 5rem 0;
+            background: #ffffff;
+        }
+
+        .solution-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .solution-card {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 4px;
+            border-top: 4px solid #28a745;
+        }
+
+        .solution-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            font-weight: 400;
+            color: #28a745;
+        }
+
+        .solution-card ul {
+            list-style: none;
+            margin-top: 1rem;
+        }
+
+        .solution-card li {
+            padding: 0.3rem 0;
+            position: relative;
+            padding-left: 1.5rem;
+            font-size: 0.9rem;
+            color: #555;
+        }
+
+        .solution-card li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: #28a745;
+        }
+
+        /* Case Study Section */
+        .case-study {
+            padding: 5rem 0;
+            background: #1a1a1a;
+            color: white;
+        }
+
+        .case-study .section-title {
+            color: white;
+        }
+
+        .case-study-card h4 {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            font-weight: 400;
+            color: #fff;
+        }
+
+        .case-study-card p {
+            color: #e0e0e0;
+            font-size: 0.9rem;
+        }
+
+        .case-study-results {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 2rem;
+            border-radius: 4px;
+        }
+
+        .result-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .result-item:last-child {
+            border-bottom: none;
+        }
+
+        .result-metric {
+            font-size: 1.5rem;
+            font-weight: 300;
+            color: #fff;
+        }
+
+        .result-label {
+            color: #e0e0e0;
+            font-size: 0.9rem;
+        }
+
+        /* Process Section */
+        .process {
+            padding: 5rem 0;
+            background: #f8f9fa;
+        }
+
+        .process-flow {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .process-step {
+            background: white;
+            padding: 2rem;
+            border-radius: 4px;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: relative;
+        }
+
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background: #1a1a1a;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 300;
+            margin: 0 auto 1.5rem;
+        }
+
+        .process-step h3 {
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            font-weight: 400;
+        }
+
+        .process-step p {
+            color: #555;
+            font-size: 0.9rem;
+        }
+
+        .process-tools {
+            margin-top: 1rem;
+            font-size: 0.8rem;
+            color: #666;
+            font-style: italic;
+        }
+
+        /* Expertise Section */
+        .expertise {
+            padding: 5rem 0;
+            background: #ffffff;
+        }
+
+        .expertise-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .expertise-card {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 4px;
+            border-left: 4px solid #1a1a1a;
+        }
+
+        .expertise-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            font-weight: 400;
+        }
+
+        .expertise-card ul {
+            list-style: none;
+        }
+
+        .expertise-card li {
+            padding: 0.3rem 0;
+            color: #555;
+            font-size: 0.9rem;
+        }
+
+        /* Industries Section */
+        .industries {
+            padding: 5rem 0;
+            background: #f8f9fa;
+        }
+
+        .industries-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .industry-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 4px;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .industry-card h3 {
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            font-weight: 400;
+        }
+
+        .industry-card p {
+            color: #555;
+            font-size: 0.85rem;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 5rem 0;
+            background: #ffffff;
+            text-align: center;
+        }
+
+        .cta-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .cta-section h2 {
+            font-size: 2.2rem;
+            font-weight: 200;
+            margin-bottom: 1.5rem;
+        }
+
+        .cta-section p {
+            font-size: 1.1rem;
+            color: #555;
+            margin-bottom: 2rem;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .cta-secondary {
+            display: inline-block;
+            border: 2px solid #1a1a1a;
+            color: #1a1a1a;
+            padding: 1rem 2rem;
+            text-decoration: none;
+            border-radius: 2px;
+            font-weight: 400;
+            transition: all 0.3s ease;
+        }
+
+        .cta-secondary:hover {
+            background: #1a1a1a;
+            color: white;
+        }
+
+        /* Footer */
+        .footer {
+            background: #1a1a1a;
+            color: #e0e0e0;
+            padding: 2rem 0;
+            text-align: center;
+        }
+
+        .footer a {
+            color: #e0e0e0;
+            text-decoration: none;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .philosophy-content,
+            .case-study-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="/" class="logo">Ryan Andrew Pretzer</a>
+                <nav>
+                    <ul class="nav-links">
+                        <li><a href="/#about">About</a></li>
+                        <li><a href="/#services">Services</a></li>
+                        <li><a href="/#portfolio">Portfolio</a></li>
+                        <li><a href="/#contact">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Business Process Design</h1>
+            <p class="subtitle">Transforming complex workflows into intuitive digital experiences that actually work for people.</p>
+            
+            <div class="hero-value-prop">
+                <h2>Sometimes the best solution isn't the obvious one</h2>
+                <p>It's the one that actually works for people, fits your organization's reality, and can be sustained long-term.</p>
+            </div>
+            
+            <a href="#contact" class="cta-primary">Discuss Your Process Challenge</a>
+        </div>
+    </section>
+
+    <!-- Philosophy Section -->
+    <section class="philosophy">
+        <div class="container">
+            <h2 class="section-title">Design Philosophy</h2>
+            
+            <div class="philosophy-content">
+                <div class="philosophy-text">
+                    <h3>People-First Process Design</h3>
+                    <p>Too often, business process design starts with technology capabilities or theoretical efficiency models. Better approach: start with how people actually work, then design processes that amplify their strengths while minimizing friction.</p>
+                    
+                    <p>After 15+ years transforming workflows at companies like Progressive Insurance and USAA, I've learned that sustainable process improvement happens when you solve human problems, not just business problems.</p>
+                </div>
+                <div class="philosophy-quote">
+                    "Outcomes and relationships trump process and adherence. The goal isn't perfect methodology—it's making things work better for actual people."
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Problem Section -->
+    <section class="problem">
+        <div class="container">
+            <h2 class="section-title">Common Process Design Failures</h2>
+            
+            <div class="problem-grid">
+                <div class="problem-card">
+                    <h3>Technology-First Thinking</h3>
+                    <p>Processes designed around system capabilities rather than user needs, leading to workarounds and shadow processes.</p>
+                    <div class="problem-impact">Impact: 40% lower adoption rates, increased training costs</div>
+                </div>
+                <div class="problem-card">
+                    <h3>Over-Optimization</h3>
+                    <p>Pursuit of theoretical efficiency that ignores human factors like cognitive load, error recovery, and edge cases.</p>
+                    <div class="problem-impact">Impact: Brittle processes that break under real-world conditions</div>
+                </div>
+                <div class="problem-card">
+                    <h3>Compliance Theater</h3>
+                    <p>Processes designed to satisfy auditors rather than enable productive work, creating bureaucratic overhead.</p>
+                    <div class="problem-impact">Impact: Decreased productivity, increased resistance to change</div>
+                </div>
+                <div class="problem-card">
+                    <h3>One-Size-Fits-All</h3>
+                    <p>Standardized processes that don't account for contextual differences across teams, roles, or business units.</p>
+                    <div class="problem-impact">Impact: Poor fit leads to workarounds and inconsistent outcomes</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solution Section -->
+    <section class="solution">
+        <div class="container">
+            <h2 class="section-title">Human-Centered Process Design</h2>
+            
+            <div class="solution-grid">
+                <div class="solution-card">
+                    <h3>Workflow Analysis</h3>
+                    <p>Understanding how work actually happens vs. how it's supposed to happen.</p>
+                    <ul>
+                        <li>Observational research and user interviews</li>
+                        <li>Shadow process documentation</li>
+                        <li>Pain point and friction analysis</li>
+                        <li>Stakeholder journey mapping</li>
+                    </ul>
+                </div>
+                <div class="solution-card">
+                    <h3>Collaborative Design</h3>
+                    <p>Co-creating solutions with the people who will use them daily.</p>
+                    <ul>
+                        <li>Cross-functional design workshops</li>
+                        <li>Rapid prototyping and testing</li>
+                        <li>Iterative refinement based on feedback</li>
+                        <li>Change champion development</li>
+                    </ul>
+                </div>
+                <div class="solution-card">
+                    <h3>Implementation Strategy</h3>
+                    <p>Sustainable rollout that builds adoption through value demonstration.</p>
+                    <ul>
+                        <li>Pilot program design and execution</li>
+                        <li>Training and support systems</li>
+                        <li>Performance metrics and feedback loops</li>
+                        <li>Continuous improvement frameworks</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Case Study Section -->
+    <section class="case-study">
+        <div class="container">
+            <h2 class="section-title">Case Study: Progressive Insurance Legal Review Process</h2>
+            
+            <div class="case-study-content">
+                <div class="case-study-details">
+                    <div class="case-study-card">
+                        <h4>The Challenge</h4>
+                        <p>State filing processes required legal review coordination across multiple departments, creating bottlenecks and compliance risks.</p>
+                    </div>
+                    <div class="case-study-card">
+                        <h4>The Approach</h4>
+                        <p>Designed collaborative workflow that integrated legal review into development process rather than treating it as separate approval gate.</p>
+                    </div>
+                    <div class="case-study-card">
+                        <h4>The Innovation</h4>
+                        <p>Created early-warning system that flagged potential legal issues during content creation, preventing downstream bottlenecks.</p>
+                    </div>
+                </div>
+                <div class="case-study-results">
+                    <div class="result-item">
+                        <span class="result-label">Review Cycle Time</span>
+                        <span class="result-metric">-60%</span>
+                    </div>
+                    <div class="result-item">
+                        <span class="result-label">Compliance Issues</span>
+                        <span class="result-metric">-75%</span>
+                    </div>
+                    <div class="result-item">
+                        <span class="result-label">Process Satisfaction</span>
+                        <span class="result-metric">+85%</span>
+                    </div>
+                    <div class="result-item">
+                        <span class="result-label">Rework Reduction</span>
+                        <span class="result-metric">-50%</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="process">
+        <div class="container">
+            <h2 class="section-title">Process Design Methodology</h2>
+            
+            <div class="process-flow">
+                <div class="process-step">
+                    <div class="step-number">1</div>
+                    <h3>Discovery & Analysis</h3>
+                    <p>Map current state workflows, identify pain points, and understand stakeholder needs through observation and interviews.</p>
+                    <div class="process-tools">Tools: Journey mapping, process mining, stakeholder interviews</div>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">2</div>
+                    <h3>Design & Prototype</h3>
+                    <p>Co-create improved workflows with end users, focusing on reducing friction and enabling better outcomes.</p>
+                    <div class="process-tools">Tools: Collaborative workshops, service blueprints, low-fi prototypes</div>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">3</div>
+                    <h3>Pilot & Refine</h3>
+                    <p>Test new processes with pilot groups, gather feedback, and iterate based on real-world usage patterns.</p>
+                    <div class="process-tools">Tools: A/B testing, feedback collection, performance metrics</div>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">4</div>
+                    <h3>Scale & Sustain</h3>
+                    <p>Roll out proven processes with proper training, support systems, and continuous improvement mechanisms.</p>
+                    <div class="process-tools">Tools: Change management, training design, feedback loops</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Expertise Section -->
+    <section class="expertise">
+        <div class="container">
+            <h2 class="section-title">Process Design Expertise</h2>
+            
+            <div class="expertise-grid">
+                <div class="expertise-card">
+                    <h3>Workflow Optimization</h3>
+                    <ul>
+                        <li>Current state process mapping</li>
+                        <li>Bottleneck identification and resolution</li>
+                        <li>Automation opportunity assessment</li>
+                        <li>Handoff and communication design</li>
+                        <li>Error handling and recovery procedures</li>
+                    </ul>
+                </div>
+                <div class="expertise-card">
+                    <h3>Digital Transformation</h3>
+                    <ul>
+                        <li>Paper to digital workflow conversion</li>
+                        <li>System integration and data flow design</li>
+                        <li>User interface and experience optimization</li>
+                        <li>Mobile-first process design</li>
+                        <li>Cross-platform consistency</li>
+                    </ul>
+                </div>
+                <div class="expertise-card">
+                    <h3>Compliance & Governance</h3>
+                    <ul>
+                        <li>Regulatory requirement integration</li>
+                        <li>Audit trail and documentation design</li>
+                        <li>Risk mitigation and control points</li>
+                        <li>Quality assurance procedures</li>
+                        <li>Approval workflow optimization</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Industries Section -->
+    <section class="industries">
+        <div class="container">
+            <h2 class="section-title">Industry Experience</h2>
+            
+            <div class="industries-grid">
+                <div class="industry-card">
+                    <h3>Financial Services</h3>
+                    <p>Regulatory compliance, risk management, and customer onboarding processes</p>
+                </div>
+                <div class="industry-card">
+                    <h3>Insurance</h3>
+                    <p>Claims processing, underwriting workflows, and state filing procedures</p>
+                </div>
+                <div class="industry-card">
+                    <h3>Healthcare</h3>
+                    <p>Patient care coordination, billing processes, and regulatory compliance</p>
+                </div>
+                <div class="industry-card">
+                    <h3>Legal Services</h3>
+                    <p>Document review, case management, and court filing procedures</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section" id="contact">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Ready to Transform Your Workflows?</h2>
+                <p>Let's discuss how human-centered process design can improve efficiency, reduce friction, and create better outcomes for your organization.</p>
+                
+                <div class="cta-buttons">
+                    <a href="mailto:rpretzer@gmail.com?subject=Process Design Consultation" class="cta-primary">Schedule Process Review</a>
+                    <a href="/#portfolio" class="cta-secondary">View Case Studies</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Ryan Andrew Pretzer. <a href="/">Back to main site</a></p>
+        </div>
+    </footer>
+</body>
+</html>content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            margin-top: 3rem;
+        }
+
+        .case-study-details {
+            display: grid;
+            gap: 2rem;
+        }
+
+        .case-study-card {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 1.5rem;
+            border-radius: 4px;
+        }
+
+        .case-study-

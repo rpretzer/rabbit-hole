@@ -1,1 +1,318 @@
+/* Insights Page Specific Styles */
 
+/* Article Header */
+.article-header {
+    padding: 4rem 0 3rem;
+    background: linear-gradient(135deg, #f1f3f4 0%, #e8eaed 100%);
+    text-align: center;
+}
+
+.article-header.poetry {
+    background: linear-gradient(135deg, #ffd89b 0%, #19547b 100%);
+    color: white;
+}
+
+.article-header.whitepaper {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+}
+
+.article-header.cosmic {
+    background: linear-gradient(135deg, #1a2980 0%, #26d0ce 100%);
+    color: white;
+}
+
+.article-meta {
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+.article-header.poetry .article-meta,
+.article-header.whitepaper .article-meta,
+.article-header.cosmic .article-meta {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.article-title {
+    font-size: 3rem;
+    font-weight: 200;
+    margin-bottom: 1.5rem;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+}
+
+.article-subtitle {
+    font-size: 1.3rem;
+    color: #555;
+    max-width: 700px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+.article-header.poetry .article-subtitle,
+.article-header.whitepaper .article-subtitle,
+.article-header.cosmic .article-subtitle {
+    color: rgba(255, 255, 255, 0.95);
+}
+
+.article-info {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 2rem;
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.article-header.poetry .article-info,
+.article-header.whitepaper .article-info,
+.article-header.cosmic .article-info {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+/* Article Content */
+.article-content {
+    padding: 4rem 0;
+}
+
+.article-content .container {
+    max-width: 800px;
+}
+
+.content-section {
+    margin-bottom: 3rem;
+}
+
+.content-section h2 {
+    font-size: 2rem;
+    font-weight: 300;
+    margin-bottom: 1.5rem;
+    color: #1a1a1a;
+    letter-spacing: -0.01em;
+}
+
+.content-section h3 {
+    font-size: 1.5rem;
+    font-weight: 400;
+    margin: 2rem 0 1rem;
+    color: #1a1a1a;
+}
+
+.content-section h4 {
+    font-size: 1.2rem;
+    font-weight: 400;
+    margin: 1.5rem 0 1rem;
+    color: #1a1a1a;
+}
+
+.content-section p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+    color: #333;
+}
+
+/* Special Content Blocks */
+.highlight-quote {
+    background: #f8f9fa;
+    padding: 2rem;
+    border-left: 4px solid #1a1a1a;
+    margin: 2rem 0;
+    font-size: 1.2rem;
+    font-style: italic;
+    color: #333;
+}
+
+.principle-list {
+    list-style: none;
+    margin: 2rem 0;
+}
+
+.principle-list li {
+    padding: 1rem 0;
+    position: relative;
+    padding-left: 2rem;
+    font-size: 1rem;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.principle-list li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: #1a1a1a;
+    font-weight: bold;
+}
+
+.case-study-box {
+    background: #1a1a1a;
+    color: white;
+    padding: 2.5rem;
+    border-radius: 8px;
+    margin: 3rem 0;
+}
+
+.case-study-box h3 {
+    color: white;
+    margin-bottom: 1rem;
+}
+
+.case-study-box p {
+    color: #e0e0e0;
+    margin-bottom: 1rem;
+}
+
+/* Executive Summary */
+.executive-summary {
+    padding: 3rem 0;
+    background: #f8f9fa;
+}
+
+.summary-content {
+    background: white;
+    padding: 2.5rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    border-left: 4px solid #667eea;
+}
+
+.key-findings {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.finding-card {
+    background: #f8f9fa;
+    padding: 1.5rem;
+    border-radius: 4px;
+    border-left: 3px solid #667eea;
+}
+
+.finding-card h3 {
+    font-size: 1rem;
+    font-weight: 400;
+    margin-bottom: 0.5rem;
+    color: #667eea;
+}
+
+.finding-card p {
+    font-size: 0.95rem;
+    color: #555;
+}
+
+/* Poetry Specific Styles */
+.poetry-verse {
+    white-space: pre-line;
+    font-family: 'Georgia', serif;
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin: 3rem 0;
+    padding-left: 2rem;
+    border-left: 2px solid #ddd;
+}
+
+.poetry-note {
+    font-style: italic;
+    color: #666;
+    font-size: 0.95rem;
+    margin: 2rem 0;
+    text-align: center;
+}
+
+/* Related Content */
+.related-content {
+    background: #1a1a1a;
+    color: white;
+    padding: 3rem 0;
+}
+
+.related-content .section-title {
+    color: white;
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 200;
+    margin-bottom: 2rem;
+}
+
+.related-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.related-card {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 2rem;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.related-type {
+    font-size: 0.8rem;
+    color: #ccc;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 0.5rem;
+}
+
+.related-card h3 {
+    color: white;
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    font-weight: 400;
+}
+
+.related-card p {
+    color: #e0e0e0;
+    font-size: 0.95rem;
+    margin-bottom: 1.5rem;
+}
+
+.related-link {
+    color: #ccc;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: color 0.3s ease;
+}
+
+.related-link:hover {
+    color: white;
+}
+
+/* Code Examples */
+.code-example {
+    background: #1a1a1a;
+    color: #e0e0e0;
+    padding: 1.5rem;
+    border-radius: 4px;
+    margin: 1.5rem 0;
+    font-family: 'Monaco', 'Menlo', monospace;
+    font-size: 0.9rem;
+    overflow-x: auto;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .article-title {
+        font-size: 2.2rem;
+    }
+    
+    .article-info {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    
+    .key-findings,
+    .related-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .principle-list li {
+        padding-left: 1.5rem;
+    }
+}

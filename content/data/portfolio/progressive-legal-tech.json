@@ -1,1 +1,138 @@
-
+{
+  "pageTitle": "Progressive Insurance Legal Tech | Ryan Andrew Pretzer Portfolio",
+  "metaDescription": "Case study: Designed and implemented legal review systems for state filing processes at Progressive Insurance, reducing review cycles by 60% and compliance issues by 75%.",
+  "hero": {
+    "title": "Progressive Insurance Legal Tech",
+    "subtitle": "Designed and implemented new business application and legal review systems for state filing processes, reducing review cycles by 60% and compliance issues by 75%.",
+    "projectMeta": [
+      {
+        "label": "Role",
+        "value": "Lead Designer"
+      },
+      {
+        "label": "Duration",
+        "value": "14 Months"
+      },
+      {
+        "label": "Scope",
+        "value": "50 States"
+      },
+      {
+        "label": "Users",
+        "value": "Legal + Business"
+      }
+    ]
+  },
+  "sections": [
+    {
+      "title": "Project Overview",
+      "type": "overview",
+      "challenge": "Progressive Insurance needed to streamline legal review processes for state filing requirements across all 50 states. Each state had unique regulatory requirements, filing deadlines, and approval processes that created bottlenecks in product development and marketing campaigns.",
+      "approach": "Designed collaborative workflow that integrated legal review into development process rather than treating it as separate approval gate. Created early-warning system that flagged potential legal issues during content creation.",
+      "keyResults": [
+        {
+          "metric": "60%",
+          "label": "Faster Review Cycles"
+        },
+        {
+          "metric": "75%",
+          "label": "Fewer Compliance Issues"
+        },
+        {
+          "metric": "50%",
+          "label": "Less Rework"
+        },
+        {
+          "metric": "85%",
+          "label": "User Satisfaction"
+        }
+      ]
+    },
+    {
+      "title": "The Legal Compliance Challenge",
+      "type": "challenge",
+      "complexityMetrics": [
+        {
+          "value": "50",
+          "label": "States Covered"
+        },
+        {
+          "value": "50+",
+          "label": "Regulatory Frameworks"
+        },
+        {
+          "value": "25+",
+          "label": "Filing Types"
+        },
+        {
+          "value": "12",
+          "label": "Review Stakeholders"
+        }
+      ],
+      "problems": [
+        "50 different state regulatory frameworks to navigate",
+        "Manual coordination between legal and business teams",
+        "No visibility into review status or bottlenecks",
+        "Missed filing deadlines creating compliance risk",
+        "Duplicate work and inconsistent documentation"
+      ]
+    },
+    {
+      "title": "Integrated Legal Review Solution",
+      "type": "solution",
+      "innovations": [
+        {
+          "title": "Early Warning System",
+          "description": "Built intelligent flagging that identified potential legal issues during content creation, alerting creators to state-specific requirements before submission.",
+          "features": [
+            "State-specific regulatory rule engine",
+            "Real-time content analysis and flagging",
+            "Contextual guidance and suggestions",
+            "Integration with existing content tools"
+          ]
+        },
+        {
+          "title": "Collaborative Review Workflow",
+          "description": "Designed parallel review processes that allowed legal and business stakeholders to work simultaneously rather than sequentially.",
+          "features": [
+            "Parallel review lanes for efficiency",
+            "Real-time collaboration tools",
+            "Automated stakeholder notifications",
+            "Version control and change tracking"
+          ]
+        },
+        {
+          "title": "Smart Routing & Automation",
+          "description": "Implemented intelligent routing that automatically assigned reviews based on content type, state requirements, and reviewer expertise.",
+          "features": [
+            "Automated reviewer assignment",
+            "Priority-based queue management",
+            "Deadline tracking and escalation",
+            "Workload balancing across teams"
+          ]
+        }
+      ]
+    }
+  ],
+  "impact": {
+    "businessMetrics": [
+      {
+        "metric": "Time to Market",
+        "improvement": "40%"
+      },
+      {
+        "metric": "Legal Team Productivity",
+        "improvement": "65%"
+      },
+      {
+        "metric": "Compliance Risk",
+        "improvement": "-80%"
+      },
+      {
+        "metric": "System Adoption",
+        "improvement": "95%"
+      }
+    ],
+    "organizationalImpact": "The success of this project led to similar process transformation initiatives across other business units, demonstrating the scalability of human-centered design approaches to complex enterprise challenges."
+  }
+}

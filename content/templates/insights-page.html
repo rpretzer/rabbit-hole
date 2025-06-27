@@ -1,1 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{pageTitle}}</title>
+    <meta name="description" content="{{metaDescription}}">
+    <link rel="stylesheet" href="/styles/main.css">
+    <link rel="stylesheet" href="/styles/insights.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="/" class="logo">Ryan Andrew Pretzer</a>
+                <nav>
+                    <ul class="nav-links">
+                        <li><a href="/#about">About</a></li>
+                        <li><a href="/#services">Services</a></li>
+                        <li><a href="/#portfolio">Portfolio</a></li>
+                        <li><a href="/#content">Insights</a></li>
+                        <li><a href="/#contact">Contact</a></li>
+                    </ul>
+                    <button class="mobile-menu-toggle" aria-label="Toggle menu">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                </nav>
+            </div>
+        </div>
+    </header>
 
+    <!-- Article Header -->
+    <section class="article-header {{headerClass}}">
+        <div class="container">
+            <div class="breadcrumb">
+                <a href="/">Home</a> / <a href="/#content">Insights</a> / {{category}}
+            </div>
+            <div class="article-meta">{{meta}}</div>
+            <h1 class="article-title">{{title}}</h1>
+            <p class="article-subtitle">{{subtitle}}</p>
+            <div class="article-info">
+                <span>{{readTime}}</span>
+                <span>{{publishDate}}</span>
+                <span>{{category}}</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Article Content -->
+    <article class="article-content">
+        <div class="container">
+            {{content}}
+        </div>
+    </article>
+
+    <!-- Related Content -->
+    {{#if relatedContent}}
+    <section class="related-content">
+        <div class="container">
+            <h2 class="section-title">Related Insights</h2>
+            <div class="related-grid">
+                {{#each relatedContent}}
+                <div class="related-card">
+                    <div class="related-type">{{type}}</div>
+                    <h3>{{title}}</h3>
+                    <p>{{description}}</p>
+                    <a href="{{link}}" class="related-link">Read more →</a>
+                </div>
+                {{/each}}
+            </div>
+        </div>
+    </section>
+    {{/if}}
+
+    <!-- CTA Section -->
+    <section class="cta-section" id="contact">
+        <div class="container">
+            <div class="cta-content">
+                <h2>{{ctaTitle}}</h2>
+                <p>{{ctaDescription}}</p>
+                <div class="cta-buttons">
+                    <a href="mailto:rpretzer@gmail.com?subject={{ctaEmailSubject}}" class="cta-primary">{{ctaPrimaryText}}</a>
+                    {{#if ctaSecondaryText}}
+                    <a href="{{ctaSecondaryLink}}" class="cta-secondary">{{ctaSecondaryText}}</a>
+                    {{/if}}
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Ryan Andrew Pretzer. <a href="/">Back to main site</a> | <a href="/#content">More insights</a></p>
+        </div>
+    </footer>
+
+    <script src="/scripts/main.js"></script>
+</body>
+</html>

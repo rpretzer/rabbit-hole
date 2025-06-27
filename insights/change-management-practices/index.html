@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Change Management as Practice | Ryan Andrew Pretzer</title>
+    <meta name="description" content="Simple, fundamental messages win when we're purposeful about finding common interest and learning to vibe with contextual background noise. Change management philosophy and practical insights.">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.8;
+            color: #1a1a1a;
+            background: #ffffff;
+            font-weight: 300;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .wide-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        .header {
+            background: #ffffff;
+            border-bottom: 1px solid rgba(26, 26, 26, 0.08);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.2rem;
+            font-weight: 400;
+            color: #1a1a1a;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #666;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #1a1a1a;
+        }
+
+        /* Article Header */
+        .article-header {
+            padding: 4rem 0 3rem;
+            background: linear-gradient(135deg, #f1f3f4 0%, #e8eaed 100%);
+            text-align: center;
+        }
+
+        .article-meta {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        .article-title {
+            font-size: 3rem;
+            font-weight: 200;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.02em;
+            line-height: 1.1;
+        }
+
+        .article-subtitle {
+            font-size: 1.3rem;
+            color: #555;
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        .article-info {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        /* Article Content */
+        .article-content {
+            padding: 4rem 0;
+        }
+
+        .content-section {
+            margin-bottom: 3rem;
+        }
+
+        .content-section h2 {
+            font-size: 2rem;
+            font-weight: 300;
+            margin-bottom: 1.5rem;
+            color: #1a1a1a;
+            letter-spacing: -0.01em;
+        }
+
+        .content-section h3 {
+            font-size: 1.5rem;
+            font-weight: 400;
+            margin: 2rem 0 1rem;
+            color: #1a1a1a;
+        }
+
+        .content-section p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            color: #333;
+        }
+
+        .highlight-quote {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-left: 4px solid #1a1a1a;
+            margin: 2rem 0;
+            font-size: 1.2rem;
+            font-style: italic;
+            color: #333;
+        }
+
+        .principle-list {
+            list-style: none;
+            margin: 2rem 0;
+        }
+
+        .principle-list li {
+            padding: 1rem 0;
+            position: relative;
+            padding-left: 2rem;
+            font-size: 1rem;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .principle-list li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: #1a1a1a;
+            font-weight: bold;
+        }
+
+        .case-study-box {
+            background: #1a1a1a;
+            color: white;
+            padding: 2.5rem;
+            border-radius: 8px;
+            margin: 3rem 0;
+        }
+
+        .case-study-box h3 {
+            color: white;
+            margin-bottom: 1rem;
+        }
+
+        .case-study-box p {
+            color: #e0e0e0;
+            margin-bottom: 1rem;
+        }
+
+        .case-study-approach {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 1.5rem;
+            border-radius: 4px;
+            margin-top: 1.5rem;
+        }
+
+        .case-study-approach h4 {
+            color: white;
+            font-size: 1rem;
+            margin-bottom: 1rem;
+            font-weight: 400;
+        }
+
+        .approach-steps {
+            list-style: none;
+        }
+
+        .approach-steps li {
+            padding: 0.5rem 0;
+            color: #e0e0e0;
+            font-size: 0.95rem;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+
+        .approach-steps li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #28a745;
+            font-weight: bold;
+        }
+
+        .case-study-result {
+            background: rgba(40, 167, 69, 0.1);
+            border: 1px solid rgba(40, 167, 69, 0.3);
+            padding: 1rem;
+            border-radius: 4px;
+            margin-top: 1rem;
+        }
+
+        .case-study-result p {
+            color: #28a745;
+            font-weight: 400;
+            margin: 0;
+        }
+
+        /* Practical Application Section */
+        .practical-section {
+            background: #f8f9fa;
+            padding: 3rem 0;
+            margin: 3rem 0;
+            border-radius: 8px;
+        }
+
+        .practical-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .practical-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            border-left: 4px solid #1a1a1a;
+        }
+
+        .practical-card h4 {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            font-weight: 400;
+            color: #1a1a1a;
+        }
+
+        .practical-card ul {
+            list-style: none;
+        }
+
+        .practical-card li {
+            padding: 0.4rem 0;
+            color: #555;
+            font-size: 0.95rem;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+
+        .practical-card li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: #1a1a1a;
+        }
+
+        /* Related Content */
+        .related-content {
+            background: #1a1a1a;
+            color: white;
+            padding: 3rem 0;
+        }
+
+        .related-content .section-title {
+            color: white;
+            text-align: center;
+            font-size: 2rem;
+            font-weight: 200;
+            margin-bottom: 2rem;
+        }
+
+        .related-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .related-card {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 2rem;
+            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .related-type {
+            font-size: 0.8rem;
+            color: #ccc;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 0.5rem;
+        }
+
+        .related-card h3 {
+            color: white;
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            font-weight: 400;
+        }
+
+        .related-card p {
+            color: #e0e0e0;
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .related-link {
+            color: #ccc;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+        }
+
+        .related-link:hover {
+            color: white;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 4rem 0;
+            background: #ffffff;
+            text-align: center;
+        }
+
+        .cta-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .cta-section h2 {
+            font-size: 2.2rem;
+            font-weight: 200;
+            margin-bottom: 1.5rem;
+        }
+
+        .cta-section p {
+            font-size: 1.1rem;
+            color: #555;
+            margin-bottom: 2rem;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .cta-primary {
+            display: inline-block;
+            background: #1a1a1a;
+            color: white;
+            padding: 1rem 2rem;
+            text-decoration: none;
+            border-radius: 2px;
+            font-weight: 400;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .cta-primary:hover {
+            background: #000;
+            transform: translateY(-1px);
+            box-shadow: 0 8px 25px rgba(26, 26, 26, 0.2);
+        }
+
+        .cta-secondary {
+            display: inline-block;
+            border: 2px solid #1a1a1a;
+            color: #1a1a1a;
+            padding: 1rem 2rem;
+            text-decoration: none;
+            border-radius: 2px;
+            font-weight: 400;
+            transition: all 0.3s ease;
+        }
+
+        .cta-secondary:hover {
+            background: #1a1a1a;
+            color: white;
+        }
+
+        /* Footer */
+        .footer {
+            background: #1a1a1a;
+            color: #e0e0e0;
+            padding: 2rem 0;
+            text-align: center;
+        }
+
+        .footer a {
+            color: #e0e0e0;
+            text-decoration: none;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .article-title {
+                font-size: 2.2rem;
+            }
+            
+            .article-info {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+            
+            .practical-grid,
+            .related-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="wide-container">
+            <div class="header-content">
+                <a href="/" class="logo">Ryan Andrew Pretzer</a>
+                <nav>
+                    <ul class="nav-links">
+                        <li><a href="/#about">About</a></li>
+                        <li><a href="/#services">Services</a></li>
+                        <li><a href="/#portfolio">Portfolio</a></li>
+                        <li><a href="/#contact">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Article Header -->
+    <section class="article-header">
+        <div class="container">
+            <div class="article-meta">Article • Leadership Philosophy</div>
+            <h1 class="article-title">Change Management as Practice</h1>
+            <p class="article-subtitle">Simple, fundamental messages win when we're purposeful about finding common interest and learning to vibe with contextual background noise.</p>
+            <div class="article-info">
+                <span>8 min read</span>
+                <span>Published February 2025</span>
+                <span>Change Management</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Article Content -->
+    <section class="article-content">
+        <div class="container">
+            <div class="content-section">
+                <p>Change management isn't about perfecting process—it's about making things work better for actual people. Too often, change initiatives fail because they prioritize adherence to methodology over outcomes.</p>
+
+                <div class="highlight-quote">
+                    "Outcomes and relationships trump process and adherence. The goal isn't perfect methodology—it's making things work better for actual people."
+                </div>
+            </div>
+
+            <div class="content-section">
+                <h2>The Myth of Perfect Process</h2>
+                <p>I've seen Fortune 500 companies spend months crafting the "perfect" change management framework, only to watch it crumble when it meets the reality of how people actually work. The truth is that sustainable transformation happens when you solve human problems, not just business problems.</p>
+
+                <p>In my 15+ years working with companies like USAA, Progressive, and MVP Healthcare, the most successful transformations happened when we started with shared problems, not solutions. When we listened to resistance as valuable data rather than obstacles to overcome.</p>
+            </div>
+
+            <div class="content-section">
+                <h2>Finding Common Ground</h2>
+                <p>The best change agents I know don't try to eliminate organizational background noise—they learn to work with it. Every organization has contextual dynamics: unspoken tensions, historical baggage, informal power structures that influence how change really happens.</p>
+
+                <ul class="principle-list">
+                    <li>Start with shared problems, not solutions</li>
+                    <li>Listen to resistance as valuable data</li>
+                    <li>Adapt methodology to organizational culture</li>
+                    <li>Measure relationship health alongside deliverables</li>
+                </ul>
+
+                <h3>Recognizing the Patterns</h3>
+                <p>Learn to read the signals: the eye-roll during all-hands meetings translates to "here we go again." The "sounds great, but..." responses mean "I've seen this before." The sudden enthusiasm for old processes signals "I'm scared of losing what I know."</p>
+            </div>
+
+            <div class="case-study-box">
+                <h3>Case Study: Design System Adoption at USAA</h3>
+                <p>When we needed to get 50+ development teams to adopt a new mobile design system, the traditional approach would have been to build perfect documentation, mandate adoption, and measure compliance.</p>
+
+                <div class="case-study-approach">
+                    <h4>What we did instead:</h4>
+                    <ul class="approach-steps">
+                        <li>Found the team with the biggest pain point our system could solve</li>
+                        <li>Solved their specific problem first</li>
+                        <li>Let them become advocates to peer teams</li>
+                        <li>Built adoption through peer influence rather than mandates</li>
+                    </ul>
+                </div>
+
+                <div class="case-study-result">
+                    <p><strong>Result:</strong> 80% adoption in 6 months vs. the projected 18-month rollout through traditional change management.</p>
+                </div>
+            </div>
+
+            <div class="content-section">
+                <h2>The Win-Win Imperative</h2>
+                <p>Every change initiative creates winners and losers. The art is in finding compromises that feel like wins for everyone involved—even when they're not perfect solutions. This requires asking different questions:</p>
+
+                <ul class="principle-list">
+                    <li>What does success look like for each stakeholder?</li>
+                    <li>Where are the natural alignment points?</li>
+                    <li>What fears need to be addressed before moving forward?</li>
+                    <li>How can we make the transition feel collaborative, not imposed?</li>
+                </ul>
+            </div>
+
+            <div class="content-section">
+                <h2>Beyond Process: Building Practice</h2>
+                <p><strong>Process</strong> is what you do when everything goes according to plan. <strong>Practice</strong> is how you respond when it doesn't.</p>
+
+                <p>The best change agents develop practices that can adapt to context while maintaining integrity of purpose. This means holding outcomes lightly while staying committed to direction, reading organizational energy and adjusting timing accordingly.</p>
+
+                <h3>The Michigan Grit Approach</h3>
+                <p>Growing up poor and quasi-feral in Kalamazoo taught me that survival requires resourcefulness over resources, relationships over rules, persistence over perfection. This translates directly to change work: the goal isn't elegant methodology—it's sustainable transformation that sticks.</p>
+            </div>
+
+            <div class="practical-section">
+                <div class="container">
+                    <h2>Practical Change Management</h2>
+                    <p style="text-align: center; margin-bottom: 2rem;">Change management works best as a practice, not a project. Like jazz improvisation, it requires strong fundamentals, deep listening, and responsive adaptation.</p>
+                    
+                    <div class="practical-grid">
+                        <div class="practical-card">
+                            <h4>Reading Organizational Energy</h4>
+                            <ul>
+                                <li>Observe informal communication patterns</li>
+                                <li>Notice what gets discussed in hallway conversations</li>
+                                <li>Track which initiatives get enthusiasm vs. compliance</li>
+                                <li>Identify natural coalition builders and resisters</li>
+                            </ul>
+                        </div>
+                        <div class="practical-card">
+                            <h4>Building Sustainable Change</h4>
+                            <ul>
+                                <li>Start with problems that people already feel</li>
+                                <li>Create quick wins that demonstrate new possibilities</li>
+                                <li>Build advocacy through peer influence</li>
+                                <li>Establish feedback loops for continuous adaptation</li>
+                            </ul>
+                        </div>
+                        <div class="practical-card">
+                            <h4>Measuring What Matters</h4>
+                            <ul>
+                                <li>Track relationship health alongside deliverables</li>
+                                <li>Monitor cross-team collaboration instances</li>
+                                <li>Measure advocacy (teams recommending to other teams)</li>
+                                <li>Assess system resilience under pressure</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="content-section">
+                <h2>The Poetry of Change</h2>
+                <p>There's a rhythm to organizational change that's more like Latin jazz than classical music. It's polyrhythmic—multiple patterns happening simultaneously, sometimes in tension, sometimes in harmony.</p>
+
+                <p>Successful change management means learning to conduct this orchestra without losing the essential human elements that make the music worth playing. It means finding the groove between structure and improvisation, between direction and discovery.</p>
+
+                <div class="highlight-quote">
+                    "Simple, fundamental messages win when we're purposeful about finding common interest and learning to vibe with contextual background noise."
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Related Content -->
+    <section class="related-content">
+        <div class="wide-container">
+            <h2 class="section-title">Related Insights</h2>
+            <div class="related-grid">
+                <div class="related-card">
+                    <div class="related-type">Case Study</div>
+                    <h3>USAA Design System Transformation</h3>
+                    <p>How advocacy-driven adoption achieved 80% team engagement across 50+ development teams through strategic change management.</p>
+                    <a href="/portfolio/usaa-design-system/" class="related-link">Read case study →</a>
+                </div>
+                <div class="related-card">
+                    <div class="related-type">Service</div>
+                    <h3>Business Process Design</h3>
+                    <p>Transform complex workflows into intuitive digital experiences through human-centered change management approaches.</p>
+                    <a href="/services/business-process/" class="related-link">Learn more →</a>
+                </div>
+                <div class="related-card">
+                    <div class="related-type">Philosophy</div>
+                    <h3>Leo Season Reflections</h3>
+                    <p>A cosmic perspective on leadership, creativity, and the delightful chaos of transformation for fellow fire signs.</p>
+                    <a href="/insights/leo-season-reflections/" class="related-link">Read more →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section" id="contact">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Ready to Transform Your Change Approach?</h2>
+                <p>Interested in exploring change management strategies that prioritize outcomes and relationships over process adherence?</p>
+                
+                <div class="cta-buttons">
+                    <a href="mailto:rpretzer@gmail.com?subject=Change Management Discussion" class="cta-primary">Discuss Your Change Challenge</a>
+                    <a href="/#services" class="cta-secondary">Explore Services</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Ryan Andrew Pretzer. <a href="/">Back to main site</a> | <a href="/#content">More insights</a></p>
+        </div>
+    </footer>
+</body>
+</html>

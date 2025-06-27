@@ -1,1 +1,56 @@
-
+{
+  "pageTitle": "Change Management as Practice | Ryan Andrew Pretzer",
+  "metaDescription": "Simple, fundamental messages win when we're purposeful about finding common interest and learning to vibe with contextual background noise. Change management philosophy and practical insights.",
+  "article": {
+    "meta": "Article • Leadership Philosophy",
+    "title": "Change Management as Practice",
+    "subtitle": "Simple, fundamental messages win when we're purposeful about finding common interest and learning to vibe with contextual background noise.",
+    "readTime": "8 min read",
+    "publishDate": "Published February 2025",
+    "category": "Change Management"
+  },
+  "sections": [
+    {
+      "title": "The Myth of Perfect Process",
+      "type": "text",
+      "content": "I've seen Fortune 500 companies spend months crafting the \"perfect\" change management framework, only to watch it crumble when it meets the reality of how people actually work. The truth is that sustainable transformation happens when you solve human problems, not just business problems."
+    },
+    {
+      "title": "Finding Common Ground", 
+      "type": "principles",
+      "intro": "The best change agents I know don't try to eliminate organizational background noise—they learn to work with it.",
+      "principles": [
+        "Start with shared problems, not solutions",
+        "Listen to resistance as valuable data", 
+        "Adapt methodology to organizational culture",
+        "Measure relationship health alongside deliverables"
+      ]
+    },
+    {
+      "title": "Case Study: Design System Adoption at USAA",
+      "type": "caseStudy",
+      "problem": "When we needed to get 50+ development teams to adopt a new mobile design system, the traditional approach would have been to build perfect documentation, mandate adoption, and measure compliance.",
+              "approach": [
+        "Found the team with the biggest pain point our system could solve",
+        "Solved their specific problem first",
+        "Let them become advocates to peer teams", 
+        "Built adoption through peer influence rather than mandates"
+      ],
+      "result": "80% adoption in 6 months vs. the projected 18-month rollout through traditional change management."
+    }
+  ],
+  "relatedContent": [
+    {
+      "type": "Case Study",
+      "title": "USAA Design System Transformation",
+      "description": "How advocacy-driven adoption achieved 80% team engagement across 50+ development teams through strategic change management.",
+      "link": "/portfolio/usaa-design-system/"
+    },
+    {
+      "type": "Service", 
+      "title": "Business Process Design",
+      "description": "Transform complex workflows into intuitive digital experiences through human-centered change management approaches.",
+      "link": "/services/business-process/"
+    }
+  ]
+}

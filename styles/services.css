@@ -1,1 +1,95 @@
+/* Services Page Specific Styles */
 
+/* Hero Section Variations */
+.hero {
+    padding: 4rem 0;
+    text-align: center;
+}
+
+.hero.gradient-primary {
+    background: linear-gradient(135deg, #f1f3f4 0%, #e8eaed 100%);
+}
+
+.hero.gradient-mobile {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+}
+
+.hero.gradient-design {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+}
+
+.hero.gradient-process {
+    background: linear-gradient(135deg, #f1f3f4 0%, #e8eaed 100%);
+}
+
+.hero h1 {
+    font-size: 3rem;
+    font-weight: 200;
+    margin-bottom: 1.5rem;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+}
+
+.hero .subtitle {
+    font-size: 1.3rem;
+    color: #555;
+    margin-bottom: 2rem;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.hero.gradient-mobile .subtitle,
+.hero.gradient-design .subtitle {
+    color: rgba(255, 255, 255, 0.95);
+}
+
+/* Hero Stats */
+.hero-stats {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    margin: 3rem 0;
+}
+
+.stat {
+    text-align: center;
+}
+
+.stat-number {
+    font-size: 2.5rem;
+    font-weight: 200;
+    color: #1a1a1a;
+    display: block;
+}
+
+.hero.gradient-mobile .stat-number,
+.hero.gradient-design .stat-number {
+    color: #fff;
+}
+
+.stat-label {
+    font-size: 0.9rem;
+    color: #666;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+.hero.gradient-mobile .stat-label,
+.hero.gradient-design .stat-label {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+/* Hero Value Proposition */
+.hero-value-prop {
+    background: rgba(255, 255, 255, 0.7);
+    padding: 2rem;
+    border-radius: 8px;
+    margin: 3rem auto;
+    max-width: 600px;
+    border-left: 4px solid #1a1a1a;
+}
+
+.

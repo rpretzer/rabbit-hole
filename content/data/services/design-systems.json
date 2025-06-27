@@ -1,1 +1,68 @@
-
+{
+  "pageTitle": "Enterprise Design Systems | Ryan Andrew Pretzer",
+  "metaDescription": "Build and scale design systems for enterprise mobile applications. Proven experience with Fortune 500 companies like USAA and Progressive Insurance.",
+  "hero": {
+    "title": "Enterprise Design Systems",
+    "subtitle": "Build and scale design systems for enterprise mobile applications with proven Fortune 500 experience.",
+    "stats": [
+      {
+        "number": "50+",
+        "label": "Development Teams"
+      },
+      {
+        "number": "80%",
+        "label": "Adoption Rate"
+      },
+      {
+        "number": "40%",
+        "label": "Time Savings"
+      }
+    ],
+    "cta": {
+      "text": "Discuss Your Design System",
+      "link": "#contact"
+    }
+  },
+  "sections": [
+    {
+      "title": "The Enterprise Scale Challenge",
+      "type": "text",
+      "content": "When you're designing for one app, you control the variables. When you're designing for 50+ teams across multiple business units, the variables control you."
+    },
+    {
+      "title": "Systems That Scale With Organizations",
+      "type": "text",
+      "content": "Enterprise design systems succeed when they solve people problems, not just design problems. After leading system initiatives at USAA and Progressive, I've learned that adoption comes through value creation, not mandates."
+    },
+    {
+      "title": "Case Study: USAA Mobile Design System",
+      "type": "caseStudy",
+      "description": "USAA needed to coordinate mobile development across 50+ teams while maintaining consistency and accelerating feature delivery for their financial services platform serving 13+ million members.",
+      "approach": "Led product management for enterprise mobile design system, managing roadmap and backlog through PI planning process. Established shared components, development patterns, and adoption strategies.",
+      "innovation": "Created advocacy-driven adoption model where early adopter teams became champions, spreading system usage through peer influence rather than top-down mandates.",
+      "results": "40% reduction in development time, 80% system adoption, 60% fewer QA issues, 95% team satisfaction"
+    },
+    {
+      "title": "Design System ROI",
+      "type": "grid",
+      "items": [
+        {
+          "title": "40% Faster Development",
+          "description": "Reduced time to implement common UI patterns"
+        },
+        {
+          "title": "60% Fewer QA Issues", 
+          "description": "Improved code quality through standardized components"
+        },
+        {
+          "title": "3x Faster Onboarding",
+          "description": "New developers productive more quickly"
+        },
+        {
+          "title": "90% Cross-Platform Consistency",
+          "description": "Unified user experience across iOS and Android"
+        }
+      ]
+    }
+  ]
+}

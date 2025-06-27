@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leo Season Reflections | Ryan Andrew Pretzer</title>
+    <meta name="description" content="A little cosmic perspective for fellow fire signs navigating change management, creativity, and the delightful chaos of transformation. Born August 1982, year of the dog.">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.8;
+            color: #1a1a1a;
+            background: #ffffff;
+            font-weight: 300;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .wide-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        .header {
+            background: #ffffff;
+            border-bottom: 1px solid rgba(26, 26, 26, 0.08);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.2rem;
+            font-weight: 400;
+            color: #1a1a1a;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #666;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #1a1a1a;
+        }
+
+        /* Article Header */
+        .article-header {
+            padding: 4rem 0 3rem;
+            background: linear-gradient(135deg, #1a2980 0%, #26d0ce 100%);
+            text-align: center;
+            color: white;
+        }
+
+        .article-meta {
+            font-size: 0.9rem;
+            opacity: 0.9;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        .article-title {
+            font-size: 3rem;
+            font-weight: 200;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.02em;
+            line-height: 1.1;
+        }
+
+        .article-subtitle {
+            font-size: 1.3rem;
+            opacity: 0.95;
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        .cosmic-details {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+
+        .cosmic-detail {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        /* Article Content */
+        .article-content {
+            padding: 4rem 0;
+        }
+
+        .content-section {
+            margin-bottom: 4rem;
+        }
+
+        .content-section h2 {
+            font-size: 2rem;
+            font-weight: 300;
+            margin-bottom: 1.5rem;
+            color: #1a1a1a;
+            letter-spacing: -0.01em;
+        }
+
+        .content-section h3 {
+            font-size: 1.5rem;
+            font-weight: 400;
+            margin: 2rem 0 1rem;
+            color: #1a1a1a;
+        }
+
+        .content-section h4 {
+            font-size: 1.2rem;
+            font-weight: 400;
+            margin: 1.5rem 0 1rem;
+            color: #26d0ce;
+        }
+
+        .content-section p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            color: #333;
+        }
+
+        .cosmic-quote {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 2rem;
+            border-left: 4px solid #26d0ce;
+            margin: 2rem 0;
+            font-size: 1.2rem;
+            font-style: italic;
+            color: #333;
+        }
+
+        .fire-sign-list {
+            list-style: none;
+            margin: 2rem 0;
+        }
+
+        .fire-sign-list li {
+            padding: 0.8rem 0;
+            position: relative;
+            padding-left: 2rem;
+            font-size: 1rem;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .fire-sign-list li::before {
+            content: '🔥';
+            position: absolute;
+            left: 0;
+            font-size: 1rem;
+        }
+
+        .leo-characteristics {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .characteristic-card {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 8px;
+            border-top: 4px solid #f39c12;
+        }
+
+        .characteristic-card h4 {
+            color: #f39c12;
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+        }
+
+        .characteristic-card p {
+            font-size: 0.95rem;
+            color: #555;
+        }
+
+        /* Practical Application Section */
+        .practical-section {
+            background: #1a2980;
+            color: white;
+            padding: 3rem 0;
+            margin: 3rem 0;
+            border-radius: 8px;
+        }
+
+        .practical-section h3 {
+            color: white;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .practical-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .practical-card {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2rem;
+            border-radius: 8px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .practical-card h4 {
+            color: #26d0ce;
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            font-weight: 400;
+        }
+
+        .practical-card ul {
+            list-style: none;
+        }
+
+        .practical-card li {
+            padding: 0.4rem 0;
+            opacity: 0.9;
+            font-size: 0.95rem;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+
+        .practical-card li::before {
+            content: '✦';
+            position: absolute;
+            left: 0;
+            color: #26d0ce;
+        }
+
+        /* Integration Section */
+        .integration {
+            background: #f8f9fa;
+            padding: 3rem;
+            border-radius: 8px;
+            margin: 3rem 0;
+        }
+
+        .integration h3 {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .integration-content {
+            max-width: 700px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .integration-content p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Related Content */
+        .related-content {
+            background: #1a1a1a;
+            color: white;
+            padding: 3rem 0;
+        }
+
+        .related-content .section-title {
+            color: white;
+            text-align: center;
+            font-size: 2rem;
+            font-weight: 200;
+            margin-bottom: 2rem;
+        }
+
+        .related-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .related-card {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 2rem;
+            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .related-type {
+            font-size: 0.8rem;
+            color: #ccc;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 0.5rem;
+        }
+
+        .related-card h3 {
+            color: white;
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            font-weight: 400;
+        }
+
+        .related-card p {
+            color: #e0e0e0;
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .related-link {
+            color: #ccc;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+        }
+
+        .related-link:hover {
+            color: white;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 4rem 0;
+            background: #ffffff;
+            text-align: center;
+        }
+
+        .cta-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .cta-section h2 {
+            font-size: 2.2rem;
+            font-weight: 200;
+            margin-bottom: 1.5rem;
+        }
+
+        .cta-section p {
+            font-size: 1.1rem;
+            color: #555;
+            margin-bottom: 2rem;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .cta-primary {
+            display: inline-block;
+            background: #1a2980;
+            color: white;
+            padding: 1rem 2rem;
+            text-decoration: none;
+            border-radius: 2px;
+            font-weight: 400;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .cta-primary:hover {
+            background: #26d0ce;
+            transform: translateY(-1px);
+            box-shadow: 0 8px 25px rgba(38, 208, 206, 0.2);
+        }
+
+        .cta-secondary {
+            display: inline-block;
+            border: 2px solid #1a2980;
+            color: #1a2980;
+            padding: 1rem 2rem;
+            text-decoration: none;
+            border-radius: 2px;
+            font-weight: 400;
+            transition: all 0.3s ease;
+        }
+
+        .cta-secondary:hover {
+            background: #1a2980;
+            color: white;
+        }
+
+        /* Footer */
+        .footer {
+            background: #1a1a1a;
+            color: #e0e0e0;
+            padding: 2rem 0;
+            text-align: center;
+        }
+
+        .footer a {
+            color: #e0e0e0;
+            text-decoration: none;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .article-title {
+                font-size: 2.2rem;
+            }
+            
+            .cosmic-details {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+            
+            .leo-characteristics,
+            .practical-grid,
+            .related-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="wide-container">
+            <div class="header-content">
+                <a href="/" class="logo">Ryan Andrew Pretzer</a>
+                <nav>
+                    <ul class="nav-links">
+                        <li><a href="/#about">About</a></li>
+                        <li><a href="/#services">Services</a></li>
+                        <li><a href="/#portfolio">Portfolio</a></li>
+                        <li><a href="/#content">Insights</a></li>
+                        <li><a href="/#contact">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Article Header -->
+    <section class="article-header">
+        <div class="container">
+            <div class="article-meta">Cosmic Check-In • Fire Sign Energy</div>
+            <h1 class="article-title">Leo Season Reflections</h1>
+            <p class="article-subtitle">A little cosmic perspective for fellow fire signs navigating change management, creativity, and the delightful chaos of transformation.</p>
+            <div class="cosmic-details">
+                <span class="cosmic-detail">♌ Leo Sun</span>
+                <span class="cosmic-detail">🐕 Year of the Dog (1982)</span>
+                <span class="cosmic-detail">🔥 Fire Sign Energy</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Article Content -->
+    <section class="article-content">
+        <div class="container">
+            <div class="content-section">
+                <h2>The Leo Paradox in Professional Life</h2>
+                <p><strong>Fixed fire energy</strong> in a world that demands flexibility.</p>
+                
+                <p>Leos are natural leaders, but leadership in transformation work requires something more nuanced than the traditional "command and control" lion energy. I've learned that the best change agents channel Leo fire through collaboration, not domination.</p>
+
+                <div class="leo-characteristics">
+                    <div class="characteristic-card">
+                        <h4>The Shadow Side of Leo Leadership</h4>
+                        <p>Early in my career, I brought full Leo energy to design system implementations: Grand vision presentations (theatrical Leo), "Follow me" leadership style (prideful Leo), Resistance to feedback (ego-driven Leo). Result: Teams complied but didn't commit. The fire burned bright but didn't spread.</p>
+                    </div>
+            </div>
+
+            <div class="content-section">
+                <h2>The Fire Sign Consultant's Dilemma</h2>
+                
+                <p>We're drawn to <strong>transformation work</strong> because fire energy naturally disrupts status quo. But <strong>sustainable transformation</strong> requires patience, diplomacy, and systems thinking that don't come naturally to fire signs.</p>
+                
+                <p><strong>Solution:</strong> Develop complementary skills while honoring essential fire energy. Don't try to become a different element—learn to express your element more skillfully.</p>
+            </div>
+
+            <div class="content-section">
+                <h2>Closing Reflection</h2>
+                
+                <p><strong>For fellow fire signs in professional transformation work:</strong></p>
+                
+                <p>Your energy is needed. The world has plenty of people who can maintain systems—fewer who can envision and create better ones. But learn to burn like a hearth fire, not a wildfire. Sustainable, warming, gathering people close rather than driving them away.</p>
+                
+                <div class="cosmic-quote">
+                    "The goal isn't to dim your light—it's to learn how to shine in ways that help others find their own illumination."
+                </div>
+                
+                <p style="text-align: center; font-style: italic; color: #666; margin-top: 3rem;">Written during Leo season 2025, between client calls and morning coffee, with respect for the cosmic patterns that inform but don't determine our choices.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Related Content -->
+    <section class="related-content">
+        <div class="wide-container">
+            <h2 class="section-title">Related Insights</h2>
+            <div class="related-grid">
+                <div class="related-card">
+                    <div class="related-type">Article</div>
+                    <h3>Change Management as Practice</h3>
+                    <p>Simple, fundamental messages win when we're purposeful about finding common interest and learning to vibe with contextual background noise.</p>
+                    <a href="/insights/change-management-practice" class="related-link">Read more →</a>
+                </div>
+                <div class="related-card">
+                    <div class="related-type">Poetry</div>
+                    <h3>Polyrhythmic Verses</h3>
+                    <p>Poetry loosely cadenced on Latin jazz polyrhythms, exploring transformation and the liminal spaces between sleeping and waking.</p>
+                    <a href="/insights/polyrhythmic-verses" class="related-link">Read poetry →</a>
+                </div>
+                <div class="related-card">
+                    <div class="related-type">Service</div>
+                    <h3>Change Management</h3>
+                    <p>Strategic change initiatives that find common ground and build sustainable transformation through human-centered approaches.</p>
+                    <a href="/services/change-management" class="related-link">Learn more →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section" id="contact">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Harness Your Fire Sign Energy</h2>
+                <p>Whether you're a fellow fire sign or just appreciate the cosmic perspective, let's explore how to channel transformative energy into sustainable change.</p>
+                
+                <div class="cta-buttons">
+                    <a href="mailto:rpretzer@gmail.com?subject=Fire Sign Transformation Discussion" class="cta-primary">Light the Spark</a>
+                    <a href="/#content" class="cta-secondary">Explore More Insights</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Ryan Andrew Pretzer. <a href="/">Back to main site</a> | <a href="/#content">More insights</a></p>
+        </div>
+    </footer>
+</body>
+</html>
+                    <div class="characteristic-card">
+                        <h4>Evolved Leo: The Collaborative Sun</h4>
+                        <p>Mature Leo energy in professional settings: Illuminates others' contributions rather than demanding spotlight, Creates warmth that draws people in rather than heat that pushes away, Uses dramatic flair for storytelling that serves the mission, not the ego.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="content-section">
+                <h2>Fire Sign Challenges in Corporate Environments</h2>
+                
+                <h3>The Patience Problem</h3>
+                <p>Fire signs want results yesterday. Corporate change happens in quarters and years.</p>
+                <p><strong>What I've learned:</strong> Use fire energy for sustained heat, not explosive bursts. Think forge, not fireworks.</p>
+                <p><strong>Practical application:</strong> Break transformation into exciting milestones that maintain momentum without burning out the team.</p>
+
+                <h3>The Diplomacy Deficit</h3>
+                <p>Fire signs tend toward directness. Corporate environments reward political subtlety.</p>
+                <p><strong>What I've learned:</strong> Direct communication works when it's warm, not hot. People respond to passionate clarity, not aggressive intensity.</p>
+                <p><strong>Practical application:</strong> Lead with curiosity before conviction. "What if we tried..." instead of "We need to..."</p>
+            </div>
+
+            <div class="content-section">
+                <h2>Year of the Dog: Loyalty Meets Leadership</h2>
+                
+                <p><strong>Dog characteristics that enhance Leo energy:</strong></p>
+                <ul class="fire-sign-list">
+                    <li>Loyalty to people over politics</li>
+                    <li>Protective instincts for team wellbeing</li>
+                    <li>Honest communication (sometimes to a fault)</li>
+                    <li>Pack-oriented thinking</li>
+                </ul>
+
+                <p><strong>Dog characteristics that balance Leo intensity:</strong></p>
+                <ul class="fire-sign-list">
+                    <li>Service-oriented leadership vs. ego-driven performance</li>
+                    <li>Collaborative problem-solving vs. solo hero complex</li>
+                    <li>Long-term relationship building vs. short-term wins</li>
+                </ul>
+            </div>
+
+            <div class="content-section">
+                <h2>Seasonal Energy Management</h2>
+                
+                <h3>Leo Season (July 23 - August 22): Peak Performance Time</h3>
+                <p>This is when I do my most ambitious work:</p>
+                <ul class="fire-sign-list">
+                    <li>Strategic planning sessions (natural Leo territory)</li>
+                    <li>Public speaking and presentations (Leo loves the stage)</li>
+                    <li>Creative problem-solving (fire energy generates ideas)</li>
+                    <li>Team building and motivation (Leo warmth draws people together)</li>
+                </ul>
+
+                <h3>Fire Season Strategy</h3>
+                <p><strong>Maximize the heat:</strong> Use Leo season to launch new initiatives, have difficult but necessary conversations, build coalition and buy-in, create vision and excitement.</p>
+                <p><strong>Manage the intensity:</strong> Guard against overwhelming others with enthusiasm, moving too fast for consensus building, burning out from unsustainable pace, ego-driven decision making.</p>
+            </div>
+
+            <div class="practical-section">
+                <div class="container">
+                    <h3>Practical Magic for Fire Signs</h3>
+                    
+                    <div class="practical-grid">
+                        <div class="practical-card">
+                            <h4>Energy Management Rituals</h4>
+                            <ul>
+                                <li>Morning intention setting: Channel fire energy toward specific outcomes</li>
+                                <li>Midday check-ins: Am I burning bright or burning out?</li>
+                                <li>Evening reflection: What did I illuminate today?</li>
+                            </ul>
+                        </div>
+                        <div class="practical-card">
+                            <h4>Working with Other Elements</h4>
+                            <ul>
+                                <li>With Earth signs: Bring vision, accept grounding</li>
+                                <li>With Air signs: Bring passion, accept analysis</li>
+                                <li>With Water signs: Bring warmth, accept emotional wisdom</li>
+                            </ul>
+                        </div>
+                        <div class="practical-card">
+                            <h4>Leo Energy Management</h4>
+                            <ul>
+                                <li>When vision inspires action ✓</li>
+                                <li>When ego blocks collaboration ✗</li>
+                                <li>When confidence builds morale ✓</li>
+                                <li>When pride prevents learning ✗</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="content-section">
+                <h2>Cosmic Context for Change Work</h2>
+                
+                <h3>Mercury Retrograde and System Implementations</h3>
+                <p><strong>What astrology gets right about timing:</strong> Some periods are better for reflection and revision than action and launch.</p>
+                <p><strong>What this means for change management:</strong> Build buffer time into project timelines for the inevitable "let's reconsider this approach" moments.</p>
+
+                <h3>Saturn Return Lessons (Ages 29-30)</h3>
+                <p>My Saturn return happened during my transition from execution-focused roles to strategic consulting. Classic Saturn return energy: <strong>structures that no longer serve get dismantled</strong>.</p>
+                <p><strong>Professional application:</strong> Sometimes the most important change management work is helping people let go of systems and processes that brought them success in the past but limit them in the future.</p>
+            </div>
+
+            <div class="content-section">
+                <h2>Stubborn Persistence: When Fire Becomes Forge</h2>
+                
+                <p><strong>Year of the Dog stubbornness</strong> + <strong>Leo fixed fire</strong> = <strong>Unstoppable persistence when properly channeled</strong></p>
+
+                <div class="cosmic-quote">
+                    "Early career Leo: 'Look how bright I can burn!'<br>
+                    Mature Leo: 'Look how much light we can create together!'<br><br>
+                    This shift—from personal performance to collective illumination—transforms fire sign energy from impressive to indispensable."
+                </div>
+
+                <h3>The Productive Application</h3>
+                <p>This combination works beautifully for long-term system building that requires sustained effort, cultural transformation that faces inevitable resistance, quality standards that can't be compromised, and relationship building that compounds over time.</p>
+
+                <h3>The Destructive Pattern</h3>
+                <p>Same energy becomes problematic when persistence becomes inflexibility, loyalty becomes enabling, standards become perfectionism, and vision becomes tunnel vision.</p>
+            </div>
+
+            <div class="integration">
+                <h3>Integration: Fire Sign in Service</h3>
+                <div class="integration-content">
+                    <p>The most fulfilling work happens when Leo fire energy serves something larger than personal recognition.</p>
+                    
+                    <h4>Questions for Fire Sign Professionals</h4>
+                    <p>How can I use my natural enthusiasm to <strong>energize others</strong> rather than overshadow them?</p>
+                    <p>Where can I apply <strong>creative problem-solving</strong> to challenges that matter?</p>
+                    <p>How do I <strong>maintain intensity</strong> without burning out my team?</p>
+                    <p>What <strong>legacy of warmth and inspiration</strong> do I want to leave?</p>
+                </div>

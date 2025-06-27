@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mobile Product Strategy | Ryan Andrew Pretzer</title>
+    <meta name="description" content="Strategic mobile product ownership and roadmap development for enterprise-scale implementations. Transform your mobile capability with proven Fortune 500 experience.">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.7;
+            color: #1a1a1a;
+            background: #ffffff;
+            font-weight: 300;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        .header {
+            background: #ffffff;
+            border-bottom: 1px solid rgba(26, 26, 26, 0.08);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.2rem;
+            font-weight: 400;
+            color: #1a1a1a;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #666;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #1a1a1a;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 4rem 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 200;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.02em;
+            line-height: 1.1;
+        }
+
+        .hero .subtitle {
+            font-size: 1.3rem;
+            color: #555;
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin: 3rem 0;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 200;
+            color: #1a1a1a;
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: #666;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        .cta-primary {
+            display: inline-block;
+            background: #1a1a1a;
+            color: white;
+            padding: 1rem 2rem;
+            text-decoration: none;
+            border-radius: 2px;
+            font-weight: 400;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            margin-top: 1rem;
+        }
+
+        .cta-primary:hover {
+            background: #000;
+            transform: translateY(-1px);
+            box-shadow: 0 8px 25px rgba(26, 26, 26, 0.2);
+        }
+
+        /* Problem Section */
+        .problem {
+            padding: 5rem 0;
+            background: #ffffff;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 200;
+            text-align: center;
+            margin-bottom: 3rem;
+            letter-spacing: -0.02em;
+        }
+
+        .problem-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .problem-card {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 4px;
+            border-left: 4px solid #1a1a1a;
+        }
+
+        .problem-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            font-weight: 400;
+        }
+
+        .problem-card p {
+            color: #555;
+            font-size: 0.95rem;
+        }
+
+        /* Solution Section */
+        .solution {
+            padding: 5rem 0;
+            background: #f8f9fa;
+        }
+
+        .solution-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .solution-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .solution-text h2 {
+            font-size: 2.2rem;
+            font-weight: 200;
+            margin-bottom: 2rem;
+            letter-spacing: -0.02em;
+        }
+
+        .solution-features {
+            list-style: none;
+            margin: 2rem 0;
+        }
+
+        .solution-features li {
+            padding: 0.5rem 0;
+            position: relative;
+            padding-left: 2rem;
+        }
+
+        .solution-features li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #1a1a1a;
+            font-weight: bold;
+        }
+
+        /* Process Section */
+        .process {
+            padding: 5rem 0;
+            background: #ffffff;
+        }
+
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .process-step {
+            text-align: center;
+            padding: 2rem 1rem;
+        }
+
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background: #1a1a1a;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 300;
+            margin: 0 auto 1.5rem;
+        }
+
+        .process-step h3 {
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            font-weight: 400;
+        }
+
+        .process-step p {
+            color: #555;
+            font-size: 0.9rem;
+        }
+
+        /* Case Study Section */
+        .case-study {
+            padding: 5rem 0;
+            background: #1a1a1a;
+            color: white;
+        }
+
+        .case-study .section-title {
+            color: white;
+        }
+
+        .case-study-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            margin-top: 3rem;
+        }
+
+        .case-study-text h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            font-weight: 300;
+        }
+
+        .case-study-text p {
+            color: #e0e0e0;
+            margin-bottom: 1.5rem;
+        }
+
+        .case-study-results {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 2rem;
+            border-radius: 4px;
+        }
+
+        .result-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .result-item:last-child {
+            border-bottom: none;
+        }
+
+        .result-metric {
+            font-size: 1.5rem;
+            font-weight: 300;
+            color: #fff;
+        }
+
+        .result-label {
+            color: #e0e0e0;
+            font-size: 0.9rem;
+        }
+
+        /* Expertise Section */
+        .expertise {
+            padding: 5rem 0;
+            background: #f8f9fa;
+        }
+
+        .expertise-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .expertise-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 4px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .expertise-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            font-weight: 400;
+        }
+
+        .expertise-card ul {
+            list-style: none;
+        }
+
+        .expertise-card li {
+            padding: 0.3rem 0;
+            color: #555;
+            font-size: 0.9rem;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 5rem 0;
+            background: #ffffff;
+            text-align: center;
+        }
+
+        .cta-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .cta-section h2 {
+            font-size: 2.2rem;
+            font-weight: 200;
+            margin-bottom: 1.5rem;
+        }
+
+        .cta-section p {
+            font-size: 1.1rem;
+            color: #555;
+            margin-bottom: 2rem;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .cta-secondary {
+            display: inline-block;
+            border: 2px solid #1a1a1a;
+            color: #1a1a1a;
+            padding: 1rem 2rem;
+            text-decoration: none;
+            border-radius: 2px;
+            font-weight: 400;
+            transition: all 0.3s ease;
+        }
+
+        .cta-secondary:hover {
+            background: #1a1a1a;
+            color: white;
+        }
+
+        /* Footer */
+        .footer {
+            background: #1a1a1a;
+            color: #e0e0e0;
+            padding: 2rem 0;
+            text-align: center;
+        }
+
+        .footer a {
+            color: #e0e0e0;
+            text-decoration: none;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .hero-stats {
+                flex-direction: column;
+                gap: 2rem;
+            }
+            
+            .solution-content,
+            .case-study-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="/" class="logo">Ryan Andrew Pretzer</a>
+                <nav>
+                    <ul class="nav-links">
+                        <li><a href="/#about">About</a></li>
+                        <li><a href="/#services">Services</a></li>
+                        <li><a href="/#portfolio">Portfolio</a></li>
+                        <li><a href="/#contact">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Mobile Product Strategy</h1>
+            <p class="subtitle">Transform your mobile capability with strategic product ownership, roadmap development, and enterprise-scale implementation expertise.</p>
+            
+            <div class="hero-stats">
+                <div class="stat">
+                    <span class="stat-number">50+</span>
+                    <span class="stat-label">Development Teams</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">15+</span>
+                    <span class="stat-label">Years Experience</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">3</span>
+                    <span class="stat-label">Fortune 500 Companies</span>
+                </div>
+            </div>
+            
+            <a href="#contact" class="cta-primary">Schedule Strategy Call</a>
+        </div>
+    </section>
+
+    <!-- Problem Section -->
+    <section class="problem">
+        <div class="container">
+            <h2 class="section-title">The Mobile Strategy Challenge</h2>
+            <p style="text-align: center; font-size: 1.1rem; color: #555; max-width: 800px; margin: 0 auto;">Enterprise mobile development often struggles with fragmented strategy, competing priorities, and the complexity of coordinating multiple teams toward shared goals.</p>
+            
+            <div class="problem-grid">
+                <div class="problem-card">
+                    <h3>Disconnected Roadmaps</h3>
+                    <p>Multiple teams building mobile features without unified strategy, leading to inconsistent user experiences and duplicated effort.</p>
+                </div>
+                <div class="problem-card">
+                    <h3>Resource Misalignment</h3>
+                    <p>Development capacity focused on tactical features rather than strategic initiatives that drive business outcomes.</p>
+                </div>
+                <div class="problem-card">
+                    <h3>Platform Fragmentation</h3>
+                    <p>iOS and Android implementations diverging in functionality and user experience due to lack of coordinated product ownership.</p>
+                </div>
+                <div class="problem-card">
+                    <h3>Stakeholder Conflicts</h3>
+                    <p>Business units with competing mobile priorities and no clear framework for prioritization and trade-off decisions.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solution Section -->
+    <section class="solution">
+        <div class="container">
+            <div class="solution-content">
+                <div class="solution-text">
+                    <h2>Strategic Mobile Product Ownership</h2>
+                    <p>I help enterprise organizations build unified mobile product strategies that align development teams, business stakeholders, and user needs into cohesive roadmaps that drive measurable outcomes.</p>
+                    
+                    <ul class="solution-features">
+                        <li>Cross-platform product strategy and roadmap development</li>
+                        <li>Feature backlog management with business value prioritization</li>
+                        <li>Stakeholder alignment and communication frameworks</li>
+                        <li>Team coordination across multiple development groups</li>
+                        <li>User research integration and feedback loop optimization</li>
+                        <li>Success metrics definition and tracking systems</li>
+                    </ul>
+                </div>
+                <div class="solution-visual">
+                    <div style="background: #e9ecef; height: 400px; border-radius: 4px; display: flex; align-items: center; justify-content: center; color: #666;">
+                        [Strategy Framework Visualization]
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="process">
+        <div class="container">
+            <h2 class="section-title">Strategic Product Development Process</h2>
+            
+            <div class="process-steps">
+                <div class="process-step">
+                    <div class="step-number">1</div>
+                    <h3>Current State Assessment</h3>
+                    <p>Audit existing mobile initiatives, team capabilities, and business objectives to identify gaps and opportunities.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">2</div>
+                    <h3>Strategic Alignment</h3>
+                    <p>Facilitate stakeholder workshops to establish shared vision, success metrics, and prioritization frameworks.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">3</div>
+                    <h3>Roadmap Development</h3>
+                    <p>Create unified product roadmap with clear milestones, resource requirements, and success criteria.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">4</div>
+                    <h3>Implementation Support</h3>
+                    <p>Embed with development teams to ensure strategy translates into execution through agile product ownership.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Case Study Section -->
+    <section class="case-study">
+        <div class="container">
+            <h2 class="section-title">Case Study: USAA Mobile Platform</h2>
+            
+            <div class="case-study-content">
+                <div class="case-study-text">
+                    <h3>The Challenge</h3>
+                    <p>USAA needed to coordinate mobile development across 50+ teams while maintaining consistency and accelerating feature delivery for their financial services platform.</p>
+                    
+                    <h3>The Approach</h3>
+                    <p>Led product management for enterprise mobile design system and coordinated cross-team roadmap through PI planning process, establishing shared components and development patterns.</p>
+                    
+                    <h3>The Outcome</h3>
+                    <p>Enabled unified mobile experience across multiple business units while reducing development time and improving code quality through strategic product ownership.</p>
+                </div>
+                <div class="case-study-results">
+                    <div class="result-item">
+                        <span class="result-label">Development Time Reduction</span>
+                        <span class="result-metric">40%</span>
+                    </div>
+                    <div class="result-item">
+                        <span class="result-label">Team Coordination Efficiency</span>
+                        <span class="result-metric">65%</span>
+                    </div>
+                    <div class="result-item">
+                        <span class="result-label">Cross-Platform Consistency</span>
+                        <span class="result-metric">90%</span>
+                    </div>
+                    <div class="result-item">
+                        <span class="result-label">Stakeholder Satisfaction</span>
+                        <span class="result-metric">95%</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Expertise Section -->
+    <section class="expertise">
+        <div class="container">
+            <h2 class="section-title">Mobile Strategy Expertise</h2>
+            
+            <div class="expertise-grid">
+                <div class="expertise-card">
+                    <h3>Product Strategy</h3>
+                    <ul>
+                        <li>Cross-platform roadmap development</li>
+                        <li>Feature prioritization frameworks</li>
+                        <li>Business value alignment</li>
+                        <li>User research integration</li>
+                        <li>Competitive analysis</li>
+                    </ul>
+                </div>
+                <div class="expertise-card">
+                    <h3>Team Coordination</h3>
+                    <ul>
+                        <li>Agile/SAFe methodology implementation</li>
+                        <li>PI planning facilitation</li>
+                        <li>Cross-team dependency management</li>
+                        <li>Stakeholder communication</li>
+                        <li>Backlog management</li>
+                    </ul>
+                </div>
+                <div class="expertise-card">
+                    <h3>Enterprise Context</h3>
+                    <ul>
+                        <li>Fortune 500 experience</li>
+                        <li>Regulatory compliance understanding</li>
+                        <li>Legacy system integration</li>
+                        <li>Security and governance</li>
+                        <li>Change management</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section" id="contact">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Ready to Transform Your Mobile Strategy?</h2>
+                <p>Let's discuss how strategic product ownership can align your teams, accelerate development, and deliver measurable business outcomes.</p>
+                
+                <div class="cta-buttons">
+                    <a href="mailto:rpretzer@gmail.com?subject=Mobile Strategy Consultation" class="cta-primary">Schedule Strategy Call</a>
+                    <a href="/#portfolio" class="cta-secondary">View Case Studies</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Ryan Andrew Pretzer. <a href="/">Back to main site</a></p>
+        </div>
+    </footer>
+</body>
+</html>

@@ -4,15 +4,15 @@
       "slug": "usaa-design-system",
       "title": "USAA Mobile Design System",
       "description": "Led product management for enterprise mobile design system, managing roadmap and backlog through PI planning for one of the largest financial services companies.",
-      "image": null,
+      "image": "/images/portfolio/usaa-design-system-hero.jpg",
       "tags": ["Design Systems", "Product Management", "Enterprise"],
-      "hasCase Study": true
+      "hasCaseStudy": true
     },
     {
       "slug": "progressive-legal-tech",
       "title": "Progressive Insurance Legal Tech",
       "description": "Designed and implemented new business application and legal review systems for state filing processes, serving corporate legal operations.",
-      "image": null,
+      "image": "/images/portfolio/progressive-legal-hero.jpg",
       "tags": ["Legal Tech", "Process Design", "Insurance"],
       "hasCaseStudy": true
     },
@@ -20,7 +20,7 @@
       "slug": "mvp-healthcare",
       "title": "MVP Healthcare Mobile Platform",
       "description": "Product owner for mobile application features, managing backlog and stakeholder alignment for healthcare digital transformation initiatives.",
-      "image": null,
+      "image": "/images/portfolio/mvp-healthcare-hero.jpg",
       "tags": ["Mobile", "Healthcare", "Product Ownership"],
       "hasCaseStudy": true
     }

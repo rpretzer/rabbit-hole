@@ -6,114 +6,38 @@
     <meta name="description" content="Ryan Andrew Pretzer - Mobile Product Strategist. Enterprise mobile strategy, design systems, and process improvement expertise from Fortune 500 experience.">
     <title>Ryan Andrew Pretzer - Mobile Product Strategist</title>
     
-    <!-- Critical CSS - Embed to ensure it loads -->
-    <style>
-        /* Reset */
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        
-        /* Base styles */
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background: #fff;
-        }
-        
-        /* Hide content until loaded */
-        .initial-loader {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 9999;
-            transition: opacity 0.3s;
-        }
-        
-        .initial-loader.hide {
-            opacity: 0;
-            pointer-events: none;
-        }
-        
-        .spinner {
-            width: 40px;
-            height: 40px;
-            border: 3px solid #f0f0f0;
-            border-top-color: #333;
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-        }
-        
-        @keyframes spin {
-            to { transform: rotate(360deg); }
-        }
-        
-        /* Container */
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        
-        /* Header */
-        .header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            background: white;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            z-index: 1000;
-            height: 70px;
-        }
-        
-        .header-content {
-            height: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-        
-        /* Sections */
-        section {
-            padding: 80px 0;
-        }
-        
-        .section-title {
-            font-size: 2.5rem;
-            text-align: center;
-            margin-bottom: 3rem;
-            font-weight: 300;
-        }
-        
-        main {
-            margin-top: 70px;
-        }
-        
-        /* Basic grid */
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-        
-        /* Hide elements by default */
-        .skeleton { display: none; }
-        body.loading .skeleton { display: block; }
-        body.loaded .skeleton { display: none; }
-    </style>
+    <!-- Theme color for mobile browsers -->
+    <meta name="theme-color" content="#ffffff">
     
-    <!-- Load all CSS files -->
+    <!-- Prevent flash of wrong theme -->
+    <script>
+        // Inline script to prevent FOUC (Flash of Unstyled Content)
+        (function() {
+            const theme = localStorage.getItem('theme') || 
+                         (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+            document.documentElement.setAttribute('data-theme', theme);
+            // Update theme color meta
+            document.querySelector('meta[name="theme-color"]').content = theme === 'dark' ? '#1a1a1a' : '#ffffff';
+        })();
+    </script>
+    
+    <!-- Fix: Use relative paths for CSS files -->
+    <link rel="preload" href="styles/base/variables.css" as="style">
+    <link rel="preload" href="styles/main.css" as="style">
+    
+    <!-- CSS with corrected paths -->
     <link rel="stylesheet" href="styles/base/variables.css">
     <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/shared-component.css">
     <link rel="stylesheet" href="styles/components/cards.css">
     <link rel="stylesheet" href="styles/components/navigation.css">
-    <link rel="stylesheet" href="styles/components/footer.css">
-    <link rel="stylesheet" href="styles/components/loading.css">
+    <link rel="stylesheet" href="styles/components/theme-toggle.css">
+    <link rel="stylesheet" href="styles/components/dark-mode-overrides.css">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
     
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
@@ -121,266 +45,715 @@
     <!-- Open Graph -->
     <meta property="og:title" content="Ryan Andrew Pretzer - Mobile Product Strategist">
     <meta property="og:description" content="Enterprise mobile strategy, design systems, and process improvement expertise from Fortune 500 experience.">
-    <meta property="og:type" content="website">
 </head>
-<body class="loading">
-    <!-- Loading State -->
-    <div class="initial-loader">
-        <div class="spinner"></div>
-    </div>
-
-    <!-- Skip to content -->
-    <a href="#main" class="skip-nav">Skip to main content</a>
-
-    <!-- Header -->
+<body>
+    <!-- Header Navigation -->
     <header class="header">
         <div class="container">
             <div class="header-content">
-                <a href="/" class="logo">
-                    <svg class="logo-icon" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" stroke="currentColor" stroke-width="1.5"/>
-                        <circle cx="12" cy="7" r="4" stroke="currentColor" stroke-width="1.5"/>
-                    </svg>
-                    <span>Ryan Andrew Pretzer</span>
-                </a>
-                <nav>
-                    <ul class="nav-links">
-                        <li><a href="#about">About</a></li>
-                        <li><a href="#services">Services</a></li>
-                        <li><a href="#portfolio">Portfolio</a></li>
-                        <li><a href="#content">Insights</a></li>
-                        <li><a href="#contact">Contact</a></li>
-                    </ul>
-                    <button class="mobile-menu-toggle" aria-label="Toggle menu">
-                        <span></span>
-                        <span></span>
-                        <span></span>
+                <a href="/" class="logo">Ryan Andrew Pretzer</a>
+                <div class="header-actions">
+                    <nav class="desktop-nav">
+                        <ul class="nav-links">
+                            <li><a href="#about">About</a></li>
+                            <li><a href="#services">Services</a></li>
+                            <li><a href="#portfolio">Portfolio</a></li>
+                            <li><a href="#content">Insights</a></li>
+                            <li><a href="#contact">Contact</a></li>
+                        </ul>
+                    </nav>
+                    
+                    <!-- Theme Toggle -->
+                    <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
+                        <span class="toggle-track">
+                            <span class="toggle-icon sun-icon">
+                                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.5"/>
+                                    <path d="M 12 2 L 12 6 M 12 18 L 12 22 M 22 12 L 18 12 M 6 12 L 2 12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                                    <path d="M 19 5 L 16 8 M 8 16 L 5 19 M 19 19 L 16 16 M 8 8 L 5 5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                                </svg>
+                            </span>
+                            <span class="toggle-icon moon-icon">
+                                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M 12 3 Q 9 3, 9 7 Q 9 12, 12 12 Q 15 12, 15 7 Q 15 5, 17 5 Q 13 3, 12 3" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+                                    <circle cx="16" cy="16" r="1" fill="currentColor"/>
+                                    <circle cx="18" cy="11" r="0.5" fill="currentColor"/>
+                                    <circle cx="7" cy="19" r="0.5" fill="currentColor"/>
+                                </svg>
+                            </span>
+                        </span>
+                        <span class="toggle-thumb"></span>
                     </button>
-                </nav>
+                    
+                    <!-- Mobile Menu Toggle -->
+                    <button class="mobile-menu-toggle" aria-label="Toggle menu">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="menu-icon">
+                            <path d="M 4 6 Q 12 5, 20 6" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                            <path d="M 4 12 Q 12 11, 20 12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                            <path d="M 4 18 Q 12 19, 20 18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                        </svg>
+                    </button>
+                </div>
             </div>
         </div>
     </header>
+    
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobile-menu">
+        <div class="mobile-menu-header">
+            <span class="mobile-menu-title">Menu</span>
+            <button class="mobile-menu-close" aria-label="Close menu">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M 6 6 Q 12 12, 18 18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                    <path d="M 18 6 Q 12 12, 6 18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                </svg>
+            </button>
+        </div>
+        <nav>
+            <ul class="mobile-nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#portfolio">Portfolio</a></li>
+                <li><a href="#content">Insights</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+        <div class="mobile-theme-toggle">
+            <button class="theme-toggle" aria-label="Toggle dark mode">
+                <span class="toggle-track">
+                    <span class="toggle-icon sun-icon">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.5"/>
+                            <path d="M 12 2 L 12 6 M 12 18 L 12 22 M 22 12 L 18 12 M 6 12 L 2 12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                        </svg>
+                    </span>
+                    <span class="toggle-icon moon-icon">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M 12 3 Q 9 3, 9 7 Q 9 12, 12 12 Q 15 12, 15 7 Q 15 5, 17 5 Q 13 3, 12 3" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+                        </svg>
+                    </span>
+                </span>
+                <span class="toggle-thumb"></span>
+            </button>
+        </div>
+    </div>
 
-    <!-- Mobile Navigation -->
-    <nav class="mobile-nav">
-        <ul class="mobile-nav-list">
-            <li class="mobile-nav-item"><a href="#about" class="mobile-nav-link">About</a></li>
-            <li class="mobile-nav-item"><a href="#services" class="mobile-nav-link">Services</a></li>
-            <li class="mobile-nav-item"><a href="#portfolio" class="mobile-nav-link">Portfolio</a></li>
-            <li class="mobile-nav-item"><a href="#content" class="mobile-nav-link">Insights</a></li>
-            <li class="mobile-nav-item"><a href="#contact" class="mobile-nav-link">Contact</a></li>
-        </ul>
-    </nav>
-
-    <!-- Main Content -->
-    <main id="main">
-        <!-- Hero Section -->
-        <section class="hero" id="hero">
-            <div class="container">
-                <div class="hero-content" id="hero-content">
-                    <h1>Loading...</h1>
-                </div>
-            </div>
-        </section>
-
-        <!-- About Section -->
-        <section class="about" id="about">
-            <div class="container">
-                <h2 class="section-title">About</h2>
-                <div class="about-content">
-                    <div class="about-text" id="about-text">
-                        <p>Loading about content...</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Services Section -->
-        <section class="services" id="services">
-            <div class="container">
-                <h2 class="section-title">Services</h2>
-                <div class="services-grid grid" id="services-grid">
-                    <div class="skeleton skeleton-card">Loading services...</div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Portfolio Section -->
-        <section class="portfolio" id="portfolio">
-            <div class="container">
-                <h2 class="section-title">Selected Work</h2>
-                <div class="portfolio-grid grid" id="portfolio-grid">
-                    <div class="skeleton skeleton-card">Loading portfolio...</div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Pricing Section -->
-        <section class="pricing" id="pricing">
-            <div class="container">
-                <h2 class="section-title">Engagement Models</h2>
-                <div class="pricing-intro" id="pricing-intro">
-                    <p>Loading pricing information...</p>
-                </div>
-                <div class="pricing-grid grid" id="pricing-grid">
-                    <div class="skeleton skeleton-card">Loading pricing...</div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Content Section -->
-        <section class="content" id="content">
-            <div class="container">
-                <h2 class="section-title">Insights & Resources</h2>
-                <div class="content-grid grid" id="content-grid">
-                    <div class="skeleton skeleton-card">Loading content...</div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Contact Section -->
-        <section class="contact" id="contact">
-            <div class="container">
-                <h2 class="section-title">Let's Connect</h2>
-                <p>I'd love to hear about your project.</p>
-                <div class="contact-info" id="contact-info">
-                    <p>Loading contact information...</p>
-                </div>
-            </div>
-        </section>
+    <!-- Main Content Container -->
+    <main id="main-content">
+        <!-- Dynamic content will be loaded here -->
+        <div class="loading">Loading...</div>
     </main>
 
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <div class="social-links" id="social-links"></div>
-            <p>&copy; 2025 Ryan Andrew Pretzer. All rights reserved.</p>
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Connect</h3>
+                    <ul class="footer-links">
+                        <li><a href="https://linkedin.com/in/ryanpretzer" target="_blank" rel="noopener">LinkedIn</a></li>
+                        <li><a href="mailto:ryan@pretzer.com">Email</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Navigate</h3>
+                    <ul class="footer-links">
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#portfolio">Portfolio</a></li>
+                        <li><a href="#content">Insights</a></li>
+                    </ul>
+                </div>
+                <div class="footer-bottom">
+                    <p>&copy; 2024 Ryan Andrew Pretzer. All rights reserved.</p>
+                </div>
+            </div>
         </div>
     </footer>
 
-    <!-- Load marked.js from CDN -->
-    <script src="https://cdn.jsdelivr.net/npm/marked@4.2.0/lib/marked.umd.js"></script>
-    
-    <!-- Simplified inline script for immediate functionality -->
+    <!-- JavaScript - Fixed paths and enhanced functionality -->
     <script>
-        // Quick fix for loader
-        window.addEventListener('load', function() {
-            document.querySelector('.initial-loader').classList.add('hide');
-            document.body.classList.remove('loading');
-            document.body.classList.add('loaded');
-        });
-
-        // Mobile menu toggle
-        const mobileToggle = document.querySelector('.mobile-menu-toggle');
-        const mobileNav = document.querySelector('.mobile-nav');
-        
-        if (mobileToggle) {
-            mobileToggle.addEventListener('click', function() {
-                this.classList.toggle('active');
-                mobileNav.classList.toggle('active');
-            });
-        }
-
-        // Close mobile menu on link click
-        document.querySelectorAll('.mobile-nav-link').forEach(link => {
-            link.addEventListener('click', () => {
-                mobileToggle.classList.remove('active');
-                mobileNav.classList.remove('active');
-            });
-        });
-
-        // Load content
-        async function loadContent() {
-            try {
-                // Base path - adjust if your repo name is different
-                const basePath = window.location.hostname === 'localhost' ? '' : '';
+        // Theme Manager
+        class ThemeManager {
+            constructor() {
+                this.theme = this.getStoredTheme() || this.getSystemTheme();
+                this.toggles = document.querySelectorAll('.theme-toggle');
+                this.init();
+            }
+            
+            init() {
+                // Apply initial theme
+                this.applyTheme(this.theme);
                 
-                // Load hero content
-                const heroData = await fetch(`${basePath}/content/data/hero.json`).then(r => r.json());
-                document.getElementById('hero-content').innerHTML = `
-                    <h1>${heroData.title}</h1>
-                    <p>${heroData.subtitle}</p>
-                    <a href="${heroData.cta.link}" class="cta-button">${heroData.cta.text}</a>
-                `;
-
-                // Load about content
-                const aboutMd = await fetch(`${basePath}/content/markdown/about.md`).then(r => r.text());
-                document.getElementById('about-text').innerHTML = marked.parse(aboutMd);
-
-                // Load services
-                const servicesData = await fetch(`${basePath}/content/data/services.json`).then(r => r.json());
-                document.getElementById('services-grid').innerHTML = servicesData.services.map(service => `
-                    <div class="service-card card">
-                        <div class="service-icon">${service.icon}</div>
-                        <h3>${service.title}</h3>
-                        <p>${service.description}</p>
-                    </div>
-                `).join('');
-
-                // Load portfolio
-                const portfolioData = await fetch(`${basePath}/content/data/portfolio.json`).then(r => r.json());
-                document.getElementById('portfolio-grid').innerHTML = portfolioData.projects.map(project => `
-                    <div class="portfolio-card card">
-                        <h3>${project.title}</h3>
-                        <p>${project.description}</p>
-                        <div class="tags">
-                            ${project.tags.map(tag => `<span class="tag">${tag}</span>`).join('')}
-                        </div>
-                    </div>
-                `).join('');
-
-                // Load pricing
-                const pricingData = await fetch(`${basePath}/content/data/pricing.json`).then(r => r.json());
-                document.getElementById('pricing-intro').innerHTML = `<p>${pricingData.intro}</p>`;
-                document.getElementById('pricing-grid').innerHTML = pricingData.models.map(model => `
-                    <div class="pricing-card card ${model.featured ? 'featured' : ''}">
-                        <h3>${model.title}</h3>
-                        <p>${model.subtitle}</p>
-                        ${model.options ? model.options.map(opt => `
-                            <div class="pricing-option">
-                                <strong>${opt.availability}</strong> - ${opt.price}
-                                <p>${opt.description}</p>
-                            </div>
-                        `).join('') : ''}
-                    </div>
-                `).join('');
-
-                // Load content
-                const contentData = await fetch(`${basePath}/content/data/content.json`).then(r => r.json());
-                document.getElementById('content-grid').innerHTML = contentData.items.map(item => `
-                    <div class="content-card card">
-                        <span class="content-type">${item.type}</span>
-                        <h3>${item.title}</h3>
-                        <p>${item.excerpt}</p>
-                    </div>
-                `).join('');
-
-                // Load contact
-                const contactData = await fetch(`${basePath}/content/data/contact.json`).then(r => r.json());
-                document.getElementById('contact-info').innerHTML = contactData.methods.map(method => `
-                    <div class="contact-method">
-                        ${method.icon}
-                        <a href="${method.link}">${method.label}</a>
-                    </div>
-                `).join('');
-
-                document.getElementById('social-links').innerHTML = contactData.social.map(social => `
-                    <a href="${social.url}" class="social-link" aria-label="${social.platform}">
-                        ${social.icon}
-                    </a>
-                `).join('');
-
-            } catch (error) {
-                console.error('Error loading content:', error);
+                // Set up toggle listeners
+                this.toggles.forEach(toggle => {
+                    toggle.addEventListener('click', () => this.toggleTheme());
+                });
+                
+                // Listen for system theme changes
+                this.watchSystemTheme();
+                
+                // Add keyboard shortcut (Ctrl/Cmd + Shift + D)
+                this.addKeyboardShortcut();
+            }
+            
+            getStoredTheme() {
+                return localStorage.getItem('theme');
+            }
+            
+            getSystemTheme() {
+                return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+            }
+            
+            applyTheme(theme) {
+                document.documentElement.setAttribute('data-theme', theme);
+                this.toggles.forEach(toggle => {
+                    toggle.setAttribute('data-theme', theme);
+                });
+                
+                // Update meta theme color for mobile browsers
+                const metaTheme = document.querySelector('meta[name="theme-color"]');
+                if (metaTheme) {
+                    metaTheme.content = theme === 'dark' ? '#1a1a1a' : '#ffffff';
+                }
+            }
+            
+            toggleTheme() {
+                this.theme = this.theme === 'light' ? 'dark' : 'light';
+                this.applyTheme(this.theme);
+                localStorage.setItem('theme', this.theme);
+            }
+            
+            watchSystemTheme() {
+                const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+                mediaQuery.addListener((e) => {
+                    if (!this.getStoredTheme()) {
+                        this.theme = e.matches ? 'dark' : 'light';
+                        this.applyTheme(this.theme);
+                    }
+                });
+            }
+            
+            addKeyboardShortcut() {
+                document.addEventListener('keydown', (e) => {
+                    if ((e.ctrlKey || e.metaKey) && e.shiftKey && e.key === 'D') {
+                        e.preventDefault();
+                        this.toggleTheme();
+                    }
+                });
             }
         }
 
-        // Load content when DOM is ready
-        if (document.readyState === 'loading') {
-            document.addEventListener('DOMContentLoaded', loadContent);
-        } else {
-            loadContent();
+        // Portfolio data with icon references
+        const portfolioData = [
+            {
+                slug: "usaa-design-system",
+                title: "USAA Mobile Design System",
+                description: "Led product management for enterprise mobile design system, managing roadmap and backlog through PI planning for one of the largest financial services companies.",
+                tags: ["Design Systems", "Product Management", "Enterprise"],
+                icon: "images/icons/portfolio/usaa-design-system.svg"
+            },
+            {
+                slug: "progressive-legal-tech",
+                title: "Progressive Insurance Legal Tech",
+                description: "Designed and implemented new business application and legal review systems for state filing processes, serving corporate legal operations.",
+                tags: ["Legal Tech", "Process Design", "Insurance"],
+                icon: "images/icons/portfolio/progressive-legal-tech.svg"
+            },
+            {
+                slug: "mvp-healthcare-mobile",
+                title: "MVP Healthcare Mobile Platform",
+                description: "Product owner for mobile application features, managing backlog and stakeholder alignment for healthcare digital transformation initiatives.",
+                tags: ["Mobile", "Healthcare", "Product Ownership"],
+                icon: "images/icons/portfolio/mvp-healthcare-mobile.svg"
+            }
+        ];
+
+        // Services data with icon references
+        const servicesData = [
+            {
+                slug: "mobile-product-strategy",
+                title: "Mobile Product Strategy",
+                description: "Strategic product ownership and roadmap development for enterprise mobile applications, with expertise in cross-functional team leadership and agile delivery.",
+                icon: "images/icons/services/mobile-product-strategy.svg"
+            },
+            {
+                slug: "design-system-architecture",
+                title: "Design System Architecture",
+                description: "Building and scaling design systems that development teams actually want to use, based on experience with Fortune 500 enterprises.",
+                icon: "images/icons/services/design-system-architecture.svg"
+            },
+            {
+                slug: "process-design-improvement",
+                title: "Process Design & Improvement",
+                description: "Transforming complex business processes into elegant digital solutions, with focus on legal operations and compliance workflows.",
+                icon: "images/icons/services/process-design-improvement.svg"
+            }
+        ];
+
+        // Mobile menu functionality
+        function initMobileMenu() {
+            const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+            const mobileMenuClose = document.querySelector('.mobile-menu-close');
+            const mobileMenu = document.getElementById('mobile-menu');
+            
+            if (mobileMenuToggle && mobileMenu) {
+                mobileMenuToggle.addEventListener('click', () => {
+                    mobileMenu.classList.add('active');
+                    document.body.style.overflow = 'hidden';
+                });
+            }
+            
+            if (mobileMenuClose && mobileMenu) {
+                mobileMenuClose.addEventListener('click', () => {
+                    mobileMenu.classList.remove('active');
+                    document.body.style.overflow = '';
+                });
+            }
+            
+            // Close menu when clicking links
+            const mobileLinks = document.querySelectorAll('.mobile-nav-links a');
+            mobileLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.remove('active');
+                    document.body.style.overflow = '';
+                });
+            });
         }
+
+        // Home page content
+        const homeContent = `
+            <!-- Hero Section -->
+            <section class="hero gradient-primary">
+                <div class="container">
+                    <h1>Mobile Product Strategy & Design Systems</h1>
+                    <p class="subtitle">Transforming enterprise complexity into elegant mobile experiences</p>
+                    <div class="hero-stats stats-grid">
+                        <div class="stat">
+                            <span class="stat-number">15+</span>
+                            <span class="stat-label">Years Experience</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">3</span>
+                            <span class="stat-label">Fortune 500 Companies</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">50M+</span>
+                            <span class="stat-label">Users Impacted</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- About Section -->
+            <section id="about" class="section">
+                <div class="container">
+                    <h2>About</h2>
+                    <div class="content-block">
+                        <p>With over 15 years of experience in product design and strategy, I specialize in transforming complex business challenges into elegant digital solutions. My work spans enterprise mobile systems, legal technology platforms, and healthcare digital transformations.</p>
+                        <p>I bring a unique blend of strategic thinking, design leadership, and technical understanding to deliver products that not only meet business objectives but also delight users.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Services Section -->
+            <section id="services" class="section bg-light">
+                <div class="container">
+                    <h2>Services</h2>
+                    <div class="card-grid" id="services-grid"></div>
+                </div>
+            </section>
+
+            <!-- Portfolio Section -->
+            <section id="portfolio" class="section">
+                <div class="container">
+                    <h2>Selected Work</h2>
+                    <div class="portfolio-grid" id="portfolio-grid"></div>
+                </div>
+            </section>
+
+            <!-- Engagement Models -->
+            <section id="engagement" class="section bg-light">
+                <div class="container">
+                    <h2>Engagement Models</h2>
+                    <div class="process-grid">
+                        <a href="engagement/consulting.html" class="process-step clickable-card">
+                            <div class="step-icon">
+                                <img src="images/icons/engagement/strategic-consulting.svg" alt="Strategic Consulting">
+                            </div>
+                            <h3>Strategic Consulting</h3>
+                            <p>Short-term engagements focused on specific challenges or opportunities</p>
+                        </a>
+                        <a href="engagement/fractional.html" class="process-step clickable-card">
+                            <div class="step-icon">
+                                <img src="images/icons/engagement/fractional-leadership.svg" alt="Fractional Leadership">
+                            </div>
+                            <h3>Fractional Leadership</h3>
+                            <p>Part-time executive role providing ongoing strategic guidance</p>
+                        </a>
+                        <a href="engagement/project.html" class="process-step clickable-card">
+                            <div class="step-icon">
+                                <img src="images/icons/engagement/project-based.svg" alt="Project-Based">
+                            </div>
+                            <h3>Project-Based</h3>
+                            <p>End-to-end ownership of specific initiatives with defined outcomes</p>
+                        </a>
+                        <a href="engagement/advisory.html" class="process-step clickable-card">
+                            <div class="step-icon">
+                                <img src="images/icons/engagement/advisory.svg" alt="Advisory">
+                            </div>
+                            <h3>Advisory</h3>
+                            <p>Ongoing strategic counsel and mentorship for product teams</p>
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Contact Section -->
+            <section id="contact" class="section">
+                <div class="container">
+                    <h2>Let's Work Together</h2>
+                    <div class="content-block text-center">
+                        <p>Ready to transform your mobile strategy?</p>
+                        <a href="mailto:ryan@pretzer.com" class="cta-primary">Get in Touch</a>
+                    </div>
+                </div>
+            </section>
+        `;
+
+        // Render functions with icon integration
+        function renderPortfolio() {
+            const grid = document.getElementById('portfolio-grid');
+            if (!grid) return;
+            
+            grid.innerHTML = portfolioData.map(project => `
+                <a href="portfolio/${project.slug}/index.html" class="portfolio-card clickable-card">
+                    <div class="portfolio-icon">
+                        <img src="${project.icon}" alt="${project.title} icon">
+                    </div>
+                    <h3>${project.title}</h3>
+                    <p>${project.description}</p>
+                    <div class="tags">
+                        ${project.tags.map(tag => `<span class="tag">${tag}</span>`).join('')}
+                    </div>
+                </a>
+            `).join('');
+        }
+
+        function renderServices() {
+            const grid = document.getElementById('services-grid');
+            if (!grid) return;
+            
+            grid.innerHTML = servicesData.map(service => `
+                <a href="services/${service.slug}/index.html" class="card service-card clickable-card">
+                    <div class="service-icon">
+                        <img src="${service.icon}" alt="${service.title} icon">
+                    </div>
+                    <h3>${service.title}</h3>
+                    <p>${service.description}</p>
+                </a>
+            `).join('');
+        }
+
+        // Initialize page
+        function initializePage() {
+            const mainContent = document.getElementById('main-content');
+            
+            // Load home content
+            mainContent.innerHTML = homeContent;
+            
+            // Render dynamic content
+            renderPortfolio();
+            renderServices();
+            
+            // Initialize theme manager
+            new ThemeManager();
+            
+            // Initialize mobile menu
+            initMobileMenu();
+            
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+        }
+
+        // Initialize when DOM is ready
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initializePage);
+        } else {
+            initializePage();
+        }
+
+        // Add CSS for new components
+        const style = document.createElement('style');
+        style.textContent = `
+            /* Theme Toggle Styles */
+            .theme-toggle {
+                position: relative;
+                width: 60px;
+                height: 30px;
+                background: transparent;
+                border: 1.5px solid var(--color-primary, #1a1a1a);
+                border-radius: 20px;
+                cursor: pointer;
+                overflow: hidden;
+                transition: all 0.3s ease;
+                padding: 0;
+                margin-left: 1rem;
+            }
+
+            .theme-toggle:hover {
+                transform: scale(1.05);
+            }
+
+            .toggle-track {
+                position: absolute;
+                inset: 0;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                padding: 0 8px;
+            }
+
+            .toggle-icon {
+                width: 16px;
+                height: 16px;
+                opacity: 0.6;
+                transition: opacity 0.3s ease;
+            }
+
+            .toggle-icon svg {
+                width: 100%;
+                height: 100%;
+            }
+
+            .toggle-thumb {
+                position: absolute;
+                top: 3px;
+                left: 3px;
+                width: 22px;
+                height: 22px;
+                background: var(--color-primary, #1a1a1a);
+                border-radius: 50%;
+                transition: transform 0.3s ease;
+                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            }
+
+            [data-theme="dark"] .theme-toggle .toggle-thumb {
+                transform: translateX(30px);
+            }
+
+            [data-theme="dark"] .theme-toggle .sun-icon {
+                opacity: 0.3;
+            }
+
+            [data-theme="dark"] .theme-toggle .moon-icon {
+                opacity: 1;
+            }
+
+            [data-theme="light"] .theme-toggle .sun-icon {
+                opacity: 1;
+            }
+
+            [data-theme="light"] .theme-toggle .moon-icon {
+                opacity: 0.3;
+            }
+
+            /* Header Actions */
+            .header-actions {
+                display: flex;
+                align-items: center;
+                gap: 1rem;
+            }
+
+            /* Mobile Menu */
+            .mobile-menu {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 80%;
+                max-width: 300px;
+                height: 100vh;
+                background: var(--bg-white, #ffffff);
+                transition: right 0.3s ease;
+                z-index: 1001;
+                padding: 2rem;
+                overflow-y: auto;
+                box-shadow: -4px 0 10px rgba(0, 0, 0, 0.1);
+            }
+
+            .mobile-menu.active {
+                right: 0;
+            }
+
+            .mobile-menu-header {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin-bottom: 2rem;
+            }
+
+            .mobile-menu-title {
+                font-size: 1.25rem;
+                font-weight: 600;
+            }
+
+            .mobile-menu-close {
+                background: none;
+                border: none;
+                width: 32px;
+                height: 32px;
+                cursor: pointer;
+                padding: 4px;
+            }
+
+            .mobile-menu-close svg {
+                width: 100%;
+                height: 100%;
+            }
+
+            .mobile-nav-links {
+                list-style: none;
+                padding: 0;
+            }
+
+            .mobile-nav-links li {
+                margin-bottom: 1.5rem;
+            }
+
+            .mobile-nav-links a {
+                color: var(--text-primary, #333);
+                text-decoration: none;
+                font-size: 1.125rem;
+                font-weight: 500;
+            }
+
+            .mobile-theme-toggle {
+                margin-top: 2rem;
+                padding-top: 2rem;
+                border-top: 1px solid var(--border-color, #eee);
+                display: flex;
+                justify-content: center;
+            }
+
+            /* Icon styles */
+            .portfolio-icon,
+            .service-icon,
+            .step-icon {
+                width: 60px;
+                height: 60px;
+                margin: 0 auto 1.5rem;
+            }
+
+            .portfolio-icon img,
+            .service-icon img,
+            .step-icon img {
+                width: 100%;
+                height: 100%;
+            }
+
+            [data-theme="dark"] .portfolio-icon img,
+            [data-theme="dark"] .service-icon img,
+            [data-theme="dark"] .step-icon img {
+                filter: invert(1) brightness(0.9);
+            }
+
+            /* Mobile Responsive */
+            @media (max-width: 768px) {
+                .desktop-nav {
+                    display: none;
+                }
+                
+                .theme-toggle {
+                    width: 50px;
+                    height: 26px;
+                    margin-left: 0.5rem;
+                }
+                
+                .toggle-thumb {
+                    width: 18px;
+                    height: 18px;
+                }
+                
+                [data-theme="dark"] .theme-toggle .toggle-thumb {
+                    transform: translateX(24px);
+                }
+                
+                .toggle-icon {
+                    width: 14px;
+                    height: 14px;
+                }
+            }
+
+            @media (min-width: 769px) {
+                .mobile-menu-toggle {
+                    display: none;
+                }
+                
+                .mobile-menu {
+                    display: none;
+                }
+            }
+
+            /* Clickable card improvements */
+            .clickable-card {
+                cursor: pointer;
+                transition: all 0.3s ease;
+                text-decoration: none;
+                color: inherit;
+                display: block;
+            }
+            
+            .clickable-card:hover {
+                transform: translateY(-2px);
+                box-shadow: var(--shadow-md, 0 8px 25px rgba(0,0,0,0.1));
+            }
+            
+            .portfolio-card {
+                background: var(--card-bg, white);
+                padding: 2rem;
+                border-radius: 8px;
+                border: 1px solid var(--border-color, #dee2e6);
+            }
+            
+            .tags {
+                display: flex;
+                gap: 0.5rem;
+                margin-top: 1rem;
+                flex-wrap: wrap;
+            }
+            
+            .tag {
+                font-size: 0.75rem;
+                padding: 0.25rem 0.75rem;
+                background: var(--bg-light, #f8f9fa);
+                border-radius: 4px;
+                color: var(--text-light, #666);
+            }
+
+            /* Screen reader only */
+            .sr-only {
+                position: absolute;
+                width: 1px;
+                height: 1px;
+                padding: 0;
+                margin: -1px;
+                overflow: hidden;
+                clip: rect(0, 0, 0, 0);
+                white-space: nowrap;
+                border-width: 0;
+            }
+        `;
+        document.head.appendChild(style);
     </script>
 </body>
 </html>

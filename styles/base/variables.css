@@ -1,0 +1,120 @@
+/* CSS Variables - Single source of truth */
+:root {
+  /* Color System */
+  --color-primary: #1a1a1a;
+  --color-secondary: #3498db;
+  --color-accent: #e74c3c;
+  --color-success: #28a745;
+  --color-warning: #ffc107;
+  --color-error: #dc3545;
+  --color-info: #17a2b8;
+  
+  /* Text Colors */
+  --text-primary: #333;
+  --text-secondary: #555;
+  --text-light: #666;
+  --text-muted: #999;
+  --text-white: #ffffff;
+  --text-dark: #1a1a1a;
+  
+  /* Background Colors */
+  --bg-white: #ffffff;
+  --bg-light: #f8f9fa;
+  --bg-gray: #e9ecef;
+  --bg-dark: #1a1a1a;
+  --bg-darker: #0f0f0f;
+  
+  /* Gradients */
+  --gradient-primary: linear-gradient(135deg, #f1f3f4 0%, #e8eaed 100%);
+  --gradient-dark: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+  --gradient-blue: linear-gradient(135deg, #0056B3 0%, #004494 100%);
+  --gradient-purple: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  --gradient-green: linear-gradient(135deg, #2E8B57 0%, #228B22 100%);
+  --gradient-usaa: linear-gradient(135deg, #003366 0%, #004d99 100%);
+  --gradient-progressive: linear-gradient(135deg, #0056B3 0%, #0066CC 100%);
+  --gradient-mvp: linear-gradient(135deg, #2E8B57 0%, #228B22 100%);
+  
+  /* Typography */
+  --font-primary: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+  --font-heading: 'Georgia', serif;
+  --font-mono: 'Monaco', 'Menlo', 'Courier New', monospace;
+  
+  --font-size-xs: 0.75rem;
+  --font-size-sm: 0.875rem;
+  --font-size-base: 1rem;
+  --font-size-lg: 1.125rem;
+  --font-size-xl: 1.25rem;
+  --font-size-2xl: 1.5rem;
+  --font-size-3xl: 1.875rem;
+  --font-size-4xl: 2.25rem;
+  --font-size-5xl: 3rem;
+  
+  --font-weight-light: 200;
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  
+  --line-height-tight: 1.1;
+  --line-height-normal: 1.6;
+  --line-height-relaxed: 1.8;
+  
+  /* Spacing */
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 2rem;
+  --spacing-2xl: 2.5rem;
+  --spacing-3xl: 3rem;
+  --spacing-4xl: 4rem;
+  --spacing-5xl: 5rem;
+  
+  /* Layout */
+  --container-width: 1200px;
+  --container-width-sm: 600px;
+  --container-width-md: 800px;
+  --container-width-lg: 1000px;
+  --header-height: 80px;
+  --footer-height: 300px;
+  
+  /* Borders */
+  --border-width: 1px;
+  --border-width-thick: 4px;
+  --border-radius-sm: 4px;
+  --border-radius-md: 8px;
+  --border-radius-lg: 12px;
+  --border-radius-full: 9999px;
+  
+  /* Shadows */
+  --shadow-xs: 0 1px 2px rgba(0,0,0,0.05);
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.12);
+  --shadow-md: 0 4px 6px rgba(0,0,0,0.1);
+  --shadow-lg: 0 10px 15px rgba(0,0,0,0.1);
+  --shadow-xl: 0 20px 25px rgba(0,0,0,0.1);
+  --shadow-2xl: 0 25px 50px rgba(0,0,0,0.12);
+  
+  /* Transitions */
+  --transition-fast: 0.2s ease;
+  --transition-normal: 0.3s ease;
+  --transition-slow: 0.5s ease;
+  
+  /* Z-index */
+  --z-dropdown: 100;
+  --z-sticky: 200;
+  --z-overlay: 300;
+  --z-modal: 400;
+  --z-toast: 500;
+  
+  /* Common Component Values */
+  --section-padding: var(--spacing-5xl) 0;
+  --card-padding: var(--spacing-xl);
+  --button-padding: var(--spacing-sm) var(--spacing-lg);
+  --input-padding: var(--spacing-sm) var(--spacing-md);
+  
+  /* Breakpoints (for JS reference) */
+  --breakpoint-xs: 480px;
+  --breakpoint-sm: 768px;
+  --breakpoint-md: 1024px;
+  --breakpoint-lg: 1200px;
+}

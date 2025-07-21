@@ -1,0 +1,5 @@
+ <svg class="icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Partial circle suggesting fractional commitment -->
+                    <path d="M 12 4 Q 20 4, 20 12 Q 20 20, 12 20" />
+                    <path d="M 12 8 Q 16 8, 16 12 Q 16 16, 12 16" stroke-dasharray="2 2"/>
+                </svg>

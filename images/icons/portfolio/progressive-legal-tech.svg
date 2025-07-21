@@ -1,0 +1,7 @@
+<svg class="icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Scales of justice transforming to digital -->
+                    <path d="M 12 4 L 12 20 M 8 8 L 16 8" />
+                    <path d="M 6 8 Q 6 12, 8 12 Q 10 12, 10 8" />
+                    <path d="M 14 8 Q 14 12, 16 12 Q 18 12, 18 8" />
+                    <circle cx="12" cy="16" r="2" stroke-dasharray="1 1"/>
+                </svg>

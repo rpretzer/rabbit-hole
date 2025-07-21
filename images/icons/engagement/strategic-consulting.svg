@@ -1,0 +1,6 @@
+ <svg class="icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Compass pointing to strategic direction -->
+                    <circle cx="12" cy="12" r="8"/>
+                    <path d="M 12 12 L 12 6 M 12 12 L 16 16" />
+                    <circle cx="12" cy="12" r="2" fill="#1a1a1a" opacity="0.2"/>
+                </svg>

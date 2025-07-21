@@ -1,0 +1,5 @@
+      <svg class="icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Project blocks flowing together -->
+                    <path d="M 6 6 L 10 6 L 10 10 L 6 10 Z M 14 14 L 18 14 L 18 18 L 14 18 Z" />
+                    <path d="M 10 8 Q 12 10, 14 16" />
+                </svg>

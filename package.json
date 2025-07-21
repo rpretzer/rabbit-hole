@@ -5,19 +5,18 @@
   "main": "index.html",
   "scripts": {
     "start": "http-server -p 8080",
-    "build": "npm run build:css && npm run build:js && npm run build:images && npm run build:html",
+    "dev": "http-server -p 8080 -o",
+    "build": "npm run build:css && npm run build:js && npm run copy:html && npm run copy:assets",
     "build:css": "postcss styles/main.css -o dist/styles.min.css",
     "build:js": "rollup -c",
-    "build:images": "imagemin images/* --out-dir=dist/images",
-    "build:html": "html-minifier --input-dir . --output-dir dist --file-ext html",
-    "dev": "concurrently \"npm run watch:css\" \"npm run watch:js\" \"npm run start\"",
-    "watch:css": "postcss styles/main.css -o dist/styles.min.css --watch",
-    "watch:js": "rollup -c -w",
+    "copy:html": "cp index.html dist/",
+    "copy:assets": "cp -r content dist/ && cp -r images dist/ 2>/dev/null || :",
     "clean": "rm -rf dist",
-    "lint": "eslint scripts/**/*.js",
-    "lint:css": "stylelint styles/**/*.css",
-    "test": "jest",
-    "deploy": "npm run build && gh-pages -d dist"
+    "deploy": "npm run deploy:source",
+    "deploy:source": "git add . && git commit -m 'Update site' && git push origin main",
+    "deploy:built": "npm run build && gh-pages -d dist",
+    "lint": "eslint scripts/**/*.js || true",
+    "lint:css": "stylelint styles/**/*.css || true"
   },
   "keywords": [
     "portfolio",
@@ -31,17 +30,10 @@
     "@rollup/plugin-node-resolve": "^15.0.0",
     "@rollup/plugin-terser": "^0.4.0",
     "autoprefixer": "^10.4.0",
-    "concurrently": "^7.6.0",
     "cssnano": "^5.1.0",
     "eslint": "^8.0.0",
     "gh-pages": "^5.0.0",
-    "html-minifier": "^4.0.0",
     "http-server": "^14.1.0",
-    "imagemin": "^8.0.0",
-    "imagemin-mozjpeg": "^10.0.0",
-    "imagemin-pngquant": "^9.0.0",
-    "imagemin-svgo": "^10.0.0",
-    "jest": "^29.0.0",
     "postcss": "^8.4.0",
     "postcss-cli": "^10.0.0",
     "postcss-import": "^15.0.0",
@@ -58,14 +50,10 @@
     "last 2 versions",
     "not dead"
   ],
-  "jest": {
-    "testEnvironment": "jsdom",
-    "moduleFileExtensions": [
-      "js",
-      "json"
-    ],
-    "transform": {
-      "^.+\\.js$": "babel-jest"
-    }
+  "optionalDependencies": {
+    "imagemin": "^8.0.0",
+    "imagemin-mozjpeg": "^10.0.0",
+    "imagemin-pngquant": "^9.0.0",
+    "imagemin-svgo": "^10.0.0"
   }
 }

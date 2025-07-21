@@ -6,25 +6,24 @@
     <meta name="description" content="Ryan Andrew Pretzer - Mobile Product Strategist. Enterprise mobile strategy, design systems, and process improvement expertise from Fortune 500 experience.">
     <title>Ryan Andrew Pretzer - Mobile Product Strategist</title>
     
-    <!-- Preload critical resources -->
-    <link rel="preload" href="/styles/base/variables.css" as="style">
-    <link rel="preload" href="/styles/main.css" as="style">
-    <link rel="preload" href="/scripts/app.js" as="script">
-    
-    <!-- CSS -->
-    <link rel="stylesheet" href="/styles/base/variables.css">
-    <link rel="stylesheet" href="/styles/main.css">
-    <link rel="stylesheet" href="/styles/components/cards.css">
-    <link rel="stylesheet" href="/styles/components/navigation.css">
+    <!-- CSS - Works both directly and from build -->
+    <link rel="stylesheet" href="styles/base/variables.css">
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/components/cards.css">
+    <link rel="stylesheet" href="styles/components/navigation.css">
+    <link rel="stylesheet" href="styles/components/footer.css">
+    <link rel="stylesheet" href="styles/components/loading.css">
     
     <!-- Favicon -->
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="icon" type="image/png" href="favicon.png">
     
     <!-- Open Graph -->
     <meta property="og:title" content="Ryan Andrew Pretzer - Mobile Product Strategist">
     <meta property="og:description" content="Enterprise mobile strategy, design systems, and process improvement expertise from Fortune 500 experience.">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://yourdomain.com">
+    <meta property="og:url" content="https://ryanpretzer.com">
+    <meta property="og:image" content="https://ryanpretzer.com/images/og-image.png">
     
     <!-- Structured Data -->
     <script type="application/ld+json">
@@ -38,7 +37,12 @@
         "alumniOf": {
             "@type": "Organization",
             "name": "USAA"
-        }
+        },
+        "url": "https://ryanpretzer.com",
+        "sameAs": [
+            "https://linkedin.com/in/ryanpretzer",
+            "https://twitter.com/ryanpretzer"
+        ]
     }
     </script>
 </head>
@@ -77,23 +81,16 @@
                         <span></span>
                     </button>
                 </nav>
-                <div class="theme-toggle">
-                    <span class="theme-label">Light</span>
-                    <label class="switch" for="theme-toggle">
-                        <input type="checkbox" id="theme-toggle" aria-label="Toggle dark mode">
-                        <span class="slider"></span>
-                    </label>
-                    <span class="theme-label">Dark</span>
-                </div>
             </div>
         </div>
     </header>
 
+    <!-- Main Content -->
     <main id="main">
         <!-- Hero Section -->
         <section class="hero" id="hero">
             <div class="container">
-                <div id="hero-content" class="hero-content">
+                <div class="hero-content" id="hero-content">
                     <!-- Hero content will be loaded dynamically -->
                     <div class="skeleton skeleton-title"></div>
                     <div class="skeleton skeleton-text"></div>
@@ -105,12 +102,14 @@
         <!-- About Section -->
         <section class="about" id="about">
             <div class="container">
+                <h2 class="section-title">About</h2>
                 <div class="about-content">
                     <div class="about-image">
-                        <img src="/images/profile.jpg" 
-                             alt="Ryan Andrew Pretzer" 
-                             loading="lazy"
-                             onerror="this.style.display='none'">
+                        <!-- Placeholder for image -->
+                        <svg width="200" height="200" viewBox="0 0 200 200" fill="none" style="background: #f0f0f0; border-radius: 50%;">
+                            <circle cx="100" cy="70" r="30" fill="#ddd"/>
+                            <path d="M50 150c0-27.614 22.386-50 50-50s50 22.386 50 50" fill="#ddd"/>
+                        </svg>
                     </div>
                     <div class="about-text" id="about-text">
                         <!-- About content will be loaded dynamically -->
@@ -205,12 +204,43 @@
     <div id="notification-container" class="notification-container"></div>
 
     <!-- Scripts -->
+    <!-- Load marked.js from CDN for markdown parsing -->
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-    <script type="module" src="/scripts/app.js"></script>
+    
+    <!-- Use ES6 modules directly - modern browsers support this -->
+    <script type="module">
+        // For development/GitHub Pages: use source files directly
+        // For production: could use bundled version
+        const isDevelopment = !window.location.pathname.includes('/dist/');
+        
+        if (isDevelopment) {
+            // Load modules directly
+            import('./scripts/app.js').then(module => {
+                console.log('App loaded in development mode');
+            }).catch(err => {
+                console.error('Failed to load app:', err);
+                document.body.classList.add('error');
+            });
+        } else {
+            // Load bundled version
+            import('./app.min.js').then(module => {
+                console.log('App loaded in production mode');
+            }).catch(err => {
+                // Fallback to development version
+                import('../scripts/app.js');
+            });
+        }
+    </script>
     
     <!-- Fallback for older browsers -->
     <script nomodule>
-        document.body.innerHTML = '<div class="browser-warning">Please use a modern browser to view this site.</div>';
+        document.body.innerHTML = `
+            <div style="padding: 40px; text-align: center; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;">
+                <h1>Browser Not Supported</h1>
+                <p>Please use a modern browser to view this site.</p>
+                <p>Recommended browsers: Chrome 61+, Firefox 60+, Safari 11+, Edge 79+</p>
+            </div>
+        `;
     </script>
 </body>
 </html>

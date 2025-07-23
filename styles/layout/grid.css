@@ -1,96 +1,164 @@
 /* Grid Layout System */
 
-/* Base Grid */
+/* Container */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  width: 100%;
+}
+
+@media (min-width: 1280px) {
+  .container {
+    padding: 0 4rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 0 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 0 1rem;
+  }
+}
+
+.container-sm {
+  max-width: 800px;
+}
+
+.container-lg {
+  max-width: 1400px;
+}
+
+/* Grid System */
 .grid {
   display: grid;
   gap: 2rem;
 }
 
-/* Auto-fit Grids */
-.grid-auto {
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-}
-
-/* Fixed Column Grids */
 .grid-2 {
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 }
 
 .grid-3 {
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 }
 
 .grid-4 {
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+/* Fixed grids (no auto-fit) */
+.grid-fixed-2 {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.grid-fixed-3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.grid-fixed-4 {
   grid-template-columns: repeat(4, 1fr);
 }
 
-/* Services Grid */
-.services-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 3rem;
-  margin-top: 3rem;
-}
+/* Gap variations */
+.gap-sm { gap: 1rem; }
+.gap-md { gap: 1.5rem; }
+.gap-lg { gap: 3rem; }
+.gap-xl { gap: 4rem; }
 
-/* Portfolio Grid */
-.portfolio-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-  gap: 2rem;
-  margin-top: 3rem;
-}
-
-/* Engagement Grid */
-.engagement-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 2rem;
-  margin-top: 3rem;
-}
-
-/* Insights Grid */
-.insights-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-  gap: 2rem;
-  margin-top: 3rem;
-}
-
-/* Hero Stats */
-.hero-stats {
+/* Flexbox Utilities */
+.flex {
   display: flex;
-  justify-content: center;
-  gap: 4rem;
-  margin-top: 3rem;
 }
 
-/* Responsive Grids */
+.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.flex-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.flex-column {
+  flex-direction: column;
+}
+
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.items-start {
+  align-items: flex-start;
+}
+
+.items-end {
+  align-items: flex-end;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.justify-start {
+  justify-content: flex-start;
+}
+
+.justify-end {
+  justify-content: flex-end;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+/* Responsive Grid */
 @media (max-width: 1024px) {
-  .grid-4 {
+  .container {
+    padding: 0 1.5rem;
+  }
+  
+  .grid-fixed-4 {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
 @media (max-width: 768px) {
-  .grid-2,
-  .grid-3,
-  .grid-4 {
+  .container {
+    padding: 0 1rem;
+  }
+  
+  .grid-fixed-2,
+  .grid-fixed-3,
+  .grid-fixed-4 {
     grid-template-columns: 1fr;
   }
   
-  .services-grid,
-  .portfolio-grid,
-  .insights-grid {
+  .gap-lg { gap: 1.5rem; }
+  .gap-xl { gap: 2rem; }
+}
+
+/* Portfolio Grid - Special Case */
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2rem;
+}
+
+@media (max-width: 768px) {
+  .portfolio-grid {
     grid-template-columns: 1fr;
-    gap: 2rem;
-  }
-  
-  .engagement-grid {
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  }
-  
-  .hero-stats {
-    flex-direction: column;
-    gap: 2rem;
   }
 }

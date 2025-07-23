@@ -48,13 +48,23 @@ section {
   object-fit: contain;
 }
 
-/* Show only one portrait based on theme */
-[data-theme="light"] .portrait-dark {
+/* Show only light portrait in both themes */
+.portrait-light {
+  display: block;
+}
+
+.portrait-dark {
   display: none;
 }
 
-[data-theme="dark"] .portrait-light {
+[data-theme="light"] .portrait-dark,
+[data-theme="dark"] .portrait-dark {
   display: none;
+}
+
+[data-theme="light"] .portrait-light,
+[data-theme="dark"] .portrait-light {
+  display: block;
 }
 
 .hero-content {

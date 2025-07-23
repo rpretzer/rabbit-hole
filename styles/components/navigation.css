@@ -22,10 +22,11 @@
   justify-content: space-between;
 }
 
-/* Logo */
+/* Logo - UPDATED WITH CORRECT FONT */
 .logo {
   display: flex;
   align-items: center;
+  font-family: var(--font-heading); /* Changed to use Georgia serif font */
   font-size: 1.5rem;
   font-weight: 700;
   color: var(--color-primary);

@@ -58,45 +58,62 @@
 
 .sun-icon {
   left: 5px;
-  color: #666;
+  color: #f39c12; /* Orange color for sun */
   opacity: 1;
   transition: opacity 0.3s ease;
 }
 
 .moon-icon {
   right: 5px;
-  color: #ccc;
+  color: #666; /* Gray when not active */
   opacity: 0;
   transition: opacity 0.3s ease;
-}
-
-.theme-toggle.dark .sun-icon {
-  opacity: 0;
-}
-
-.theme-toggle.dark .moon-icon {
-  opacity: 1;
 }
 
 /* Icon SVG styling */
 .toggle-icon svg {
   width: 100%;
   height: 100%;
+  display: block;
 }
 
-/* Dark mode specific styles for toggle */
+/* Dark mode states */
+.theme-toggle.dark .sun-icon {
+  opacity: 0;
+}
+
+.theme-toggle.dark .moon-icon {
+  color: #ffd700; /* Golden color for moon in dark mode */
+  opacity: 1;
+}
+
+/* Alternative dark mode styling using data-theme */
 [data-theme="dark"] .toggle-track {
   background-color: #333;
 }
 
+[data-theme="dark"] .toggle-track::after {
+  transform: translateX(24px);
+}
+
 [data-theme="dark"] .sun-icon {
-  color: #666;
   opacity: 0;
 }
 
 [data-theme="dark"] .moon-icon {
-  color: #ccc;
+  color: #ffd700; /* Golden color for moon */
   opacity: 1;
+}
+
+/* Light mode explicit colors */
+[data-theme="light"] .sun-icon {
+  color: #f39c12; /* Orange for sun */
+  opacity: 1;
+}
+
+[data-theme="light"] .moon-icon {
+  color: #666;
+  opacity: 0;
 }
 
 /* Hover effects */

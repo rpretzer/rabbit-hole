@@ -66,6 +66,54 @@
   background-color: var(--text-primary);
 }
 
+/* SVG Icons in dark mode - CRITICAL FIX */
+[data-theme="dark"] svg {
+  color: var(--text-primary);
+}
+
+[data-theme="dark"] .icon,
+[data-theme="dark"] .service-icon svg,
+[data-theme="dark"] .engagement-icon svg,
+[data-theme="dark"] .portfolio-icon svg {
+  color: var(--text-primary);
+  fill: none;
+  stroke: currentColor;
+}
+
+/* Service card icons specifically */
+[data-theme="dark"] .service-card .icon {
+  color: var(--color-secondary);
+}
+
+[data-theme="dark"] .service-card:hover .icon {
+  color: var(--text-primary);
+}
+
+/* Engagement card icons */
+[data-theme="dark"] .engagement-card .icon {
+  color: var(--color-secondary);
+}
+
+[data-theme="dark"] .engagement-card:hover .icon {
+  color: var(--text-primary);
+}
+
+/* Theme toggle icons - ensure visibility */
+[data-theme="dark"] .sun-icon svg,
+[data-theme="dark"] .moon-icon svg {
+  color: var(--text-primary);
+}
+
+[data-theme="dark"] .theme-toggle .sun-icon {
+  color: #666;
+  opacity: 0;
+}
+
+[data-theme="dark"] .theme-toggle .moon-icon {
+  color: #ffd700; /* Golden color for moon */
+  opacity: 1;
+}
+
 /* Cards in dark mode */
 [data-theme="dark"] .card {
   background-color: var(--bg-light);
@@ -82,6 +130,52 @@
 
 [data-theme="dark"] .card-description {
   color: var(--text-secondary);
+}
+
+/* Service cards in dark mode */
+[data-theme="dark"] .service-card {
+  background-color: var(--bg-light);
+  border-color: var(--bg-gray);
+}
+
+[data-theme="dark"] .service-card:hover {
+  background-color: var(--bg-gray);
+  border-color: var(--color-secondary);
+}
+
+[data-theme="dark"] .service-title {
+  color: var(--text-primary);
+}
+
+[data-theme="dark"] .service-description {
+  color: var(--text-secondary);
+}
+
+[data-theme="dark"] .service-link {
+  color: var(--color-secondary);
+}
+
+/* Engagement cards in dark mode */
+[data-theme="dark"] .engagement-card {
+  background-color: var(--bg-light);
+  border-color: var(--bg-gray);
+}
+
+[data-theme="dark"] .engagement-card:hover {
+  background-color: var(--bg-gray);
+  border-color: var(--color-secondary);
+}
+
+[data-theme="dark"] .engagement-title {
+  color: var(--text-primary);
+}
+
+[data-theme="dark"] .engagement-description {
+  color: var(--text-secondary);
+}
+
+[data-theme="dark"] .engagement-details {
+  color: var(--text-light);
 }
 
 /* Buttons in dark mode */
@@ -166,30 +260,60 @@
   color: var(--text-secondary);
 }
 
-/* Service cards in dark mode */
-[data-theme="dark"] .service-card {
+/* Portfolio items in dark mode */
+[data-theme="dark"] .portfolio-card {
+  background-color: var(--bg-light);
+  color: var(--text-primary);
+}
+
+[data-theme="dark"] .portfolio-card .portfolio-title {
+  color: #ffffff;
+}
+
+[data-theme="dark"] .portfolio-card .portfolio-description {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+[data-theme="dark"] .portfolio-card .portfolio-meta,
+[data-theme="dark"] .portfolio-card .stat-label {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+[data-theme="dark"] .portfolio-card .stat-value {
+  color: #ffffff;
+}
+
+/* Insight cards in dark mode */
+[data-theme="dark"] .insight-card {
   background-color: var(--bg-light);
   border-color: var(--bg-gray);
 }
 
-[data-theme="dark"] .service-card:hover {
-  background-color: var(--bg-gray);
+[data-theme="dark"] .insight-card:hover {
   border-color: var(--color-secondary);
 }
 
-/* Portfolio items in dark mode */
-[data-theme="dark"] .portfolio-item {
-  background-color: var(--bg-light);
+[data-theme="dark"] .insight-title {
+  color: var(--text-primary);
 }
 
-[data-theme="dark"] .portfolio-overlay {
-  background: linear-gradient(to bottom, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.8) 100%);
+[data-theme="dark"] .insight-excerpt {
+  color: var(--text-secondary);
+}
+
+[data-theme="dark"] .insight-category {
+  color: var(--color-secondary);
+}
+
+[data-theme="dark"] .insight-meta {
+  color: var(--text-light);
 }
 
 /* Tags in dark mode */
 [data-theme="dark"] .tag {
   background-color: var(--bg-gray);
   color: var(--text-secondary);
+  border-color: var(--bg-gray);
 }
 
 /* Gradients in dark mode - slightly darker versions */
@@ -205,10 +329,20 @@
   background: linear-gradient(135deg, #1e5938 0%, #165a2e 100%);
 }
 
+[data-theme="dark"] .gradient-usaa {
+  background: linear-gradient(135deg, #002244 0%, #003366 100%);
+}
+
+[data-theme="dark"] .gradient-mvp {
+  background: linear-gradient(135deg, #1a3d2a 0%, #0f2818 100%);
+}
+
 /* Ensure text remains readable on gradients */
 [data-theme="dark"] .gradient-blue,
 [data-theme="dark"] .gradient-purple,
-[data-theme="dark"] .gradient-green {
+[data-theme="dark"] .gradient-green,
+[data-theme="dark"] .gradient-usaa,
+[data-theme="dark"] .gradient-mvp {
   color: #ffffff;
 }
 

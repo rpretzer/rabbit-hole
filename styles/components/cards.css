@@ -1,384 +1,326 @@
-/* Card Styles */
+/* Card Component Styles */
 
-/* Base Card Styles */
+/* Base Card */
 .card {
-  background: #fff;
-  border: 1px solid #eee;
+  background: var(--bg-white);
   border-radius: 8px;
   padding: 2rem;
-  text-decoration: none;
-  color: inherit;
   transition: all 0.3s ease;
-  cursor: pointer;
-  display: block;
-  height: 100%;
-}
-
-.card:hover {
-  border-color: #0066ff;
-  box-shadow: 0 5px 20px rgba(0, 102, 255, 0.1);
-  transform: translateY(-3px);
+  position: relative;
+  overflow: hidden;
 }
 
 /* Service Cards */
 .service-card {
-  background: #f8f9fa;
-  padding: 2.5rem;
-  border-radius: 8px;
-  text-decoration: none;
-  color: inherit;
-  transition: all 0.3s ease;
-  cursor: pointer;
   display: block;
-  height: 100%;
-  border: none;
+  background: var(--bg-section);
+  padding: 2rem;
+  border-radius: 8px;
+  text-decoration: none !important;
+  transition: all 0.3s ease;
+  text-align: center;
+  border: 1px solid transparent;
 }
 
 .service-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-  background: #fff;
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+  background: var(--bg-white);
+  border-color: var(--border-color);
+}
+
+/* Prevent any underlines on hover */
+.service-card,
+.service-card * {
+  text-decoration: none !important;
 }
 
 .service-icon {
-  width: 60px;
-  height: 60px;
-  margin-bottom: 1.5rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  width: 48px;
+  height: 48px;
+  margin: 0 auto 1rem;
+  display: block;
 }
 
-.service-icon img {
+.service-card h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 0.75rem;
+  text-decoration: none !important;
+}
+
+.service-card p {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: 1rem;
+  text-decoration: none !important;
+}
+
+.card-link {
+  color: var(--color-primary);
+  font-weight: 500;
+  font-size: 0.9rem;
+  display: inline-block;
+  text-decoration: none !important;
+}
+
+/* Engagement Cards */
+.engagement-card {
+  display: block;
+  background: var(--bg-white);
+  padding: 2rem;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  text-decoration: none !important;
+  transition: all 0.3s ease;
+}
+
+.engagement-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--color-primary);
+}
+
+.engagement-card,
+.engagement-card * {
+  text-decoration: none !important;
+}
+
+.engagement-icon {
   width: 40px;
   height: 40px;
-  filter: brightness(0) saturate(100%) invert(20%) sepia(0%) saturate(0%) hue-rotate(180deg) brightness(95%) contrast(87%);
+  margin-bottom: 1rem;
 }
 
-.service-card:hover .service-icon img {
-  filter: brightness(0) saturate(100%) invert(31%) sepia(98%) saturate(7499%) hue-rotate(215deg) brightness(99%) contrast(107%);
+.engagement-card h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+}
+
+.engagement-card p {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  margin-bottom: 1rem;
+}
+
+.engagement-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.engagement-list li {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  padding: 0.25rem 0;
+  padding-left: 1rem;
+  position: relative;
+}
+
+.engagement-list li:before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: var(--color-primary);
 }
 
 /* Portfolio Cards */
 .portfolio-card {
-  background: #fff;
-  border: 1px solid #eee;
+  display: block;
+  background: var(--bg-white);
+  border: 1px solid var(--border-color);
   border-radius: 8px;
   padding: 2rem;
-  text-decoration: none;
-  color: inherit;
+  text-decoration: none !important;
   transition: all 0.3s ease;
-  cursor: pointer;
-  display: flex;
-  flex-direction: column;
-  height: 100%;
 }
 
 .portfolio-card:hover {
-  border-color: #0066ff;
-  box-shadow: 0 5px 20px rgba(0, 102, 255, 0.1);
-  transform: translateY(-3px);
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-xl);
+  border-color: var(--color-primary);
 }
 
-.portfolio-content {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
+.portfolio-card,
+.portfolio-card * {
+  text-decoration: none !important;
 }
 
-.portfolio-meta {
+.portfolio-icon {
+  width: 48px;
+  height: 48px;
+  margin-bottom: 1rem;
+}
+
+.portfolio-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 1rem;
 }
 
-.portfolio-stats {
+.portfolio-company {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--color-primary);
+}
+
+.portfolio-duration {
+  font-size: 0.875rem;
+  color: var(--text-muted);
+}
+
+.portfolio-card h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 0.75rem;
+}
+
+.portfolio-card p {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.portfolio-metrics {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 1rem;
-  margin: 1.5rem 0;
-  padding: 1.5rem 0;
-  border-top: 1px solid #eee;
-  border-bottom: 1px solid #eee;
+  margin-bottom: 1.5rem;
 }
 
-.stat-item {
+.metric {
   text-align: center;
+  padding: 0.75rem;
+  background: var(--bg-section);
+  border-radius: 4px;
+}
+
+.metric-value {
+  display: block;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-primary);
+}
+
+.metric-label {
+  display: block;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
 }
 
 .portfolio-tags {
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
-  margin-top: auto;
 }
 
-/* Portfolio cards with gradients - special case */
-.portfolio-card.gradient-usaa,
-.portfolio-card.gradient-mvp,
-.portfolio-card.gradient-blue {
-  border: none;
-  color: white;
-  padding: 2.5rem;
-}
-
-.portfolio-card.gradient-usaa {
-  background: linear-gradient(135deg, #003366 0%, #004d99 100%);
-}
-
-.portfolio-card.gradient-mvp {
-  background: linear-gradient(135deg, #2E8B57 0%, #228B22 100%);
-}
-
-.portfolio-card.gradient-blue {
-  background: linear-gradient(135deg, #0056B3 0%, #0066CC 100%);
-}
-
-.portfolio-card.gradient-usaa:hover,
-.portfolio-card.gradient-mvp:hover,
-.portfolio-card.gradient-blue:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-}
-
-/* Gradient portfolio specific text colors */
-.portfolio-card.gradient-usaa .portfolio-title,
-.portfolio-card.gradient-mvp .portfolio-title,
-.portfolio-card.gradient-blue .portfolio-title,
-.portfolio-card.gradient-usaa .portfolio-description,
-.portfolio-card.gradient-mvp .portfolio-description,
-.portfolio-card.gradient-blue .portfolio-description {
-  color: white;
-}
-
-.portfolio-card.gradient-usaa .portfolio-meta,
-.portfolio-card.gradient-mvp .portfolio-meta,
-.portfolio-card.gradient-blue .portfolio-meta {
-  color: rgba(255, 255, 255, 0.8);
-}
-
-.portfolio-card.gradient-usaa .stat-value,
-.portfolio-card.gradient-mvp .stat-value,
-.portfolio-card.gradient-blue .stat-value {
-  color: white;
-  font-size: 1.5rem;
-  font-weight: 700;
-}
-
-.portfolio-card.gradient-usaa .stat-label,
-.portfolio-card.gradient-mvp .stat-label,
-.portfolio-card.gradient-blue .stat-label {
-  color: rgba(255, 255, 255, 0.8);
+.tag {
+  padding: 0.25rem 0.75rem;
+  background: var(--bg-section);
+  color: var(--text-secondary);
   font-size: 0.75rem;
-}
-
-.portfolio-card.gradient-usaa .tag,
-.portfolio-card.gradient-mvp .tag,
-.portfolio-card.gradient-blue .tag {
-  background: rgba(255, 255, 255, 0.2);
-  color: white;
-}
-
-/* Engagement Cards */
-.engagement-card {
-  text-align: center;
-  padding: 2rem;
-  background: #f8f9fa;
-  border-radius: 8px;
-  text-decoration: none;
-  color: inherit;
-  transition: all 0.3s ease;
-  cursor: pointer;
-  display: block;
-  height: 100%;
-}
-
-.engagement-card:hover {
-  background: #fff;
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-  transform: translateY(-3px);
-}
-
-.engagement-icon {
-  width: 60px;
-  height: 60px;
-  margin: 0 auto 1.5rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.engagement-icon img {
-  width: 40px;
-  height: 40px;
-  filter: brightness(0) saturate(100%) invert(20%) sepia(0%) saturate(0%) hue-rotate(180deg) brightness(95%) contrast(87%);
-}
-
-.engagement-card:hover .engagement-icon img {
-  filter: brightness(0) saturate(100%) invert(31%) sepia(98%) saturate(7499%) hue-rotate(215deg) brightness(99%) contrast(107%);
+  border-radius: 20px;
 }
 
 /* Insight Cards */
 .insight-card {
-  background: #fff;
-  border: 1px solid #eee;
+  background: var(--bg-white);
   border-radius: 8px;
   overflow: hidden;
   transition: all 0.3s ease;
+}
+
+.insight-link {
+  display: block;
+  padding: 1.5rem;
+  text-decoration: none !important;
   height: 100%;
 }
 
 .insight-card:hover {
-  border-color: #0066ff;
-  box-shadow: 0 5px 20px rgba(0, 102, 255, 0.1);
-  transform: translateY(-3px);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
 }
 
-.insight-link {
-  text-decoration: none;
-  color: inherit;
-  display: block;
-  height: 100%;
-}
-
-.insight-content {
-  padding: 2rem;
-  display: flex;
-  flex-direction: column;
-  height: 100%;
+.insight-link,
+.insight-link * {
+  text-decoration: none !important;
 }
 
 .insight-category {
   font-size: 0.75rem;
   font-weight: 600;
-  color: #0066ff;
+  color: var(--color-primary);
   text-transform: uppercase;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.05em;
   margin-bottom: 0.5rem;
+  display: block;
 }
 
-.insight-title {
+.insight-card h3 {
   font-size: 1.25rem;
   font-weight: 600;
-  color: #333;
+  color: var(--text-primary);
   margin-bottom: 0.75rem;
-  line-height: 1.3;
 }
 
-.insight-excerpt {
+.insight-card p {
   font-size: 0.95rem;
-  color: #666;
+  color: var(--text-secondary);
   line-height: 1.6;
   margin-bottom: 1rem;
-  flex-grow: 1;
 }
 
 .insight-meta {
   display: flex;
   justify-content: space-between;
-  align-items: center;
   font-size: 0.875rem;
-  color: #999;
-  margin-top: auto;
+  color: var(--text-muted);
 }
 
 /* Dark Mode Card Styles */
-[data-theme="dark"] .card {
-  background: #222;
-  border-color: #333;
-}
-
-[data-theme="dark"] .card:hover {
-  border-color: #4da6ff;
-  box-shadow: 0 5px 20px rgba(77, 166, 255, 0.2);
-}
-
-[data-theme="dark"] .service-card {
-  background: #222;
-}
-
-[data-theme="dark"] .service-card:hover {
-  background: #2a2a2a;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-}
-
-[data-theme="dark"] .service-icon img {
-  filter: brightness(0) saturate(100%) invert(100%) sepia(4%) saturate(180%) hue-rotate(91deg) brightness(107%) contrast(85%);
-}
-
-[data-theme="dark"] .service-card:hover .service-icon img {
-  filter: brightness(0) saturate(100%) invert(51%) sepia(82%) saturate(506%) hue-rotate(171deg) brightness(100%) contrast(102%);
-}
-
-[data-theme="dark"] .portfolio-card {
-  background: #222;
-  border-color: #333;
-}
-
-[data-theme="dark"] .portfolio-card:hover {
-  border-color: #4da6ff;
-  box-shadow: 0 5px 20px rgba(77, 166, 255, 0.2);
-}
-
-[data-theme="dark"] .portfolio-stats {
-  border-top-color: #333;
-  border-bottom-color: #333;
-}
-
-/* Dark mode gradients */
-[data-theme="dark"] .portfolio-card.gradient-usaa {
-  background: linear-gradient(135deg, #002244 0%, #003366 100%);
-}
-
-[data-theme="dark"] .portfolio-card.gradient-mvp {
-  background: linear-gradient(135deg, #1a3d2a 0%, #0f2818 100%);
-}
-
-[data-theme="dark"] .portfolio-card.gradient-blue {
-  background: linear-gradient(135deg, #003d7a 0%, #002d5c 100%);
-}
-
-[data-theme="dark"] .engagement-card {
-  background: #222;
-}
-
-[data-theme="dark"] .engagement-card:hover {
-  background: #2a2a2a;
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
-}
-
-[data-theme="dark"] .engagement-icon img {
-  filter: brightness(0) saturate(100%) invert(100%) sepia(4%) saturate(180%) hue-rotate(91deg) brightness(107%) contrast(85%);
-}
-
-[data-theme="dark"] .engagement-card:hover .engagement-icon img {
-  filter: brightness(0) saturate(100%) invert(51%) sepia(82%) saturate(506%) hue-rotate(171deg) brightness(100%) contrast(102%);
-}
-
+[data-theme="dark"] .card,
+[data-theme="dark"] .service-card,
+[data-theme="dark"] .engagement-card,
+[data-theme="dark"] .portfolio-card,
 [data-theme="dark"] .insight-card {
-  background: #222;
+  background: #1a1a1a;
   border-color: #333;
 }
 
-[data-theme="dark"] .insight-card:hover {
-  border-color: #4da6ff;
-  box-shadow: 0 5px 20px rgba(77, 166, 255, 0.2);
+[data-theme="dark"] .service-card:hover,
+[data-theme="dark"] .engagement-card:hover,
+[data-theme="dark"] .portfolio-card:hover {
+  background: #242424;
 }
 
-[data-theme="dark"] .insight-category {
-  color: #4da6ff;
+[data-theme="dark"] .metric {
+  background: #242424;
 }
 
-/* Responsive Card Styles */
+[data-theme="dark"] .tag {
+  background: #242424;
+}
+
+/* Responsive */
 @media (max-width: 768px) {
+  .card,
   .service-card,
-  .portfolio-card,
-  .engagement-card {
+  .engagement-card,
+  .portfolio-card {
     padding: 1.5rem;
   }
   
-  .portfolio-stats {
+  .portfolio-metrics {
     grid-template-columns: 1fr;
   }
 }

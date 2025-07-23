@@ -26,7 +26,7 @@
 .logo {
   display: flex;
   align-items: center;
-  font-family: var(--font-heading); /* Changed to use Georgia serif font */
+  font-family: var(--font-primary); /* Sans-serif font (Inter) */
   font-size: 1.5rem;
   font-weight: 700;
   color: var(--color-primary);

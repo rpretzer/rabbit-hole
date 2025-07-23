@@ -2,12 +2,14 @@
 
 /* Base Card */
 .card {
-  background: var(--bg-white);
-  border-radius: 8px;
-  padding: 2rem;
-  transition: all 0.3s ease;
-  position: relative;
-  overflow: hidden;
+    /* background: var(--bg-white); */  /* Comment out old */
+    background: var(--md3-surface-container-low);  /* Add MD3 */
+    padding: var(--card-padding);  /* KEEP THIS */
+    /* border-radius: var(--border-radius-md); */  /* Replace with MD3 */
+    border-radius: var(--md3-shape-corner-medium);
+    /* box-shadow: var(--shadow-sm); */  /* Replace with MD3 */
+    box-shadow: var(--md3-elevation-1);
+    /* Keep all your other properties */
 }
 
 /* Service Cards */

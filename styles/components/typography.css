@@ -1,0 +1,210 @@
+/* Create this as styles/components/typography.css */
+
+/* MD3 Typography Scale */
+
+/* Display Styles */
+.display-large {
+  font-size: 57px;
+  line-height: 64px;
+  letter-spacing: -0.25px;
+  font-weight: 400;
+}
+
+.display-medium {
+  font-size: 45px;
+  line-height: 52px;
+  letter-spacing: 0;
+  font-weight: 400;
+}
+
+.display-small {
+  font-size: 36px;
+  line-height: 44px;
+  letter-spacing: 0;
+  font-weight: 400;
+}
+
+/* Headline Styles */
+.headline-large {
+  font-size: 32px;
+  line-height: 40px;
+  letter-spacing: 0;
+  font-weight: 400;
+}
+
+.headline-medium {
+  font-size: 28px;
+  line-height: 36px;
+  letter-spacing: 0;
+  font-weight: 400;
+}
+
+.headline-small {
+  font-size: 24px;
+  line-height: 32px;
+  letter-spacing: 0;
+  font-weight: 400;
+}
+
+/* Title Styles */
+.title-large {
+  font-size: 22px;
+  line-height: 28px;
+  letter-spacing: 0;
+  font-weight: 400;
+}
+
+.title-medium {
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0.15px;
+  font-weight: 500;
+}
+
+.title-small {
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: 0.1px;
+  font-weight: 500;
+}
+
+/* Label Styles */
+.label-large {
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: 0.1px;
+  font-weight: 500;
+}
+
+.label-medium {
+  font-size: 12px;
+  line-height: 16px;
+  letter-spacing: 0.5px;
+  font-weight: 500;
+}
+
+.label-small {
+  font-size: 11px;
+  line-height: 16px;
+  letter-spacing: 0.5px;
+  font-weight: 500;
+}
+
+/* Body Styles */
+.body-large {
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0.5px;
+  font-weight: 400;
+}
+
+.body-medium {
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: 0.25px;
+  font-weight: 400;
+}
+
+.body-small {
+  font-size: 12px;
+  line-height: 16px;
+  letter-spacing: 0.4px;
+  font-weight: 400;
+}
+
+/* Apply MD3 Typography to HTML Elements */
+h1 {
+  font-size: 45px;
+  line-height: 52px;
+  letter-spacing: 0;
+  font-weight: 400;
+  margin-bottom: var(--spacing-xl);
+  color: var(--md3-on-surface);
+}
+
+h2 {
+  font-size: 36px;
+  line-height: 44px;
+  letter-spacing: 0;
+  font-weight: 400;
+  margin-bottom: var(--spacing-lg);
+  color: var(--md3-on-surface);
+}
+
+h3 {
+  font-size: 32px;
+  line-height: 40px;
+  letter-spacing: 0;
+  font-weight: 400;
+  margin-bottom: var(--spacing-lg);
+  color: var(--md3-on-surface);
+}
+
+h4 {
+  font-size: 28px;
+  line-height: 36px;
+  letter-spacing: 0;
+  font-weight: 400;
+  margin-bottom: var(--spacing-md);
+  color: var(--md3-on-surface);
+}
+
+h5 {
+  font-size: 24px;
+  line-height: 32px;
+  letter-spacing: 0;
+  font-weight: 400;
+  margin-bottom: var(--spacing-md);
+  color: var(--md3-on-surface);
+}
+
+h6 {
+  font-size: 22px;
+  line-height: 28px;
+  letter-spacing: 0;
+  font-weight: 400;
+  margin-bottom: var(--spacing-md);
+  color: var(--md3-on-surface);
+}
+
+p {
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0.5px;
+  font-weight: 400;
+  margin-bottom: var(--spacing-md);
+  color: var(--md3-on-surface);
+}
+
+/* Responsive Typography */
+@media (max-width: 768px) {
+  .display-large {
+    font-size: 45px;
+    line-height: 52px;
+  }
+  
+  .display-medium {
+    font-size: 36px;
+    line-height: 44px;
+  }
+  
+  .display-small {
+    font-size: 32px;
+    line-height: 40px;
+  }
+  
+  h1 {
+    font-size: 36px;
+    line-height: 44px;
+  }
+  
+  h2 {
+    font-size: 32px;
+    line-height: 40px;
+  }
+  
+  h3 {
+    font-size: 28px;
+    line-height: 36px;
+  }
+}

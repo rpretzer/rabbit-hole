@@ -62,3 +62,114 @@
   --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
   --shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.15);
 }
+
+/* Add these MD3 Design Tokens to your styles/base/variables.css file */
+
+/* Material Design 3 Design Tokens */
+:root {
+  /* MD3 Elevation System */
+  --md3-elevation-0: none;
+  --md3-elevation-1: 0px 1px 2px rgba(0, 0, 0, 0.3), 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+  --md3-elevation-2: 0px 1px 2px rgba(0, 0, 0, 0.3), 0px 2px 6px 2px rgba(0, 0, 0, 0.15);
+  --md3-elevation-3: 0px 4px 8px 3px rgba(0, 0, 0, 0.15), 0px 1px 3px rgba(0, 0, 0, 0.3);
+  --md3-elevation-4: 0px 6px 10px 4px rgba(0, 0, 0, 0.15), 0px 2px 3px rgba(0, 0, 0, 0.3);
+  --md3-elevation-5: 0px 8px 12px 6px rgba(0, 0, 0, 0.15), 0px 4px 4px rgba(0, 0, 0, 0.3);
+
+  /* MD3 Shape System */
+  --md3-shape-corner-none: 0px;
+  --md3-shape-corner-extra-small: 4px;
+  --md3-shape-corner-small: 8px;
+  --md3-shape-corner-medium: 12px;
+  --md3-shape-corner-large: 16px;
+  --md3-shape-corner-extra-large: 28px;
+  --md3-shape-corner-full: 9999px;
+
+  /* MD3 Motion */
+  --md3-motion-easing-standard: cubic-bezier(0.2, 0, 0, 1);
+  --md3-motion-easing-emphasized: cubic-bezier(0.2, 0, 0, 1);
+  --md3-motion-easing-emphasized-decelerate: cubic-bezier(0.05, 0.7, 0.1, 1);
+  --md3-motion-easing-emphasized-accelerate: cubic-bezier(0.3, 0, 0.8, 0.15);
+  
+  --md3-motion-duration-short1: 50ms;
+  --md3-motion-duration-short2: 100ms;
+  --md3-motion-duration-short3: 150ms;
+  --md3-motion-duration-short4: 200ms;
+  --md3-motion-duration-medium1: 250ms;
+  --md3-motion-duration-medium2: 300ms;
+  --md3-motion-duration-medium3: 350ms;
+  --md3-motion-duration-medium4: 400ms;
+  --md3-motion-duration-long1: 450ms;
+  --md3-motion-duration-long2: 500ms;
+  --md3-motion-duration-long3: 550ms;
+  --md3-motion-duration-long4: 600ms;
+
+  /* MD3 Color System - Light Theme */
+  --md3-primary: #6750a4;
+  --md3-on-primary: #ffffff;
+  --md3-primary-container: #eaddff;
+  --md3-on-primary-container: #21005d;
+  
+  --md3-secondary: #625b71;
+  --md3-on-secondary: #ffffff;
+  --md3-secondary-container: #e8def8;
+  --md3-on-secondary-container: #1d192b;
+  
+  --md3-surface: #fef7ff;
+  --md3-on-surface: #1d1b20;
+  --md3-surface-variant: #e7e0ec;
+  --md3-on-surface-variant: #49454f;
+  
+  --md3-outline: #79747e;
+  --md3-outline-variant: #cac4d0;
+  
+  --md3-error: #ba1a1a;
+  --md3-on-error: #ffffff;
+  --md3-error-container: #ffdad6;
+  --md3-on-error-container: #410002;
+}
+
+/* Light Theme Surface Colors */
+[data-theme="light"] {
+  --md3-surface-1: #fef7ff;
+  --md3-surface-2: #fdf7fd;
+  --md3-surface-3: #fbf8fb;
+  --md3-surface-4: #faf8fa;
+  --md3-surface-5: #f9f8f9;
+  --md3-surface-container-lowest: #ffffff;
+  --md3-surface-container-low: #f7f2fa;
+  --md3-surface-container: #f3edf7;
+  --md3-surface-container-high: #ede7f1;
+  --md3-surface-container-highest: #e6e0ec;
+}
+
+/* Dark Theme Surface Colors */
+[data-theme="dark"] {
+  --md3-primary: #d0bcff;
+  --md3-on-primary: #381e72;
+  --md3-primary-container: #4f378b;
+  --md3-on-primary-container: #eaddff;
+  
+  --md3-secondary: #ccc2dc;
+  --md3-on-secondary: #332d41;
+  --md3-secondary-container: #4a4458;
+  --md3-on-secondary-container: #e8def8;
+  
+  --md3-surface: #141218;
+  --md3-on-surface: #e6e1e5;
+  --md3-surface-variant: #49454f;
+  --md3-on-surface-variant: #cac4d0;
+  
+  --md3-outline: #938f99;
+  --md3-outline-variant: #49454f;
+  
+  --md3-surface-1: #1e1b1e;
+  --md3-surface-2: #231f23;
+  --md3-surface-3: #272427;
+  --md3-surface-4: #292629;
+  --md3-surface-5: #2c292c;
+  --md3-surface-container-lowest: #0f0d11;
+  --md3-surface-container-low: #1d1b1e;
+  --md3-surface-container: #211f22;
+  --md3-surface-container-high: #2b282c;
+  --md3-surface-container-highest: #363337;
+}

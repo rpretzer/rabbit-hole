@@ -1,0 +1,13 @@
+<svg viewBox="0 0 150 150" xmlns="http://www.w3.org/2000/svg">
+  <!-- Circle background -->
+  <circle cx="75" cy="75" r="65" fill="#0066ff" stroke="#000" stroke-width="10"/>
+  
+  <!-- Inner R -->
+  <g fill="#FFF" stroke="#000" stroke-width="8">
+    <path d="M45 40 L45 110 M45 40 L70 40 Q85 40 85 55 Q85 70 70 70 L45 70 M70 70 L85 110" 
+          stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+  
+  <!-- Yellow accent dot -->
+  <circle cx="95" cy="75" r="8" fill="#FFD700" stroke="#000" stroke-width="4"/>
+</svg>

@@ -1,0 +1,264 @@
+/* Utility Classes */
+
+/* Visually Hidden (Screen Reader Only) */
+.visually-hidden,
+.skip-nav {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.skip-nav:focus {
+  position: fixed;
+  top: 1rem;
+  left: 1rem;
+  z-index: 9999;
+  width: auto;
+  height: auto;
+  padding: 1rem 2rem;
+  margin: 0;
+  overflow: visible;
+  clip: auto;
+  white-space: normal;
+  background-color: var(--color-primary);
+  color: white;
+  text-decoration: none;
+  border-radius: 0.25rem;
+  box-shadow: var(--shadow-lg);
+}
+
+/* Body States */
+body.menu-open {
+  overflow: hidden;
+}
+
+body.theme-transition * {
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease !important;
+}
+
+/* Content Wrapper */
+.content-wrapper {
+  max-width: 65ch;
+}
+
+/* Section Utilities */
+.section-subtitle {
+  font-size: var(--text-lg);
+  margin-bottom: 3rem;
+}
+
+/* Stat Grid */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  margin-top: 3rem;
+  text-align: center;
+}
+
+.stat {
+  padding: 1rem;
+}
+
+.stat-number {
+  display: block;
+  font-size: var(--text-3xl);
+  font-weight: 700;
+  color: var(--color-primary);
+  margin-bottom: 0.5rem;
+}
+
+.stat-label {
+  display: block;
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* Icon Size Utilities */
+.icon-sm {
+  width: 20px;
+  height: 20px;
+}
+
+.icon-md {
+  width: 24px;
+  height: 24px;
+}
+
+.icon-lg {
+  width: 32px;
+  height: 32px;
+}
+
+/* Header Scroll States */
+.nav-header.scrolled {
+  box-shadow: var(--shadow-sm);
+}
+
+.nav-header.nav-hidden {
+  transform: translateY(-100%);
+  transition: transform 0.3s ease;
+}
+
+/* Mobile Menu Active States */
+.mobile-menu-toggle.active .menu-icon {
+  display: none;
+}
+
+.mobile-menu-toggle:not(.active) .close-icon {
+  display: none;
+}
+
+/* Contact Links */
+.contact-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.contact-link {
+  display: inline-flex;
+  padding: 0.75rem;
+  border-radius: 50%;
+  transition: all 0.2s ease;
+}
+
+.contact-link:hover {
+  background-color: var(--bg-section);
+  transform: translateY(-2px);
+}
+
+.contact-link img {
+  width: 24px;
+  height: 24px;
+}
+
+/* Footer Styles */
+.footer-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  text-align: center;
+}
+
+.footer-logo {
+  width: 50px;
+  height: 50px;
+}
+
+.footer-logo img {
+  width: 100%;
+  height: 100%;
+}
+
+/* Show/hide footer logos based on theme */
+.footer-logo-primary {
+  display: block;
+}
+
+.footer-logo-dark {
+  display: none;
+}
+
+[data-theme="dark"] .footer-logo-primary {
+  display: none;
+}
+
+[data-theme="dark"] .footer-logo-dark {
+  display: block;
+}
+
+.footer-nav {
+  display: flex;
+  gap: 2rem;
+  margin-top: 1rem;
+}
+
+.footer-nav a {
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+  transition: color 0.2s ease;
+}
+
+.footer-nav a:hover {
+  color: var(--color-primary);
+  text-decoration: none;
+}
+
+/* Responsive Utilities */
+@media (max-width: 768px) {
+  .stats-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .stat {
+    padding: 0.5rem;
+  }
+  
+  .stat-number {
+    font-size: var(--text-2xl);
+  }
+  
+  .content-wrapper {
+    max-width: 100%;
+  }
+}
+
+/* Hero Portrait Animation */
+.hero-portrait {
+  animation: fadeInUp 0.8s ease-out;
+}
+
+.hero-portrait img {
+  filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.1));
+  transition: filter 0.3s ease;
+}
+
+.hero-portrait:hover img {
+  filter: drop-shadow(0 15px 40px rgba(0, 0, 0, 0.15));
+}
+
+[data-theme="dark"] .hero-portrait img {
+  filter: drop-shadow(0 10px 30px rgba(255, 215, 0, 0.1));
+}
+
+[data-theme="dark"] .hero-portrait:hover img {
+  filter: drop-shadow(0 15px 40px rgba(255, 215, 0, 0.2));
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Dark Mode Overrides for Utilities */
+[data-theme="dark"] .skip-nav:focus {
+  background-color: var(--color-primary);
+  color: var(--bg-primary);
+}
+
+[data-theme="dark"] .stat-number {
+  color: var(--color-primary);
+}
+
+[data-theme="dark"] .contact-link:hover {
+  background-color: var(--bg-secondary);
+}

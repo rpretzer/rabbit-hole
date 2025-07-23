@@ -1,0 +1,13 @@
+<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <!-- Square background with rounded corners -->
+  <rect x="15" y="15" width="170" height="170" fill="#0066ff" stroke="#000" stroke-width="12" rx="25"/>
+  
+  <!-- Inner R -->
+  <g fill="#FFF" stroke="#000" stroke-width="10">
+    <path d="M60 55 L60 145 M60 55 L95 55 Q115 55 115 75 Q115 95 95 95 L60 95 M95 95 L115 145" 
+          stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+  
+  <!-- Yellow accent dot -->
+  <circle cx="135" cy="100" r="10" fill="#FFD700" stroke="#000" stroke-width="5"/>
+</svg>

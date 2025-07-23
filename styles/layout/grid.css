@@ -1,40 +1,96 @@
-/* Grid Systems */
-.container {
-    max-width: var(--container-max);
-    margin: 0 auto;
-    padding: 0 var(--spacing-lg);
+/* Grid Layout System */
+
+/* Base Grid */
+.grid {
+  display: grid;
+  gap: 2rem;
 }
 
+/* Auto-fit Grids */
+.grid-auto {
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+/* Fixed Column Grids */
+.grid-2 {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.grid-3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.grid-4 {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+/* Services Grid */
 .services-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: var(--spacing-xl);
-    margin-top: var(--spacing-2xl);
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 3rem;
+  margin-top: 3rem;
 }
 
+/* Portfolio Grid */
 .portfolio-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: var(--spacing-xl);
-    margin-top: var(--spacing-2xl);
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
 }
 
-.stats-grid {
-    display: flex;
-    gap: var(--spacing-2xl);
-    margin-top: var(--spacing-2xl);
-    flex-wrap: wrap;
+/* Engagement Grid */
+.engagement-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
 }
 
-/* Responsive */
+/* Insights Grid */
+.insights-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+/* Hero Stats */
+.hero-stats {
+  display: flex;
+  justify-content: center;
+  gap: 4rem;
+  margin-top: 3rem;
+}
+
+/* Responsive Grids */
+@media (max-width: 1024px) {
+  .grid-4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
 @media (max-width: 768px) {
-    .services-grid,
-    .portfolio-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .stats-grid {
-        gap: var(--spacing-xl);
-        justify-content: center;
-    }
+  .grid-2,
+  .grid-3,
+  .grid-4 {
+    grid-template-columns: 1fr;
+  }
+  
+  .services-grid,
+  .portfolio-grid,
+  .insights-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  .engagement-grid {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  }
+  
+  .hero-stats {
+    flex-direction: column;
+    gap: 2rem;
+  }
 }

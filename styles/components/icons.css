@@ -1,0 +1,26 @@
+/* Icon styles for img elements */
+.icon {
+  display: inline-block;
+  vertical-align: middle;
+  filter: brightness(0) saturate(100%) invert(26%) sepia(15%) saturate(638%) hue-rotate(180deg) brightness(96%) contrast(87%);
+}
+
+/* Service and engagement icons - blue in light mode */
+.service-icon,
+.engagement-icon {
+  filter: brightness(0) saturate(100%) invert(24%) sepia(92%) saturate(2351%) hue-rotate(206deg) brightness(97%) contrast(107%);
+}
+
+/* Dark mode colors */
+[data-theme="dark"] .icon {
+  filter: brightness(0) invert(1);
+}
+
+[data-theme="dark"] .service-icon {
+  filter: brightness(0) saturate(100%) invert(55%) sepia(92%) saturate(1726%) hue-rotate(194deg) brightness(102%) contrast(101%);
+}
+
+/* Hover effects */
+.service-card:hover .service-icon {
+  filter: brightness(0) invert(1);
+}

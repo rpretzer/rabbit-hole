@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -21,24 +21,8 @@
         })();
     </script>
     
-    <!-- CSS Preloads -->
-    <link rel="preload" href="styles/base/variables.css" as="style">
-    <link rel="preload" href="styles/main.css" as="style">
-    
-    <!-- CSS Files -->
-    <link rel="stylesheet" href="styles/base/variables.css">
+    <!-- Single CSS Entry Point -->
     <link rel="stylesheet" href="styles/main.css">
-    <link rel="stylesheet" href="styles/shared-component.css">
-    <link rel="stylesheet" href="styles/components/cards.css">
-    <link rel="stylesheet" href="styles/components/navigation.css">
-    <link rel="stylesheet" href="styles/components/theme-toggle.css">
-    <link rel="stylesheet" href="styles/components/icons.css">
-    <link rel="stylesheet" href="styles/components/dark-mode-overrides.css">
-    
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
     
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
@@ -59,345 +43,298 @@
 </head>
 <body>
     <!-- Skip to main content (Accessibility) -->
-    <a href="#main" class="skip-nav">Skip to main content</a>
+    <a href="#main" class="skip-nav visually-hidden">Skip to main content</a>
     
     <!-- Header Navigation -->
-    <header class="header">
+    <header class="nav-header">
         <div class="container">
-            <div class="header-content">
-                <a href="/" class="logo">Ryan Andrew Pretzer</a>
-                <div class="header-actions">
-                    <nav class="desktop-nav" aria-label="Main navigation">
-                        <ul class="nav-links">
-                            <li><a href="#about">About</a></li>
-                            <li><a href="#services">Services</a></li>
-                            <li><a href="#portfolio">Portfolio</a></li>
-                            <li><a href="#insights">Insights</a></li>
-                            <li><a href="#contact">Contact</a></li>
-                        </ul>
-                    </nav>
+            <div class="nav-container">
+                <a href="/" class="logo">
+                    <img src="images/logo/logo-primary.svg" alt="RSP Management" class="logo-primary" />
+                    <img src="images/logo/logo-dark.svg" alt="RSP Management" class="logo-dark" />
+                    <span class="logo-text">Ryan Andrew Pretzer</span>
+                </a>
+                
+                <nav class="nav-links" aria-label="Main navigation">
+                    <a href="#about">About</a>
+                    <a href="#services">Services</a>
+                    <a href="#portfolio">Portfolio</a>
+                    <a href="#insights">Insights</a>
+                    <a href="#contact">Contact</a>
                     
                     <!-- Theme Toggle -->
                     <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
-                        <span class="toggle-track">
-                            <span class="toggle-icon sun-icon">
-                                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                    <circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.5"/>
-                                    <path d="M 12 2 L 12 6 M 12 18 L 12 22 M 22 12 L 18 12 M 6 12 L 2 12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-                                    <path d="M 19 5 L 16 8 M 8 16 L 5 19 M 19 19 L 16 16 M 8 8 L 5 5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-                                </svg>
-                            </span>
-                            <span class="toggle-icon moon-icon">
-                                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M 20 12 C 20 16.418 16.418 20 12 20 C 9.373 20 6.975 18.627 5.5 16.5 C 5.828 16.567 6.161 16.6 6.5 16.6 C 10.142 16.6 13.1 13.642 13.1 10 C 13.1 7.913 12.127 6.044 10.6 4.85 C 11.061 4.783 11.527 4.75 12 4.75 C 16.418 4.75 20 8.332 20 12.75 Z" fill="none" stroke="currentColor" stroke-width="1.5"/>
-                                </svg>
-                            </span>
-                        </span>
+                        <img src="images/icons/ui/sun.svg" alt="Light mode" class="sun-icon" />
+                        <img src="images/icons/ui/moon.svg" alt="Dark mode" class="moon-icon" />
                     </button>
-
-                    <!-- Mobile Menu Toggle -->
-                    <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Toggle mobile menu" aria-expanded="false">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                    </button>
-                </div>
+                </nav>
+                
+                <!-- Mobile Menu Toggle -->
+                <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Toggle mobile menu" aria-expanded="false">
+                    <img src="images/icons/ui/menu.svg" alt="Menu" class="menu-icon" />
+                </button>
             </div>
         </div>
-        
-        <!-- Mobile Navigation -->
-        <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation">
-            <ul class="mobile-nav-list">
-                <li class="mobile-nav-item"><a href="#about" class="mobile-nav-link">About</a></li>
-                <li class="mobile-nav-item"><a href="#services" class="mobile-nav-link">Services</a></li>
-                <li class="mobile-nav-item"><a href="#portfolio" class="mobile-nav-link">Portfolio</a></li>
-                <li class="mobile-nav-item"><a href="#insights" class="mobile-nav-link">Insights</a></li>
-                <li class="mobile-nav-item"><a href="#contact" class="mobile-nav-link">Contact</a></li>
-            </ul>
-        </nav>
     </header>
+    
+    <!-- Mobile Navigation -->
+    <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation">
+        <div class="mobile-nav-header">
+            <span class="logo">Menu</span>
+            <button class="mobile-close" id="mobile-close" aria-label="Close menu">
+                <img src="images/icons/ui/close.svg" alt="Close" />
+            </button>
+        </div>
+        <div class="mobile-nav-links">
+            <a href="#about">About</a>
+            <a href="#services">Services</a>
+            <a href="#portfolio">Portfolio</a>
+            <a href="#insights">Insights</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </nav>
 
     <!-- Main Content -->
     <main id="main">
         <!-- Hero Section -->
-        <section class="hero" aria-label="Introduction">
+        <section class="hero">
             <div class="container">
-                <h1 class="hero-title">Mobile Product Strategy & Design Systems</h1>
-                <p class="hero-subtitle">Transforming enterprise complexity into elegant mobile experiences</p>
-                
-                <div class="hero-stats">
-                    <div class="stat">
-                        <span class="stat-number">15+</span>
-                        <span class="stat-label">Years Experience</span>
+                <div class="hero-wrapper">
+                    <div class="hero-portrait">
+                        <img src="images/hero/portrait-light.svg" alt="Ryan Andrew Pretzer" class="portrait-light" />
+                        <img src="images/hero/portrait-dark.svg" alt="Ryan Andrew Pretzer" class="portrait-dark" />
                     </div>
-                    <div class="stat">
-                        <span class="stat-number">50+</span>
-                        <span class="stat-label">Fortune 500 Companies</span>
-                    </div>
-                    <div class="stat">
-                        <span class="stat-number">500M+</span>
-                        <span class="stat-label">Users Impacted</span>
+                    <div class="hero-content">
+                        <h1>Mobile Product Strategy & Design Systems</h1>
+                        <p class="lead">Transforming enterprise complexity into elegant mobile experiences</p>
+                        
+                        <div class="stats-grid">
+                            <div class="stat">
+                                <div class="stat-number">15+</div>
+                                <div class="stat-label">Years Experience</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-number">50+</div>
+                                <div class="stat-label">Fortune 500 Companies</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-number">500M+</div>
+                                <div class="stat-label">Users Impacted</div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- About Section -->
-        <section id="about" class="section" aria-labelledby="about-heading">
+        <section id="about" class="section">
             <div class="container">
-                <h2 id="about-heading">About</h2>
-                <p>With over 15 years of experience in product design and strategy, I specialize in transforming complex business challenges into elegant digital solutions. My work spans enterprise mobile systems, legal technology platforms, and healthcare digital transformations.</p>
-                <p>I bring a unique blend of strategic thinking, design leadership, and technical understanding to deliver products that not only meet business objectives but also delight users.</p>
+                <h2>About</h2>
+                <div class="content-wrapper">
+                    <p>With over 15 years of experience in product design and strategy, I specialize in transforming complex business challenges into elegant digital solutions. My work spans enterprise mobile systems, legal technology platforms, and healthcare digital transformations.</p>
+                    <p>I bring a unique blend of strategic thinking, design leadership, and technical understanding to deliver products that not only meet business objectives but also delight users.</p>
+                </div>
             </div>
         </section>
 
         <!-- Services Section -->
-        <section id="services" class="section section-alt" aria-labelledby="services-heading">
+        <section id="services" class="services section">
             <div class="container">
-                <h2 id="services-heading">What I Do</h2>
-                <p class="section-description">Strategic mobile product leadership for enterprise organizations</p>
+                <h2>What I Do</h2>
+                <p class="section-subtitle text-secondary">Strategic mobile product leadership for enterprise organizations</p>
                 
-                <div class="services-grid">
+                <div class="grid grid-3">
                     <!-- Mobile Strategy -->
                     <a href="services/mobile-strategy" class="service-card">
-                        <div class="service-icon">
-                            <svg viewBox="0 0 24 24" class="icon icon-mobile">
-                                <rect x="5" y="2" width="14" height="20" rx="2" fill="none" stroke="currentColor" stroke-width="1.5"/>
-                                <circle cx="12" cy="18" r="1" fill="currentColor"/>
-                                <line x1="9" y1="5" x2="15" y2="5" stroke="currentColor" stroke-width="1.5"/>
-                            </svg>
-                        </div>
-                        <h3 class="service-title">Mobile Product Strategy</h3>
-                        <p class="service-description">End-to-end mobile transformation for Fortune 500 enterprises. From vision to execution, delivering experiences that delight millions of users.</p>
-                        <span class="service-link">Learn more →</span>
+                        <img src="images/icons/services/mobile-product-strategy.svg" alt="" class="service-icon" />
+                        <h3>Mobile Product Strategy</h3>
+                        <p>End-to-end mobile transformation for Fortune 500 enterprises. From vision to execution, delivering experiences that delight millions of users.</p>
+                        <span class="card-link">Learn more →</span>
                     </a>
 
                     <!-- Design Systems -->
                     <a href="services/design-systems" class="service-card">
-                        <div class="service-icon">
-                            <svg viewBox="0 0 24 24" class="icon icon-grid">
-                                <rect x="3" y="3" width="7" height="7" fill="none" stroke="currentColor" stroke-width="1.5"/>
-                                <rect x="14" y="3" width="7" height="7" fill="none" stroke="currentColor" stroke-width="1.5"/>
-                                <rect x="3" y="14" width="7" height="7" fill="none" stroke="currentColor" stroke-width="1.5"/>
-                                <rect x="14" y="14" width="7" height="7" fill="none" stroke="currentColor" stroke-width="1.5"/>
-                            </svg>
-                        </div>
-                        <h3 class="service-title">Design System Architecture</h3>
-                        <p class="service-description">Build and scale design systems that accelerate development, ensure consistency, and reduce technical debt across large organizations.</p>
-                        <span class="service-link">Learn more →</span>
+                        <img src="images/icons/services/design-system-architecture.svg" alt="" class="service-icon" />
+                        <h3>Design System Architecture</h3>
+                        <p>Build and scale design systems that accelerate development, ensure consistency, and reduce technical debt across large organizations.</p>
+                        <span class="card-link">Learn more →</span>
                     </a>
 
                     <!-- Process Optimization -->
                     <a href="services/process-design" class="service-card">
-                        <div class="service-icon">
-                            <svg viewBox="0 0 24 24" class="icon icon-process">
-                                <path d="M9 3 L9 9 L3 9 M15 21 L15 15 L21 15 M21 3 L15 9 M3 21 L9 15" fill="none" stroke="currentColor" stroke-width="1.5"/>
-                                <circle cx="12" cy="12" r="3" fill="none" stroke="currentColor" stroke-width="1.5"/>
-                            </svg>
-                        </div>
-                        <h3 class="service-title">Process Optimization</h3>
-                        <p class="service-description">Transform complex business workflows into intuitive digital experiences that improve efficiency and user satisfaction.</p>
-                        <span class="service-link">Learn more →</span>
+                        <img src="images/icons/services/process-design.svg" alt="" class="service-icon" />
+                        <h3>Process Optimization</h3>
+                        <p>Transform complex business workflows into intuitive digital experiences that improve efficiency and user satisfaction.</p>
+                        <span class="card-link">Learn more →</span>
                     </a>
 
                     <!-- Legal Technology -->
                     <a href="services/legal-tech" class="service-card">
-                        <div class="service-icon">
-                            <svg viewBox="0 0 24 24" class="icon icon-legal">
-                                <path d="M12 2 L12 8 M12 8 L8 12 L12 16 L16 12 L12 8 M8 12 L8 20 M16 12 L16 20 M6 20 L18 20" fill="none" stroke="currentColor" stroke-width="1.5"/>
-                            </svg>
-                        </div>
-                        <h3 class="service-title">Legal Technology</h3>
-                        <p class="service-description">Specialized expertise in legal tech platforms, streamlining complex legal processes with modern technology solutions.</p>
-                        <span class="service-link">Learn more →</span>
+                        <img src="images/icons/services/legal-tech.svg" alt="" class="service-icon" />
+                        <h3>Legal Technology</h3>
+                        <p>Insurance claims and legal tech platforms, streamlining complex processes with modern technology solutions.</p>
+                        <span class="card-link">Learn more →</span>
                     </a>
 
                     <!-- Healthcare Digital -->
                     <a href="services/healthcare-digital" class="service-card">
-                        <div class="service-icon">
-                            <svg viewBox="0 0 24 24" class="icon icon-healthcare">
-                                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" fill="none" stroke="currentColor" stroke-width="1.5"/>
-                            </svg>
-                        </div>
-                        <h3 class="service-title">Healthcare Digital</h3>
-                        <p class="service-description">Digital transformation for healthcare organizations, improving patient experiences and operational efficiency.</p>
-                        <span class="service-link">Learn more →</span>
+                        <img src="images/icons/services/healthcare-digital.svg" alt="" class="service-icon" />
+                        <h3>Healthcare Digital</h3>
+                        <p>Digital transformation for healthcare organizations, improving patient experiences and operational efficiency.</p>
+                        <span class="card-link">Learn more →</span>
                     </a>
 
                     <!-- Strategic Advisory -->
                     <a href="services/advisory" class="service-card">
-                        <div class="service-icon">
-                            <svg viewBox="0 0 24 24" class="icon icon-advisory">
-                                <path d="M12 2 C6 2 2 6 2 12 C2 18 6 22 12 22 C18 22 22 18 22 12 C22 6 18 2 12 2 M12 7 L12 12 L16 14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-                            </svg>
-                        </div>
-                        <h3 class="service-title">Strategic Advisory</h3>
-                        <p class="service-description">Fractional CPO and strategic counsel for companies navigating digital transformation and product innovation.</p>
-                        <span class="service-link">Learn more →</span>
+                        <img src="images/icons/services/strategic-advisory.svg" alt="" class="service-icon" />
+                        <h3>Strategic Advisory</h3>
+                        <p>Fractional CPO and strategic counsel for companies navigating digital transformation and product innovation.</p>
+                        <span class="card-link">Learn more →</span>
                     </a>
                 </div>
             </div>
         </section>
 
         <!-- Engagement Section -->
-        <section id="engagement" class="section" aria-labelledby="engagement-heading">
+        <section id="engagement" class="section">
             <div class="container">
-                <h2 id="engagement-heading">How We Work Together</h2>
-                <p class="section-description">Flexible engagement models tailored to your needs</p>
+                <h2>How We Work Together</h2>
+                <p class="section-subtitle text-secondary">Flexible engagement models tailored to your needs</p>
                 
-                <div class="engagement-grid">
+                <div class="grid grid-4">
                     <!-- Consulting -->
                     <a href="services/consulting" class="engagement-card">
-                        <div class="engagement-icon">
-                            <svg viewBox="0 0 24 24" class="icon">
-                                <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" fill="none" stroke="currentColor" stroke-width="1.5"/>
-                            </svg>
-                        </div>
-                        <h3 class="engagement-title">Consulting</h3>
-                        <p class="engagement-description">Strategic guidance and expertise for specific challenges or initiatives</p>
-                        <div class="engagement-details">
-                            <span class="detail-item">• Short-term engagements</span>
-                            <span class="detail-item">• Expert analysis & recommendations</span>
-                            <span class="detail-item">• Knowledge transfer</span>
-                        </div>
+                        <img src="images/icons/engagement/consulting.svg" alt="" class="engagement-icon" />
+                        <h3>Consulting</h3>
+                        <p>Strategic guidance and expertise for specific challenges or initiatives</p>
+                        <ul class="engagement-list">
+                            <li>Short-term engagements</li>
+                            <li>Expert analysis & recommendations</li>
+                            <li>Knowledge transfer</li>
+                        </ul>
                     </a>
 
                     <!-- Fractional Leadership -->
                     <a href="services/fractional-leadership" class="engagement-card">
-                        <div class="engagement-icon">
-                            <svg viewBox="0 0 24 24" class="icon">
-                                <circle cx="12" cy="7" r="4" fill="none" stroke="currentColor" stroke-width="1.5"/>
-                                <path d="M12 14c-4.42 0-8 1.79-8 4v3h16v-3c0-2.21-3.58-4-8-4z" fill="none" stroke="currentColor" stroke-width="1.5"/>
-                            </svg>
-                        </div>
-                        <h3 class="engagement-title">Fractional Leadership</h3>
-                        <p class="engagement-description">Part-time executive leadership without the full-time cost</p>
-                        <div class="engagement-details">
-                            <span class="detail-item">• CPO / VP Product roles</span>
-                            <span class="detail-item">• 2-3 days per week</span>
-                            <span class="detail-item">• Build & mentor teams</span>
-                        </div>
+                        <img src="images/icons/engagement/fractional-leadership.svg" alt="" class="engagement-icon" />
+                        <h3>Fractional Leadership</h3>
+                        <p>Part-time executive leadership without the full-time cost</p>
+                        <ul class="engagement-list">
+                            <li>CPO / VP Product roles</li>
+                            <li>2-3 days per week</li>
+                            <li>Build & mentor teams</li>
+                        </ul>
                     </a>
 
                     <!-- Project-Based -->
                     <a href="services/project-based" class="engagement-card">
-                        <div class="engagement-icon">
-                            <svg viewBox="0 0 24 24" class="icon">
-                                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14M22 4 L12 14.01l-3-3" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                            </svg>
-                        </div>
-                        <h3 class="engagement-title">Project-Based</h3>
-                        <p class="engagement-description">End-to-end delivery of defined initiatives with clear outcomes</p>
-                        <div class="engagement-details">
-                            <span class="detail-item">• Fixed scope & timeline</span>
-                            <span class="detail-item">• Hands-on execution</span>
-                            <span class="detail-item">• Measurable deliverables</span>
-                        </div>
+                        <img src="images/icons/engagement/project-based.svg" alt="" class="engagement-icon" />
+                        <h3>Project-Based</h3>
+                        <p>End-to-end delivery of defined initiatives with clear outcomes</p>
+                        <ul class="engagement-list">
+                            <li>Fixed scope & timeline</li>
+                            <li>Hands-on execution</li>
+                            <li>Measurable deliverables</li>
+                        </ul>
                     </a>
 
                     <!-- Advisory -->
                     <a href="services/advisory" class="engagement-card">
-                        <div class="engagement-icon">
-                            <svg viewBox="0 0 24 24" class="icon">
-                                <circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="1.5"/>
-                                <path d="M12 6v6l4 2" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-                            </svg>
-                        </div>
-                        <h3 class="engagement-title">Advisory</h3>
-                        <p class="engagement-description">Ongoing strategic counsel and board-level guidance</p>
-                        <div class="engagement-details">
-                            <span class="detail-item">• Monthly/quarterly sessions</span>
-                            <span class="detail-item">• Strategic planning</span>
-                            <span class="detail-item">• Board advisory</span>
-                        </div>
+                        <img src="images/icons/engagement/advisory.svg" alt="" class="engagement-icon" />
+                        <h3>Advisory</h3>
+                        <p>Ongoing strategic counsel and board-level guidance</p>
+                        <ul class="engagement-list">
+                            <li>Monthly/quarterly sessions</li>
+                            <li>Strategic planning</li>
+                            <li>Board advisory</li>
+                        </ul>
                     </a>
                 </div>
             </div>
         </section>
 
         <!-- Portfolio Section -->
-        <section id="portfolio" class="section" aria-labelledby="portfolio-heading">
+        <section id="portfolio" class="portfolio section">
             <div class="container">
-                <h2 id="portfolio-heading">Portfolio</h2>
+                <h2>Portfolio</h2>
+                
                 <div class="portfolio-grid">
                     <!-- USAA Design System -->
-                    <a href="portfolio/usaa-design-system" class="portfolio-card gradient-usaa">
-                        <div class="portfolio-content">
-                            <div class="portfolio-meta">
-                                <span class="company">USAA</span>
-                                <span class="duration">2 Years</span>
+                    <a href="portfolio/usaa-design-system" class="portfolio-card">
+                        <img src="images/icons/portfolio/usaa.svg" alt="" class="portfolio-icon" />
+                        <div class="portfolio-header">
+                            <span class="portfolio-company">USAA</span>
+                            <span class="portfolio-duration">2 Years</span>
+                        </div>
+                        <h3>Mobile Design System</h3>
+                        <p>Led design system architecture for 50+ development teams, achieving 80% adoption and 40% faster development</p>
+                        <div class="portfolio-metrics">
+                            <div class="metric">
+                                <span class="metric-value">80%</span>
+                                <span class="metric-label">Adoption Rate</span>
                             </div>
-                            <h3 class="portfolio-title">Mobile Design System</h3>
-                            <p class="portfolio-description">Led design system architecture for 50+ development teams, achieving 80% adoption and 40% faster development</p>
-                            <div class="portfolio-stats">
-                                <div class="stat-item">
-                                    <span class="stat-value">80%</span>
-                                    <span class="stat-label">Adoption Rate</span>
-                                </div>
-                                <div class="stat-item">
-                                    <span class="stat-value">40%</span>
-                                    <span class="stat-label">Faster Development</span>
-                                </div>
+                            <div class="metric">
+                                <span class="metric-value">40%</span>
+                                <span class="metric-label">Faster Development</span>
                             </div>
-                            <div class="portfolio-tags">
-                                <span class="tag">Design Systems</span>
-                                <span class="tag">Mobile</span>
-                                <span class="tag">Enterprise</span>
-                            </div>
+                        </div>
+                        <div class="portfolio-tags">
+                            <span class="tag">Design Systems</span>
+                            <span class="tag">Mobile</span>
+                            <span class="tag">Enterprise</span>
                         </div>
                     </a>
 
                     <!-- MVP Healthcare -->
-                    <a href="portfolio/mvp-healthcare" class="portfolio-card gradient-mvp">
-                        <div class="portfolio-content">
-                            <div class="portfolio-meta">
-                                <span class="company">MVP Healthcare</span>
-                                <span class="duration">18 Months</span>
+                    <a href="portfolio/mvp-healthcare" class="portfolio-card">
+                        <img src="images/icons/portfolio/mvp-healthcare.svg" alt="" class="portfolio-icon" />
+                        <div class="portfolio-header">
+                            <span class="portfolio-company">MVP Healthcare</span>
+                            <span class="portfolio-duration">18 Months</span>
+                        </div>
+                        <h3>Digital Transformation</h3>
+                        <p>Redesigned member experience platform serving 700,000+ users with 35% increase in digital engagement</p>
+                        <div class="portfolio-metrics">
+                            <div class="metric">
+                                <span class="metric-value">700K+</span>
+                                <span class="metric-label">Active Users</span>
                             </div>
-                            <h3 class="portfolio-title">Digital Transformation</h3>
-                            <p class="portfolio-description">Redesigned member experience platform serving 700,000+ users with 35% increase in digital engagement</p>
-                            <div class="portfolio-stats">
-                                <div class="stat-item">
-                                    <span class="stat-value">700K+</span>
-                                    <span class="stat-label">Active Users</span>
-                                </div>
-                                <div class="stat-item">
-                                    <span class="stat-value">35%</span>
-                                    <span class="stat-label">Engagement Increase</span>
-                                </div>
+                            <div class="metric">
+                                <span class="metric-value">35%</span>
+                                <span class="metric-label">Engagement Increase</span>
                             </div>
-                            <div class="portfolio-tags">
-                                <span class="tag">Healthcare</span>
-                                <span class="tag">Digital Transformation</span>
-                                <span class="tag">UX</span>
-                            </div>
+                        </div>
+                        <div class="portfolio-tags">
+                            <span class="tag">Healthcare</span>
+                            <span class="tag">Digital Transformation</span>
+                            <span class="tag">UX</span>
                         </div>
                     </a>
 
-                    <!-- Legal Technology Platform -->
-                    <a href="portfolio/legal-tech-platform" class="portfolio-card gradient-blue">
-                        <div class="portfolio-content">
-                            <div class="portfolio-meta">
-                                <span class="company">Legal Tech</span>
-                                <span class="duration">3 Years</span>
+                    <!-- Progressive Insurance -->
+                    <a href="portfolio/progressive-insurance" class="portfolio-card">
+                        <img src="images/icons/portfolio/progressive-insurance.svg" alt="" class="portfolio-icon" />
+                        <div class="portfolio-header">
+                            <span class="portfolio-company">Progressive Insurance</span>
+                            <span class="portfolio-duration">3 Years</span>
+                        </div>
+                        <h3>Claims & Legal Platform</h3>
+                        <p>Built comprehensive claims processing and legal management system handling $2B+ in settlements annually</p>
+                        <div class="portfolio-metrics">
+                            <div class="metric">
+                                <span class="metric-value">$2B+</span>
+                                <span class="metric-label">Annual Processing</span>
                             </div>
-                            <h3 class="portfolio-title">Legal Technology Platform</h3>
-                            <p class="portfolio-description">Built comprehensive legal practice management system processing $2B+ in settlements annually</p>
-                            <div class="portfolio-stats">
-                                <div class="stat-item">
-                                    <span class="stat-value">$2B+</span>
-                                    <span class="stat-label">Annual Processing</span>
-                                </div>
-                                <div class="stat-item">
-                                    <span class="stat-value">10K+</span>
-                                    <span class="stat-label">Legal Professionals</span>
-                                </div>
+                            <div class="metric">
+                                <span class="metric-value">10K+</span>
+                                <span class="metric-label">Legal Professionals</span>
                             </div>
-                            <div class="portfolio-tags">
-                                <span class="tag">Legal Tech</span>
-                                <span class="tag">Enterprise</span>
-                                <span class="tag">Platform</span>
-                            </div>
+                        </div>
+                        <div class="portfolio-tags">
+                            <span class="tag">Insurance Tech</span>
+                            <span class="tag">Claims Processing</span>
+                            <span class="tag">Legal Platform</span>
                         </div>
                     </a>
                 </div>
@@ -405,48 +342,43 @@
         </section>
 
         <!-- Insights Section -->
-        <section id="insights" class="section section-alt" aria-labelledby="insights-heading">
+        <section id="insights" class="insights section">
             <div class="container">
-                <h2 id="insights-heading">Insights</h2>
-                <div class="insights-grid">
+                <h2>Insights</h2>
+                
+                <div class="grid grid-3">
                     <article class="insight-card">
                         <a href="insights/mobile-design-systems-scale" class="insight-link">
-                            <div class="insight-content">
-                                <span class="insight-category">Design Systems</span>
-                                <h3 class="insight-title">Mobile Design Systems at Scale</h3>
-                                <p class="insight-excerpt">Lessons learned from managing enterprise design systems across Fortune 500 companies</p>
-                                <div class="insight-meta">
-                                    <span class="read-time">8 min read</span>
-                                    <span class="date">Nov 2023</span>
-                                </div>
+                            <span class="insight-category">Design Systems</span>
+                            <h3>Mobile Design Systems at Scale</h3>
+                            <p>Lessons learned from managing enterprise design systems across Fortune 500 companies</p>
+                            <div class="insight-meta">
+                                <span class="read-time">8 min read</span>
+                                <span class="date">Nov 2023</span>
                             </div>
                         </a>
                     </article>
 
                     <article class="insight-card">
                         <a href="insights/polyrhythmic-verses" class="insight-link">
-                            <div class="insight-content">
-                                <span class="insight-category">Creative</span>
-                                <h3 class="insight-title">Polyrhythmic Verses</h3>
-                                <p class="insight-excerpt">Poetry loosely cadenced on Latin jazz polyrhythms</p>
-                                <div class="insight-meta">
-                                    <span class="read-time">5 min read</span>
-                                    <span class="date">Oct 2023</span>
-                                </div>
+                            <span class="insight-category">Creative</span>
+                            <h3>Polyrhythmic Verses</h3>
+                            <p>Poetry loosely cadenced on Latin jazz polyrhythms</p>
+                            <div class="insight-meta">
+                                <span class="read-time">5 min read</span>
+                                <span class="date">Oct 2023</span>
                             </div>
                         </a>
                     </article>
 
                     <article class="insight-card">
                         <a href="insights/process-optimization-healthcare" class="insight-link">
-                            <div class="insight-content">
-                                <span class="insight-category">Healthcare</span>
-                                <h3 class="insight-title">Process Optimization in Healthcare</h3>
-                                <p class="insight-excerpt">Digital transformation strategies for healthcare organizations</p>
-                                <div class="insight-meta">
-                                    <span class="read-time">10 min read</span>
-                                    <span class="date">Sep 2023</span>
-                                </div>
+                            <span class="insight-category">Healthcare</span>
+                            <h3>Process Optimization in Healthcare</h3>
+                            <p>Digital transformation strategies for healthcare organizations</p>
+                            <div class="insight-meta">
+                                <span class="read-time">10 min read</span>
+                                <span class="date">Sep 2023</span>
                             </div>
                         </a>
                     </article>
@@ -455,15 +387,30 @@
         </section>
 
         <!-- Contact Section -->
-        <section id="contact" class="section" aria-labelledby="contact-heading">
-            <div class="container">
-                <h2 id="contact-heading">Let's Connect</h2>
-                <p>Ready to transform your mobile product strategy?</p>
+        <section id="contact" class="contact section">
+            <div class="container text-center">
+                <h2>Let's Connect</h2>
+                <p class="lead">Ready to transform your mobile product strategy?</p>
+                
                 <div class="contact-content">
-                    <a href="mailto:contact@ryanpretzer.com" class="btn btn-primary">Get in Touch</a>
+                    <a href="mailto:contact@ryanpretzer.com" class="btn btn-primary btn-icon">
+                        <img src="images/icons/social/email.svg" alt="" />
+                        Get in Touch
+                    </a>
+                    
                     <div class="contact-links">
-                        <a href="https://linkedin.com/in/ryanpretzer" class="contact-link">LinkedIn</a>
-                        <a href="https://github.com/ryanpretzer" class="contact-link">GitHub</a>
+                        <a href="https://linkedin.com/in/ryanpretzer" class="contact-link" aria-label="LinkedIn">
+                            <img src="images/icons/social/linkedin.svg" alt="LinkedIn" />
+                        </a>
+                        <a href="https://twitter.com/ryanpretzer" class="contact-link" aria-label="X (Twitter)">
+                            <img src="images/icons/social/x.svg" alt="X" />
+                        </a>
+                        <a href="tel:+1234567890" class="contact-link" aria-label="Phone">
+                            <img src="images/icons/social/phone.svg" alt="Phone" />
+                        </a>
+                        <a href="https://maps.google.com" class="contact-link" aria-label="Location">
+                            <img src="images/icons/social/location.svg" alt="Location" />
+                        </a>
                     </div>
                 </div>
             </div>
@@ -471,11 +418,15 @@
     </main>
 
     <!-- Footer -->
-    <footer class="footer" role="contentinfo">
+    <footer class="footer">
         <div class="container">
             <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="images/logo/logo-primary.svg" alt="RSP Management" class="footer-logo-primary" />
+                    <img src="images/logo/logo-dark.svg" alt="RSP Management" class="footer-logo-dark" />
+                </div>
                 <p>&copy; 2024 Ryan Andrew Pretzer. All rights reserved.</p>
-                <nav class="footer-nav" aria-label="Footer navigation">
+                <nav class="footer-nav">
                     <a href="/privacy">Privacy Policy</a>
                     <a href="/terms">Terms of Use</a>
                 </nav>
@@ -484,33 +435,7 @@
     </footer>
 
     <!-- Scripts -->
-    <script src="scripts/navigation.js"></script>
     <script src="scripts/theme-toggle.js"></script>
-    <script>
-        // Mobile menu functionality (if navigation.js doesn't exist yet)
-        document.addEventListener('DOMContentLoaded', function() {
-            const mobileToggle = document.getElementById('mobile-menu-toggle');
-            const mobileNav = document.getElementById('mobile-nav');
-            
-            if (mobileToggle && mobileNav) {
-                mobileToggle.addEventListener('click', function() {
-                    const isActive = mobileNav.classList.contains('active');
-                    mobileNav.classList.toggle('active');
-                    mobileToggle.classList.toggle('active');
-                    mobileToggle.setAttribute('aria-expanded', !isActive);
-                });
-                
-                // Close mobile menu when clicking on a link
-                const mobileLinks = mobileNav.querySelectorAll('.mobile-nav-link');
-                mobileLinks.forEach(link => {
-                    link.addEventListener('click', function() {
-                        mobileNav.classList.remove('active');
-                        mobileToggle.classList.remove('active');
-                        mobileToggle.setAttribute('aria-expanded', 'false');
-                    });
-                });
-            }
-        });
-    </script>
+    <script src="scripts/navigation.js"></script>
 </body>
 </html>

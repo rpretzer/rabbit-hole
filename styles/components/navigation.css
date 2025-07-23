@@ -1,14 +1,14 @@
 /* Navigation Styles */
 .header {
-  position: fixed;
+  position: sticky;
   top: 0;
   left: 0;
   right: 0;
-  height: var(--header-height);
+  padding: 1rem 0;
   background-color: var(--bg-white);
-  box-shadow: var(--shadow-sm);
+  border-bottom: 1px solid rgba(26, 26, 26, 0.08);
   z-index: 1000;
-  transition: transform var(--transition-normal);
+  transition: transform 0.3s ease;
 }
 
 .header.hidden {
@@ -16,7 +16,6 @@
 }
 
 .header-content {
-  height: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -27,8 +26,8 @@
   display: flex;
   align-items: center;
   font-family: var(--font-primary); /* Sans-serif font (Inter) */
-  font-size: 1.5rem;
-  font-weight: 700;
+  font-size: 1.2rem;
+  font-weight: 400; /* Lighter weight to match design */
   color: var(--color-primary);
   text-decoration: none;
   gap: 0.5rem;
@@ -47,21 +46,18 @@
 nav {
   display: flex;
   align-items: center;
-  height: 100%;
 }
 
 .nav-links {
   display: flex;
   list-style: none;
-  height: 100%;
   align-items: center;
-  gap: var(--spacing-xl);
+  gap: 2rem; /* Adjusted gap */
   margin: 0;
   padding: 0;
 }
 
 .nav-links li {
-  height: 100%;
   display: flex;
   align-items: center;
 }
@@ -69,12 +65,13 @@ nav {
 .nav-links a {
   display: flex;
   align-items: center;
-  height: 100%;
   padding: 0 var(--spacing-sm);
-  color: var(--text-primary);
-  font-weight: 500;
+  color: #666; /* Lighter color to match design */
+  font-family: var(--font-primary); /* Explicitly set sans-serif font */
+  font-weight: 400; /* Regular weight */
+  font-size: 0.9rem; /* Slightly smaller */
   position: relative;
-  transition: color var(--transition-fast);
+  transition: color 0.3s ease;
   text-decoration: none;
 }
 
@@ -92,7 +89,8 @@ nav {
   height: 3px;
   background-color: var(--color-primary);
   transform: scaleX(0);
-  transition: transform var(--transition-fast);
+  transition: transform 0.3s ease;
+  display: none; /* Remove underline effect for cleaner look */
 }
 
 .nav-links a:hover::after,
@@ -119,7 +117,7 @@ nav {
   height: 3px;
   background-color: var(--color-primary);
   border-radius: 2px;
-  transition: all var(--transition-normal);
+  transition: all 0.3s ease;
   left: 50%;
   transform: translateX(-50%);
 }
@@ -155,13 +153,13 @@ nav {
 /* Mobile Navigation Menu */
 .mobile-nav {
   position: fixed;
-  top: var(--header-height);
+  top: 60px; /* Approximate header height */
   left: 0;
   right: 0;
   bottom: 0;
   background-color: var(--bg-white);
   transform: translateX(100%);
-  transition: transform var(--transition-normal);
+  transition: transform 0.3s ease;
   overflow-y: auto;
   z-index: 999;
   padding: var(--spacing-lg);
@@ -185,6 +183,7 @@ nav {
   display: block;
   padding: var(--spacing-md) 0;
   color: var(--text-primary);
+  font-family: var(--font-primary); /* Explicitly set sans-serif font */
   font-size: 1.1rem;
   font-weight: 500;
   text-decoration: none;
@@ -213,7 +212,7 @@ nav {
 
 /* Sticky Header Scroll Effect */
 .header.scrolled {
-  box-shadow: var(--shadow-md);
+  /* No additional styling needed for clean design */
 }
 
 /* Skip Navigation Link (Accessibility) */

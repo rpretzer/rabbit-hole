@@ -1,0 +1,30 @@
+/* Dark Mode Theme */
+[data-theme="dark"] {
+    --color-primary: #e0e0e0;
+    --color-secondary: #64b5f6;
+    --text-primary: #e0e0e0;
+    --text-secondary: #b0b0b0;
+    --text-light: #999;
+    --bg-white: #0f0f0f;
+    --bg-light: #1a1a1a;
+    --bg-section: #0f0f0f;
+    --border-color: #2a2a2a;
+    --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.3);
+    --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.5);
+}
+
+/* Dark mode specific overrides */
+[data-theme="dark"] .service-icon img,
+[data-theme="dark"] .portfolio-icon img,
+[data-theme="dark"] .mobile-menu-toggle img {
+    filter: invert(1) brightness(0.9);
+}
+
+[data-theme="dark"] .btn-primary {
+    background: var(--text-primary);
+    color: var(--bg-white);
+}
+
+[data-theme="dark"] .btn-primary:hover {
+    background: var(--text-secondary);
+}

@@ -1,0 +1,424 @@
+/* Base Typography - styles/base/typography.css */
+
+/* Font family definitions */
+body {
+  font-family: var(--font-primary);
+  font-feature-settings: 'liga' 1, 'calt' 1; /* Enable ligatures and contextual alternates */
+}
+
+/* MD3 Typography Scale */
+
+/* Display Styles */
+.display-large {
+  font-size: 57px;
+  line-height: 64px;
+  letter-spacing: -0.25px;
+  font-weight: 400;
+  font-family: var(--font-heading, var(--font-primary));
+}
+
+.display-medium {
+  font-size: 45px;
+  line-height: 52px;
+  letter-spacing: 0;
+  font-weight: 400;
+  font-family: var(--font-heading, var(--font-primary));
+}
+
+.display-small {
+  font-size: 36px;
+  line-height: 44px;
+  letter-spacing: 0;
+  font-weight: 400;
+  font-family: var(--font-heading, var(--font-primary));
+}
+
+/* Headline Styles */
+.headline-large {
+  font-size: 32px;
+  line-height: 40px;
+  letter-spacing: 0;
+  font-weight: 400;
+  font-family: var(--font-heading, var(--font-primary));
+}
+
+.headline-medium {
+  font-size: 28px;
+  line-height: 36px;
+  letter-spacing: 0;
+  font-weight: 400;
+  font-family: var(--font-heading, var(--font-primary));
+}
+
+.headline-small {
+  font-size: 24px;
+  line-height: 32px;
+  letter-spacing: 0;
+  font-weight: 400;
+  font-family: var(--font-primary);
+}
+
+/* Title Styles */
+.title-large {
+  font-size: 22px;
+  line-height: 28px;
+  letter-spacing: 0;
+  font-weight: 400;
+  font-family: var(--font-primary);
+}
+
+.title-medium {
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0.15px;
+  font-weight: 500;
+  font-family: var(--font-primary);
+}
+
+.title-small {
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: 0.1px;
+  font-weight: 500;
+  font-family: var(--font-primary);
+}
+
+/* Label Styles */
+.label-large {
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: 0.1px;
+  font-weight: 500;
+  font-family: var(--font-primary);
+}
+
+.label-medium {
+  font-size: 12px;
+  line-height: 16px;
+  letter-spacing: 0.5px;
+  font-weight: 500;
+  font-family: var(--font-primary);
+}
+
+.label-small {
+  font-size: 11px;
+  line-height: 16px;
+  letter-spacing: 0.5px;
+  font-weight: 500;
+  font-family: var(--font-primary);
+  text-transform: uppercase;
+}
+
+/* Body Styles */
+.body-large {
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0.5px;
+  font-weight: 400;
+  font-family: var(--font-primary);
+}
+
+.body-medium {
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: 0.25px;
+  font-weight: 400;
+  font-family: var(--font-primary);
+}
+
+.body-small {
+  font-size: 12px;
+  line-height: 16px;
+  letter-spacing: 0.4px;
+  font-weight: 400;
+  font-family: var(--font-primary);
+}
+
+/* Apply MD3 Typography to HTML Elements */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading, var(--font-primary));
+  color: var(--md3-on-surface, var(--text-primary));
+  font-weight: 400;
+  margin-top: 0;
+}
+
+h1 {
+  font-size: 45px;
+  line-height: 52px;
+  letter-spacing: 0;
+  margin-bottom: var(--spacing-xl);
+}
+
+h2 {
+  font-size: 36px;
+  line-height: 44px;
+  letter-spacing: 0;
+  margin-bottom: var(--spacing-lg);
+}
+
+h3 {
+  font-size: 32px;
+  line-height: 40px;
+  letter-spacing: 0;
+  margin-bottom: var(--spacing-lg);
+}
+
+h4 {
+  font-size: 28px;
+  line-height: 36px;
+  letter-spacing: 0;
+  margin-bottom: var(--spacing-md);
+}
+
+h5 {
+  font-size: 24px;
+  line-height: 32px;
+  letter-spacing: 0;
+  margin-bottom: var(--spacing-md);
+}
+
+h6 {
+  font-size: 22px;
+  line-height: 28px;
+  letter-spacing: 0;
+  margin-bottom: var(--spacing-md);
+}
+
+p {
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0.5px;
+  font-weight: 400;
+  margin-bottom: var(--spacing-md);
+  color: var(--md3-on-surface, var(--text-primary));
+  font-family: var(--font-primary);
+}
+
+/* Additional Typography Utilities */
+
+/* Text Color Utilities */
+.text-primary {
+  color: var(--md3-primary, var(--color-primary));
+}
+
+.text-secondary {
+  color: var(--md3-secondary, var(--color-secondary));
+}
+
+.text-muted {
+  color: var(--md3-on-surface-variant, var(--text-secondary));
+}
+
+.text-error {
+  color: var(--md3-error, var(--color-error));
+}
+
+/* Text Alignment */
+.text-left { text-align: left; }
+.text-center { text-align: center; }
+.text-right { text-align: right; }
+.text-justify { text-align: justify; }
+
+/* Font Weight Utilities */
+.font-light { font-weight: 300; }
+.font-regular { font-weight: 400; }
+.font-medium { font-weight: 500; }
+.font-semibold { font-weight: 600; }
+.font-bold { font-weight: 700; }
+
+/* Text Transform */
+.uppercase { text-transform: uppercase; }
+.lowercase { text-transform: lowercase; }
+.capitalize { text-transform: capitalize; }
+.normal-case { text-transform: none; }
+
+/* Text Decoration */
+.underline { text-decoration: underline; }
+.line-through { text-decoration: line-through; }
+.no-underline { text-decoration: none; }
+
+/* Letter Spacing */
+.tracking-tight { letter-spacing: -0.05em; }
+.tracking-normal { letter-spacing: 0; }
+.tracking-wide { letter-spacing: 0.05em; }
+.tracking-wider { letter-spacing: 0.1em; }
+.tracking-widest { letter-spacing: 0.2em; }
+
+/* Line Height */
+.leading-none { line-height: 1; }
+.leading-tight { line-height: 1.25; }
+.leading-snug { line-height: 1.375; }
+.leading-normal { line-height: 1.5; }
+.leading-relaxed { line-height: 1.625; }
+.leading-loose { line-height: 2; }
+
+/* Text Overflow */
+.truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.text-clip {
+  overflow: hidden;
+}
+
+.text-wrap {
+  white-space: normal;
+}
+
+.text-nowrap {
+  white-space: nowrap;
+}
+
+/* Links */
+a {
+  color: var(--md3-primary, var(--color-primary));
+  text-decoration: none;
+  transition: color var(--md3-motion-duration-short4) var(--md3-motion-easing-standard);
+}
+
+a:hover {
+  color: var(--md3-primary-hover, var(--color-primary-dark));
+  text-decoration: underline;
+}
+
+a:active {
+  color: var(--md3-primary-pressed, var(--color-primary-darker));
+}
+
+/* Lists */
+ul, ol {
+  margin-bottom: var(--spacing-md);
+  padding-left: var(--spacing-xl);
+}
+
+ul {
+  list-style-type: disc;
+}
+
+ol {
+  list-style-type: decimal;
+}
+
+li {
+  margin-bottom: var(--spacing-xs);
+  line-height: 24px;
+}
+
+/* Blockquotes */
+blockquote {
+  margin: var(--spacing-lg) 0;
+  padding-left: var(--spacing-lg);
+  border-left: 4px solid var(--md3-primary, var(--color-primary));
+  font-style: italic;
+  color: var(--md3-on-surface-variant, var(--text-secondary));
+}
+
+/* Code */
+code {
+  font-family: var(--font-mono);
+  font-size: 0.875em;
+  padding: 0.125rem 0.25rem;
+  background-color: var(--md3-surface-container-highest, var(--bg-gray));
+  border-radius: var(--md3-shape-corner-extra-small, 4px);
+  color: var(--md3-on-surface, var(--text-primary));
+}
+
+pre {
+  font-family: var(--font-mono);
+  font-size: 14px;
+  line-height: 20px;
+  margin: var(--spacing-lg) 0;
+  padding: var(--spacing-md);
+  background-color: var(--md3-surface-container-high, var(--bg-secondary));
+  border-radius: var(--md3-shape-corner-medium, 12px);
+  overflow-x: auto;
+}
+
+pre code {
+  padding: 0;
+  background-color: transparent;
+}
+
+/* Responsive Typography - Fluid Scaling */
+@media (max-width: 1024px) {
+  :root {
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 768px) {
+  :root {
+    font-size: 14px;
+  }
+  
+  .display-large {
+    font-size: 45px;
+    line-height: 52px;
+  }
+  
+  .display-medium {
+    font-size: 36px;
+    line-height: 44px;
+  }
+  
+  .display-small {
+    font-size: 32px;
+    line-height: 40px;
+  }
+  
+  h1 {
+    font-size: 36px;
+    line-height: 44px;
+  }
+  
+  h2 {
+    font-size: 32px;
+    line-height: 40px;
+  }
+  
+  h3 {
+    font-size: 28px;
+    line-height: 36px;
+  }
+  
+  /* Reduce spacing on mobile */
+  h1, h2, h3, h4, h5, h6 {
+    margin-bottom: var(--spacing-md);
+  }
+  
+  p {
+    margin-bottom: var(--spacing-sm);
+  }
+}
+
+/* Print Styles */
+@media print {
+  body {
+    font-size: 12pt;
+    line-height: 1.5;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    page-break-after: avoid;
+    page-break-inside: avoid;
+  }
+  
+  p, blockquote, ul, ol {
+    orphans: 3;
+    widows: 3;
+  }
+}
+
+/* High Contrast Mode Support */
+@media (prefers-contrast: high) {
+  h1, h2, h3, h4, h5, h6 {
+    font-weight: 500;
+  }
+  
+  .body-small,
+  .label-small {
+    font-size: 13px;
+  }
+}

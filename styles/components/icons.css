@@ -1,26 +1,424 @@
-/* Icon styles for img elements */
+/* MD3 Icons Component - styles/components/icons.css */
+
+/* ===== BASE ICON STYLES ===== */
 .icon {
   display: inline-block;
   vertical-align: middle;
-  filter: brightness(0) saturate(100%) invert(26%) sepia(15%) saturate(638%) hue-rotate(180deg) brightness(96%) contrast(87%);
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+  transition: all var(--md3-motion-duration-short4) var(--md3-motion-easing-standard);
 }
 
-/* Service and engagement icons - blue in light mode */
+/* ===== ICON SIZES ===== */
+.icon--xs {
+  width: 16px;
+  height: 16px;
+}
+
+.icon--sm {
+  width: 20px;
+  height: 20px;
+}
+
+.icon--md {
+  width: 24px;
+  height: 24px;
+}
+
+.icon--lg {
+  width: 32px;
+  height: 32px;
+}
+
+.icon--xl {
+  width: 48px;
+  height: 48px;
+}
+
+/* ===== IMG-BASED ICON COLORS (USING FILTERS) ===== */
+
+/* Default icon color - on-surface */
+.icon {
+  filter: brightness(0) saturate(100%) invert(8%) sepia(6%) saturate(1043%) hue-rotate(201deg) brightness(94%) contrast(89%);
+}
+
+/* Primary color icons */
+.icon--primary,
 .service-icon,
 .engagement-icon {
-  filter: brightness(0) saturate(100%) invert(24%) sepia(92%) saturate(2351%) hue-rotate(206deg) brightness(97%) contrast(107%);
+  filter: brightness(0) saturate(100%) invert(27%) sepia(95%) saturate(3666%) hue-rotate(215deg) brightness(100%) contrast(107%);
 }
 
-/* Dark mode colors */
+/* Secondary color icons */
+.icon--secondary {
+  filter: brightness(0) saturate(100%) invert(71%) sepia(40%) saturate(1459%) hue-rotate(182deg) brightness(101%) contrast(101%);
+}
+
+/* Success color icons */
+.icon--success {
+  filter: brightness(0) saturate(100%) invert(47%) sepia(66%) saturate(564%) hue-rotate(90deg) brightness(92%) contrast(89%);
+}
+
+/* Error color icons */
+.icon--error {
+  filter: brightness(0) saturate(100%) invert(30%) sepia(64%) saturate(2838%) hue-rotate(335deg) brightness(88%) contrast(90%);
+}
+
+/* Warning color icons */
+.icon--warning {
+  filter: brightness(0) saturate(100%) invert(86%) sepia(29%) saturate(1256%) hue-rotate(359deg) brightness(101%) contrast(106%);
+}
+
+/* Muted color icons */
+.icon--muted {
+  filter: brightness(0) saturate(100%) invert(45%) sepia(9%) saturate(387%) hue-rotate(202deg) brightness(95%) contrast(86%);
+  opacity: 0.7;
+}
+
+/* White icons */
+.icon--white {
+  filter: brightness(0) invert(1);
+}
+
+/* ===== DARK MODE COLORS ===== */
 [data-theme="dark"] .icon {
-  filter: brightness(0) invert(1);
+  filter: brightness(0) saturate(100%) invert(95%) sepia(5%) saturate(265%) hue-rotate(243deg) brightness(104%) contrast(88%);
 }
 
-[data-theme="dark"] .service-icon {
-  filter: brightness(0) saturate(100%) invert(55%) sepia(92%) saturate(1726%) hue-rotate(194deg) brightness(102%) contrast(101%);
+[data-theme="dark"] .icon--primary,
+[data-theme="dark"] .service-icon,
+[data-theme="dark"] .engagement-icon {
+  filter: brightness(0) saturate(100%) invert(77%) sepia(25%) saturate(1235%) hue-rotate(186deg) brightness(102%) contrast(102%);
 }
 
-/* Hover effects */
+[data-theme="dark"] .icon--secondary {
+  filter: brightness(0) saturate(100%) invert(90%) sepia(16%) saturate(771%) hue-rotate(185deg) brightness(97%) contrast(92%);
+}
+
+[data-theme="dark"] .icon--muted {
+  filter: brightness(0) saturate(100%) invert(71%) sepia(7%) saturate(426%) hue-rotate(201deg) brightness(89%) contrast(87%);
+}
+
+/* Dark mode hover states remain the same for other colors */
+[data-theme="dark"] .icon--success {
+  filter: brightness(0) saturate(100%) invert(67%) sepia(45%) saturate(453%) hue-rotate(89deg) brightness(94%) contrast(88%);
+}
+
+[data-theme="dark"] .icon--error {
+  filter: brightness(0) saturate(100%) invert(59%) sepia(37%) saturate(1011%) hue-rotate(314deg) brightness(99%) contrast(98%);
+}
+
+/* ===== HOVER EFFECTS ===== */
+
+/* Default hover - slight scale */
+.icon--hover:hover {
+  transform: scale(1.1);
+}
+
+/* Service card hover effect */
 .service-card:hover .service-icon {
+  transform: scale(1.15) rotate(5deg);
+  filter: brightness(0) saturate(100%) invert(27%) sepia(95%) saturate(3666%) hue-rotate(215deg) brightness(110%) contrast(107%);
+}
+
+[data-theme="dark"] .service-card:hover .service-icon {
+  filter: brightness(0) saturate(100%) invert(90%) sepia(16%) saturate(771%) hue-rotate(185deg) brightness(107%) contrast(92%);
+}
+
+/* Clickable icon hover */
+a .icon,
+button .icon,
+.clickable .icon {
+  transition: all var(--md3-motion-duration-short4) var(--md3-motion-easing-standard);
+}
+
+a:hover .icon,
+button:hover .icon,
+.clickable:hover .icon {
+  transform: translateX(2px);
+}
+
+/* ===== INLINE SVG SUPPORT ===== */
+
+/* For inline SVGs, use currentColor */
+.icon-svg {
+  width: 24px;
+  height: 24px;
+  fill: currentColor;
+  flex-shrink: 0;
+  transition: all var(--md3-motion-duration-short4) var(--md3-motion-easing-standard);
+}
+
+.icon-svg--primary {
+  color: var(--md3-primary);
+}
+
+.icon-svg--secondary {
+  color: var(--md3-secondary);
+}
+
+.icon-svg--success {
+  color: var(--md3-success);
+}
+
+.icon-svg--error {
+  color: var(--md3-error);
+}
+
+.icon-svg--warning {
+  color: var(--md3-warning);
+}
+
+.icon-svg--muted {
+  color: var(--md3-on-surface-variant);
+}
+
+/* ===== ICON CONTAINERS ===== */
+
+/* Icon button (for clickable icons) */
+.icon-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  padding: 12px;
+  border-radius: var(--md3-shape-corner-full);
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  transition: all var(--md3-motion-duration-short4) var(--md3-motion-easing-standard);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Icon button state layer */
+.icon-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: currentColor;
+  opacity: 0;
+  transition: opacity var(--md3-motion-duration-short4) var(--md3-motion-easing-standard);
+}
+
+.icon-button:hover::before {
+  opacity: 0.08;
+}
+
+.icon-button:focus-visible::before {
+  opacity: 0.12;
+}
+
+.icon-button:active::before {
+  opacity: 0.12;
+}
+
+.icon-button:focus-visible {
+  outline: 3px solid var(--md3-primary);
+  outline-offset: 2px;
+}
+
+/* Icon button variants */
+.icon-button--filled {
+  background-color: var(--md3-primary);
+  color: var(--md3-on-primary);
+}
+
+.icon-button--filled .icon {
   filter: brightness(0) invert(1);
+}
+
+.icon-button--tonal {
+  background-color: var(--md3-secondary-container);
+  color: var(--md3-on-secondary-container);
+}
+
+.icon-button--outlined {
+  border: 1px solid var(--md3-outline);
+  color: var(--md3-on-surface-variant);
+}
+
+/* Icon button sizes */
+.icon-button--sm {
+  width: 40px;
+  height: 40px;
+  padding: 8px;
+}
+
+.icon-button--sm .icon {
+  width: 20px;
+  height: 20px;
+}
+
+.icon-button--lg {
+  width: 56px;
+  height: 56px;
+  padding: 16px;
+}
+
+/* ===== ICON WITH TEXT ===== */
+.icon-text {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+}
+
+.icon-text--vertical {
+  flex-direction: column;
+  text-align: center;
+  gap: var(--spacing-xs);
+}
+
+/* ===== LOADING SPINNER ===== */
+.icon-spinner {
+  animation: icon-spin 1s linear infinite;
+}
+
+@keyframes icon-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* MD3 circular progress indicator */
+.icon-progress {
+  width: 24px;
+  height: 24px;
+  border: 3px solid var(--md3-surface-container-highest);
+  border-top-color: var(--md3-primary);
+  border-radius: 50%;
+  animation: icon-spin 0.8s linear infinite;
+}
+
+.icon-progress--sm {
+  width: 16px;
+  height: 16px;
+  border-width: 2px;
+}
+
+.icon-progress--lg {
+  width: 48px;
+  height: 48px;
+  border-width: 4px;
+}
+
+/* ===== ICON BADGES ===== */
+.icon-badge {
+  position: relative;
+  display: inline-block;
+}
+
+.icon-badge__dot {
+  position: absolute;
+  top: -2px;
+  right: -2px;
+  width: 8px;
+  height: 8px;
+  background-color: var(--md3-error);
+  border-radius: 50%;
+  border: 2px solid var(--md3-surface);
+}
+
+.icon-badge__count {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  min-width: 18px;
+  height: 18px;
+  padding: 0 4px;
+  background-color: var(--md3-error);
+  color: var(--md3-on-error);
+  border-radius: var(--md3-shape-corner-full);
+  font-size: 11px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid var(--md3-surface);
+}
+
+/* ===== ICON LISTS ===== */
+.icon-list {
+  display: flex;
+  gap: var(--spacing-sm);
+  align-items: center;
+}
+
+.icon-list--vertical {
+  flex-direction: column;
+}
+
+.icon-stack {
+  display: flex;
+  margin-left: -8px;
+}
+
+.icon-stack .icon {
+  margin-left: -8px;
+  border: 2px solid var(--md3-surface);
+  border-radius: 50%;
+  background-color: var(--md3-surface);
+}
+
+/* ===== ACCESSIBILITY ===== */
+
+/* High contrast mode adjustments */
+@media (prefers-contrast: high) {
+  .icon {
+    opacity: 1;
+    filter: none;
+  }
+  
+  .icon--primary,
+  .icon--secondary,
+  .service-icon,
+  .engagement-icon {
+    filter: none;
+    opacity: 1;
+  }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .icon,
+  .icon-button,
+  .service-icon {
+    transition: none;
+  }
+  
+  .icon-spinner,
+  .icon-progress {
+    animation: none;
+  }
+}
+
+/* ===== UTILITIES ===== */
+
+/* Rotation */
+.icon--rotate-90 { transform: rotate(90deg); }
+.icon--rotate-180 { transform: rotate(180deg); }
+.icon--rotate-270 { transform: rotate(270deg); }
+
+/* Flip */
+.icon--flip-h { transform: scaleX(-1); }
+.icon--flip-v { transform: scaleY(-1); }
+
+/* Fixed width for alignment */
+.icon--fw {
+  width: 1.25em;
+  text-align: center;
+}
+
+/* Disabled state */
+.icon--disabled {
+  opacity: 0.38;
+  cursor: not-allowed;
 }

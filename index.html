@@ -368,7 +368,33 @@
                 </div>
             </div>
         </section>
+<!-- Add this to the portfolio grid after the Progressive Insurance card -->
 
+<!-- Icon Design System -->
+<a href="portfolio/icon-design-system" class="portfolio-card">
+    <img src="images/icons/portfolio/icon-system.svg" alt="" class="portfolio-icon icon icon--xl" />
+    <div class="portfolio-header">
+        <span class="portfolio-company">Icon Design System</span>
+        <span class="portfolio-duration">Ongoing</span>
+    </div>
+    <h3>Website Iconography</h3>
+    <p>Custom icon system designed for this portfolio site, featuring 50+ cohesive icons across services, engagement models, and UI elements</p>
+    <div class="portfolio-metrics">
+        <div class="metric">
+            <span class="metric-value">50+</span>
+            <span class="metric-label">Custom Icons</span>
+        </div>
+        <div class="metric">
+            <span class="metric-value">100%</span>
+            <span class="metric-label">Vector Based</span>
+        </div>
+    </div>
+    <div class="portfolio-tags">
+        <span class="tag">Icon Design</span>
+        <span class="tag">Design System</span>
+        <span class="tag">UI/UX</span>
+    </div>
+</a>
         <!-- Insights Section -->
         <section id="insights" class="insights section">
             <div class="container">
@@ -423,25 +449,29 @@
                     <h2 class="contact-title">Let's Connect</h2>
                     <p class="contact-description">Ready to transform your mobile product strategy?</p>
                     
-                    <a href="mailto:contact@ryanpretzer.com" class="btn btn--filled btn--large">
+                    <button type="button" class="btn btn--filled btn--large" onclick="openContactModal()">
                         <img src="images/icons/social/email.svg" alt="" class="btn__icon" />
                         Get in Touch
-                    </a>
+                    </button>
                     
-                    <div class="contact-links">
-                        <a href="https://linkedin.com/in/ryanpretzer" class="contact-link" aria-label="LinkedIn">
-                            <img src="images/icons/social/linkedin.svg" alt="LinkedIn" class="icon icon--md" />
-                        </a>
-                        <a href="https://twitter.com/ryanpretzer" class="contact-link" aria-label="X (Twitter)">
-                            <img src="images/icons/social/x.svg" alt="X" class="icon icon--md" />
-                        </a>
-                        <a href="tel:+1234567890" class="contact-link" aria-label="Phone">
-                            <img src="images/icons/social/phone.svg" alt="Phone" class="icon icon--md" />
-                        </a>
-                        <a href="https://maps.google.com" class="contact-link" aria-label="Location">
-                            <img src="images/icons/social/location.svg" alt="Location" class="icon icon--md" />
-                        </a>
-                    </div>
+<div class="contact-links">
+    <a href="https://linkedin.com/in/ryanpretzer" class="contact-link" aria-label="LinkedIn">
+        <img src="images/icons/social/linkedin.svg" alt="LinkedIn" class="icon icon--md" />
+    </a>
+    <a href="https://twitter.com/ryanpretzer" class="contact-link" aria-label="X (Twitter)">
+        <img src="images/icons/social/x.svg" alt="X" class="icon icon--md" />
+    </a>
+    <a href="tel:+14406507414" class="contact-link" aria-label="Call (440) 650-7414">
+        <img src="images/icons/social/phone.svg" alt="Phone" class="icon icon--md" />
+    </a>
+    <a href="https://maps.google.com/maps?q=2194+Coventry+Road,+Cleveland+Heights,+OH+44118" 
+       target="_blank" 
+       rel="noopener noreferrer" 
+       class="contact-link" 
+       aria-label="View location: 2194 Coventry Road, Cleveland Heights, Ohio">
+        <img src="images/icons/social/location.svg" alt="Location" class="icon icon--md" />
+    </a>
+</div>
                 </div>
             </div>
         </section>
@@ -468,5 +498,47 @@
     <script src="scripts/theme-toggle.js"></script>
     <script src="scripts/navigation.js"></script>
     <script src="scripts/ripple.js"></script>
+    <script src="scripts/contact-modal.js"></script>
+<!-- Contact Modal -->
+<div class="modal" id="contact-modal" aria-hidden="true" aria-labelledby="modal-title">
+    <div class="modal-backdrop" onclick="closeContactModal()"></div>
+    <div class="modal-content">
+        <div class="modal-header">
+            <h2 id="modal-title" class="modal-title">Send a Message</h2>
+            <button type="button" class="modal-close" onclick="closeContactModal()" aria-label="Close modal">
+                <img src="images/icons/ui/close.svg" alt="Close" class="icon" />
+            </button>
+        </div>
+        <form class="contact-form" id="contact-form">
+            <div class="form-group">
+                <label for="name" class="label label--required">Your Name</label>
+                <input type="text" id="name" name="name" class="input" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="email" class="label label--required">Your Email</label>
+                <input type="email" id="email" name="email" class="input" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="company" class="label">Company</label>
+                <input type="text" id="company" name="company" class="input">
+            </div>
+            
+            <div class="form-group">
+                <label for="message" class="label label--required">Message</label>
+                <textarea id="message" name="message" class="textarea" rows="5" required></textarea>
+            </div>
+            
+            <div class="form-actions">
+                <button type="button" class="btn btn--text" onclick="closeContactModal()">Cancel</button>
+                <button type="submit" class="btn btn--filled">Send Message</button>
+            </div>
+        </form>
+        <div class="modal-footer">
+            <p class="helper-text">Or email directly at <a href="mailto:rpretzer@rspsolutions.com">rpretzer@rspsolutions.com</a></p>
+        </div>
+    </div>
+</div>
 </body>
 </html>

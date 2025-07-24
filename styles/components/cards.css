@@ -12,6 +12,12 @@
     /* Keep all your other properties */
 }
 
+.service-card:hover h3,
+.engagement-card:hover h3,
+.portfolio-card:hover h3 {
+  color: var(--md3-primary);
+}
+
 /* Service Cards */
 .service-card {
   display: block;
@@ -45,19 +51,21 @@
 }
 
 .service-card h3 {
-  font-size: 1.25rem;
-  font-weight: 600;
-  color: var(--text-primary);
-  margin-bottom: 0.75rem;
+  font-size: var(--text-xl);
+  font-weight: 500;
+  color: var(--md3-on-surface);
+  margin-bottom: var(--spacing-sm);
   text-decoration: none !important;
+  transition: color var(--md3-motion-duration-short4) var(--md3-motion-easing-standard);
 }
 
 .service-card p {
-  font-size: 0.95rem;
-  color: var(--text-secondary);
+  font-size: var(--text-base);
+  color: var(--md3-on-surface-variant);
   line-height: 1.6;
-  margin-bottom: 1rem;
+  margin-bottom: var(--spacing-md);
   text-decoration: none !important;
+  transition: color var(--md3-motion-duration-short4) var(--md3-motion-easing-standard);
 }
 
 .card-link {
@@ -116,18 +124,21 @@
 }
 
 .engagement-list li {
-  font-size: 0.875rem;
-  color: var(--text-secondary);
-  padding: 0.25rem 0;
-  padding-left: 1rem;
+  font-size: var(--md3-body-medium); /* Changed from text-sm */
+  color: var(--md3-on-surface-variant);
+  padding: var(--spacing-sm) 0; /* Increased padding */
+  padding-left: var(--spacing-lg);
   position: relative;
+  line-height: 1.6; /* Better line height */
 }
 
 .engagement-list li:before {
   content: "•";
   position: absolute;
   left: 0;
-  color: var(--color-primary);
+  color: var(--md3-primary);
+  font-weight: bold;
+  font-size: var(--md3-body-large); /* Larger bullet */
 }
 
 /* Portfolio Cards */
@@ -305,12 +316,50 @@
   background: #242424;
 }
 
+[data-theme="dark"] .service-card:hover h3,
+[data-theme="dark"] .engagement-card:hover h3,
+[data-theme="dark"] .portfolio-card:hover h3 {
+  color: var(--md3-primary); /* Bright blue on hover */
+}
+
+[data-theme="dark"] .service-card p {
+  color: var(--md3-on-surface); /* Changed from on-surface-variant */
+  opacity: 0.87; /* Slightly reduced opacity for hierarchy */
+}
+
+[data-theme="dark"] .engagement-card p {
+  color: var(--md3-on-surface);
+  opacity: 0.87;
+}
+
+[data-theme="dark"] .portfolio-card p {
+  color: var(--md3-on-surface);
+  opacity: 0.87;
+}
+
+[data-theme="dark"] .engagement-list li {
+  color: var(--md3-on-surface);
+  opacity: 0.87;
+}
+
+[data-theme="dark"] .card-link {
+  color: var(--md3-primary);
+  opacity: 1;
+}
+
 [data-theme="dark"] .metric {
   background: #242424;
 }
 
 [data-theme="dark"] .tag {
   background: #242424;
+}
+
+[data-theme="dark"] .service-card h3,
+[data-theme="dark"] .engagement-card h3,
+[data-theme="dark"] .portfolio-card h3 {
+  color: var(--md3-on-surface); /* Should be white/light in dark mode */
+  font-weight: 500; /* Keep medium weight for clarity */
 }
 
 /* Responsive */

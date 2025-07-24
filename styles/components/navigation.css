@@ -159,7 +159,9 @@
   gap: var(--spacing-xs);
 }
 
-/* Theme Toggle Integration */
+/* ===== THEME TOGGLE IMPROVEMENTS ===== */
+/* Update/add these styles in navigation.css */
+
 .theme-toggle {
   width: 48px;
   height: 48px;
@@ -174,6 +176,11 @@
   position: relative;
   transition: all var(--md3-motion-duration-short4) var(--md3-motion-easing-standard);
   overflow: hidden;
+}
+
+/* Add background in dark mode for visibility */
+[data-theme="dark"] .theme-toggle {
+  background-color: var(--md3-surface-container-highest);
 }
 
 .theme-toggle::before {
@@ -193,21 +200,57 @@
   opacity: 0.08;
 }
 
+[data-theme="dark"] .theme-toggle:hover::before {
+  background-color: var(--md3-on-surface);
+}
+
 .theme-toggle:focus-visible {
   outline: 3px solid var(--md3-primary);
   outline-offset: 2px;
 }
 
+/* Icon styles */
 .theme-toggle svg,
 .theme-toggle img {
   width: 24px;
   height: 24px;
-  transition: transform var(--md3-motion-duration-short4) var(--md3-motion-easing-standard);
+  transition: all var(--md3-motion-duration-short4) var(--md3-motion-easing-standard);
+  z-index: 1;
 }
 
-.theme-toggle:active svg,
-.theme-toggle:active img {
-  transform: scale(0.9);
+/* Sun icon (light mode) */
+.sun-icon {
+  color: var(--md3-tertiary, var(--color-accent));
+  opacity: 1;
+  transform: scale(1) rotate(0deg);
+}
+
+[data-theme="dark"] .sun-icon {
+  opacity: 0;
+  transform: scale(0.8) rotate(-90deg);
+}
+
+/* Moon icon (dark mode) */
+.moon-icon {
+  position: absolute;
+  color: var(--md3-on-surface);
+  opacity: 0;
+  transform: scale(0.8) rotate(90deg);
+}
+
+[data-theme="dark"] .moon-icon {
+  color: var(--md3-on-surface);
+  opacity: 1;
+  transform: scale(1) rotate(0deg);
+}
+
+/* Mobile nav theme toggle */
+.mobile-nav-footer .theme-toggle {
+  margin: 0 auto;
+}
+
+[data-theme="dark"] .mobile-nav-footer .theme-toggle {
+  background-color: var(--md3-surface-container-high);
 }
 
 /* ===== MOBILE NAVIGATION ===== */
@@ -752,6 +795,18 @@
 .footer-logo-dark { display: none; }
 [data-theme="dark"] .footer-logo-primary { display: none; }
 [data-theme="dark"] .footer-logo-dark { display: block; }
+
+/* Footer logo link */
+.footer-logo a {
+    display: block;
+    width: 48px;
+    height: 48px;
+    transition: transform var(--md3-motion-duration-short4) var(--md3-motion-easing-standard);
+}
+
+.footer-logo a:hover {
+    transform: scale(1.05);
+}
 
 /* ===== PRINT STYLES ===== */
 @media print {

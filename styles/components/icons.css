@@ -44,9 +44,14 @@
 }
 
 /* Primary color icons */
-.icon--primary,
 .service-icon,
-.engagement-icon {
+.engagement-icon,
+.portfolio-icon {
+  filter: brightness(0) saturate(100%) invert(8%) sepia(6%) saturate(1043%) hue-rotate(201deg) brightness(94%) contrast(89%);
+}
+
+/* Primary color icons (when explicitly needed) */
+.icon--primary {
   filter: brightness(0) saturate(100%) invert(27%) sepia(95%) saturate(3666%) hue-rotate(215deg) brightness(100%) contrast(107%);
 }
 
@@ -86,9 +91,15 @@
   filter: brightness(0) saturate(100%) invert(95%) sepia(5%) saturate(265%) hue-rotate(243deg) brightness(104%) contrast(88%);
 }
 
-[data-theme="dark"] .icon--primary,
+/* Service and engagement icons - same as text in dark mode */
 [data-theme="dark"] .service-icon,
-[data-theme="dark"] .engagement-icon {
+[data-theme="dark"] .engagement-icon,
+[data-theme="dark"] .portfolio-icon {
+  filter: brightness(0) saturate(100%) invert(95%) sepia(5%) saturate(265%) hue-rotate(243deg) brightness(104%) contrast(88%);
+}
+
+/* Only use primary color when explicitly set */
+[data-theme="dark"] .icon--primary {
   filter: brightness(0) saturate(100%) invert(77%) sepia(25%) saturate(1235%) hue-rotate(186deg) brightness(102%) contrast(102%);
 }
 
@@ -116,14 +127,18 @@
   transform: scale(1.1);
 }
 
-/* Service card hover effect */
-.service-card:hover .service-icon {
-  transform: scale(1.15) rotate(5deg);
+/* Service card hover effect - NOW it turns blue/primary */
+.service-card:hover .service-icon,
+.engagement-card:hover .engagement-icon,
+.portfolio-card:hover .portfolio-icon {
   filter: brightness(0) saturate(100%) invert(27%) sepia(95%) saturate(3666%) hue-rotate(215deg) brightness(110%) contrast(107%);
+  transform: scale(1.1);
 }
 
-[data-theme="dark"] .service-card:hover .service-icon {
-  filter: brightness(0) saturate(100%) invert(90%) sepia(16%) saturate(771%) hue-rotate(185deg) brightness(107%) contrast(92%);
+[data-theme="dark"] .service-card:hover .service-icon,
+[data-theme="dark"] .engagement-card:hover .engagement-icon,
+[data-theme="dark"] .portfolio-card:hover .portfolio-icon {
+  filter: brightness(0) saturate(100%) invert(77%) sepia(25%) saturate(1235%) hue-rotate(186deg) brightness(102%) contrast(102%);
 }
 
 /* Clickable icon hover */
@@ -421,4 +436,39 @@ button:hover .icon,
 .icon--disabled {
   opacity: 0.38;
   cursor: not-allowed;
+}
+/* ===== SOCIAL ICONS ===== */
+/* Add this section to icons.css */
+
+/* Social icons in contact links */
+.contact-link .icon,
+.contact-link img {
+  filter: brightness(0) saturate(100%) invert(8%) sepia(6%) saturate(1043%) hue-rotate(201deg) brightness(94%) contrast(89%);
+  transition: all var(--md3-motion-duration-short4) var(--md3-motion-easing-standard);
+}
+
+/* Social icons in dark mode */
+[data-theme="dark"] .contact-link .icon,
+[data-theme="dark"] .contact-link img {
+  filter: brightness(0) invert(1);
+}
+
+/* Hover states */
+.contact-link:hover .icon,
+.contact-link:hover img {
+  filter: brightness(0) saturate(100%) invert(27%) sepia(95%) saturate(3666%) hue-rotate(215deg) brightness(100%) contrast(107%);
+}
+
+[data-theme="dark"] .contact-link:hover .icon,
+[data-theme="dark"] .contact-link:hover img {
+  filter: brightness(0) saturate(100%) invert(77%) sepia(25%) saturate(1235%) hue-rotate(186deg) brightness(102%) contrast(102%);
+}
+
+/* Footer social icons */
+.footer .contact-link img {
+  filter: brightness(0) saturate(100%) invert(45%) sepia(9%) saturate(387%) hue-rotate(202deg) brightness(95%) contrast(86%);
+}
+
+[data-theme="dark"] .footer .contact-link img {
+  filter: brightness(0) saturate(100%) invert(71%) sepia(7%) saturate(426%) hue-rotate(201deg) brightness(89%) contrast(87%);
 }

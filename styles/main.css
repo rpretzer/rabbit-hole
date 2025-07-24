@@ -1,21 +1,35 @@
-/* Main CSS Entry Point */
+/* MD3 Design System - Main CSS Entry Point */
 
-/* Base */
+/* ===== BASE STYLES ===== */
+/* Foundation: Reset, Variables, Typography */
 @import 'base/reset.css';
 @import 'base/variables.css';
 @import 'base/typography.css';
+@import 'base/utilities.css';
 
-/* Layout */
+/* ===== LAYOUT ===== */
+/* Page structure and grid systems */
 @import 'layout/grid.css';
 @import 'layout/sections.css';
 
-/* Components */
-@import 'components/header.css';
-@import 'components/cards.css';
+/* ===== COMPONENTS ===== */
+/* Reusable UI components (alphabetical) */
 @import 'components/buttons.css';
-@import 'components/theme-toggle.css';
+@import 'components/cards.css';
+@import 'components/forms.css';
 @import 'components/icons.css';
-@import 'components/utilities.css';
+@import 'components/navigation.css';
 
-/* Themes */
-@import 'themes/dark-mode.css';
+/* ===== PAGE SPECIFIC ===== */
+/* Styles for specific pages (if any) */
+@import 'pages/insights.css';
+@import 'pages/portfolio.css';
+@import 'pages/services.css';
+
+/* ===== VENDOR OVERRIDES ===== */
+/* Third-party library customizations (if any) */
+/* @import 'vendor/prism-overrides.css'; */
+
+/* ===== PRINT STYLES ===== */
+/* Print-specific styles (optional) */
+/* @import 'base/print.css'; */

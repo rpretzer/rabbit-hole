@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Ryan Andrew Pretzer - Mobile Product Strategist. Enterprise mobile strategy, design systems, and process improvement expertise from Fortune 500 experience.">
+    <title>Ryan Andrew Pretzer - Mobile Product Strategist</title>
+    
+    <!-- Theme color for mobile browsers -->
+    <meta name="theme-color" content="#ffffff">
+    
+    <!-- Prevent flash of wrong theme -->
+    <script>
+        // Inline script to prevent FOUC (Flash of Unstyled Content)
+        (function() {
+            const theme = localStorage.getItem('theme') || 
+                         (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+            document.documentElement.setAttribute('data-theme', theme);
+            // Update theme color meta
+            document.querySelector('meta[name="theme-color"]').content = theme === 'dark' ? '#1a1a1a' : '#ffffff';
+        })();
+    </script>
+    
+    <!-- Single CSS Entry Point -->
+    <link rel="stylesheet" href="styles/main.css">
+    <!-- REMOVED: dark-mode-overrides.css -->
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="icon" type="image/png" href="favicon.png">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Ryan Andrew Pretzer - Mobile Product Strategist">
+    <meta property="og:description" content="Enterprise mobile strategy, design systems, and process improvement expertise from Fortune 500 experience.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://ryanpretzer.com">
+    <meta property="og:image" content="https://ryanpretzer.com/images/og-image.jpg">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Ryan Andrew Pretzer - Mobile Product Strategist">
+    <meta name="twitter:description" content="Enterprise mobile strategy, design systems, and process improvement expertise from Fortune 500 experience.">
+    <meta name="twitter:image" content="https://ryanpretzer.com/images/og-image.jpg">
+</head>
+<body>
+    <!-- Skip to main content (Accessibility) -->
+    <a href="#main" class="skip-nav sr-only-focusable">Skip to main content</a>
+    
+    <!-- Header Navigation -->
+    <header class="nav-header">
+        <div class="container">
+            <div class="nav-container">
+<a href="https://www.rspsolutions.com" class="logo">
+    <img src="images/logo/logo-primary.svg" alt="RSP Management" class="logo-primary" />
+    <img src="images/logo/logo-dark.svg" alt="RSP Management" class="logo-dark" />
+    Ryan Andrew Pretzer
+</a>
+                
+                <nav aria-label="Main navigation">
+                    <ul class="nav-links">
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#portfolio">Portfolio</a></li>
+                        <li><a href="#insights">Insights</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </nav>
+                
+                <div class="nav-actions">
+                    <!-- Theme Toggle -->
+                    <button class="theme-toggle theme-toggle-icon" id="theme-toggle" aria-label="Toggle dark mode">
+                        <img src="images/icons/ui/sun.svg" alt="Light mode" class="sun-icon icon" />
+                        <img src="images/icons/ui/moon.svg" alt="Dark mode" class="moon-icon icon" />
+                    </button>
+                    
+                    <!-- Mobile Menu Toggle -->
+                    <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Toggle mobile menu" aria-expanded="false">
+                        <div class="hamburger">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Mobile Navigation Scrim -->
+    <div class="nav-scrim" id="nav-scrim"></div>
+    
+    <!-- Mobile Navigation -->
+    <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation">
+        <div class="mobile-nav-header">
+            <span class="logo">Menu</span>
+            <button class="mobile-close" id="mobile-close" aria-label="Close menu">
+                <img src="images/icons/ui/close.svg" alt="Close" class="icon" />
+            </button>
+        </div>
+        <div class="mobile-nav-links">
+            <a href="#about">About</a>
+            <a href="#services">Services</a>
+            <a href="#portfolio">Portfolio</a>
+            <a href="#insights">Insights</a>
+            <a href="#contact">Contact</a>
+        </div>
+        <div class="mobile-nav-footer">
+            <button class="theme-toggle theme-toggle-icon" aria-label="Toggle dark mode">
+                <img src="images/icons/ui/sun.svg" alt="Light mode" class="sun-icon icon" />
+                <img src="images/icons/ui/moon.svg" alt="Dark mode" class="moon-icon icon" />
+            </button>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main id="main">
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <div class="hero-wrapper">
+                    <div class="hero-portrait">
+                        <img src="images/hero/portrait-light.svg" alt="Ryan Andrew Pretzer" class="portrait-light" />
+                        <img src="images/hero/portrait-dark.svg" alt="Ryan Andrew Pretzer" class="portrait-dark" />
+                    </div>
+                    <div class="hero-content">
+                        <h1 class="hero-title">Mobile Product Strategy & Design Systems</h1>
+                        <p class="hero-subtitle">Transforming enterprise complexity into elegant mobile experiences</p>
+                        
+                        <div class="stats-container">
+                            <div class="stats-grid">
+                                <div class="stat">
+                                    <div class="stat-number">15+</div>
+                                    <div class="stat-label">Years Experience</div>
+                                </div>
+                                <div class="stat">
+                                    <div class="stat-number">50+</div>
+                                    <div class="stat-label">Fortune 500 Companies</div>
+                                </div>
+                                <div class="stat">
+                                    <div class="stat-number">500M+</div>
+                                    <div class="stat-label">Users Impacted</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="section section--surface-low">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">About</h2>
+                </div>
+                <div class="content-wrapper">
+                    <p>With over 15 years of experience in product design and strategy, I specialize in transforming complex business challenges into elegant digital solutions. My work spans enterprise mobile systems, legal technology platforms, and healthcare digital transformations.</p>
+                    <p>I bring a unique blend of strategic thinking, design leadership, and technical understanding to deliver products that not only meet business objectives but also delight users.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section id="services" class="services section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">What I Do</h2>
+                    <p class="section-subtitle">Strategic mobile product leadership for enterprise organizations</p>
+                </div>
+                
+                <div class="service-grid">
+                    <!-- Mobile Strategy -->
+                    <a href="services/mobile-strategy" class="service-card">
+                        <img src="images/icons/services/mobile-product-strategy.svg" alt="" class="service-icon icon icon--xl" />
+                        <h3>Mobile Product Strategy</h3>
+                        <p>End-to-end mobile transformation for Fortune 500 enterprises. From vision to execution, delivering experiences that delight millions of users.</p>
+                        <span class="card-link">Learn more →</span>
+                    </a>
+
+                    <!-- Design Systems -->
+                    <a href="services/design-systems" class="service-card">
+                        <img src="images/icons/services/design-system-architecture.svg" alt="" class="service-icon icon icon--xl" />
+                        <h3>Design System Architecture</h3>
+                        <p>Build and scale design systems that accelerate development, ensure consistency, and reduce technical debt across large organizations.</p>
+                        <span class="card-link">Learn more →</span>
+                    </a>
+
+                    <!-- Process Optimization -->
+                    <a href="services/process-design" class="service-card">
+                        <img src="images/icons/services/process-design.svg" alt="" class="service-icon icon icon--xl" />
+                        <h3>Process Optimization</h3>
+                        <p>Transform complex business workflows into intuitive digital experiences that improve efficiency and user satisfaction.</p>
+                        <span class="card-link">Learn more →</span>
+                    </a>
+
+                    <!-- Legal Technology -->
+                    <a href="services/legal-tech" class="service-card">
+                        <img src="images/icons/services/legal-tech.svg" alt="" class="service-icon icon icon--xl" />
+                        <h3>Legal Technology</h3>
+                        <p>Insurance claims and legal tech platforms, streamlining complex processes with modern technology solutions.</p>
+                        <span class="card-link">Learn more →</span>
+                    </a>
+
+                    <!-- Healthcare Digital -->
+                    <a href="services/healthcare-digital" class="service-card">
+                        <img src="images/icons/services/healthcare-digital.svg" alt="" class="service-icon icon icon--xl" />
+                        <h3>Healthcare Digital</h3>
+                        <p>Digital transformation for healthcare organizations, improving patient experiences and operational efficiency.</p>
+                        <span class="card-link">Learn more →</span>
+                    </a>
+
+                    <!-- Strategic Advisory -->
+                    <a href="services/advisory" class="service-card">
+                        <img src="images/icons/services/strategic-advisory.svg" alt="" class="service-icon icon icon--xl" />
+                        <h3>Strategic Advisory</h3>
+                        <p>Fractional CPO and strategic counsel for companies navigating digital transformation and product innovation.</p>
+                        <span class="card-link">Learn more →</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Engagement Section -->
+        <section id="engagement" class="section section--surface-container">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">How We Work Together</h2>
+                    <p class="section-subtitle">Flexible engagement models tailored to your needs</p>
+                </div>
+                
+                <div class="grid grid-cols-4 sm:grid-cols-1 md:grid-cols-2">
+                    <!-- Consulting -->
+                    <a href="services/consulting" class="engagement-card">
+                        <img src="images/icons/engagement/consulting.svg" alt="" class="engagement-icon icon icon--lg" />
+                        <h3>Consulting</h3>
+                        <p>Strategic guidance and expertise for specific challenges or initiatives</p>
+                        <ul class="engagement-list">
+                            <li>Short-term engagements</li>
+                            <li>Expert analysis & recommendations</li>
+                            <li>Knowledge transfer</li>
+                        </ul>
+                    </a>
+
+                    <!-- Fractional Leadership -->
+                    <a href="services/fractional-leadership" class="engagement-card">
+                        <img src="images/icons/engagement/fractional-leadership.svg" alt="" class="engagement-icon icon icon--lg" />
+                        <h3>Fractional Leadership</h3>
+                        <p>Part-time executive leadership without the full-time cost</p>
+                        <ul class="engagement-list">
+                            <li>CPO / VP Product roles</li>
+                            <li>2-3 days per week</li>
+                            <li>Build & mentor teams</li>
+                        </ul>
+                    </a>
+
+                    <!-- Project-Based -->
+                    <a href="services/project-based" class="engagement-card">
+                        <img src="images/icons/engagement/project-based.svg" alt="" class="engagement-icon icon icon--lg" />
+                        <h3>Project-Based</h3>
+                        <p>End-to-end delivery of defined initiatives with clear outcomes</p>
+                        <ul class="engagement-list">
+                            <li>Fixed scope & timeline</li>
+                            <li>Hands-on execution</li>
+                            <li>Measurable deliverables</li>
+                        </ul>
+                    </a>
+
+                    <!-- Advisory -->
+                    <a href="services/advisory" class="engagement-card">
+                        <img src="images/icons/engagement/advisory.svg" alt="" class="engagement-icon icon icon--lg" />
+                        <h3>Advisory</h3>
+                        <p>Ongoing strategic counsel and board-level guidance</p>
+                        <ul class="engagement-list">
+                            <li>Monthly/quarterly sessions</li>
+                            <li>Strategic planning</li>
+                            <li>Board advisory</li>
+                        </ul>
+                    </a>
+                </div>
+            </div>
+        </section>
+<!-- Pricing Section -->
+<section id="pricing" class="pricing section section--surface-low">
+    <div class="container">
+        <div class="section-header">
+            <h2 class="section-title">Investment Options</h2>
+            <p class="section-subtitle">Transparent pricing for every engagement model</p>
+        </div>
+        
+        <div class="pricing-grid">
+            <!-- Consulting -->
+            <div class="pricing-card">
+                <div class="pricing-header">
+                    <h3 class="pricing-title">Consulting</h3>
+                    <p class="pricing-description">Strategic guidance for specific initiatives</p>
+                </div>
+                <div class="pricing-price">
+                    <span class="price-amount">$2,500</span>
+                    <span class="price-unit">per day</span>
+                </div>
+                <ul class="pricing-features">
+                    <li>Strategic analysis & recommendations</li>
+                    <li>Expert guidance sessions</li>
+                    <li>Knowledge transfer & documentation</li>
+                    <li>Stakeholder workshops</li>
+                    <li>Minimum 5-day engagement</li>
+                </ul>
+                <div class="pricing-action">
+                    <a href="#contact" class="btn btn--outlined btn--full-width">Get Started</a>
+                </div>
+            </div>
+            
+            <!-- Fractional Leadership -->
+            <div class="pricing-card pricing-card--featured">
+                <span class="pricing-badge">Most Popular</span>
+                <div class="pricing-header">
+                    <h3 class="pricing-title">Fractional Leadership</h3>
+                    <p class="pricing-description">Part-time executive leadership</p>
+                </div>
+                <div class="pricing-price">
+                    <span class="price-amount">$15,000</span>
+                    <span class="price-unit">per month</span>
+                </div>
+                <ul class="pricing-features">
+                    <li>2-3 days per week commitment</li>
+                    <li>CPO/VP Product leadership</li>
+                    <li>Build & mentor product teams</li>
+                    <li>Strategic roadmap development</li>
+                    <li>Board & investor reporting</li>
+                    <li>Cross-functional alignment</li>
+                </ul>
+                <div class="pricing-action">
+                    <a href="#contact" class="btn btn--filled btn--full-width">Get Started</a>
+                </div>
+            </div>
+            
+            <!-- Project-Based -->
+            <div class="pricing-card">
+                <div class="pricing-header">
+                    <h3 class="pricing-title">Project-Based</h3>
+                    <p class="pricing-description">End-to-end project delivery</p>
+                </div>
+                <div class="pricing-price">
+                    <span class="price-amount">Custom</span>
+                    <span class="price-unit">quote</span>
+                </div>
+                <ul class="pricing-features">
+                    <li>Fixed scope & timeline</li>
+                    <li>Dedicated project team</li>
+                    <li>Milestone-based delivery</li>
+                    <li>Full documentation & handoff</li>
+                    <li>Starting at $50,000</li>
+                </ul>
+                <div class="pricing-action">
+                    <a href="#contact" class="btn btn--outlined btn--full-width">Get Quote</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="pricing-note">
+            <p>All engagements include regular progress updates, stakeholder communication, and comprehensive documentation. Travel expenses billed separately when required.</p>
+        </div>
+    </div>
+</section>
+
+        <!-- Portfolio Section -->
+        <section id="portfolio" class="portfolio section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Portfolio</h2>
+                </div>
+                
+                <div class="portfolio-grid">
+                    <!-- USAA Design System -->
+                    <a href="portfolio/usaa-design-system" class="portfolio-card">
+                        <img src="images/icons/portfolio/usaa.svg" alt="" class="portfolio-icon icon icon--xl" />
+                        <div class="portfolio-header">
+                            <span class="portfolio-company">USAA</span>
+                            <span class="portfolio-duration">2 Years</span>
+                        </div>
+                        <h3>Mobile Design System</h3>
+                        <p>Led design system architecture for 50+ development teams, achieving 80% adoption and 40% faster development</p>
+                        <div class="portfolio-metrics">
+                            <div class="metric">
+                                <span class="metric-value">80%</span>
+                                <span class="metric-label">Adoption Rate</span>
+                            </div>
+                            <div class="metric">
+                                <span class="metric-value">40%</span>
+                                <span class="metric-label">Faster Development</span>
+                            </div>
+                        </div>
+                        <div class="portfolio-tags">
+                            <span class="tag">Design Systems</span>
+                            <span class="tag">Mobile</span>
+                            <span class="tag">Enterprise</span>
+                        </div>
+                    </a>
+
+                    <!-- MVP Healthcare -->
+                    <a href="portfolio/mvp-healthcare" class="portfolio-card">
+                        <img src="images/icons/portfolio/mvp-healthcare.svg" alt="" class="portfolio-icon icon icon--xl" />
+                        <div class="portfolio-header">
+                            <span class="portfolio-company">MVP Healthcare</span>
+                            <span class="portfolio-duration">18 Months</span>
+                        </div>
+                        <h3>Digital Transformation</h3>
+                        <p>Redesigned member experience platform serving 700,000+ users with 35% increase in digital engagement</p>
+                        <div class="portfolio-metrics">
+                            <div class="metric">
+                                <span class="metric-value">700K+</span>
+                                <span class="metric-label">Active Users</span>
+                            </div>
+                            <div class="metric">
+                                <span class="metric-value">35%</span>
+                                <span class="metric-label">Engagement Increase</span>
+                            </div>
+                        </div>
+                        <div class="portfolio-tags">
+                            <span class="tag">Healthcare</span>
+                            <span class="tag">Digital Transformation</span>
+                            <span class="tag">UX</span>
+                        </div>
+                    </a>
+
+                    <!-- Progressive Insurance -->
+                    <a href="portfolio/progressive-insurance" class="portfolio-card">
+                        <img src="images/icons/portfolio/progressive-insurance.svg" alt="" class="portfolio-icon icon icon--xl" />
+                        <div class="portfolio-header">
+                            <span class="portfolio-company">Progressive Insurance</span>
+                            <span class="portfolio-duration">3 Years</span>
+                        </div>
+                        <h3>Claims & Legal Platform</h3>
+                        <p>Built comprehensive claims processing and legal management system handling $2B+ in settlements annually</p>
+                        <div class="portfolio-metrics">
+                            <div class="metric">
+                                <span class="metric-value">$2B+</span>
+                                <span class="metric-label">Annual Processing</span>
+                            </div>
+                            <div class="metric">
+                                <span class="metric-value">10K+</span>
+                                <span class="metric-label">Legal Professionals</span>
+                            </div>
+                        </div>
+                        <div class="portfolio-tags">
+                            <span class="tag">Insurance Tech</span>
+                            <span class="tag">Claims Processing</span>
+                            <span class="tag">Legal Platform</span>
+                        </div>
+                    </a>
+                </div>
+                            <!-- Icon Design System -->
+<a href="portfolio/icon-design-system" class="portfolio-card">
+    <img src="images/icons/portfolio/icon-system.svg" alt="" class="portfolio-icon icon icon--xl" />
+    <div class="portfolio-header">
+        <span class="portfolio-company">Icon Design System</span>
+        <span class="portfolio-duration">Ongoing</span>
+    </div>
+    <h3>Website Iconography</h3>
+    <p>Custom icon system designed for this portfolio site, featuring 50+ cohesive icons across services, engagement models, and UI elements</p>
+    <div class="portfolio-metrics">
+        <div class="metric">
+            <span class="metric-value">50+</span>
+            <span class="metric-label">Custom Icons</span>
+        </div>
+        <div class="metric">
+            <span class="metric-value">100%</span>
+            <span class="metric-label">Vector Based</span>
+        </div>
+    </div>
+    <div class="portfolio-tags">
+        <span class="tag">Icon Design</span>
+        <span class="tag">Design System</span>
+        <span class="tag">UI/UX</span>
+    </div>
+</a>
+            </div>
+        </section>
+
+        <!-- Insights Section -->
+        <section id="insights" class="insights section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Insights</h2>
+                </div>
+                
+                <div class="grid grid-cols-3 sm:grid-cols-1 md:grid-cols-2">
+                    <article class="insight-card">
+                        <a href="insights/mobile-design-systems-scale" class="insight-link">
+                            <span class="insight-category">Design Systems</span>
+                            <h3>Mobile Design Systems at Scale</h3>
+                            <p>Lessons learned from managing enterprise design systems across Fortune 500 companies</p>
+                            <div class="insight-meta">
+                                <span class="read-time">8 min read</span>
+                                <span class="date">Nov 2023</span>
+                            </div>
+                        </a>
+                    </article>
+
+                    <article class="insight-card">
+                        <a href="insights/polyrhythmic-verses" class="insight-link">
+                            <span class="insight-category">Creative</span>
+                            <h3>Polyrhythmic Verses</h3>
+                            <p>Poetry loosely cadenced on Latin jazz polyrhythms</p>
+                            <div class="insight-meta">
+                                <span class="read-time">5 min read</span>
+                                <span class="date">Oct 2023</span>
+                            </div>
+                        </a>
+                    </article>
+
+                    <article class="insight-card">
+                        <a href="insights/process-optimization-healthcare" class="insight-link">
+                            <span class="insight-category">Healthcare</span>
+                            <h3>Process Optimization in Healthcare</h3>
+                            <p>Digital transformation strategies for healthcare organizations</p>
+                            <div class="insight-meta">
+                                <span class="read-time">10 min read</span>
+                                <span class="date">Sep 2023</span>
+                            </div>
+                        </a>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="contact section">
+            <div class="container">
+                <div class="contact-content">
+                    <h2 class="contact-title">Let's Connect</h2>
+                    <p class="contact-description">Ready to transform your mobile product strategy?</p>
+                    
+                    <button type="button" class="btn btn--filled btn--large" onclick="openContactModal()">
+                        <img src="images/icons/social/email.svg" alt="" class="btn__icon" />
+                        Get in Touch
+                    </button>
+                    
+<div class="contact-links">
+    <a href="https://linkedin.com/in/ryanpretzer" class="contact-link" aria-label="LinkedIn">
+        <img src="images/icons/social/linkedin.svg" alt="LinkedIn" class="icon icon--md" />
+    </a>
+    <a href="https://twitter.com/ryanpretzer" class="contact-link" aria-label="X (Twitter)">
+        <img src="images/icons/social/x.svg" alt="X" class="icon icon--md" />
+    </a>
+    <a href="tel:+14406507414" class="contact-link" aria-label="Call (440) 650-7414">
+        <img src="images/icons/social/phone.svg" alt="Phone" class="icon icon--md" />
+    </a>
+    <a href="https://maps.google.com/maps?q=2194+Coventry+Road,+Cleveland+Heights,+OH+44118" 
+       target="_blank" 
+       rel="noopener noreferrer" 
+       class="contact-link" 
+       aria-label="View location: 2194 Coventry Road, Cleveland Heights, Ohio">
+        <img src="images/icons/social/location.svg" alt="Location" class="icon icon--md" />
+    </a>
+</div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+               <div class="footer-logo">
+    <a href="https://www.rspsolutions.com" aria-label="RSP Management Solutions">
+        <img src="images/logo/logo-primary.svg" alt="RSP Management" class="footer-logo-primary" />
+        <img src="images/logo/logo-dark.svg" alt="RSP Management" class="footer-logo-dark" />
+    </a>
+</div>
+                <nav class="footer-nav">
+                    <a href="/privacy">Privacy Policy</a>
+                    <a href="/terms">Terms of Use</a>
+                </nav>
+                <p>&copy; 2025 Ryan Andrew Pretzer. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="scripts/theme-toggle.js"></script>
+    <script src="scripts/navigation.js"></script>
+    <script src="scripts/ripple.js"></script>
+    <script src="scripts/contact-modal.js"></script>
+<!-- Contact Modal -->
+<div class="modal" id="contact-modal" aria-hidden="true" aria-labelledby="modal-title">
+    <div class="modal-backdrop" onclick="closeContactModal()"></div>
+    <div class="modal-content">
+        <div class="modal-header">
+            <h2 id="modal-title" class="modal-title">Send a Message</h2>
+            <button type="button" class="modal-close" onclick="closeContactModal()" aria-label="Close modal">
+                <img src="images/icons/ui/close.svg" alt="Close" class="icon" />
+            </button>
+        </div>
+        <form class="contact-form" id="contact-form">
+            <div class="form-group">
+                <label for="name" class="label label--required">Your Name</label>
+                <input type="text" id="name" name="name" class="input" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="email" class="label label--required">Your Email</label>
+                <input type="email" id="email" name="email" class="input" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="company" class="label">Company</label>
+                <input type="text" id="company" name="company" class="input">
+            </div>
+            
+            <div class="form-group">
+                <label for="message" class="label label--required">Message</label>
+                <textarea id="message" name="message" class="textarea" rows="5" required></textarea>
+            </div>
+            
+            <div class="form-actions">
+                <button type="button" class="btn btn--text" onclick="closeContactModal()">Cancel</button>
+                <button type="submit" class="btn btn--filled">Send Message</button>
+            </div>
+        </form>
+        <div class="modal-footer">
+            <p class="helper-text">Or email directly at <a href="mailto:rpretzer@rspsolutions.com">rpretzer@rspsolutions.com</a></p>
+        </div>
+    </div>
+</div>
+</body>
+</html>

@@ -1,59 +1,24 @@
 {
-  "name": "ryan-pretzer-portfolio",
+  "name": "portfolio-website",
   "version": "1.0.0",
-  "description": "Portfolio website for Ryan Andrew Pretzer - Mobile Product Strategist",
+  "description": "A modern UX portfolio website inspired by ptewari.com",
   "main": "index.html",
   "scripts": {
-    "start": "http-server -p 8080",
-    "dev": "http-server -p 8080 -o",
-    "build": "npm run build:css && npm run build:js && npm run copy:html && npm run copy:assets",
-    "build:css": "postcss styles/main.css -o dist/styles.min.css",
-    "build:js": "rollup -c",
-    "copy:html": "cp index.html dist/",
-    "copy:assets": "cp -r content dist/ && cp -r images dist/ 2>/dev/null || :",
-    "clean": "rm -rf dist",
-    "deploy": "npm run deploy:source",
-    "deploy:source": "git add . && git commit -m 'Update site' && git push origin main",
-    "deploy:built": "npm run build && gh-pages -d dist",
-    "lint": "eslint scripts/**/*.js || true",
-    "lint:css": "stylelint styles/**/*.css || true"
+    "start": "npx live-server",
+    "build": "echo 'No build step required for static site'",
+    "deploy": "echo 'Deploy to your preferred hosting service'"
   },
   "keywords": [
     "portfolio",
-    "mobile strategy",
-    "design systems",
-    "product management"
+    "ux",
+    "design",
+    "tailwind",
+    "responsive"
   ],
-  "author": "Ryan Andrew Pretzer",
+  "author": "Your Name",
   "license": "MIT",
   "devDependencies": {
-    "@rollup/plugin-node-resolve": "^15.0.0",
-    "@rollup/plugin-terser": "^0.4.0",
-    "autoprefixer": "^10.4.0",
-    "cssnano": "^5.1.0",
-    "eslint": "^8.0.0",
-    "gh-pages": "^5.0.0",
-    "http-server": "^14.1.0",
-    "postcss": "^8.4.0",
-    "postcss-cli": "^10.0.0",
-    "postcss-import": "^15.0.0",
-    "postcss-preset-env": "^8.0.0",
-    "rollup": "^3.0.0",
-    "stylelint": "^15.0.0",
-    "stylelint-config-standard": "^30.0.0"
+    "live-server": "^1.2.2"
   },
-  "dependencies": {
-    "marked": "^4.2.0"
-  },
-  "browserslist": [
-    "> 1%",
-    "last 2 versions",
-    "not dead"
-  ],
-  "optionalDependencies": {
-    "imagemin": "^8.0.0",
-    "imagemin-mozjpeg": "^10.0.0",
-    "imagemin-pngquant": "^9.0.0",
-    "imagemin-svgo": "^10.0.0"
-  }
+  "dependencies": {}
 }

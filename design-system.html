@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Design System - Your Name</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="tailwind.config.js"></script>
+    
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="styles.css">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="font-inter text-text-primary bg-white">
+    
+    <div class="max-w-6xl mx-auto px-6 py-12">
+        <header class="mb-12">
+            <h1 class="text-4xl font-bold mb-4">Design System</h1>
+            <p class="text-xl text-text-secondary">
+                A comprehensive design system with tokens, components, and patterns.
+            </p>
+            <a href="index.html" class="text-info hover:underline mt-4 inline-block">← Back to Portfolio</a>
+        </header>
+        
+        <!-- Typography -->
+        <section class="mb-16">
+            <h2 class="text-2xl font-bold mb-8">Typography</h2>
+            
+            <div class="space-y-6">
+                <div>
+                    <p class="text-sm text-text-secondary mb-2">Heading 1</p>
+                    <h1 class="text-5xl font-bold">The quick brown fox jumps over the lazy dog</h1>
+                </div>
+                
+                <div>
+                    <p class="text-sm text-text-secondary mb-2">Heading 2</p>
+                    <h2 class="text-4xl font-bold">The quick brown fox jumps over the lazy dog</h2>
+                </div>
+                
+                <div>
+                    <p class="text-sm text-text-secondary mb-2">Heading 3</p>
+                    <h3 class="text-3xl font-bold">The quick brown fox jumps over the lazy dog</h3>
+                </div>
+                
+                <div>
+                    <p class="text-sm text-text-secondary mb-2">Body Text</p>
+                    <p class="text-base">The quick brown fox jumps over the lazy dog. 1234567890iIl</p>
+                </div>
+                
+                <div>
+                    <p class="text-sm text-text-secondary mb-2">Small Text</p>
+                    <p class="text-sm">The quick brown fox jumps over the lazy dog. 1234567890iIl</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Colors -->
+        <section class="mb-16">
+            <h2 class="text-2xl font-bold mb-8">Color Tokens</h2>
+            
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                <div>
+                    <div class="w-full h-24 bg-black rounded-lg mb-2"></div>
+                    <p class="font-medium">Primary</p>
+                    <p class="text-sm text-text-secondary">#000000</p>
+                </div>
+                
+                <div>
+                    <div class="w-full h-24 bg-gray-600 rounded-lg mb-2"></div>
+                    <p class="font-medium">Secondary</p>
+                    <p class="text-sm text-text-secondary">#4a5568</p>
+                </div>
+                
+                <div>
+                    <div class="w-full h-24 bg-gray-400 rounded-lg mb-2"></div>
+                    <div class="text-text-disabled">
+                        <p class="font-medium">Disabled</p>
+                        <p class="text-sm">tw-text-text-disabled</p>
+                    </div>
+                </div>
+                
+                <div>
+                    <div class="w-full h-24 bg-green-500 rounded-lg mb-2"></div>
+                    <div class="text-success">
+                        <p class="font-medium">Success</p>
+                        <p class="text-sm">tw-text-success</p>
+                    </div>
+                </div>
+                
+                <div>
+                    <div class="w-full h-24 bg-orange-500 rounded-lg mb-2"></div>
+                    <div class="text-warn">
+                        <p class="font-medium">Warning</p>
+                        <p class="text-sm">tw-text-warn</p>
+                    </div>
+                </div>
+                
+                <div>
+                    <div class="w-full h-24 bg-blue-500 rounded-lg mb-2"></div>
+                    <div class="text-info">
+                        <p class="font-medium">Info</p>
+                        <p class="text-sm">tw-text-info</p>
+                    </div>
+                </div>
+                
+                <div>
+                    <div class="w-full h-24 bg-red-500 rounded-lg mb-2"></div>
+                    <div class="text-error">
+                        <p class="font-medium">Error</p>
+                        <p class="text-sm">tw-text-error</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Components -->
+        <section class="mb-16">
+            <h2 class="text-2xl font-bold mb-8">Components</h2>
+            
+            <!-- Buttons -->
+            <div class="mb-12">
+                <h3 class="text-xl font-semibold mb-6">Buttons</h3>
+                <div class="flex flex-wrap gap-4">
+                    <button class="px-6 py-3 bg-black text-white rounded-lg hover:bg-gray-800 transition-colors">
+                        Primary Button
+                    </button>
+                    <button class="px-6 py-3 bg-gray-200 text-gray-800 rounded-lg hover:bg-gray-300 transition-colors">
+                        Secondary Button
+                    </button>
+                    <button class="px-6 py-3 border border-gray-300 text-gray-800 rounded-lg hover:bg-gray-50 transition-colors">
+                        Outline Button
+                    </button>
+                    <button class="px-6 py-3 bg-gray-100 text-gray-400 rounded-lg cursor-not-allowed" disabled>
+                        Disabled Button
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Form Elements -->
+            <div class="mb-12">
+                <h3 class="text-xl font-semibold mb-6">Form Elements</h3>
+                <div class="max-w-md space-y-4">
+                    <div>
+                        <label class="block text-sm font-medium mb-2">Text Input</label>
+                        <input type="text" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Enter text...">
+                    </div>
+                    
+                    <div>
+                        <label class="block text-sm font-medium mb-2">Textarea</label>
+                        <textarea class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" rows="3" placeholder="Enter message..."></textarea>
+                    </div>
+                    
+                    <div>
+                        <label class="block text-sm font-medium mb-2">Select</label>
+                        <select class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                            <option>Option 1</option>
+                            <option>Option 2</option>
+                            <option>Option 3</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Cards -->
+            <div class="mb-12">
+                <h3 class="text-xl font-semibold mb-6">Cards</h3>
+                <div class="grid md:grid-cols-3 gap-6">
+                    <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-100">
+                        <h4 class="text-lg font-semibold mb-2">Card Title</h4>
+                        <p class="text-text-secondary">This is a basic card component with subtle shadow and border.</p>
+                    </div>
+                    
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <h4 class="text-lg font-semibold mb-2">Elevated Card</h4>
+                        <p class="text-text-secondary">This card has more elevation with a stronger shadow.</p>
+                    </div>
+                    
+                    <div class="bg-gray-50 p-6 rounded-lg border-2 border-gray-200">
+                        <h4 class="text-lg font-semibold mb-2">Bordered Card</h4>
+                        <p class="text-text-secondary">This card uses a border and background color.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Spacing -->
+        <section class="mb-16">
+            <h2 class="text-2xl font-bold mb-8">Spacing System</h2>
+            
+            <div class="space-y-4">
+                <div class="flex items-center gap-4">
+                    <span class="text-sm font-medium w-16">0.25rem</span>
+                    <div class="h-4 bg-gray-300" style="width: 0.25rem;"></div>
+                </div>
+                <div class="flex items-center gap-4">
+                    <span class="text-sm font-medium w-16">0.5rem</span>
+                    <div class="h-4 bg-gray-300" style="width: 0.5rem;"></div>
+                </div>
+                <div class="flex items-center gap-4">
+                    <span class="text-sm font-medium w-16">1rem</span>
+                    <div class="h-4 bg-gray-300" style="width: 1rem;"></div>
+                </div>
+                <div class="flex items-center gap-4">
+                    <span class="text-sm font-medium w-16">1.5rem</span>
+                    <div class="h-4 bg-gray-300" style="width: 1.5rem;"></div>
+                </div>
+                <div class="flex items-center gap-4">
+                    <span class="text-sm font-medium w-16">2rem</span>
+                    <div class="h-4 bg-gray-300" style="width: 2rem;"></div>
+                </div>
+                <div class="flex items-center gap-4">
+                    <span class="text-sm font-medium w-16">3rem</span>
+                    <div class="h-4 bg-gray-300" style="width: 3rem;"></div>
+                </div>
+                <div class="flex items-center gap-4">
+                    <span class="text-sm font-medium w-16">4rem</span>
+                    <div class="h-4 bg-gray-300" style="width: 4rem;"></div>
+                </div>
+            </div>
+        </section>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>

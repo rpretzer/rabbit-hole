@@ -1,363 +1,366 @@
-<!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<!doctype html>
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Name - UX Design Leader</title>
-    <meta name="description" content="Head of UX Design, Conscious design leader specializing in Design Strategy & UI Innovation">
-    
-    <!-- Open Graph Meta Tags -->
-    <meta property="og:title" content="Your Name - UX Design Leader">
-    <meta property="og:description" content="15+ years of experience in UX design leadership, design systems, and conscious design methodology">
-    <meta property="og:type" content="website">
-    
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="tailwind.config.js"></script>
-    
-    <!-- Custom Styles -->
-    <link rel="stylesheet" href="styles.css">
-    
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
-    <!-- Feather Icons -->
-    <script src="https://unpkg.com/feather-icons"></script>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ryan Pretzer — Product & AI | RSP Management LLC</title>
+  <meta name="description" content="Portfolio and fractional product leadership services by Ryan Pretzer. I make complex products simple." />
+  <meta name="theme-color" content="#0a0a0a">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <meta property="og:title" content="Ryan Pretzer — Product & AI" />
+  <meta property="og:description" content="I make complex products simple. Portfolio + fractional services via RSP Management LLC." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://ryanpretzer.com" />
+  <style>
+    /* ---- CSS: mobile-first, minimal, accessible ---- */
+    :root{
+      --bg: #ffffff; --fg: #0a0a0a; --muted:#6b7280; --soft:#ececec; --card:#fafafa; --link:#0a0a0a;
+      --accent:#0a0a0a; --radius: 14px; --shadow: 0 8px 24px rgba(0,0,0,.06);
+      --maxw: 1040px; --lh: 1.55; --grid-gap: 16px;
+    }
+    @media (prefers-color-scheme: dark){
+      :root{ --bg:#0b0b0b; --fg:#f5f5f5; --muted:#9aa0a6; --soft:#1a1a1a; --card:#0f0f10; --link:#f5f5f5; --accent:#f5f5f5; }
+    }
+    *,*::before,*::after{box-sizing:border-box}
+    html,body{height:100%}
+    body{margin:0; font-family:Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial; background:var(--bg); color:var(--fg); line-height:var(--lh)}
+    img{max-width:100%; height:auto}
+    a{color:var(--link); text-decoration:none}
+    a:hover{text-decoration:underline}
+    .container{max-width:var(--maxw); margin:0 auto; padding:0 18px}
+
+    /* Header */
+    header{position:sticky; top:0; z-index:40; backdrop-filter:saturate(160%) blur(10px); background:color-mix(in oklab, var(--bg) 85%, transparent); border-bottom:1px solid var(--soft)}
+    .nav{display:flex; align-items:center; justify-content:space-between; height:64px}
+    .brand{display:flex; gap:10px; align-items:center; font-weight:800; letter-spacing:.2px}
+    .logo{height:22px; width:auto; display:block}
+    nav ul{list-style:none; display:flex; gap:18px; margin:0; padding:0}
+    nav a{font-weight:600; padding:6px 10px; border-radius:10px}
+    nav a:focus-visible{outline:2px solid var(--accent); outline-offset:2px}
+
+    /* Sections */
+    .hero{padding:80px 0 36px; border-bottom:1px solid var(--soft)}
+    .eyebrow{margin:0; font-weight:700; letter-spacing:.04em; text-transform:uppercase; color:var(--muted); font-size:.85rem}
+    h1{font-size: clamp(36px, 6vw, 56px); line-height:1.06; margin:.15em 0 .2em}
+    .lede{font-size: clamp(18px, 2.6vw, 22px); color:var(--muted)}
+    .cta{display:flex; gap:12px; margin-top:26px; flex-wrap:wrap}
+    .btn{display:inline-flex; align-items:center; gap:10px; padding:12px 16px; border-radius:999px; font-weight:700; border:1px solid var(--accent); background:var(--accent); color:var(--bg)}
+    .btn.secondary{background:transparent; color:var(--fg)}
+    .btn:hover{transform:translateY(-1px)}
+    .section{padding:56px 0}
+    h2{font-size: clamp(26px, 4vw, 34px); margin:0 0 10px}
+
+    /* Work grid */
+    .filters{display:flex; flex-wrap:wrap; gap:8px; margin:8px 0 22px}
+    .chip{padding:8px 12px; border-radius:999px; border:1px solid var(--soft); background:transparent; cursor:pointer; font-weight:600}
+    .chip[aria-pressed="true"], .chip.active{background:var(--fg); color:var(--bg); border-color:var(--fg)}
+
+    .grid{display:grid; grid-template-columns:1fr; gap:var(--grid-gap)}
+    @media (min-width:640px){ .grid{grid-template-columns:repeat(2, 1fr);} }
+    @media (min-width:960px){ .grid{grid-template-columns:repeat(3, 1fr);} }
+
+    .card{background:var(--card); border-radius:var(--radius); overflow:hidden; box-shadow:var(--shadow); display:flex; flex-direction:column; border:1px solid var(--soft)}
+    .thumb{aspect-ratio:16/10; background:linear-gradient(135deg, color-mix(in oklab, var(--bg) 90%, #bbb), var(--card)); display:flex; align-items:center; justify-content:center}
+    .body{padding:16px}
+    .tags{display:flex; gap:8px; flex-wrap:wrap; margin-top:8px}
+    .tag{font:600 12px/1.6 "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace; padding:4px 8px; background:transparent; border:1px dashed var(--soft); border-radius:999px}
+
+    /* Services */
+    .services{display:grid; gap:var(--grid-gap); grid-template-columns:1fr}
+    @media (min-width:900px){ .services{grid-template-columns:repeat(3, 1fr);} }
+    .service{padding:22px; border:1px solid var(--soft); border-radius:var(--radius); background:var(--bg); box-shadow:none}
+    .service h3{margin:0 0 8px}
+    .service ul{margin:8px 0 0 18px}
+
+    /* About */
+    .about{display:grid; gap:24px; grid-template-columns:1fr}
+    @media (min-width:900px){ .about{grid-template-columns:360px 1fr;} }
+    .avatar{width:100%; aspect-ratio:1; border-radius:16px; background:linear-gradient(135deg,#222,#000); display:flex; align-items:center; justify-content:center; color:#fff; font-size:56px; font-weight:900}
+
+    /* Footer */
+    footer{border-top:1px solid var(--soft); padding:36px 0; margin-top:36px; color:var(--muted); font-size:14px}
+    .footgrid{display:grid; gap:16px; grid-template-columns:1fr; align-items:center}
+    @media (min-width:800px){ .footgrid{grid-template-columns:1fr auto auto auto} }
+
+    /* Motion */
+    @media (prefers-reduced-motion: no-preference){
+      .btn{transition:transform .18s ease}
+      .card{transition:transform .2s ease, box-shadow .2s ease}
+      .card:hover{transform:translateY(-2px); box-shadow:0 14px 36px rgba(0,0,0,.08)}
+    }
+    :focus-visible{outline: 2px solid var(--accent); outline-offset: 2px}
+  </style>
 </head>
-<body class="font-inter text-text-primary bg-white">
-    
-    <!-- Hero Section -->
-    <header class="min-h-screen flex items-center justify-center px-6 py-20">
-        <div class="max-w-4xl w-full">
-            <h1 class="text-5xl md:text-6xl font-bold mb-6">Your Name</h1>
-            <p class="text-xl md:text-2xl text-text-secondary mb-4">
-                Head of UX Design, Conscious design leader,<br>
-                Design Strategy & UI Innovation 
-            </p>
-            <p class="text-lg text-text-secondary mb-8">
-                <i data-feather="map-pin" class="inline w-4 h-4"></i> New York
-            </p>
-            <a href="#" class="inline-flex items-center px-6 py-3 bg-black text-white rounded-lg hover:bg-gray-800 transition-colors">
-                Book a meeting with Your Name
-                <i data-feather="arrow-right" class="ml-2 w-4 h-4"></i>
-            </a>
-        </div>
-    </header>
-    
-    <!-- About Section -->
-    <section id="about" class="py-20 px-6">
-        <div class="max-w-4xl mx-auto">
-            <h2 class="text-3xl font-bold mb-8">About Me</h2>
-            <p class="text-lg text-text-secondary mb-6">
-                A seasoned design-technologist with over 15 years experience, specializing in human-computer interaction 
-                and sustainable design practices. I lead cross-functional teams to create innovative, user-centered solutions 
-                that drive business value while maintaining ethical design principles. 
-            </p>
-            
-            <h3 class="text-xl font-semibold mb-4">Key Strengths</h3>
-            <ul class="space-y-3 text-text-secondary">
-                <li class="flex items-start">
-                    <span class="text-success mr-2">•</span>
-                    Leading cross-functional collaboration & efficiency 
-                </li>
-                <li class="flex items-start">
-                    <span class="text-success mr-2">•</span>
-                    Aligning disparate products and features into seamless workflows 
-                </li>
-                <li class="flex items-start">
-                    <span class="text-success mr-2">•</span>
-                    Actualizing innovative ideas and concepts 
-                </li>
-                <li class="flex items-start">
-                    <span class="text-success mr-2">•</span>
-                    Stakeholder management for endorsing design strategies 
-                </li>
-            </ul>
-            
-            <div class="mt-8">
-                <p class="text-sm text-text-disabled">& introduce my inner self</p>
-                <p class="text-lg mt-2">So! now you know. </p>
-            </div>
-        </div>
+<body>
+  <a href="#main" class="skip" style="position:absolute; left:-9999px; top:auto; width:1px; height:1px; overflow:hidden">Skip to content</a>
+  <header>
+    <div class="container nav">
+      <div class="brand">
+        <img src="logo-primary.svg" alt="RSP Management LLC logo" class="logo" />
+        <a href="#/" aria-label="Go to home">Ryan Pretzer</a>
+      </div>
+      <nav aria-label="Primary">
+        <ul>
+          <li><a href="#/work">Work</a></li>
+          <li><a href="#/services">Services</a></li>
+          <li><a href="#/about">About</a></li>
+          <li><a href="#/contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HOME -->
+  <main id="home" class="container" data-route>
+    <section id="main" class="hero" aria-labelledby="h1">
+      <p class="eyebrow">RSP Management LLC</p>
+      <h1 id="h1">I make complex products simple.<br/>Product leadership • AI tooling • Mobile.</h1>
+      <p class="lede">I’m Ryan Pretzer — a product leader who ships. I build clear roadmaps, align teams, and get working software into users’ hands. Hire me as your fractional Head of Product, or browse selected work below.</p>
+      <div class="cta">
+        <a class="btn" href="#/services" data-cta="hero-primary">Hire me fractionally</a>
+        <a class="btn secondary" href="#/work" data-cta="hero-secondary">See recent work</a>
+      </div>
     </section>
-    
-    <!-- Professional Experience -->
-    <section id="experience" class="py-20 px-6 bg-gray-50">
-        <div class="max-w-4xl mx-auto">
-            <h2 class="text-3xl font-bold mb-12">Professional Experience</h2>
-            
-            <div class="space-y-12">
-                <!-- Current Role -->
-                <div class="relative pl-8 before:absolute before:left-0 before:top-2 before:w-2 before:h-2 before:bg-success before:rounded-full">
-                    <div class="flex justify-between items-start mb-2">
-                        <h3 class="text-xl font-semibold">Head of UX Design</h3>
-                        <span class="text-text-secondary">2023 - Now</span>
-                    </div>
-                    <p class="text-text-secondary mb-2">Blue Book Services  • New York</p>
-                    <p class="text-text-secondary">
-                        Leading the design vision for B2B produce industry platform, implementing AI-driven 
-                        research methodologies and building design systems for scalable growth.
-                    </p>
-                </div>
-                
-                <!-- Previous Roles -->
-                <div class="relative pl-8 before:absolute before:left-0 before:top-2 before:w-2 before:h-2 before:bg-gray-400 before:rounded-full">
-                    <div class="flex justify-between items-start mb-2">
-                        <h3 class="text-xl font-semibold">UX Design Manager, Platform Lead </h3>
-                        <span class="text-text-secondary">2021 - 2023</span>
-                    </div>
-                    <p class="text-text-secondary mb-2">View The Space  • New York</p>
-                    <p class="text-text-secondary">
-                        Transformed commercial real estate platform through innovative design solutions, 
-                        leading a team of designers and engineers to reimagine property discovery workflows.
-                    </p>
-                </div>
-                
-                <div class="relative pl-8 before:absolute before:left-0 before:top-2 before:w-2 before:h-2 before:bg-gray-400 before:rounded-full">
-                    <div class="flex justify-between items-start mb-2">
-                        <h3 class="text-xl font-semibold">VP of UX, Design Systems Lead </h3>
-                        <span class="text-text-secondary">2018 - 2021</span>
-                    </div>
-                    <p class="text-text-secondary mb-2">JPMorgan Chase  • New York</p>
-                    <p class="text-text-secondary">
-                        Built and scaled enterprise design system serving 50+ products across investment banking, 
-                        establishing design operations and governance frameworks.
-                    </p>
-                </div>
-                
-                <div class="relative pl-8 before:absolute before:left-0 before:top-2 before:w-2 before:h-2 before:bg-gray-400 before:rounded-full">
-                    <div class="flex justify-between items-start mb-2">
-                        <h3 class="text-xl font-semibold">Senior UX Designer & Engineer</h3>
-                        <span class="text-text-secondary">2014 - 2018</span>
-                    </div>
-                    <p class="text-text-secondary mb-2">Vidyo  • New Jersey</p>
-                    <p class="text-text-secondary">
-                        Designed unified communication platform for healthcare and enterprise, 
-                        bridging design and engineering to deliver video collaboration solutions.
-                    </p>
-                </div>
-                
-                <div class="relative pl-8 before:absolute before:left-0 before:top-2 before:w-2 before:h-2 before:bg-gray-400 before:rounded-full">
-                    <div class="flex justify-between items-start mb-2">
-                        <h3 class="text-xl font-semibold">Program Analyst Developer </h3>
-                        <span class="text-text-secondary">2009 - 2013</span>
-                    </div>
-                    <p class="text-text-secondary mb-2">Goldman Sachs  • Bangalore</p>
-                    <p class="text-text-secondary">
-                        Developed trading platforms and risk management systems, discovering 
-                        passion for user experience through complex financial interfaces.
-                    </p>
-                </div>
-            </div>
-        </div>
+
+    <section class="section" aria-labelledby="feat">
+      <h2 id="feat">Selected Work</h2>
+      <p class="lede">A concise index. Each tile opens a lightweight case overview.</p>
+      <div id="featured-grid" class="grid" aria-live="polite"></div>
     </section>
-    
-    <!-- Education -->
-    <section id="education" class="py-20 px-6">
-        <div class="max-w-4xl mx-auto">
-            <h2 class="text-3xl font-bold mb-12">Education</h2>
-            
-            <div class="space-y-8">
-                <div>
-                    <h3 class="text-xl font-semibold">Masters of Human-Computer Interaction </h3>
-                    <p class="text-text-secondary">Carnegie Mellon University  • 2014</p>
-                </div>
-                
-                <div>
-                    <h3 class="text-xl font-semibold">Bachelor of Technology </h3>
-                    <p class="text-text-secondary">Motilal Nehru National Institute of Technology  • 2009</p>
-                </div>
-            </div>
-        </div>
+  </main>
+
+  <!-- WORK -->
+  <main id="work" class="container" data-route>
+    <section class="section">
+      <h2>Work</h2>
+      <p class="lede">Strategy, systems, and shipping. Filter to skim quickly.</p>
+      <div class="filters" role="toolbar" aria-label="Filter work by category">
+        <button class="chip" data-filter="all" aria-pressed="true">All</button>
+        <button class="chip" data-filter="Product">Product</button>
+        <button class="chip" data-filter="Mobile">Mobile</button>
+        <button class="chip" data-filter="Design Systems">Design Systems</button>
+        <button class="chip" data-filter="AI">AI</button>
+        <button class="chip" data-filter="Writing">Writing</button>
+      </div>
+      <div id="work-grid" class="grid"></div>
     </section>
-    
-    <!-- Side Projects -->
-    <section id="projects" class="py-20 px-6 bg-gray-50">
-        <div class="max-w-4xl mx-auto">
-            <h2 class="text-3xl font-bold mb-12">Side Projects</h2>
-            
-            <div class="grid md:grid-cols-2 gap-8">
-                <div class="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow">
-                    <h3 class="text-xl font-semibold mb-3">Eatlas </h3>
-                    <p class="text-text-secondary mb-4">
-                        Wondering what to eat? Where does a dish come from? 
-                        What to eat when traveling? A food discovery app that connects culture with cuisine.
-                    </p>
-                    <a href="#" class="text-info hover:underline inline-flex items-center">
-                        View Project <i data-feather="arrow-up-right" class="ml-1 w-4 h-4"></i>
-                    </a>
-                </div>
-                
-                <div class="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow">
-                    <h3 class="text-xl font-semibold mb-3">PresqueVu</h3>
-                    <p class="text-text-secondary mb-4">
-                        Memory assistant app for meetings that helps professionals 
-                        capture and recall important discussions effortlessly.
-                    </p>
-                    <a href="#" class="text-info hover:underline inline-flex items-center">
-                        View Project <i data-feather="arrow-up-right" class="ml-1 w-4 h-4"></i>
-                    </a>
-                </div>
-                
-                <div class="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow">
-                    <h3 class="text-xl font-semibold mb-3">Mobile Notification System</h3>
-                    <p class="text-text-secondary mb-4">
-                        B2B communication platform that streamlines enterprise 
-                        messaging with intelligent notification management.
-                    </p>
-                    <a href="#" class="text-info hover:underline inline-flex items-center">
-                        View Project <i data-feather="arrow-up-right" class="ml-1 w-4 h-4"></i>
-                    </a>
-                </div>
-                
-                <div class="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow">
-                    <h3 class="text-xl font-semibold mb-3">Design System</h3>
-                    <p class="text-text-secondary mb-4">
-                        Comprehensive design system with tokens, components, 
-                        and patterns for scalable product development.
-                    </p>
-                    <a href="design-system.html" class="text-info hover:underline inline-flex items-center">
-                        View System <i data-feather="arrow-right" class="ml-1 w-4 h-4"></i>
-                    </a>
-                </div>
-            </div>
-        </div>
+  </main>
+
+  <!-- SERVICES -->
+  <main id="services" class="container" data-route>
+    <section class="section">
+      <h2>Fractional Services</h2>
+      <p class="lede">Offered via <strong>RSP Management LLC</strong>. Clear scopes. Weekly cadence. Measurable outcomes.</p>
+      <div class="services">
+        <article class="service">
+          <h3>Fractional Head of Product</h3>
+          <p>Own the roadmap, outcomes, and cross‑functional delivery for 1–2 product lines.</p>
+          <ul>
+            <li>North star metrics & OKRs</li>
+            <li>Backlog strategy & release planning</li>
+            <li>Stakeholder alignment & comms</li>
+            <li>Team rituals that actually help</li>
+          </ul>
+        </article>
+        <article class="service">
+          <h3>Delivery Accelerator (Mobile)</h3>
+          <p>Get iOS & Android teams unblocked and shipping predictably.</p>
+          <ul>
+            <li>Design system guidelines → dev handoff</li>
+            <li>Architecture runway & dependency upgrades</li>
+            <li>Defect burn‑down & test strategy</li>
+            <li>Dashboards: flow, risk, velocity</li>
+          </ul>
+        </article>
+        <article class="service">
+          <h3>Agentic AI & Automation</h3>
+          <p>Pragmatic AI to reduce cycle time: job pipelines, research agents, internal tools.</p>
+          <ul>
+            <li>Discovery & feasibility</li>
+            <li>Proofs of concept → pilot</li>
+            <li>Governance, safety, and UX</li>
+            <li>Docs & hand‑off</li>
+          </ul>
+        </article>
+      </div>
+      <div class="cta" style="margin-top:24px">
+        <a class="btn" href="#/contact" data-cta="services-primary">Request availability</a>
+        <a class="btn secondary" href="#/work" data-cta="services-secondary">Browse work</a>
+      </div>
     </section>
-    
-    <!-- Skills -->
-    <section id="skills" class="py-20 px-6">
-        <div class="max-w-4xl mx-auto">
-            <h2 class="text-3xl font-bold mb-12">Skills & Expertise</h2>
-            
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div>
-                    <h3 class="text-xl font-semibold mb-4">Strategic Leadership</h3>
-                    <ul class="space-y-2 text-text-secondary">
-                        <li>• Conscious AI Integration </li>
-                        <li>• UX Strategy </li>
-                        <li>• Design Leadership </li>
-                        <li>• Team Mentorship</li>
-                    </ul>
-                </div>
-                
-                <div>
-                    <h3 class="text-xl font-semibold mb-4">Design Execution</h3>
-                    <ul class="space-y-2 text-text-secondary">
-                        <li>• AI-driven Research </li>
-                        <li>• User Research </li>
-                        <li>• Information Architecture </li>
-                        <li>• Interaction Design </li>
-                    </ul>
-                </div>
-                
-                <div>
-                    <h3 class="text-xl font-semibold mb-4">Technical Proficiency</h3>
-                    <ul class="space-y-2 text-text-secondary">
-                        <li>• AI Prompt Engineering </li>
-                        <li>• Figma, Adobe Suite </li>
-                        <li>• HTML/CSS, JavaScript </li>
-                        <li>• React, Vue, Webflow </li>
-                    </ul>
-                </div>
-                
-                <div>
-                    <h3 class="text-xl font-semibold mb-4">Industry Expertise</h3>
-                    <ul class="space-y-2 text-text-secondary">
-                        <li>• Financial Services </li>
-                        <li>• Unified Communication </li>
-                        <li>• Commercial Real Estate </li>
-                        <li>• Produce Industry </li>
-                    </ul>
-                </div>
-                
-                <div>
-                    <h3 class="text-xl font-semibold mb-4">Methodologies</h3>
-                    <ul class="space-y-2 text-text-secondary">
-                        <li>• Conscious Design in UX </li>
-                        <li>• Agile Development </li>
-                        <li>• Iterative Design </li>
-                        <li>• Lean UX </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
+  </main>
+
+  <!-- ABOUT -->
+  <main id="about" class="container" data-route>
+    <section class="section about">
+      <div class="avatar" aria-hidden="true">RP</div>
+      <div>
+        <h2>About</h2>
+        <p class="lede">Cleveland‑based product leader with deep experience across financial services, insurance, and AI tooling. I like clean systems, crisp writing, and teams that deliver.</p>
+        <ul>
+          <li>Product & program leadership (USAA, Progressive, others)</li>
+          <li>Mobile delivery for native iOS/Android</li>
+          <li>Design systems & documentation that scale</li>
+          <li>Agentic AI automation and developer tooling</li>
+        </ul>
+        <p>Elsewhere: <a href="https://www.linkedin.com/in/ryanpretzer" target="_blank" rel="noopener">LinkedIn</a> · <a href="mailto:rpretzer@gmail.com">Email</a></p>
+      </div>
     </section>
-    
-    <!-- Thought Leadership -->
-    <section id="articles" class="py-20 px-6 bg-gray-50">
-        <div class="max-w-4xl mx-auto">
-            <h2 class="text-3xl font-bold mb-12">Thought Leadership</h2>
-            
-            <div class="space-y-6">
-                <article class="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow">
-                    <h3 class="text-xl font-semibold mb-2">
-                        Chakra System: A framework for Conscious Design 
-                    </h3>
-                    <p class="text-text-secondary mb-4">
-                        Exploring how ancient wisdom meets modern UX through a holistic design framework 
-                        that considers human consciousness in digital experiences.
-                    </p>
-                    <a href="#" class="text-info hover:underline inline-flex items-center">
-                        Read Article <i data-feather="arrow-up-right" class="ml-1 w-4 h-4"></i>
-                    </a>
-                </article>
-                
-                <article class="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow">
-                    <h3 class="text-xl font-semibold mb-2">
-                        Conscious Design vs Other UX Methodologies 
-                    </h3>
-                    <p class="text-text-secondary mb-4">
-                        A comparative analysis of conscious design principles against traditional 
-                        user-centered design methodologies.
-                    </p>
-                    <a href="#" class="text-info hover:underline inline-flex items-center">
-                        Read Article <i data-feather="arrow-up-right" class="ml-1 w-4 h-4"></i>
-                    </a>
-                </article>
-                
-                <article class="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow">
-                    <h3 class="text-xl font-semibold mb-2">
-                        The Next Frontier is 'Within'
-                    </h3>
-                    <p class="text-text-secondary mb-4">
-                        How conscious design creates connected humanity through mindful digital experiences 
-                        that honor human values and wellbeing.
-                    </p>
-                    <a href="#" class="text-info hover:underline inline-flex items-center">
-                        Read Article <i data-feather="arrow-up-right" class="ml-1 w-4 h-4"></i>
-                    </a>
-                </article>
-            </div>
+  </main>
+
+  <!-- CONTACT (Netlify form) -->
+  <main id="contact" class="container" data-route>
+    <section class="section">
+      <h2>Contact</h2>
+      <p class="lede">Tell me a bit about your product and timeline. I’ll reply within one business day.</p>
+      <form name="contact" id="contactForm" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/#/thanks" style="display:grid; gap:12px; max-width:720px">
+        <input type="hidden" name="form-name" value="contact">
+        <p style="display:none">
+          <label>Don’t fill this out: <input name="bot-field"/></label>
+        </p>
+        <label> Name <br><input required name="name" autocomplete="name" placeholder="Your name" style="width:100%; padding:12px; border:1px solid var(--soft); border-radius:12px"></label>
+        <label> Email <br><input required type="email" name="email" autocomplete="email" placeholder="you@company.com" style="width:100%; padding:12px; border:1px solid var(--soft); border-radius:12px"></label>
+        <label> Company <br><input name="company" autocomplete="organization" placeholder="Company / team" style="width:100%; padding:12px; border:1px solid var(--soft); border-radius:12px"></label>
+        <label> What do you need? <br><textarea required name="needs" placeholder="Project goals, timing, constraints" rows="5" style="width:100%; padding:12px; border:1px solid var(--soft); border-radius:12px"></textarea></label>
+        <label style="display:flex; gap:10px; align-items:flex-start">
+          <input type="checkbox" name="consent" required> <span>I agree to be contacted about my inquiry and understand that this site stores the information I submit for the purpose of responding.</span>
+        </label>
+        <div class="cta">
+          <button class="btn" type="submit">Send</button>
+          <a class="btn secondary" href="mailto:rpretzer@gmail.com?subject=Fractional%20Product%20Inquiry">Or email me</a>
         </div>
+        <p id="formMsg" class="lede" role="status" aria-live="polite"></p>
+      </form>
     </section>
-    
-    <!-- Footer -->
-    <footer class="py-12 px-6 bg-black text-white">
-        <div class="max-w-4xl mx-auto text-center">
-            <p class="text-lg mb-6">
-                A seasoned design-technologist with over 15 years experience, 
-                specializing in conscious design and innovative user experiences.
-            </p>
-            
-            <div class="flex justify-center space-x-6">
-                <a href="mailto:your.email@example.com" class="hover:text-gray-300 transition-colors">
-                    <i data-feather="mail" class="w-5 h-5"></i>
-                </a>
-                <a href="Your-Name-Resume.pdf" class="hover:text-gray-300 transition-colors">
-                    <i data-feather="file-text" class="w-5 h-5"></i>
-                </a>
-                <a href="https://linkedin.com/in/yourname" class="hover:text-gray-300 transition-colors">
-                    <i data-feather="linkedin" class="w-5 h-5"></i>
-                </a>
-                <a href="https://github.com/yourname" class="hover:text-gray-300 transition-colors">
-                    <i data-feather="github" class="w-5 h-5"></i>
-                </a>
-            </div>
+  </main>
+
+  <!-- THANKS -->
+  <main id="thanks" class="container" data-route>
+    <section class="section">
+      <h2>Thanks — got your message!</h2>
+      <p class="lede">I’ll reply within one business day. If it’s urgent, email me directly: <a href="mailto:rpretzer@gmail.com">rpretzer@gmail.com</a></p>
+      <div class="cta"><a class="btn" href="#/">Back to home</a></div>
+    </section>
+  </main>
+
+  <!-- LEGAL: Terms & Privacy -->
+  <main id="terms" class="container" data-route>
+    <section class="section">
+      <h2>Terms of Use</h2>
+      <p>By accessing this website, you agree not to misuse the content or attempt to disrupt the service. All site content is provided “as is,” without warranties of any kind. To the fullest extent permitted by law, RSP Management LLC and Ryan Pretzer disclaim liability for any damages resulting from your use of the site.</p>
+      <p>Engagements for services are governed by separate written agreements. Nothing on this website constitutes an offer or guarantee of availability.</p>
+      <p>© <span class="yr"></span> RSP Management LLC. All rights reserved.</p>
+    </section>
+  </main>
+
+  <main id="privacy" class="container" data-route>
+    <section class="section">
+      <h2>Privacy Policy</h2>
+      <p>We collect the information you submit via the contact form (name, email, company, and your message) solely to respond to your inquiry. Submissions are processed by Netlify Forms and may be emailed to us. We do not sell or share this information with third parties.</p>
+      <p>We use no analytics by default. If analytics are added later, this policy will be updated to describe the data collected and provide an opt‑out.</p>
+      <p>For data access or deletion requests, contact <a href="mailto:rpretzer@gmail.com">rpretzer@gmail.com</a>.</p>
+      <p>© <span class="yr"></span> RSP Management LLC.</p>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footgrid">
+      <div>© <span id="yr"></span> Ryan Pretzer · RSP Management LLC — All rights reserved.</div>
+      <div><a href="#/about">About</a> · <a href="#/services">Services</a> · <a href="#/work">Work</a></div>
+      <div><a href="#/privacy">Privacy</a> · <a href="#/terms">Terms</a></div>
+      <div><a class="btn secondary" href="#/contact" data-cta="footer">Work together</a></div>
+    </div>
+  </footer>
+
+  <script type="application/ld+json" id="schema-org">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Ryan Pretzer",
+    "url": "https://ryanpretzer.com",
+    "jobTitle": "Product Leader",
+    "worksFor": {"@type":"Organization","name": "RSP Management LLC"}
+  }
+  </script>
+
+  <script type="module">
+  // ---- JS: small, modular, accessible ----
+  const $ = (sel, root=document) => root.querySelector(sel);
+  const $$ = (sel, root=document) => Array.from(root.querySelectorAll(sel));
+
+  const ROUTES = ["home","work","services","about","contact","thanks","privacy","terms"];
+  const WORK = [
+    {title:"Design System: Mobile UI Library", tags:["Design Systems","Mobile"], featured:true, 
+     desc:"Guidelines + components that sped up iOS/Android delivery and reduced design/dev drift.", url:"#"},
+    {title:"Agentic Job Application Pipeline", tags:["AI","Product"], featured:true, 
+     desc:"Autonomous sourcing, tailoring, and outreach with guardrails and a dashboard.", url:"#"},
+    {title:"Payments App — Release Recovery", tags:["Product","Mobile"], featured:true, 
+     desc:"Stabilized delivery, fixed planning horizon, and shipped 3 sequential releases.", url:"#"},
+    {title:"Risk & Flow Dashboards", tags:["Product"], featured:false, 
+     desc:"Live visibility into throughput, risk, and burn‑down to align leadership.", url:"#"},
+    {title:"Compose & RxJava Upgrades", tags:["Mobile"], featured:false, 
+     desc:"Impact analysis and upgrade sequencing to remove tech debt without chaos.", url:"#"},
+    {title:"Writing: Pragmatic Product", tags:["Writing"], featured:false, 
+     desc:"Essays on clarity, teams, and shipping software.", url:"#"}
+  ];
+
+  // Render helpers
+  const placeholderSVG = (label='Work') => `
+    <svg viewBox="0 0 600 360" role="img" aria-label="${label} placeholder">
+      <rect x="0" y="0" width="600" height="360" rx="18" fill="transparent" stroke="var(--soft)"/>
+      <g font-family="Inter" font-size="42" font-weight="800" fill="currentColor">
+        <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle">${label}</text>
+      </g>
+    </svg>`;
+
+  const cardTemplate = (item) => `
+    <article class="card" tabindex="0" aria-label="${item.title}">
+      <a href="${item.url}" style="text-decoration:none">
+        <div class="thumb" aria-hidden="true">${placeholderSVG(item.tags[0])}</div>
+        <div class="body">
+          <h3 style="margin:0 0 6px; font-size:18px">${item.title}</h3>
+          <p style="margin:0; color:var(--muted)">${item.desc}</p>
+          <div class="tags">${item.tags.map(t=>`<span class='tag'>${t}</span>`).join('')}</div>
         </div>
-    </footer>
-    
-    <script src="script.js"></script>
+      </a>
+    </article>`;
+
+  function renderWork(){
+    const workGrid = $('#work-grid');
+    if (workGrid) workGrid.innerHTML = WORK.map(cardTemplate).join('');
+    const featGrid = $('#featured-grid');
+    if (featGrid){ featGrid.innerHTML = WORK.filter(w=>w.featured).map(cardTemplate).join(''); }
+  }
+
+  function initFilters(){
+    const buttons = $$('.chip');
+    buttons.forEach(btn=>btn.addEventListener('click',()=>{
+      buttons.forEach(b=>{ b.classList.remove('active'); b.setAttribute('aria-pressed','false'); });
+      btn.classList.add('active'); btn.setAttribute('aria-pressed','true');
+      const k = btn.dataset.filter;
+      const items = k==='all' ? WORK : WORK.filter(w=>w.tags.includes(k));
+      const grid = $('#work-grid'); if(grid) grid.innerHTML = items.map(cardTemplate).join('');
+    }));
+  }
+
+  function router(){
+    const hash = location.hash.replace('#/','') || '';
+    const target = ROUTES.includes(hash) ? hash : 'home';
+    $('[aria-current]')?.removeAttribute('aria-current');
+    $$('nav a').forEach(a=>{ if(a.getAttribute('href')===`#/${target}`){ a.setAttribute('aria-current','page'); }});
+    $$('[data-route]').forEach(el => el.classList.remove('active'));
+    document.getElementById(target)?.classList.add('active');
+  }
+
+  // Init
+  document.querySelectorAll('.yr').forEach(el=>el.textContent = new Date().getFullYear());
+  $('#yr') && ($('#yr').textContent = new Date().getFullYear());
+  renderWork();
+  initFilters();
+  router();
+  addEventListener('hashchange', router);
+  </script>
 </body>
 </html>

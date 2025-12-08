@@ -2,6 +2,29 @@
 const $ = (sel, root=document) => root.querySelector(sel);
 const $$ = (sel, root=document) => Array.from(root.querySelectorAll(sel));
 
+// Social icon SVGs
+const SOCIAL_ICONS = {
+  linkedin: '<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M 6 9 L 6 18 M 6 6 L 6 6.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M 10 9 L 10 18 M 10 13 Q 10 9, 14 9 Q 18 9, 18 13 L 18 18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>',
+  instagram: '<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M 7 4 Q 4 4, 4 7 L 4 17 Q 4 20, 7 20 L 17 20 Q 20 20, 20 17 L 20 7 Q 20 4, 17 4 Z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="17" cy="7" r="0.5" fill="currentColor"/></svg>',
+  email: '<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M 4 6 L 20 6 L 20 18 L 4 18 Z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M 4 6 Q 12 12, 20 6" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>'
+};
+
+// Replace img-based social icons with inline SVGs
+function initSocialIcons() {
+  $$('.social-icon img').forEach(img => {
+    const src = img.getAttribute('src') || '';
+    let iconType = null;
+    if (src.includes('linkedin')) iconType = 'linkedin';
+    else if (src.includes('instagram')) iconType = 'instagram';
+    else if (src.includes('email')) iconType = 'email';
+    
+    if (iconType && SOCIAL_ICONS[iconType]) {
+      const parent = img.parentElement;
+      parent.innerHTML = SOCIAL_ICONS[iconType];
+    }
+  });
+}
+
 // Toast helpers
 let toastEl;
 function ensureToast(){
@@ -222,6 +245,9 @@ document.addEventListener('DOMContentLoaded', () => {
   
   // Initialize contact form handler
   initContactForm();
+  
+  // Initialize social icons
+  initSocialIcons();
   
   // Render work grids if present
   renderWork();

@@ -34,25 +34,15 @@
   <main id="main" class="container">
     <section class="section">
       <h1>Contact</h1>
-      <p class="lede">Tell me a bit about your product and timeline. I'll reply within one business day.</p>
-      <form name="contact" id="contactForm" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/thanks.html" style="display:grid; gap:12px; max-width:720px">
-        <input type="hidden" name="form-name" value="contact">
-        <p style="display:none">
-          <label>Don't fill this out: <input name="bot-field"/></label>
-        </p>
-        <label> Name <br><input required name="name" autocomplete="name" placeholder="Your name" style="width:100%; padding:12px; border:1px solid var(--soft); border-radius:12px"></label>
-        <label> Email <br><input required type="email" name="email" autocomplete="email" placeholder="you@company.com" style="width:100%; padding:12px; border:1px solid var(--soft); border-radius:12px"></label>
-        <label> Company <br><input name="company" autocomplete="organization" placeholder="Company / team" style="width:100%; padding:12px; border:1px solid var(--soft); border-radius:12px"></label>
-        <label> What do you need? <br><textarea required name="needs" placeholder="Project goals, timing, constraints" rows="5" style="width:100%; padding:12px; border:1px solid var(--soft); border-radius:12px"></textarea></label>
-        <label style="display:flex; gap:10px; align-items:flex-start">
-          <input type="checkbox" name="consent" required> <span>I agree to be contacted about my inquiry and understand that this site stores the information I submit for the purpose of responding.</span>
-        </label>
+      <p class="lede">Quickest way: email me directly. No backend needed, so it works on GitHub Pages.</p>
+      <div style="display:grid; gap:12px; max-width:720px; padding:16px; border:1px solid var(--soft); border-radius:16px; background:var(--card); box-shadow:var(--shadow)">
+        <p style="margin:0 0 8px; color:var(--muted)">Include these so I can respond fast: goals, timing, team, and constraints.</p>
         <div class="cta">
-          <button class="btn" type="submit">Send</button>
-          <a class="btn secondary" href="mailto:rpretzer@gmail.com?subject=Fractional%20Product%20Inquiry">Or email me</a>
+          <a class="btn" href="mailto:rpretzer@gmail.com?subject=Fractional%20Product%20Inquiry&body=Name:%0ACompany:%0ATimeline:%0AGoals:%0AConstraints:%0A">Email Ryan</a>
+          <a class="btn secondary" href="/work.html">See recent work</a>
         </div>
-        <p id="formMsg" class="lede" role="status" aria-live="polite"></p>
-      </form>
+        <p style="margin:0; color:var(--muted)">If the mail client doesn’t open, copy this: <a href="mailto:rpretzer@gmail.com">rpretzer@gmail.com</a></p>
+      </div>
     </section>
   </main>
 

@@ -52,12 +52,23 @@
         </div>
         <p style="margin:0; color:var(--muted)">If forms aren’t your thing: <a href="mailto:rpretzer@gmail.com" data-toast="Email address opened">rpretzer@gmail.com</a></p>
       </form>
-      <div style="margin-top:22px; display:grid; gap:6px; color:var(--muted)">
-        <strong>Elsewhere</strong>
-        <div style="display:flex; gap:14px; flex-wrap:wrap">
-          <a href="https://www.linkedin.com/in/ryanpretzer" target="_blank" rel="noopener">LinkedIn</a>
-          <a href="https://www.instagram.com/ryanpretzer" target="_blank" rel="noopener">Instagram</a>
+      <div style="margin-top:22px; display:grid; gap:8px">
+        <strong style="color:var(--muted)">Elsewhere</strong>
+        <div class="social-links">
+          <a href="https://www.linkedin.com/in/ryanpretzer" target="_blank" rel="noopener" class="social-link">
+            <span class="social-icon"><img src="icons/social/linkedin.svg" alt="" aria-hidden="true"></span>
+            <span>LinkedIn</span>
+          </a>
+          <a href="https://www.instagram.com/ryan_pretzer" target="_blank" rel="noopener" class="social-link">
+            <span class="social-icon"><img src="icons/social/instagram.svg" alt="" aria-hidden="true"></span>
+            <span>Instagram</span>
+          </a>
+          <a href="mailto:rpretzer@gmail.com" class="social-link">
+            <span class="social-icon"><img src="icons/social/email.svg" alt="" aria-hidden="true"></span>
+            <span>Email</span>
+          </a>
         </div>
+        <p style="margin-top:4px; font-size:13px; color:var(--muted)">Instagram: design work, art, and poetry</p>
       </div>
     </section>
   </main>
@@ -67,6 +78,17 @@
       <div>© <span class="yr"></span> Ryan Pretzer · RSP Management LLC — All rights reserved.</div>
       <div><a href="/about.html">About</a> · <a href="/services.html">Services</a> · <a href="/work.html">Work</a></div>
       <div><a href="/privacy.html">Privacy</a> · <a href="/terms.html">Terms</a></div>
+      <div class="social-links" style="justify-content:flex-end">
+        <a href="https://www.linkedin.com/in/ryanpretzer" target="_blank" rel="noopener" class="social-link" aria-label="LinkedIn">
+          <span class="social-icon"><img src="icons/social/linkedin.svg" alt="" aria-hidden="true"></span>
+        </a>
+        <a href="https://www.instagram.com/ryan_pretzer" target="_blank" rel="noopener" class="social-link" aria-label="Instagram">
+          <span class="social-icon"><img src="icons/social/instagram.svg" alt="" aria-hidden="true"></span>
+        </a>
+        <a href="mailto:rpretzer@gmail.com" class="social-link" aria-label="Email">
+          <span class="social-icon"><img src="icons/social/email.svg" alt="" aria-hidden="true"></span>
+        </a>
+      </div>
       <div><a class="btn secondary" href="/contact.html" data-cta="footer">Work together</a></div>
     </div>
   </footer>

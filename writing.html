@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Essays & Newsletter — Ryan Pretzer</title>
+  <meta name="description" content="Product leadership essays and insights. Subscribe for weekly thoughts on clarity, cadence, and shipping software." />
+  <meta name="theme-color" content="#0a0a0a">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <a href="#main" class="skip">Skip to content</a>
+  
+  <header>
+    <div class="container nav">
+      <div class="brand">
+        <img src="logo-primary.svg" alt="RSP Management LLC logo" class="logo" />
+        <a href="/" aria-label="Go to home">Ryan Pretzer</a>
+      </div>
+      <nav aria-label="Primary">
+        <ul>
+          <li><a href="/work.html">Work</a></li>
+          <li><a href="/services.html">Services</a></li>
+          <li><a href="/writing.html" aria-current="page">Essays</a></li>
+          <li><a href="/about.html">About</a></li>
+          <li><a href="/contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="container">
+    <section class="section">
+      <h1>Essays & Newsletter</h1>
+      <p class="lede">Product leadership, clarity, and shipping software. Weekly thoughts on teams, roadmaps, and getting things done.</p>
+      
+      <!-- Substack Subscribe Embed -->
+      <div id="substack-embed" style="margin:32px 0; padding:24px; border:1px solid var(--soft); border-radius:16px; background:var(--card); box-shadow:var(--shadow)">
+        <p style="margin:0 0 12px; font-weight:600">Subscribe to get new essays delivered weekly</p>
+        <iframe src="https://YOUR_SUBSTACK.substack.com/embed" width="100%" height="320" style="border:1px solid var(--soft); border-radius:12px; background:var(--bg)" frameborder="0" scrolling="no"></iframe>
+        <p style="margin:12px 0 0; font-size:14px; color:var(--muted)">Or <a href="https://YOUR_SUBSTACK.substack.com" target="_blank" rel="noopener">read on Substack</a> · Free and paid tiers available</p>
+      </div>
+
+      <!-- Latest Posts Preview -->
+      <div id="latest-posts" style="margin-top:48px">
+        <h2>Latest Essays</h2>
+        <div id="posts-container" class="grid" style="margin-top:18px" aria-live="polite">
+          <p style="color:var(--muted)">Loading latest posts…</p>
+        </div>
+        <div style="margin-top:24px">
+          <a class="btn secondary" href="https://YOUR_SUBSTACK.substack.com" target="_blank" rel="noopener">View all on Substack →</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footgrid">
+      <div>© <span class="yr"></span> Ryan Pretzer · RSP Management LLC — All rights reserved.</div>
+      <div><a href="/about.html">About</a> · <a href="/services.html">Services</a> · <a href="/work.html">Work</a></div>
+      <div><a href="/privacy.html">Privacy</a> · <a href="/terms.html">Terms</a></div>
+      <div><a class="btn secondary" href="/contact.html" data-cta="footer">Work together</a></div>
+    </div>
+  </footer>
+
+  <script type="module" src="js/main.js"></script>
+  <script type="module">
+    // Load latest Substack posts via RSS
+    const SUBSTACK_URL = 'YOUR_SUBSTACK'; // Replace with your Substack handle
+    const RSS_URL = `https://${SUBSTACK_URL}.substack.com/feed`;
+    
+    async function loadLatestPosts() {
+      const container = document.getElementById('posts-container');
+      if (!container) return;
+      
+      try {
+        // Use a CORS proxy for RSS (or host your own)
+        const proxyUrl = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(RSS_URL)}`;
+        const response = await fetch(proxyUrl);
+        const data = await response.json();
+        
+        if (data.items && data.items.length > 0) {
+          const posts = data.items.slice(0, 3);
+          container.innerHTML = posts.map(post => `
+            <article class="card">
+              <div class="body">
+                <h3 style="margin:0 0 6px; font-size:18px">
+                  <a href="${post.link}" target="_blank" rel="noopener" style="text-decoration:none; color:inherit">${post.title}</a>
+                </h3>
+                <p style="margin:0; color:var(--muted); font-size:14px">${new Date(post.pubDate).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}</p>
+                <p style="margin:8px 0 0; color:var(--muted); font-size:14px; line-height:1.5">${post.contentSnippet?.substring(0, 120)}…</p>
+                <div style="margin-top:12px">
+                  <a href="${post.link}" target="_blank" rel="noopener" class="btn secondary" style="font-size:14px; padding:8px 14px">Read →</a>
+                </div>
+              </div>
+            </article>
+          `).join('');
+        } else {
+          container.innerHTML = '<p style="color:var(--muted)">No posts yet. Check back soon!</p>';
+        }
+      } catch (error) {
+        console.error('Failed to load posts:', error);
+        container.innerHTML = '<p style="color:var(--muted)">Unable to load posts. <a href="https://YOUR_SUBSTACK.substack.com" target="_blank" rel="noopener">Visit Substack directly</a>.</p>';
+      }
+    }
+    
+    loadLatestPosts();
+  </script>
+</body>
+</html>
+

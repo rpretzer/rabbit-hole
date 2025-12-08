@@ -166,6 +166,45 @@ function initContactForm(){
   });
 }
 
+// Load latest Substack essay preview
+async function loadLatestEssay() {
+  const container = document.getElementById('latest-essay-preview');
+  if (!container) return;
+  
+  const SUBSTACK_URL = 'YOUR_SUBSTACK'; // Replace with your Substack handle
+  const RSS_URL = `https://${SUBSTACK_URL}.substack.com/feed`;
+  
+  try {
+    const proxyUrl = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(RSS_URL)}`;
+    const response = await fetch(proxyUrl);
+    const data = await response.json();
+    
+    if (data.items && data.items.length > 0) {
+      const latest = data.items[0];
+      container.innerHTML = `
+        <article class="card">
+          <div class="body">
+            <h3 style="margin:0 0 6px; font-size:20px">
+              <a href="${latest.link}" target="_blank" rel="noopener" style="text-decoration:none; color:inherit">${latest.title}</a>
+            </h3>
+            <p style="margin:0; color:var(--muted); font-size:14px">${new Date(latest.pubDate).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}</p>
+            <p style="margin:12px 0 0; color:var(--muted); line-height:1.6">${latest.contentSnippet?.substring(0, 180)}…</p>
+            <div class="cta" style="margin-top:16px">
+              <a href="${latest.link}" target="_blank" rel="noopener" class="btn">Read essay →</a>
+              <a href="/writing.html" class="btn secondary">View all essays</a>
+            </div>
+          </div>
+        </article>
+      `;
+    } else {
+      container.innerHTML = '<p style="color:var(--muted)">No essays yet. <a href="/writing.html">Subscribe</a> to be notified when new ones publish.</p>';
+    }
+  } catch (error) {
+    console.error('Failed to load latest essay:', error);
+    container.innerHTML = '<p style="color:var(--muted)">Unable to load latest essay. <a href="/writing.html">Visit the essays page</a>.</p>';
+  }
+}
+
 // Initialize on page load
 document.addEventListener('DOMContentLoaded', () => {
   // Update copyright year
@@ -191,4 +230,7 @@ document.addEventListener('DOMContentLoaded', () => {
   if ($('.filters')) {
     initFilters();
   }
+  
+  // Load latest essay preview on homepage
+  loadLatestEssay();
 });

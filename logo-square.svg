@@ -1,0 +1,6 @@
+<svg width="40" height="40" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="RSP Management LLC">
+  <!-- Square logo mark for favicon/social -->
+  <rect x="4" y="4" width="32" height="32" rx="6" fill="none" stroke="currentColor" stroke-width="2"/>
+  <text x="20" y="28" font-family="IBM Plex Mono, ui-monospace" font-size="14" font-weight="700" fill="currentColor" text-anchor="middle" letter-spacing="0.1em">RSP</text>
+</svg>
+

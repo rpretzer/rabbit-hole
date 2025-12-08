@@ -1,0 +1,6 @@
+<svg width="32" height="32" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+  <!-- Favicon version -->
+  <rect x="2" y="2" width="28" height="28" rx="5" fill="none" stroke="currentColor" stroke-width="2"/>
+  <text x="16" y="23" font-family="IBM Plex Mono, ui-monospace" font-size="11" font-weight="700" fill="currentColor" text-anchor="middle" letter-spacing="0.1em">RSP</text>
+</svg>
+

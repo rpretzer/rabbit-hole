@@ -86,7 +86,8 @@ header{
 .logo{
   height:22px; 
   width:auto; 
-  display:block
+  display:block;
+  color:var(--fg)
 }
 nav ul{
   list-style:none; 

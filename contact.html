@@ -37,7 +37,6 @@
       <p class="lede">Use the form for fastest response, or grab time directly. Runs on Formspree so it works on GitHub Pages.</p>
       <form name="contact" method="POST" action="https://formspree.io/f/mkgdvzko" style="display:grid; gap:12px; max-width:720px; padding:16px; border:1px solid var(--soft); border-radius:16px; background:var(--card); box-shadow:var(--shadow)">
         <input type="hidden" name="_subject" value="New inquiry from ryanpretzer.com">
-        <input type="hidden" name="_next" value="https://ryanpretzer.com/thanks.html">
         <label> Name <br><input required name="name" autocomplete="name" placeholder="Your name" style="width:100%; padding:12px; border:1px solid var(--soft); border-radius:12px"></label>
         <label> Email <br><input required type="email" name="email" autocomplete="email" placeholder="you@company.com" style="width:100%; padding:12px; border:1px solid var(--soft); border-radius:12px"></label>
         <label> Company <br><input name="company" autocomplete="organization" placeholder="Company / team" style="width:100%; padding:12px; border:1px solid var(--soft); border-radius:12px"></label>
@@ -46,7 +45,7 @@
           <input type="checkbox" name="consent" required> <span>I agree to be contacted about my inquiry and understand this information will be emailed to Ryan.</span>
         </label>
         <div class="cta">
-          <button class="btn" type="submit" data-toast="Submitting…">Send</button>
+          <button class="btn" type="submit">Send</button>
           <a class="btn secondary" data-toast="Opening email app…" href="mailto:rpretzer@gmail.com?subject=Fractional%20Product%20Inquiry&body=Name:%0ACompany:%0ATimeline:%0AGoals:%0AConstraints:%0A">Email instead</a>
           <a class="btn secondary" data-toast="Opening Calendly…" href="https://calendly.com/rpretzer/15min">Book time</a>
         </div>

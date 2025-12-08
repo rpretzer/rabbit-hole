@@ -126,6 +126,46 @@ function initFilters(){
   });
 }
 
+// Handle Formspree form submission
+function initContactForm(){
+  const form = $('form[name="contact"]');
+  if (!form) return;
+  
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const submitBtn = form.querySelector('button[type="submit"]');
+    const originalText = submitBtn.textContent;
+    
+    // Disable button and show loading state
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Sending…';
+    
+    try {
+      const formData = new FormData(form);
+      const response = await fetch(form.action, {
+        method: 'POST',
+        body: formData,
+        headers: { 'Accept': 'application/json' }
+      });
+      
+      if (response.ok) {
+        showToast('Message sent! Redirecting…', 2000);
+        form.reset();
+        setTimeout(() => {
+          window.location.href = '/';
+        }, 2000);
+      } else {
+        const data = await response.json();
+        throw new Error(data.error || 'Submission failed');
+      }
+    } catch (error) {
+      showToast('Error sending message. Try email instead.', 4000);
+      submitBtn.disabled = false;
+      submitBtn.textContent = originalText;
+    }
+  });
+}
+
 // Initialize on page load
 document.addEventListener('DOMContentLoaded', () => {
   // Update copyright year
@@ -140,6 +180,9 @@ document.addEventListener('DOMContentLoaded', () => {
       if (msg) showToast(msg);
     });
   });
+  
+  // Initialize contact form handler
+  initContactForm();
   
   // Render work grids if present
   renderWork();

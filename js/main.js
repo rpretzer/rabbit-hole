@@ -4,46 +4,46 @@ const $$ = (sel, root=document) => Array.from(root.querySelectorAll(sel));
 
 const WORK = [
   {
-    title:"Design System: Mobile UI Library", 
-    tags:["Design Systems","Mobile"], 
+    title:"Mobile UI Library & Design System", 
+    tags:["Design Systems","Mobile","Product"], 
     featured:true, 
-    desc:"Guidelines + components that sped up iOS/Android delivery and reduced design/dev drift.", 
-    url:"#"
+    desc:"iOS/Android components, tokens, and guidance that sped up delivery and tightened quality.", 
+    url:"/work/mobile-ui-library/"
   },
   {
     title:"Agentic Job Application Pipeline", 
     tags:["AI","Product"], 
     featured:true, 
-    desc:"Autonomous sourcing, tailoring, and outreach with guardrails and a dashboard.", 
-    url:"#"
+    desc:"Autonomous sourcing, tailoring, and outreach with human-in-the-loop review and dashboards.", 
+    url:"/work/agentic-job-pipeline/"
   },
   {
     title:"Payments App — Release Recovery", 
     tags:["Product","Mobile"], 
     featured:true, 
-    desc:"Stabilized delivery, fixed planning horizon, and shipped 3 sequential releases.", 
-    url:"#"
+    desc:"Reset governance, stabilized release cadence, and shipped three on-time releases.", 
+    url:"/work/payments-release-recovery/"
   },
   {
     title:"Risk & Flow Dashboards", 
     tags:["Product"], 
     featured:false, 
-    desc:"Live visibility into throughput, risk, and burn‑down to align leadership.", 
-    url:"#"
+    desc:"Live visibility into throughput, risk, and burn‑down so leadership could steer with facts.", 
+    url:"/work/risk-flow-dashboards/"
   },
   {
     title:"Compose & RxJava Upgrades", 
     tags:["Mobile"], 
     featured:false, 
-    desc:"Impact analysis and upgrade sequencing to remove tech debt without chaos.", 
-    url:"#"
+    desc:"Sequenced Android architecture upgrades to retire tech debt without slowing delivery.", 
+    url:"/work/compose-rx-upgrades/"
   },
   {
-    title:"Writing: Pragmatic Product", 
+    title:"Pragmatic Product Essays", 
     tags:["Writing"], 
     featured:false, 
-    desc:"Essays on clarity, teams, and shipping software.", 
-    url:"#"
+    desc:"Short essays on clarity, cadence, and how to keep teams shipping.", 
+    url:"/work/pragmatic-product-essays/"
   }
 ];
 
@@ -85,6 +85,9 @@ function renderWork(){
 // Initialize filters on work page
 function initFilters(){
   const buttons = $$('.chip');
+  const defaultActive = buttons.find(btn => btn.getAttribute('aria-pressed') === 'true');
+  if (defaultActive){ defaultActive.classList.add('active'); }
+
   buttons.forEach(btn => {
     btn.addEventListener('click', () => {
       buttons.forEach(b => { 

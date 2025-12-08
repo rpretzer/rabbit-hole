@@ -1,0 +1,7 @@
+# Node / tooling
+node_modules/
+.env
+
+# System
+.DS_Store
+

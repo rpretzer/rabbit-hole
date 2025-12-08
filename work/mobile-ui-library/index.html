@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mobile UI Library & Design System — Ryan Pretzer</title>
+  <meta name="description" content="Scaled a native design system that sped up iOS and Android delivery with consistent patterns and documentation." />
+  <meta name="theme-color" content="#0a0a0a">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../css/styles.css">
+</head>
+<body>
+  <a href="#main" class="skip">Skip to content</a>
+  <header>
+    <div class="container nav">
+      <div class="brand">
+        <img src="../../logo-primary.svg" alt="RSP Management LLC logo" class="logo" />
+        <a href="/" aria-label="Go to home">Ryan Pretzer</a>
+      </div>
+      <nav aria-label="Primary">
+        <ul>
+          <li><a href="/work.html" aria-current="page">Work</a></li>
+          <li><a href="/services.html">Services</a></li>
+          <li><a href="/about.html">About</a></li>
+          <li><a href="/contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="container">
+    <section class="case-hero">
+      <p class="eyebrow">Work · Design systems · Mobile</p>
+      <h1>Mobile UI Library & Design System</h1>
+      <p class="lede">Unified tokens, components, and documentation so two mobile squads could ship consistent native experiences without bottlenecks.</p>
+      <div class="case-meta">
+        <span class="pill">Role: Product lead</span>
+        <span class="pill">Timeline: 4 months</span>
+        <span class="pill">Teams: iOS + Android + Design</span>
+      </div>
+      <div class="case-tags">
+        <span class="tag">Design Systems</span>
+        <span class="tag">Mobile</span>
+        <span class="tag">Product</span>
+      </div>
+      <div class="cta" style="margin-top:18px">
+        <a class="btn" href="/contact.html">Work together</a>
+        <a class="btn secondary" href="/work.html">Back to work</a>
+      </div>
+    </section>
+
+    <section class="case-grid">
+      <article class="case-card">
+        <h2>Situation</h2>
+        <p>Two mobile teams were shipping quickly but design drift and duplicated components slowed review cycles.</p>
+        <ul>
+          <li>Inconsistent spacing, typography, and motion between iOS and Android</li>
+          <li>Design files and code weren’t linked, creating rework during QA</li>
+          <li>New contributors lacked guidance on patterns and accessibility</li>
+        </ul>
+      </article>
+
+      <article class="case-card">
+        <h2>Approach</h2>
+        <p>Led a lightweight system that matched how the teams actually built features.</p>
+        <ul>
+          <li>Audited existing screens and created tokens for color, typography, and spacing</li>
+          <li>Shipped 40+ components in Figma with pairing guidelines to SwiftUI/Compose</li>
+          <li>Documented usage, props, and anti-patterns in a single reference site</li>
+          <li>Integrated accessibility checklists per component</li>
+        </ul>
+      </article>
+
+      <article class="case-card">
+        <h2>Toolkit</h2>
+        <ul>
+          <li>Figma libraries + tokens</li>
+          <li>SwiftUI & Jetpack Compose examples</li>
+          <li>Design review checklist and linters</li>
+          <li>Async documentation + Loom walkthroughs</li>
+        </ul>
+      </article>
+    </section>
+
+    <section class="case-outcomes">
+      <h2>Outcomes</h2>
+      <ul class="highlight-list">
+        <li>Cut design review churn by 35% by aligning tokens + components</li>
+        <li>New feature tickets referenced ready-made patterns, reducing build time</li>
+        <li>Design, iOS, and Android shipped the same UI without last-minute fixes</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footgrid">
+      <div>© <span class="yr"></span> Ryan Pretzer · RSP Management LLC — All rights reserved.</div>
+      <div><a href="/about.html">About</a> · <a href="/services.html">Services</a> · <a href="/work.html">Work</a></div>
+      <div><a href="/privacy.html">Privacy</a> · <a href="/terms.html">Terms</a></div>
+      <div><a class="btn secondary" href="/contact.html" data-cta="footer">Work together</a></div>
+    </div>
+  </footer>
+
+  <script type="module" src="../../js/main.js"></script>
+</body>
+</html>
+

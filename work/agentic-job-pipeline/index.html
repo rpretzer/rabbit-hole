@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Agentic Job Application Pipeline — Ryan Pretzer</title>
+  <meta name="description" content="Built a guarded agentic pipeline that sourced roles, tailored materials, and automated outreach with human review." />
+  <meta name="theme-color" content="#0a0a0a">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../css/styles.css">
+</head>
+<body>
+  <a href="#main" class="skip">Skip to content</a>
+  <header>
+    <div class="container nav">
+      <div class="brand">
+        <img src="../../logo-primary.svg" alt="RSP Management LLC logo" class="logo" />
+        <a href="/" aria-label="Go to home">Ryan Pretzer</a>
+      </div>
+      <nav aria-label="Primary">
+        <ul>
+          <li><a href="/work.html" aria-current="page">Work</a></li>
+          <li><a href="/services.html">Services</a></li>
+          <li><a href="/about.html">About</a></li>
+          <li><a href="/contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="container">
+    <section class="case-hero">
+      <p class="eyebrow">Work · AI · Product</p>
+      <h1>Agentic Job Application Pipeline</h1>
+      <p class="lede">Built a guarded multi-agent flow that sourced roles, tailored resumes, drafted outreach, and tracked progress with human approvals.</p>
+      <div class="case-meta">
+        <span class="pill">Role: Product + delivery</span>
+        <span class="pill">Timeline: 6 weeks</span>
+        <span class="pill">Stack: GPT-4o, vector search, Notion</span>
+      </div>
+      <div class="case-tags">
+        <span class="tag">AI</span>
+        <span class="tag">Product</span>
+        <span class="tag">Automation</span>
+      </div>
+      <div class="cta" style="margin-top:18px">
+        <a class="btn" href="/contact.html">Work together</a>
+        <a class="btn secondary" href="/work.html">Back to work</a>
+      </div>
+    </section>
+
+    <section class="case-grid">
+      <article class="case-card">
+        <h2>Situation</h2>
+        <p>Job searches were manual and inconsistent. Users needed automation without risky unsupervised outreach.</p>
+        <ul>
+          <li>Multiple job boards to monitor daily</li>
+          <li>Manual resume tailoring and follow-up emails</li>
+          <li>No consolidated view of which outreach step was next</li>
+        </ul>
+      </article>
+
+      <article class="case-card">
+        <h2>Approach</h2>
+        <p>Designed an agentic pipeline with hard stops for human approval.</p>
+        <ul>
+          <li>Agent 1: Source roles via APIs + RSS, dedupe, and score against preferences</li>
+          <li>Agent 2: Tailor resume + cover letter using a controlled prompt library</li>
+          <li>Agent 3: Draft outreach and schedule follow-ups; user approves before send</li>
+          <li>Simple dashboard: queue, approvals, and metrics</li>
+        </ul>
+      </article>
+
+      <article class="case-card">
+        <h2>Safety & Governance</h2>
+        <ul>
+          <li>Guardrails for tone, length, and company-specific facts</li>
+          <li>Deterministic prompt templates checked into version control</li>
+          <li>Event logging for every agent step</li>
+          <li>Manual override at each outbound action</li>
+        </ul>
+      </article>
+    </section>
+
+    <section class="case-outcomes">
+      <h2>Outcomes</h2>
+      <ul class="highlight-list">
+        <li>Daily sourcing dropped from ~45 minutes to under 10</li>
+        <li>Outreach accuracy improved because approvals were structured</li>
+        <li>Users could see exactly what was in-flight and what needed review</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footgrid">
+      <div>© <span class="yr"></span> Ryan Pretzer · RSP Management LLC — All rights reserved.</div>
+      <div><a href="/about.html">About</a> · <a href="/services.html">Services</a> · <a href="/work.html">Work</a></div>
+      <div><a href="/privacy.html">Privacy</a> · <a href="/terms.html">Terms</a></div>
+      <div><a class="btn secondary" href="/contact.html" data-cta="footer">Work together</a></div>
+    </div>
+  </footer>
+
+  <script type="module" src="../../js/main.js"></script>
+</body>
+</html>
+

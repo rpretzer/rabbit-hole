@@ -323,3 +323,85 @@ footer{
   outline: 2px solid var(--accent); 
   outline-offset: 2px
 }
+
+/* Case studies */
+.case-hero{
+  padding:72px 0 32px; 
+  border-bottom:1px solid var(--soft)
+}
+.case-hero h1{
+  margin:.2em 0 .25em
+}
+.case-meta{
+  display:flex; 
+  flex-wrap:wrap; 
+  gap:10px; 
+  margin:18px 0 6px
+}
+.pill{
+  display:inline-flex; 
+  align-items:center; 
+  gap:8px; 
+  padding:8px 12px; 
+  border-radius:999px; 
+  border:1px solid var(--soft); 
+  background:color-mix(in oklab, var(--bg) 85%, transparent); 
+  font-weight:600
+}
+.case-tags{
+  display:flex; 
+  gap:8px; 
+  flex-wrap:wrap
+}
+.case-grid{
+  display:grid; 
+  grid-template-columns:1fr; 
+  gap:18px; 
+  padding:32px 0
+}
+@media (min-width:900px){
+  .case-grid{
+    grid-template-columns:repeat(3, 1fr)
+  }
+  .case-card.wide{
+    grid-column:span 2
+  }
+}
+.case-card{
+  border:1px solid var(--soft); 
+  border-radius:var(--radius); 
+  padding:18px; 
+  background:var(--card); 
+  box-shadow:var(--shadow); 
+  display:flex; 
+  flex-direction:column; 
+  gap:6px
+}
+.case-card h2{
+  margin:0 0 6px
+}
+.case-card p{
+  margin:0 0 6px; 
+  color:var(--fg)
+}
+.case-card ul{
+  margin:4px 0 0 18px; 
+  color:var(--muted)
+}
+.case-outcomes{
+  padding:0 0 32px
+}
+.highlight-list{
+  list-style:none; 
+  margin:14px 0 0; 
+  padding:0; 
+  display:grid; 
+  gap:12px
+}
+.highlight-list li{
+  border:1px dashed var(--soft); 
+  border-radius:12px; 
+  padding:12px 14px; 
+  background:color-mix(in oklab, var(--bg) 88%, transparent); 
+  font-weight:600
+}

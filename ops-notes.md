@@ -1,7 +1,7 @@
 # Operations Notes
 
 ## Contact form (Formspree)
-- The form on `contact.html` posts to Formspree. Replace `YOUR_FORM_ID` in `action="https://formspree.io/f/YOUR_FORM_ID"` with your Formspree ID.
+- The form on `contact.html` posts to Formspree: `https://formspree.io/f/mkgdvzko`.
 - Keep `_next` pointing at `https://ryanpretzer.com/thanks.html` (or your custom domain) to redirect after submit.
 - Optional: add `_replyto` hidden field if you want reply-to set explicitly.
 - If you want Slack/Notion forwarding, use Zapier/Make: trigger = Formspree submission, action = Slack message + Notion row.

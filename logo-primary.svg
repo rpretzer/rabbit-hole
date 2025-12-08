@@ -1,6 +1,16 @@
 <svg width="200" height="40" viewBox="0 0 200 40" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="RSP Management LLC">
-  <!-- Minimal wordmark with subtle accent -->
-  <text x="0" y="28" font-family="Inter, system-ui, -apple-system" font-size="20" font-weight="700" fill="currentColor" letter-spacing="-0.02em">Ryan Pretzer</text>
-  <circle cx="140" cy="20" r="2" fill="currentColor" opacity="0.4"/>
-  <text x="148" y="24" font-family="IBM Plex Mono, ui-monospace" font-size="10" font-weight="600" fill="currentColor" opacity="0.7" letter-spacing="0.05em">RSP</text>
+  <!-- Logo mark: geometric RSP monogram -->
+  <g transform="translate(0, 8)">
+    <!-- R shape -->
+    <path d="M 0 0 L 0 12 L 4 12 L 4 6.5 L 7 6.5 Q 9 6.5, 9 4.5 Q 9 2.5, 7 2.5 L 4 2.5 L 4 0 Z" fill="currentColor"/>
+    <path d="M 4 4.5 L 6.5 4.5 Q 7.5 4.5, 7.5 5.5 Q 7.5 6.5, 6.5 6.5 L 4 6.5" fill="none" stroke="currentColor" stroke-width="0.5"/>
+    <!-- S shape -->
+    <path d="M 11 0 L 15 0 Q 17 0, 17 2 L 17 3.5 Q 17 5, 15 5 L 13 5 Q 12 5, 12 6 Q 12 7, 13 7 L 17 7" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M 11 12 L 15 12 Q 17 12, 17 10 L 17 8.5 Q 17 7, 15 7 L 13 7 Q 12 7, 12 6 Q 12 5, 13 5 L 17 5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <!-- P shape -->
+    <path d="M 19 0 L 19 12 L 23 12 L 23 6.5 L 26 6.5 Q 28 6.5, 28 4.5 Q 28 2.5, 26 2.5 L 23 2.5 L 23 0 Z" fill="currentColor"/>
+    <path d="M 23 4.5 L 25.5 4.5 Q 26.5 4.5, 26.5 5.5 Q 26.5 6.5, 25.5 6.5 L 23 6.5" fill="none" stroke="currentColor" stroke-width="0.5"/>
+  </g>
+  <!-- Wordmark -->
+  <text x="34" y="28" font-family="Inter, system-ui, -apple-system" font-size="18" font-weight="700" fill="currentColor" letter-spacing="-0.02em">Ryan Pretzer</text>
 </svg>

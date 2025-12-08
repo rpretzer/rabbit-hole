@@ -2,6 +2,22 @@
 const $ = (sel, root=document) => root.querySelector(sel);
 const $$ = (sel, root=document) => Array.from(root.querySelectorAll(sel));
 
+// Toast helpers
+let toastEl;
+function ensureToast(){
+  if (!toastEl){
+    toastEl = document.createElement('div');
+    toastEl.className = 'toast';
+    document.body.appendChild(toastEl);
+  }
+}
+function showToast(message='Done', duration=2200){
+  ensureToast();
+  toastEl.textContent = message;
+  toastEl.classList.add('show');
+  setTimeout(() => toastEl.classList.remove('show'), duration);
+}
+
 const WORK = [
   {
     title:"Mobile UI Library & Design System", 
@@ -115,6 +131,14 @@ document.addEventListener('DOMContentLoaded', () => {
   // Update copyright year
   $$('.yr').forEach(el => {
     el.textContent = new Date().getFullYear();
+  });
+
+  // Toast triggers
+  $$('[data-toast]').forEach(el => {
+    el.addEventListener('click', () => {
+      const msg = el.getAttribute('data-toast');
+      if (msg) showToast(msg);
+    });
   });
   
   // Render work grids if present

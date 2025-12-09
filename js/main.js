@@ -228,6 +228,62 @@ async function loadLatestEssay() {
   }
 }
 
+// Mobile menu toggle
+function initMobileMenu() {
+  const toggle = $('.menu-toggle');
+  const nav = $('#primary-nav');
+  if (!toggle || !nav) return;
+  
+  // Set initial state for mobile
+  if (window.innerWidth < 640) {
+    nav.setAttribute('aria-hidden', 'true');
+  }
+  
+  toggle.addEventListener('click', () => {
+    const isExpanded = toggle.getAttribute('aria-expanded') === 'true';
+    toggle.setAttribute('aria-expanded', !isExpanded);
+    nav.setAttribute('aria-hidden', isExpanded);
+    
+    // Prevent body scroll when menu is open
+    if (!isExpanded) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+  });
+  
+  // Close menu when clicking nav links on mobile
+  $$('nav a').forEach(link => {
+    link.addEventListener('click', () => {
+      if (window.innerWidth < 640) {
+        toggle.setAttribute('aria-expanded', 'false');
+        nav.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+      }
+    });
+  });
+  
+  // Close menu on escape key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && toggle.getAttribute('aria-expanded') === 'true') {
+      toggle.setAttribute('aria-expanded', 'false');
+      nav.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+      toggle.focus();
+    }
+  });
+  
+  // Handle window resize
+  window.addEventListener('resize', () => {
+    if (window.innerWidth >= 640) {
+      nav.removeAttribute('aria-hidden');
+      document.body.style.overflow = '';
+    } else if (toggle.getAttribute('aria-expanded') === 'false') {
+      nav.setAttribute('aria-hidden', 'true');
+    }
+  });
+}
+
 // Initialize on page load
 document.addEventListener('DOMContentLoaded', () => {
   // Update copyright year
@@ -242,6 +298,9 @@ document.addEventListener('DOMContentLoaded', () => {
       if (msg) showToast(msg);
     });
   });
+  
+  // Initialize mobile menu
+  initMobileMenu();
   
   // Initialize contact form handler
   initContactForm();

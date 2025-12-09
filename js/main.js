@@ -234,9 +234,12 @@ function initMobileMenu() {
   const nav = $('#primary-nav');
   if (!toggle || !nav) return;
   
-  // Set initial state for mobile
-  if (window.innerWidth < 640) {
+  // Set initial state - always start hidden on mobile
+  const isMobile = window.innerWidth < 640;
+  if (isMobile) {
     nav.setAttribute('aria-hidden', 'true');
+  } else {
+    nav.removeAttribute('aria-hidden');
   }
   
   toggle.addEventListener('click', () => {

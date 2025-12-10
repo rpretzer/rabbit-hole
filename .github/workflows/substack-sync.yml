@@ -3,9 +3,9 @@ name: Check Substack for New Posts
 on:
   # Manual trigger
   workflow_dispatch:
-  # Run every 30 minutes
+  # Run twice daily (9 AM and 9 PM UTC)
   schedule:
-    - cron: '*/30 * * * *'
+    - cron: '0 9,21 * * *'
   # Also run on push to main (in case you want to manually trigger)
   push:
     branches:

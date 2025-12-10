@@ -1,0 +1,85 @@
+name: Check Substack for New Posts
+
+on:
+  # Manual trigger
+  workflow_dispatch:
+  # Run every 30 minutes
+  schedule:
+    - cron: '*/30 * * * *'
+  # Also run on push to main (in case you want to manually trigger)
+  push:
+    branches:
+      - main
+    paths:
+      - '.github/workflows/substack-sync.yml'
+
+jobs:
+  check-and-update:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      
+      - name: Fetch Substack RSS
+        id: fetch-rss
+        run: |
+          RSS_URL="https://rspmgmt.substack.com/feed"
+          PROXY_URL="https://api.rss2json.com/v1/api.json?rss_url=$(echo $RSS_URL | jq -sRr @uri)"
+          
+          echo "Fetching latest posts from Substack..."
+          RESPONSE=$(curl -s "$PROXY_URL")
+          
+          # Extract latest post date
+          LATEST_DATE=$(echo "$RESPONSE" | jq -r '.items[0].pubDate // empty')
+          LATEST_TITLE=$(echo "$RESPONSE" | jq -r '.items[0].title // empty')
+          
+          if [ -n "$LATEST_DATE" ]; then
+            echo "Latest post: $LATEST_TITLE"
+            echo "Published: $LATEST_DATE"
+            echo "latest_date=$LATEST_DATE" >> $GITHUB_OUTPUT
+            echo "latest_title=$LATEST_TITLE" >> $GITHUB_OUTPUT
+          else
+            echo "No posts found or error fetching RSS"
+            exit 1
+          fi
+      
+      - name: Check if update needed
+        id: check-update
+        run: |
+          # Get the last checked date from a file (or use current time as fallback)
+          if [ -f ".substack-last-check" ]; then
+            LAST_CHECK=$(cat .substack-last-check)
+            LATEST_DATE="${{ steps.fetch-rss.outputs.latest_date }}"
+            
+            if [ "$LATEST_DATE" != "$LAST_CHECK" ]; then
+              echo "New post detected! Updating..."
+              echo "$LATEST_DATE" > .substack-last-check
+              echo "update_needed=true" >> $GITHUB_OUTPUT
+              git config user.name "github-actions[bot]"
+              git config user.email "github-actions[bot]@users.noreply.github.com"
+              git add .substack-last-check
+              git commit -m "Update: New Substack post detected" || exit 0
+              git push
+            else
+              echo "No new posts since last check"
+              echo "update_needed=false" >> $GITHUB_OUTPUT
+            fi
+          else
+            # First run - just record the current latest
+            echo "${{ steps.fetch-rss.outputs.latest_date }}" > .substack-last-check
+            echo "update_needed=true" >> $GITHUB_OUTPUT
+            git config user.name "github-actions[bot]"
+            git config user.email "github-actions[bot]@users.noreply.github.com"
+            git add .substack-last-check
+            git commit -m "Initialize Substack sync tracking" || exit 0
+            git push
+          fi
+      
+      - name: Summary
+        if: always()
+        run: |
+          echo "## Substack Sync Check" >> $GITHUB_STEP_SUMMARY
+          echo "- Latest post: ${{ steps.fetch-rss.outputs.latest_title }}" >> $GITHUB_STEP_SUMMARY
+          echo "- Published: ${{ steps.fetch-rss.outputs.latest_date }}" >> $GITHUB_STEP_SUMMARY
+          echo "- Update needed: ${{ steps.check-update.outputs.update_needed }}" >> $GITHUB_STEP_SUMMARY
+

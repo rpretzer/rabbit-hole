@@ -1,24 +1,12 @@
-<svg width="120" height="40" viewBox="0 0 120 40" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="RSP Management LLC">
-  <!-- Neon-style RSP logo with rounded rectangle border -->
-  <defs>
-    <filter id="glow">
-      <feGaussianBlur stdDeviation="1.5" result="coloredBlur"/>
-      <feMerge>
-        <feMergeNode in="coloredBlur"/>
-        <feMergeNode in="SourceGraphic"/>
-      </feMerge>
-    </filter>
-  </defs>
-  <!-- Rounded rectangle border -->
-  <rect x="2" y="2" width="116" height="36" rx="8" fill="none" stroke="#ffffff" stroke-width="2" filter="url(#glow)" opacity="0.95"/>
-  <!-- RSP letters -->
-  <text x="60" y="28" font-family="Inter, system-ui, -apple-system, sans-serif" font-size="20" font-weight="700" fill="#ffffff" text-anchor="middle" letter-spacing="2" filter="url(#glow)" opacity="0.95">RSP</text>
+<svg width="40" height="40" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="RSP Management LLC">
+  <!-- Clean rounded square with RSP wordmark -->
+  <rect x="2" y="2" width="36" height="36" rx="6" fill="none" stroke="#ffffff" stroke-width="2"/>
+  <text x="20" y="26" font-family="Inter, system-ui, -apple-system, sans-serif" font-size="14" font-weight="700" fill="#ffffff" text-anchor="middle" letter-spacing="1">RSP</text>
   <style>
     @media (prefers-color-scheme: light) {
       rect, text { 
         stroke: #0a0a0a !important;
         fill: #0a0a0a !important;
-        filter: none !important;
       }
     }
   </style>

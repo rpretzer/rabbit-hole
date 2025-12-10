@@ -45,8 +45,8 @@
       <!-- Substack Subscribe Embed -->
       <div id="substack-embed" style="margin:32px 0; padding:24px; border:1px solid var(--soft); border-radius:16px; background:var(--card); box-shadow:var(--shadow)">
         <p style="margin:0 0 12px; font-weight:600">Subscribe to get new essays delivered weekly</p>
-        <iframe src="https://ryanpretzer.substack.com/embed" width="100%" height="320" style="border:1px solid var(--soft); border-radius:12px; background:var(--bg)" frameborder="0" scrolling="no"></iframe>
-        <p style="margin:12px 0 0; font-size:14px; color:var(--muted)">Or <a href="https://ryanpretzer.substack.com" target="_blank" rel="noopener">read on Substack</a> · Free and paid tiers available</p>
+        <iframe src="https://rspmgmt.substack.com/embed" width="100%" height="320" style="border:1px solid var(--soft); border-radius:12px; background:var(--bg)" frameborder="0" scrolling="no"></iframe>
+        <p style="margin:12px 0 0; font-size:14px; color:var(--muted)">Or <a href="https://rspmgmt.substack.com" target="_blank" rel="noopener">read on Substack</a> · Free and paid tiers available</p>
       </div>
 
       <!-- Latest Posts Preview -->
@@ -56,7 +56,7 @@
           <p style="color:var(--muted)">Loading latest posts…</p>
         </div>
         <div style="margin-top:24px">
-          <a class="btn secondary" href="https://ryanpretzer.substack.com" target="_blank" rel="noopener">View all on Substack →</a>
+          <a class="btn secondary" href="https://rspmgmt.substack.com" target="_blank" rel="noopener">View all on Substack →</a>
         </div>
       </div>
     </section>
@@ -85,7 +85,7 @@
   <script type="module" src="js/main.js"></script>
   <script type="module">
     // Load latest Substack posts via RSS
-    const SUBSTACK_URL = 'ryanpretzer';
+    const SUBSTACK_URL = 'rspmgmt';
     const RSS_URL = `https://${SUBSTACK_URL}.substack.com/feed`;
     
     async function loadLatestPosts() {
@@ -119,7 +119,7 @@
         }
       } catch (error) {
         console.error('Failed to load posts:', error);
-        container.innerHTML = '<p style="color:var(--muted)">Unable to load posts. <a href="https://ryanpretzer.substack.com" target="_blank" rel="noopener">Visit Substack directly</a>.</p>';
+        container.innerHTML = '<p style="color:var(--muted)">Unable to load posts. <a href="https://rspmgmt.substack.com" target="_blank" rel="noopener">Visit Substack directly</a>.</p>';
       }
     }
     

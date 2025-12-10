@@ -194,7 +194,7 @@ async function loadLatestEssay() {
   const container = document.getElementById('latest-essay-preview');
   if (!container) return;
   
-  const SUBSTACK_URL = 'ryanpretzer';
+  const SUBSTACK_URL = 'rspmgmt';
   const RSS_URL = `https://${SUBSTACK_URL}.substack.com/feed`;
   
   try {

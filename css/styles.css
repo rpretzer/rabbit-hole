@@ -92,7 +92,7 @@ header{
   }
 }
 .logo{
-  height:22px; 
+  height:32px; 
   width:auto; 
   display:block;
   color:var(--fg)

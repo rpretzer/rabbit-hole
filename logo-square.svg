@@ -1,28 +1,25 @@
 <svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="RSP Management LLC">
-  <!-- Rounded square logo with clearly legible RSP -->
-  <g transform="translate(30, 30)">
-    <rect x="0" y="0" width="140" height="140" rx="24" fill="none" stroke="#0a0a0a" stroke-width="5"/>
-    <g transform="translate(20, 20)">
-      <!-- R - clearly formed with organic curves -->
-      <path d="M 0 0 L 0 48 L 14 48 L 14 26 Q 14 20, 20 20 Q 26 20, 26 26 Q 26 32, 20 32 L 14 32" 
-            fill="none" stroke="#0a0a0a" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
-      <path d="M 14 26 L 20 26 Q 26 26, 26 30 Q 26 34, 20 34 L 14 34" 
-            fill="none" stroke="#0a0a0a" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
-      <!-- S - flowing but clearly readable -->
-      <path d="M 34 0 Q 42 0, 42 8 L 42 14 Q 42 20, 34 20 L 28 20 Q 24 20, 24 24 Q 24 28, 28 28 L 42 28" 
-            fill="none" stroke="#0a0a0a" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
-      <path d="M 34 48 Q 42 48, 42 40 L 42 34 Q 42 28, 34 28 L 28 28 Q 24 28, 24 24 Q 24 20, 28 20 L 42 20" 
-            fill="none" stroke="#0a0a0a" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
-      <!-- P - clearly formed -->
-      <path d="M 50 0 L 50 48 L 64 48 L 64 26 Q 64 20, 70 20 Q 76 20, 76 26 Q 76 32, 70 32 L 64 32" 
-            fill="none" stroke="#0a0a0a" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
-      <path d="M 64 26 L 70 26 Q 76 26, 76 30 Q 76 34, 70 34 L 64 34" 
-            fill="none" stroke="#0a0a0a" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
-    </g>
-  </g>
+  <!-- Square neon-style RSP logo -->
+  <defs>
+    <filter id="glow-square">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  <!-- Rounded square border -->
+  <rect x="20" y="20" width="160" height="160" rx="24" fill="none" stroke="#ffffff" stroke-width="5" filter="url(#glow-square)" opacity="0.95"/>
+  <!-- RSP letters -->
+  <text x="100" y="120" font-family="Inter, system-ui, -apple-system, sans-serif" font-size="64" font-weight="700" fill="#ffffff" text-anchor="middle" letter-spacing="8" filter="url(#glow-square)" opacity="0.95">RSP</text>
   <style>
-    @media (prefers-color-scheme: dark) {
-      rect, path { stroke: #f5f5f5 !important; }
+    @media (prefers-color-scheme: light) {
+      rect, text { 
+        stroke: #0a0a0a !important;
+        fill: #0a0a0a !important;
+        filter: none !important;
+      }
     }
   </style>
 </svg>

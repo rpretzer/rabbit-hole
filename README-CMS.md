@@ -126,11 +126,29 @@ Set `"published": false` to hide content from the site, or simply don't include 
 
 The site can automatically discover content files, or you can generate a manifest:
 
+### Using the Admin UI
+
+1. Click the "Generate Manifest" button in the admin interface
+2. The manifest will be downloaded as `content-manifest.json`
+3. Save it to the root directory of the site
+4. Commit and push to trigger rebuild (if using CI/CD)
+
+### Using the Script
+
 ```bash
 node scripts/generate-manifest.js > content-manifest.json
 ```
 
 The JavaScript will automatically use `content-manifest.json` if it exists, otherwise it falls back to a default manifest. You can commit the manifest file or generate it as part of your build process.
+
+### Automatic Rebuilds
+
+For automatic rebuilds after manifest generation, you'll need to set up:
+- A CI/CD pipeline (GitHub Actions, Netlify, Vercel, etc.)
+- A webhook that triggers on file changes
+- Or a backend API endpoint that commits the manifest and triggers rebuild
+
+Currently, the admin UI downloads the manifest file for manual placement.
 
 ## Image Optimization
 

@@ -432,6 +432,12 @@ function handleFormSubmit(e) {
 }
 
 async function generateManifest() {
+  // Show loading state
+  const btn = $('#generate-manifest-btn');
+  const originalText = btn.textContent;
+  btn.disabled = true;
+  btn.textContent = 'Generating...';
+
   // Load content from all types to build manifest
   const manifest = {
     poetry: [],
@@ -442,14 +448,17 @@ async function generateManifest() {
 
   for (const type of Object.keys(manifest)) {
     try {
+      // Try to discover files by attempting to load from default manifest first
       const manifestResponse = await fetch('content-manifest.json');
       const existingManifest = manifestResponse.ok ? await manifestResponse.json() : null;
       const defaultManifest = getDefaultManifest();
-      const files = existingManifest?.[type] || defaultManifest[type] || [];
       
-      // Try to load each file to verify it exists and get IDs
+      // Combine known files
+      const knownFiles = existingManifest?.[type] || defaultManifest[type] || [];
       const validFiles = [];
-      for (const file of files) {
+      
+      // Verify each file exists and get IDs
+      for (const file of knownFiles) {
         try {
           const response = await fetch(`content/${type}/${file}.json`);
           if (response.ok) {
@@ -460,6 +469,7 @@ async function generateManifest() {
           // Skip invalid files
         }
       }
+      
       manifest[type] = validFiles;
     } catch (error) {
       console.warn(`Error generating manifest for ${type}:`, error);
@@ -467,6 +477,7 @@ async function generateManifest() {
     }
   }
 
+  // Create and download manifest
   const json = JSON.stringify(manifest, null, 2);
   const blob = new Blob([json], { type: 'application/json' });
   const url = URL.createObjectURL(blob);
@@ -478,7 +489,57 @@ async function generateManifest() {
   document.body.removeChild(a);
   URL.revokeObjectURL(url);
 
-  showToast('Manifest downloaded! Place it in the root directory.', 'success');
+  // Reset button
+  btn.disabled = false;
+  btn.textContent = originalText;
+
+  // Show detailed instructions
+  showManifestInstructions();
+}
+
+function showManifestInstructions() {
+  const instructions = document.createElement('div');
+  instructions.className = 'toast manifest-instructions';
+  instructions.innerHTML = `
+    <div style="margin-bottom: 12px; font-weight: 600;">Manifest Generated!</div>
+    <div style="font-size: 13px; line-height: 1.6; margin-bottom: 12px;">
+      <p style="margin: 0 0 8px;">1. The file has been downloaded</p>
+      <p style="margin: 0 0 8px;">2. Save it as <code style="background: rgba(0,0,0,0.1); padding: 2px 6px; border-radius: 3px; font-family: 'JetBrains Mono', monospace;">content-manifest.json</code> in the root directory</p>
+      <p style="margin: 0;">3. Commit and push to trigger rebuild (if using CI/CD)</p>
+    </div>
+    <button onclick="this.parentElement.remove()" style="padding: 6px 12px; background: var(--admin-accent); color: white; border: none; border-radius: 4px; cursor: pointer; font-weight: 600; font-size: 12px;">Got it</button>
+  `;
+  
+  instructions.style.cssText = `
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    background: var(--admin-card);
+    border: 2px solid var(--admin-accent);
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+    z-index: 1001;
+    max-width: 400px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.3s;
+  `;
+  
+  document.body.appendChild(instructions);
+  
+  // Animate in
+  setTimeout(() => {
+    instructions.style.opacity = '1';
+    instructions.style.transform = 'translateY(0)';
+  }, 10);
+  
+  // Auto-dismiss after 10 seconds
+  setTimeout(() => {
+    instructions.style.opacity = '0';
+    instructions.style.transform = 'translateY(20px)';
+    setTimeout(() => instructions.remove(), 300);
+  }, 10000);
 }
 
 // Image upload handling

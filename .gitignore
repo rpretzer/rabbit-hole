@@ -1,7 +1,20 @@
-# Node / tooling
-node_modules/
-.env
+# Generated manifest (optional - can be committed or generated on build)
+content-manifest.json
 
-# System
+# Image files (uncomment if you want to manage images separately)
+# images/
+
+# OS files
 .DS_Store
+Thumbs.db
 
+# Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Logs
+*.log
+npm-debug.log*

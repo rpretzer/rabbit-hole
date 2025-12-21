@@ -1,0 +1,10 @@
+{
+  "id": "agentic-job-pipeline",
+  "title": "Agentic Job Pipeline",
+  "date": "2024",
+  "description": "Autonomous job sourcing and application system using AI agents. Handles sourcing, tailoring, and outreach with human-in-the-loop review.",
+  "url": "https://github.com/rpretzer/curly-memory",
+  "tags": ["ai", "automation", "python"],
+  "published": true
+}
+

@@ -1,0 +1,10 @@
+{
+  "id": "personal-website",
+  "title": "Personal Website",
+  "date": "2024",
+  "description": "This site, built with vanilla HTML/CSS/JS and a lightweight file-based CMS. Features GeoCities mode toggle and content management.",
+  "url": "https://github.com/rpretzer/rabbit-hole",
+  "tags": ["web", "cms", "vanilla-js"],
+  "published": true
+}
+

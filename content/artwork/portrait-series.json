@@ -1,0 +1,23 @@
+{
+  "id": "portrait-series",
+  "title": "Portrait Series",
+  "date": "2024",
+  "series": "Portrait Series",
+  "description": "Stylized portraits with halftone textures, symbolic elements, and intricate patterns exploring identity and representation.",
+  "thumbnail": "images/artwork/portrait-series/thumbnail.jpg",
+  "images": [
+    {
+      "src": "images/artwork/portrait-series/portrait1.jpg",
+      "alt": "Stylized portrait with dot pattern",
+      "caption": "Woman with blue and green scale pattern"
+    },
+    {
+      "src": "images/artwork/portrait-series/portrait2.jpg",
+      "alt": "Portrait holding golden egg",
+      "caption": "Seated figure with oversized golden egg"
+    }
+  ],
+  "tags": ["portrait", "halftone", "stylized"],
+  "published": true
+}
+

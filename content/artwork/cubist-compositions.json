@@ -1,0 +1,23 @@
+{
+  "id": "cubist-compositions",
+  "title": "Cubist Compositions",
+  "date": "2024",
+  "series": "Cubist Compositions",
+  "description": "Abstract explorations of form and perspective, fragmented geometric compositions inspired by early 20th century Cubism.",
+  "thumbnail": "images/artwork/cubist-compositions/thumbnail.jpg",
+  "images": [
+    {
+      "src": "images/artwork/cubist-compositions/cafe-scene.jpg",
+      "alt": "Cubist cafe scene with figures",
+      "caption": "Fragmented cafe scene with geometric forms"
+    },
+    {
+      "src": "images/artwork/cubist-compositions/seated-figure.jpg",
+      "alt": "Abstract seated figure with coffee",
+      "caption": "Cubist interpretation of seated figure"
+    }
+  ],
+  "tags": ["cubism", "abstract", "geometric"],
+  "published": true
+}
+

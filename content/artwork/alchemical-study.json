@@ -1,0 +1,18 @@
+{
+  "id": "alchemical-study",
+  "title": "Alchemical Study",
+  "date": "2024",
+  "series": "Alchemical Study",
+  "description": "Medieval-inspired illustration exploring transformation and distillation, symbolic apparatus with red sphere and blue droplets.",
+  "thumbnail": "images/artwork/alchemical-study/thumbnail.jpg",
+  "images": [
+    {
+      "src": "images/artwork/alchemical-study/image1.jpg",
+      "alt": "Alchemical apparatus with robed figures",
+      "caption": "Two robed figures flanking a tiered apparatus producing transformation"
+    }
+  ],
+  "tags": ["medieval", "alchemy", "illustration"],
+  "published": true
+}
+

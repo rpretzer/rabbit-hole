@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>CMS Admin — Ryan Pretzer</title>
+  <meta name="theme-color" content="#0a0a0a">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/admin.css">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+</head>
+<body>
+  <div class="admin-container">
+    <header class="admin-header">
+      <h1>Content Management</h1>
+      <nav class="admin-nav">
+        <a href="/">← Back to Site</a>
+        <button id="generate-manifest-btn" class="btn-secondary">Generate Manifest</button>
+      </nav>
+    </header>
+
+    <main class="admin-main">
+      <div class="admin-sidebar">
+        <nav class="content-types">
+          <button class="type-btn active" data-type="artwork">Artwork</button>
+          <button class="type-btn" data-type="poetry">Poetry</button>
+          <button class="type-btn" data-type="essays">Essays</button>
+          <button class="type-btn" data-type="projects">Projects</button>
+        </nav>
+        <button id="new-item-btn" class="btn-primary">+ New Item</button>
+      </div>
+
+      <div class="admin-content">
+        <div id="content-list" class="content-list">
+          <!-- Content items will be loaded here -->
+        </div>
+
+        <div id="content-editor" class="content-editor hidden">
+          <!-- Editor form will be loaded here -->
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script type="module" src="js/admin.js"></script>
+</body>
+</html>
+

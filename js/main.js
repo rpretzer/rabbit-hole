@@ -1,230 +1,244 @@
-// ---- JS: small, modular, accessible ----
+// ---- JS: Personal Portfolio ----
 const $ = (sel, root=document) => root.querySelector(sel);
 const $$ = (sel, root=document) => Array.from(root.querySelectorAll(sel));
 
-// Social icon SVGs
-const SOCIAL_ICONS = {
-  linkedin: '<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M 6 9 L 6 18 M 6 6 L 6 6.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M 10 9 L 10 18 M 10 13 Q 10 9, 14 9 Q 18 9, 18 13 L 18 18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>',
-  instagram: '<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M 7 4 Q 4 4, 4 7 L 4 17 Q 4 20, 7 20 L 17 20 Q 20 20, 20 17 L 20 7 Q 20 4, 17 4 Z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="17" cy="7" r="0.5" fill="currentColor"/></svg>',
-  email: '<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M 4 6 L 20 6 L 20 18 L 4 18 Z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M 4 6 Q 12 12, 20 6" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>'
+// GeoCities Mode Toggle
+function initGeoCitiesToggle() {
+  const toggle = $('.geocities-toggle');
+  if (!toggle) return;
+
+  // Check localStorage for saved preference
+  const savedMode = localStorage.getItem('geocities-mode');
+  if (savedMode === 'true') {
+    document.body.classList.add('geocities-mode');
+  }
+
+  toggle.addEventListener('click', () => {
+    const isActive = document.body.classList.contains('geocities-mode');
+    
+    if (isActive) {
+      document.body.classList.remove('geocities-mode');
+      localStorage.setItem('geocities-mode', 'false');
+      
+      // Remove stars if they exist
+      const stars = $('.geocities-stars');
+      if (stars) stars.remove();
+      
+      // Remove blink from headings
+      $$('h1, h2').forEach(heading => {
+        heading.classList.remove('blink');
+      });
+    } else {
+      document.body.classList.add('geocities-mode');
+      localStorage.setItem('geocities-mode', 'true');
+      
+      // Add some extra 90s flair
+      addGeoCitiesEffects();
+    }
+  });
+  
+  // If already in GeoCities mode on load, add effects
+  if (document.body.classList.contains('geocities-mode')) {
+    addGeoCitiesEffects();
+  }
+}
+
+// Add extra GeoCities effects
+function addGeoCitiesEffects() {
+  // Only add stars if they don't exist
+  if ($('.geocities-stars')) return;
+  
+  // Add animated GIF-style elements
+  const stars = document.createElement('div');
+  stars.className = 'geocities-stars';
+  stars.innerHTML = '⭐'.repeat(20);
+  stars.style.cssText = `
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 9998;
+    font-size: 20px;
+    opacity: 0.3;
+    animation: twinkle 2s infinite;
+  `;
+  document.body.appendChild(stars);
+
+  // Add blink tags to headings
+  $$('h1, h2').forEach(heading => {
+    if (!heading.classList.contains('blink')) {
+      heading.classList.add('blink');
+    }
+  });
+}
+
+// Content Management System - Load from JSON files
+const CONTENT = {
+  poetry: [],
+  artwork: [],
+  essays: [],
+  projects: []
 };
 
-// Replace img-based social icons with inline SVGs
-function initSocialIcons() {
-  $$('.social-icon img').forEach(img => {
-    const src = img.getAttribute('src') || '';
-    let iconType = null;
-    if (src.includes('linkedin')) iconType = 'linkedin';
-    else if (src.includes('instagram')) iconType = 'instagram';
-    else if (src.includes('email')) iconType = 'email';
-    
-    if (iconType && SOCIAL_ICONS[iconType]) {
-      const parent = img.parentElement;
-      parent.innerHTML = SOCIAL_ICONS[iconType];
-    }
-  });
-}
+// Load manifest (either from file or use default)
+let contentManifest = null;
 
-// Toast helpers
-let toastEl;
-function ensureToast(){
-  if (!toastEl){
-    toastEl = document.createElement('div');
-    toastEl.className = 'toast';
-    document.body.appendChild(toastEl);
-  }
-}
-function showToast(message='Done', duration=2200){
-  ensureToast();
-  toastEl.textContent = message;
-  toastEl.classList.add('show');
-  setTimeout(() => toastEl.classList.remove('show'), duration);
-}
-
-const WORK = [
-  {
-    title:"Mobile UI Library & Design System", 
-    tags:["Design Systems","Mobile","Product"], 
-    featured:true, 
-    desc:"iOS/Android components, tokens, and guidance that sped up delivery and tightened quality.", 
-    url:"/work/mobile-ui-library/"
-  },
-  {
-    title:"Agentic Job Application Pipeline", 
-    tags:["AI","Product"], 
-    featured:true, 
-    desc:"Autonomous sourcing, tailoring, and outreach with human-in-the-loop review and dashboards.", 
-    url:"/work/agentic-job-pipeline/"
-  },
-  {
-    title:"Payments App — Release Recovery", 
-    tags:["Product","Mobile"], 
-    featured:true, 
-    desc:"Reset governance, stabilized release cadence, and shipped three on-time releases.", 
-    url:"/work/payments-release-recovery/"
-  },
-  {
-    title:"Risk & Flow Dashboards", 
-    tags:["Product"], 
-    featured:false, 
-    desc:"Live visibility into throughput, risk, and burn‑down so leadership could steer with facts.", 
-    url:"/work/risk-flow-dashboards/"
-  },
-  {
-    title:"Compose & RxJava Upgrades", 
-    tags:["Mobile"], 
-    featured:false, 
-    desc:"Sequenced Android architecture upgrades to retire tech debt without slowing delivery.", 
-    url:"/work/compose-rx-upgrades/"
-  },
-  {
-    title:"Pragmatic Product Essays", 
-    tags:["Writing"], 
-    featured:false, 
-    desc:"Short essays on clarity, cadence, and how to keep teams shipping.", 
-    url:"/work/pragmatic-product-essays/"
-  }
-];
-
-// Placeholder SVG generator
-const placeholderSVG = (label='Work') => `
-  <svg viewBox="0 0 600 360" role="img" aria-label="${label} placeholder">
-    <rect x="0" y="0" width="600" height="360" rx="18" fill="transparent" stroke="var(--soft)"/>
-    <g font-family="Inter" font-size="42" font-weight="800" fill="currentColor">
-      <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle">${label}</text>
-    </g>
-  </svg>`;
-
-// Card template
-const cardTemplate = (item) => `
-  <article class="card" tabindex="0" aria-label="${item.title}">
-    <a href="${item.url}" style="text-decoration:none">
-      <div class="thumb" aria-hidden="true">${placeholderSVG(item.tags[0])}</div>
-      <div class="body">
-        <h3 style="margin:0 0 6px; font-size:18px">${item.title}</h3>
-        <p style="margin:0; color:var(--muted)">${item.desc}</p>
-        <div class="tags">${item.tags.map(t=>`<span class='tag'>${t}</span>`).join('')}</div>
-      </div>
-    </a>
-  </article>`;
-
-// Render work items
-function renderWork(){
-  const workGrid = $('#work-grid');
-  if (workGrid) {
-    workGrid.innerHTML = WORK.map(cardTemplate).join('');
-  }
-  
-  const featGrid = $('#featured-grid');
-  if (featGrid){ 
-    featGrid.innerHTML = WORK.filter(w=>w.featured).map(cardTemplate).join(''); 
-  }
-}
-
-// Initialize filters on work page
-function initFilters(){
-  const buttons = $$('.chip');
-  const defaultActive = buttons.find(btn => btn.getAttribute('aria-pressed') === 'true');
-  if (defaultActive){ defaultActive.classList.add('active'); }
-
-  buttons.forEach(btn => {
-    btn.addEventListener('click', () => {
-      buttons.forEach(b => { 
-        b.classList.remove('active'); 
-        b.setAttribute('aria-pressed','false'); 
-      });
-      btn.classList.add('active'); 
-      btn.setAttribute('aria-pressed','true');
-      
-      const filterKey = btn.dataset.filter;
-      const items = filterKey === 'all' 
-        ? WORK 
-        : WORK.filter(w => w.tags.includes(filterKey));
-      
-      const grid = $('#work-grid'); 
-      if(grid) {
-        grid.innerHTML = items.map(cardTemplate).join('');
-      }
-    });
-  });
-}
-
-// Handle Formspree form submission
-function initContactForm(){
-  const form = $('form[name="contact"]');
-  if (!form) return;
-  
-  form.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    const submitBtn = form.querySelector('button[type="submit"]');
-    const originalText = submitBtn.textContent;
-    
-    // Disable button and show loading state
-    submitBtn.disabled = true;
-    submitBtn.textContent = 'Sending…';
-    
-    try {
-      const formData = new FormData(form);
-      const response = await fetch(form.action, {
-        method: 'POST',
-        body: formData,
-        headers: { 'Accept': 'application/json' }
-      });
-      
-      if (response.ok) {
-        showToast('Message sent! Redirecting…', 2000);
-        form.reset();
-        setTimeout(() => {
-          window.location.href = '/';
-        }, 2000);
-      } else {
-        const data = await response.json();
-        throw new Error(data.error || 'Submission failed');
-      }
-    } catch (error) {
-      showToast('Error sending message. Try email instead.', 4000);
-      submitBtn.disabled = false;
-      submitBtn.textContent = originalText;
-    }
-  });
-}
-
-// Load latest Substack essay preview
-async function loadLatestEssay() {
-  const container = document.getElementById('latest-essay-preview');
-  if (!container) return;
-  
-  const SUBSTACK_URL = 'rspmgmt';
-  const RSS_URL = `https://${SUBSTACK_URL}.substack.com/feed`;
+async function loadManifest() {
+  if (contentManifest) return contentManifest;
   
   try {
-    const proxyUrl = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(RSS_URL)}`;
-    const response = await fetch(proxyUrl);
-    const data = await response.json();
-    
-    if (data.items && data.items.length > 0) {
-      const latest = data.items[0];
-      container.innerHTML = `
-        <article class="card">
-          <div class="body">
-            <h3 style="margin:0 0 6px; font-size:20px">
-              <a href="${latest.link}" target="_blank" rel="noopener" style="text-decoration:none; color:inherit">${latest.title}</a>
-            </h3>
-            <p style="margin:0; color:var(--muted); font-size:14px">${new Date(latest.pubDate).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}</p>
-            <p style="margin:12px 0 0; color:var(--muted); line-height:1.6">${latest.contentSnippet?.substring(0, 180)}…</p>
-            <div class="cta" style="margin-top:16px">
-              <a href="${latest.link}" target="_blank" rel="noopener" class="btn">Read essay →</a>
-              <a href="/writing.html" class="btn secondary">View all essays</a>
-            </div>
-          </div>
-        </article>
-      `;
-    } else {
-      container.innerHTML = '<p style="color:var(--muted)">No essays yet. <a href="/writing.html">Subscribe</a> to be notified when new ones publish.</p>';
+    const response = await fetch('content-manifest.json');
+    if (response.ok) {
+      contentManifest = await response.json();
+      return contentManifest;
     }
   } catch (error) {
-    console.error('Failed to load latest essay:', error);
-    container.innerHTML = '<p style="color:var(--muted)">Unable to load latest essay. <a href="/writing.html">Visit the essays page</a>.</p>';
+    console.log('No manifest file found, using default manifest');
+  }
+  
+  // Default manifest (fallback)
+  contentManifest = {
+    poetry: ['morning-song', 'jacob', 'offering-raw-things'],
+    artwork: ['alchemical-study', 'portrait-series', 'cubist-compositions'],
+    essays: ['making-things'],
+    projects: ['agentic-job-pipeline', 'personal-website']
+  };
+  
+  return contentManifest;
+}
+
+// Load all JSON files from a content directory
+async function loadContentFromDirectory(type) {
+  try {
+    const manifest = await loadManifest();
+    const files = manifest[type] || [];
+    const content = [];
+
+    for (const file of files) {
+      try {
+        const response = await fetch(`content/${type}/${file}.json`);
+        if (response.ok) {
+          const data = await response.json();
+          if (data.published !== false) {
+            content.push(data);
+          }
+        }
+      } catch (error) {
+        console.warn(`Failed to load ${type}/${file}.json:`, error);
+      }
+    }
+
+    // Sort by date (newest first)
+    content.sort((a, b) => {
+      const dateA = new Date(a.date || 0);
+      const dateB = new Date(b.date || 0);
+      return dateB - dateA;
+    });
+
+    return content;
+  } catch (error) {
+    console.error(`Error loading ${type} content:`, error);
+    return [];
+  }
+}
+
+// Load all content
+async function loadAllContent() {
+  CONTENT.poetry = await loadContentFromDirectory('poetry');
+  CONTENT.artwork = await loadContentFromDirectory('artwork');
+  CONTENT.essays = await loadContentFromDirectory('essays');
+  CONTENT.projects = await loadContentFromDirectory('projects');
+}
+
+// Card templates
+const poetryCardTemplate = (item) => `
+  <article class="card poetry-card" data-id="${item.id || ''}" onclick="openPoetryModal('${item.id || ''}')" style="cursor: pointer;">
+    <div class="card-body">
+      <h3 class="card-title">${item.title}</h3>
+      <p class="card-meta">${item.date}</p>
+      <p class="card-description">${item.excerpt}</p>
+    </div>
+  </article>
+`;
+
+const artworkCardTemplate = (item) => {
+  const thumbnail = item.thumbnail;
+  const imageMarkup = thumbnail 
+    ? `<img src="${thumbnail}" alt="${item.title}" class="card-image" loading="lazy" onerror="this.onerror=null; this.style.display='none'; this.nextElementSibling.style.display='flex';">
+      <div class="card-image-placeholder" style="display: none; background: linear-gradient(135deg, var(--soft), var(--card)); align-items: center; justify-content: center; color: var(--muted); font-size: 48px;">🎨</div>`
+    : `<div class="card-image" style="background: linear-gradient(135deg, var(--soft), var(--card)); display: flex; align-items: center; justify-content: center; color: var(--muted); font-size: 48px;">🎨</div>`;
+  
+  return `
+    <article class="card">
+      ${imageMarkup}
+      <div class="card-body">
+        <h3 class="card-title">${item.title}</h3>
+        <p class="card-meta">${item.date}${item.series ? ` • ${item.series}` : ''}</p>
+        <p class="card-description">${item.description}</p>
+      </div>
+    </article>
+  `;
+};
+
+const essayCardTemplate = (item) => `
+  <article class="card">
+    <div class="card-body">
+      <h3 class="card-title">${item.title}</h3>
+      <p class="card-meta">${item.date}</p>
+      <p class="card-description">${item.excerpt}</p>
+    </div>
+  </article>
+`;
+
+const projectCardTemplate = (item) => `
+  <article class="card">
+    <div class="card-body">
+      <h3 class="card-title">${item.title}</h3>
+      <p class="card-meta">${item.date}</p>
+      <p class="card-description">${item.description}</p>
+      ${item.url ? `<a href="${item.url}" target="_blank" rel="noopener" style="margin-top: 12px; display: inline-block; font-weight: 600;">View project →</a>` : ''}
+    </div>
+  </article>
+`;
+
+// Render content sections
+function renderContent() {
+  const poetryGrid = $('#poetry-grid');
+  if (poetryGrid) {
+    if (CONTENT.poetry.length > 0) {
+      poetryGrid.innerHTML = CONTENT.poetry.map(poetryCardTemplate).join('');
+    } else {
+      poetryGrid.innerHTML = '<p style="color: var(--muted); font-style: italic;">Loading poetry...</p>';
+    }
+  }
+
+  const artworkGrid = $('#artwork-grid');
+  if (artworkGrid) {
+    if (CONTENT.artwork.length > 0) {
+      artworkGrid.innerHTML = CONTENT.artwork.map(artworkCardTemplate).join('');
+    } else {
+      artworkGrid.innerHTML = '<p style="color: var(--muted); font-style: italic;">Loading artwork...</p>';
+    }
+  }
+
+  const essaysGrid = $('#essays-grid');
+  if (essaysGrid) {
+    if (CONTENT.essays.length > 0) {
+      essaysGrid.innerHTML = CONTENT.essays.map(essayCardTemplate).join('');
+    } else {
+      essaysGrid.innerHTML = '<p style="color: var(--muted); font-style: italic;">No essays published yet.</p>';
+    }
+  }
+
+  const projectsGrid = $('#projects-grid');
+  if (projectsGrid) {
+    if (CONTENT.projects.length > 0) {
+      projectsGrid.innerHTML = CONTENT.projects.map(projectCardTemplate).join('');
+    } else {
+      projectsGrid.innerHTML = '<p style="color: var(--muted); font-style: italic;">Loading projects...</p>';
+    }
   }
 }
 
@@ -234,7 +248,6 @@ function initMobileMenu() {
   const nav = $('#primary-nav');
   if (!toggle || !nav) return;
   
-  // Set initial state - always start hidden on mobile
   const isMobile = window.innerWidth < 640;
   if (isMobile) {
     nav.setAttribute('aria-hidden', 'true');
@@ -247,7 +260,6 @@ function initMobileMenu() {
     toggle.setAttribute('aria-expanded', !isExpanded);
     nav.setAttribute('aria-hidden', isExpanded);
     
-    // Prevent body scroll when menu is open
     if (!isExpanded) {
       document.body.style.overflow = 'hidden';
     } else {
@@ -255,7 +267,6 @@ function initMobileMenu() {
     }
   });
   
-  // Close menu when clicking nav links on mobile
   $$('nav a').forEach(link => {
     link.addEventListener('click', () => {
       if (window.innerWidth < 640) {
@@ -266,7 +277,6 @@ function initMobileMenu() {
     });
   });
   
-  // Close menu on escape key
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' && toggle.getAttribute('aria-expanded') === 'true') {
       toggle.setAttribute('aria-expanded', 'false');
@@ -276,7 +286,6 @@ function initMobileMenu() {
     }
   });
   
-  // Handle window resize
   window.addEventListener('resize', () => {
     if (window.innerWidth >= 640) {
       nav.removeAttribute('aria-hidden');
@@ -287,38 +296,42 @@ function initMobileMenu() {
   });
 }
 
+// Smooth scroll for anchor links
+function initSmoothScroll() {
+  $$('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      const href = this.getAttribute('href');
+      if (href === '#' || href === '#main') return;
+      
+      const target = $(href);
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+        });
+      }
+    });
+  });
+}
+
 // Initialize on page load
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', async () => {
   // Update copyright year
   $$('.yr').forEach(el => {
     el.textContent = new Date().getFullYear();
   });
 
-  // Toast triggers
-  $$('[data-toast]').forEach(el => {
-    el.addEventListener('click', () => {
-      const msg = el.getAttribute('data-toast');
-      if (msg) showToast(msg);
-    });
-  });
+  // Initialize GeoCities toggle
+  initGeoCitiesToggle();
   
   // Initialize mobile menu
   initMobileMenu();
   
-  // Initialize contact form handler
-  initContactForm();
+  // Initialize smooth scroll
+  initSmoothScroll();
   
-  // Initialize social icons
-  initSocialIcons();
-  
-  // Render work grids if present
-  renderWork();
-  
-  // Initialize filters if on work page
-  if ($('.filters')) {
-    initFilters();
-  }
-  
-  // Load latest essay preview on homepage
-  loadLatestEssay();
+  // Load and render content
+  await loadAllContent();
+  renderContent();
 });

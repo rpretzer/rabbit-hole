@@ -649,10 +649,11 @@ footer{
   font-family: 'Libre Baskerville', serif;
   font-size: var(--type-base);
   line-height: 1.6;
-  white-space: pre-line;
+  white-space: pre-wrap;
   color: var(--color-text-primary);
   font-weight: 400;
   max-width: 65ch;
+  font-variant-numeric: tabular-nums;
 }
 
 /* Modal Manuscript Content */

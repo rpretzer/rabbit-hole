@@ -2,9 +2,9 @@
   "id": "personal-website",
   "title": "Personal Website",
   "date": "2024",
-  "description": "This site, built with vanilla HTML/CSS/JS and a lightweight file-based CMS. Features GeoCities mode toggle and content management.",
+  "description": "A personal portfolio site built with vanilla HTML/CSS/JS and a lightweight file-based CMS. Features the Quiet Geometry design system—restrained typography, muted liturgical neutrals, and intentional spacing. Supports poetry manuscripts with PDF viewing, artwork galleries, and a minimal content management interface. No frameworks, no build tools, just deliberate design and careful code.",
   "url": "https://github.com/rpretzer/rabbit-hole",
-  "tags": ["web", "cms", "vanilla-js"],
+  "tags": ["web", "cms", "vanilla-js", "design-system"],
   "published": true
 }
 

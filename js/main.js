@@ -32,7 +32,7 @@ async function loadManifest() {
     poetry: ['morning-song', 'jacob', 'offering-raw-things'],
     artwork: ['alchemical-study', 'portrait-series', 'cubist-compositions', 'visitation-series', 'watchers-series', 'table-series'],
     essays: ['making-things'],
-    projects: ['agentic-job-pipeline', 'personal-website']
+    projects: ['agentic-job-pipeline', 'personal-website', 'stillgotit', 'sveltia-cms-auth', 'project-dawn', 'starfox-cal']
   };
   
   return contentManifest;

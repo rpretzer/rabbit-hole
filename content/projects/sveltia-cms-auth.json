@@ -1,0 +1,10 @@
+{
+  "id": "sveltia-cms-auth",
+  "title": "Sveltia CMS Auth",
+  "date": "2024-2025",
+  "description": "Authentication system for Sveltia CMS. Handles user authentication and authorization for content management workflows.",
+  "url": "https://github.com/rpretzer/sveltia-cms-auth",
+  "tags": ["cms", "auth", "javascript", "svelte"],
+  "published": true
+}
+

@@ -1,18 +1,146 @@
 {
   "id": "alchemical-study",
   "title": "Alchemical Study",
-  "date": "2024",
+  "date": "2022-2024",
   "series": "Alchemical Study",
-  "description": "Medieval-inspired illustration exploring transformation and distillation, symbolic apparatus with red sphere and blue droplets.",
+  "description": "A contemplative series exploring medieval woodblock print aesthetics, featuring symbolic representations of transformation, observation, and ritual. The all-seeing eye and priestly figures holding eggs create a visual language of witnessing, incubation, and alchemical processes. Each composition references historical printmaking techniques while engaging with themes of surveillance, faith, and the transmutation of materials and ideas.",
   "thumbnail": "images/artwork/alchemical-study/thumbnail.jpg",
   "images": [
     {
-      "src": "images/artwork/alchemical-study/image1.jpg",
-      "alt": "Alchemical apparatus with robed figures",
-      "caption": "Two robed figures flanking a tiered apparatus producing transformation"
+      "src": "images/artwork/alchemical-study/1092952907_Show_me_a_European_medieval_woodblock_print_of_an_all_seeing_eye_and_a_priest_holding_an_egg_standin.png",
+      "alt": "Medieval woodblock print style composition 1 - alchemical study with all-seeing eye and priest figure",
+      "caption": "Alchemical Study #1"
+    },
+    {
+      "src": "images/artwork/alchemical-study/1182836639_Show_me_a_European_medieval_woodblock_print_of_an_all_seeing_eye_and_a_priest_holding_an_egg_standin.png",
+      "alt": "Medieval woodblock print style composition 2 - alchemical study with all-seeing eye and priest figure",
+      "caption": "Alchemical Study #2"
+    },
+    {
+      "src": "images/artwork/alchemical-study/124440382_Show_me_a_European_medieval_woodblock_print_of_an_all_seeing_eye_and_a_priest_holding_an_egg_standin.png",
+      "alt": "Medieval woodblock print style composition 3 - alchemical study with all-seeing eye and priest figure",
+      "caption": "Alchemical Study #3"
+    },
+    {
+      "src": "images/artwork/alchemical-study/1359079808_Show_me_a_European_medieval_woodblock_print_of_an_all_seeing_eye_and_a_priest_holding_an_egg_standin.png",
+      "alt": "Medieval woodblock print style composition 4 - alchemical study with all-seeing eye and priest figure",
+      "caption": "Alchemical Study #4"
+    },
+    {
+      "src": "images/artwork/alchemical-study/1437639286_Show_me_a_European_medieval_woodblock_print_of_an_all_seeing_eye_and_a_priest_holding_an_egg_standin.png",
+      "alt": "Medieval woodblock print style composition 5 - alchemical study with all-seeing eye and priest figure",
+      "caption": "Alchemical Study #5"
+    },
+    {
+      "src": "images/artwork/alchemical-study/1548342697_Show_me_a_European_medieval_woodblock_print_of_an_all_seeing_eye_and_a_priest_holding_an_egg_standin.png",
+      "alt": "Medieval woodblock print style composition 6 - alchemical study with all-seeing eye and priest figure",
+      "caption": "Alchemical Study #6"
+    },
+    {
+      "src": "images/artwork/alchemical-study/1600724165_Show_me_a_European_medieval_woodblock_print_of_an_all_seeing_eye_and_a_priest_holding_an_egg_standin.png",
+      "alt": "Medieval woodblock print style composition 7 - alchemical study with all-seeing eye and priest figure",
+      "caption": "Alchemical Study #7"
+    },
+    {
+      "src": "images/artwork/alchemical-study/1762228271_Show_me_a_European_medieval_woodblock_print_of_an_all_seeing_eye_and_a_priest_holding_an_egg_standin.png",
+      "alt": "Medieval woodblock print style composition 8 - alchemical study with all-seeing eye and priest figure",
+      "caption": "Alchemical Study #8"
+    },
+    {
+      "src": "images/artwork/alchemical-study/179586061_Show_me_a_European_medieval_woodblock_print_of_an_all_seeing_eye_and_a_priest_holding_an_egg_standin.png",
+      "alt": "Medieval woodblock print style composition 9 - alchemical study with all-seeing eye and priest figure",
+      "caption": "Alchemical Study #9"
+    },
+    {
+      "src": "images/artwork/alchemical-study/1887019270_Show_me_a_European_medieval_woodblock_print_of_an_all_seeing_eye_and_a_priest_holding_an_egg_standin.png",
+      "alt": "Medieval woodblock print style composition 10 - alchemical study with all-seeing eye and priest figure",
+      "caption": "Alchemical Study #10"
+    },
+    {
+      "src": "images/artwork/alchemical-study/2158798695_Show_me_a_European_medieval_woodblock_print_of_an_all_seeing_eye_and_a_priest_holding_an_egg_standin.png",
+      "alt": "Medieval woodblock print style composition 11 - alchemical study with all-seeing eye and priest figure",
+      "caption": "Alchemical Study #11"
+    },
+    {
+      "src": "images/artwork/alchemical-study/2452263927_Show_me_a_European_medieval_woodblock_print_of_an_all_seeing_eye_and_a_priest_holding_an_egg_standin.png",
+      "alt": "Medieval woodblock print style composition 12 - alchemical study with all-seeing eye and priest figure",
+      "caption": "Alchemical Study #12"
+    },
+    {
+      "src": "images/artwork/alchemical-study/2738282494_Show_me_a_European_medieval_woodblock_print_of_an_all_seeing_eye_and_a_priest_holding_an_egg_standin.png",
+      "alt": "Medieval woodblock print style composition 13 - alchemical study with all-seeing eye and priest figure",
+      "caption": "Alchemical Study #13"
+    },
+    {
+      "src": "images/artwork/alchemical-study/2975446985_Show_me_a_European_medieval_woodblock_print_of_an_all_seeing_eye_and_a_priest_holding_an_egg_standin.png",
+      "alt": "Medieval woodblock print style composition 14 - alchemical study with all-seeing eye and priest figure",
+      "caption": "Alchemical Study #14"
+    },
+    {
+      "src": "images/artwork/alchemical-study/3280264431_Show_me_a_European_medieval_woodblock_print_of_an_all_seeing_eye_and_a_priest_holding_an_egg_standin.png",
+      "alt": "Medieval woodblock print style composition 15 - alchemical study with all-seeing eye and priest figure",
+      "caption": "Alchemical Study #15"
+    },
+    {
+      "src": "images/artwork/alchemical-study/3558788730_Show_me_a_European_medieval_woodblock_print_of_an_all_seeing_eye_and_a_priest_holding_an_egg_standin.png",
+      "alt": "Medieval woodblock print style composition 16 - alchemical study with all-seeing eye and priest figure",
+      "caption": "Alchemical Study #16"
+    },
+    {
+      "src": "images/artwork/alchemical-study/3755083116_Show_me_a_European_medieval_woodblock_print_of_an_all_seeing_eye_and_a_priest_holding_an_egg_standin.png",
+      "alt": "Medieval woodblock print style composition 17 - alchemical study with all-seeing eye and priest figure",
+      "caption": "Alchemical Study #17"
+    },
+    {
+      "src": "images/artwork/alchemical-study/3758471520_Show_me_a_European_medieval_woodblock_print_of_an_all_seeing_eye_and_a_priest_holding_an_egg_standin.png",
+      "alt": "Medieval woodblock print style composition 18 - alchemical study with all-seeing eye and priest figure",
+      "caption": "Alchemical Study #18"
+    },
+    {
+      "src": "images/artwork/alchemical-study/3806978774_Show_me_a_European_medieval_woodblock_print_of_an_all_seeing_eye_and_a_priest_holding_an_egg_standin.png",
+      "alt": "Medieval woodblock print style composition 19 - alchemical study with all-seeing eye and priest figure",
+      "caption": "Alchemical Study #19"
+    },
+    {
+      "src": "images/artwork/alchemical-study/3815657644_Show_me_a_European_medieval_woodblock_print_of_an_all_seeing_eye_and_a_priest_holding_an_egg_standin.png",
+      "alt": "Medieval woodblock print style composition 20 - alchemical study with all-seeing eye and priest figure",
+      "caption": "Alchemical Study #20"
+    },
+    {
+      "src": "images/artwork/alchemical-study/4019341915_Show_me_a_European_medieval_woodblock_print_of_an_all_seeing_eye_and_a_priest_holding_an_egg_standin.png",
+      "alt": "Medieval woodblock print style composition 21 - alchemical study with all-seeing eye and priest figure",
+      "caption": "Alchemical Study #21"
+    },
+    {
+      "src": "images/artwork/alchemical-study/4078678592_Show_me_a_European_medieval_woodblock_print_of_an_all_seeing_eye_and_a_priest_holding_an_egg_standin.png",
+      "alt": "Medieval woodblock print style composition 22 - alchemical study with all-seeing eye and priest figure",
+      "caption": "Alchemical Study #22"
+    },
+    {
+      "src": "images/artwork/alchemical-study/431504601_Show_me_a_European_medieval_woodblock_print_of_an_all_seeing_eye_and_a_priest_holding_an_egg_standin.png",
+      "alt": "Medieval woodblock print style composition 23 - alchemical study with all-seeing eye and priest figure",
+      "caption": "Alchemical Study #23"
+    },
+    {
+      "src": "images/artwork/alchemical-study/565026048_Show_me_a_European_medieval_woodblock_print_of_an_all_seeing_eye_and_a_priest_holding_an_egg_standin.png",
+      "alt": "Medieval woodblock print style composition 24 - alchemical study with all-seeing eye and priest figure",
+      "caption": "Alchemical Study #24"
+    },
+    {
+      "src": "images/artwork/alchemical-study/680350051_Show_me_a_European_medieval_woodblock_print_of_an_all_seeing_eye_and_a_priest_holding_an_egg_standin.png",
+      "alt": "Medieval woodblock print style composition 25 - alchemical study with all-seeing eye and priest figure",
+      "caption": "Alchemical Study #25"
     }
   ],
-  "tags": ["medieval", "alchemy", "illustration"],
+  "tags": [
+    "medieval",
+    "woodblock",
+    "alchemy",
+    "symbolism",
+    "ritual",
+    "transformation",
+    "printmaking",
+    "witnessing"
+  ],
   "published": true
 }
-

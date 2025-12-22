@@ -1,23 +1,61 @@
 {
   "id": "cubist-compositions",
   "title": "Cubist Compositions",
-  "date": "2024",
+  "date": "2022-2024",
   "series": "Cubist Compositions",
-  "description": "Abstract explorations of form and perspective, fragmented geometric compositions inspired by early 20th century Cubism.",
+  "description": "Fragmented explorations of everyday moments—a man in a cafe, eating, drinking coffee—reconstructed through geometric abstraction. These compositions draw from early 20th century Cubism's deconstruction of perspective, breaking the singular viewpoint into multiple simultaneous planes. The works engage with the flattening and reconstruction of observed reality, creating a visual rhythm that suggests the movement and multiplicity inherent in a simple moment. Cleveland serves as both setting and departure point for these abstracted recollections.",
   "thumbnail": "images/artwork/cubist-compositions/thumbnail.jpg",
   "images": [
     {
-      "src": "images/artwork/cubist-compositions/cafe-scene.jpg",
-      "alt": "Cubist cafe scene with figures",
-      "caption": "Fragmented cafe scene with geometric forms"
+      "src": "images/artwork/cubist-compositions/1144842625_A_cubist_painting_of_a_man_eating_at_a_cafe_in_cleveland_and_drinking_coffee.png",
+      "alt": "Cubist composition 1 - fragmented cafe scene with geometric forms",
+      "caption": "Cubist Composition #1"
     },
     {
-      "src": "images/artwork/cubist-compositions/seated-figure.jpg",
-      "alt": "Abstract seated figure with coffee",
-      "caption": "Cubist interpretation of seated figure"
+      "src": "images/artwork/cubist-compositions/175294798_A_cubist_painting_of_a_man_eating_at_a_cafe_in_cleveland_and_drinking_coffee.png",
+      "alt": "Cubist composition 2 - fragmented cafe scene with geometric forms",
+      "caption": "Cubist Composition #2"
+    },
+    {
+      "src": "images/artwork/cubist-compositions/2379577754_A_cubist_painting_of_a_man_eating_at_a_cafe_in_cleveland_and_drinking_coffee.png",
+      "alt": "Cubist composition 3 - fragmented cafe scene with geometric forms",
+      "caption": "Cubist Composition #3"
+    },
+    {
+      "src": "images/artwork/cubist-compositions/2861791413_A_cubist_painting_of_a_man_eating_at_a_cafe_in_cleveland_and_drinking_coffee.png",
+      "alt": "Cubist composition 4 - fragmented cafe scene with geometric forms",
+      "caption": "Cubist Composition #4"
+    },
+    {
+      "src": "images/artwork/cubist-compositions/3040308837_A_cubist_painting_of_a_man_eating_at_a_cafe_in_cleveland_and_drinking_coffee.png",
+      "alt": "Cubist composition 5 - fragmented cafe scene with geometric forms",
+      "caption": "Cubist Composition #5"
+    },
+    {
+      "src": "images/artwork/cubist-compositions/3367408570_A_cubist_painting_of_a_man_eating_at_a_cafe_in_cleveland_and_drinking_coffee.png",
+      "alt": "Cubist composition 6 - fragmented cafe scene with geometric forms",
+      "caption": "Cubist Composition #6"
+    },
+    {
+      "src": "images/artwork/cubist-compositions/511288026_A_cubist_painting_of_a_man_eating_at_a_cafe_in_cleveland_and_drinking_coffee.png",
+      "alt": "Cubist composition 7 - fragmented cafe scene with geometric forms",
+      "caption": "Cubist Composition #7"
+    },
+    {
+      "src": "images/artwork/cubist-compositions/597126567_A_cubist_painting_of_a_man_eating_at_a_cafe_in_cleveland_and_drinking_coffee.png",
+      "alt": "Cubist composition 8 - fragmented cafe scene with geometric forms",
+      "caption": "Cubist Composition #8"
     }
   ],
-  "tags": ["cubism", "abstract", "geometric"],
+  "tags": [
+    "cubism",
+    "abstract",
+    "geometric",
+    "modernism",
+    "fragmentation",
+    "cafe",
+    "cleveland",
+    "perspective"
+  ],
   "published": true
 }
-

@@ -2,9 +2,9 @@
   "id": "stillgotit",
   "title": "Still Got It Collective",
   "date": "2024-2025",
-  "description": "Website for Still Got It Collective. Built with modern web technologies, featuring collective member profiles and collaborative work showcase.",
+  "description": "Mobile-first single-page website for event planning business. Features smooth scroll navigation, interactive gallery lightbox, event calendar integration, and Decap CMS for non-technical content editing. Built with brand design system and SEO optimization.",
   "url": "https://github.com/rpretzer/stillgotit",
-  "tags": ["web", "collective", "javascript"],
+  "tags": ["web", "cms", "mobile-first", "javascript", "decap-cms"],
   "published": true
 }
 

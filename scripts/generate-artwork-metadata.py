@@ -112,13 +112,37 @@ def generate_visitation_series_metadata():
         "published": True
     }
 
+def generate_watchers_series_metadata():
+    """Generate metadata for Watchers Series."""
+    images = get_image_list("watchers-series")
+    
+    return {
+        "id": "watchers-series",
+        "title": "Watchers Series",
+        "date": "2022-2024",
+        "series": "Watchers Series",
+        "description": "Urban nocturnes under the gaze of the all-seeing eye. These compositions merge Art Deco architecture with the persistent motif of surveillance—the eye that watches over nighttime cityscapes populated by diverse figures. The works examine the relationship between architectural grandeur and the mechanisms of observation, between the public spectacle of the city and the private act of watching. The Art Deco style, with its geometric precision and vertical aspirations, becomes both monument and cage, while the all-seeing eye functions as both protector and invader. These are meditations on visibility, on who watches and who is watched, on the city as both stage and panopticon.",
+        "thumbnail": "images/artwork/watchers-series/thumbnail.jpg",
+        "images": [
+            {
+                "src": img_path,
+                "alt": f"Watchers scene {i+1} - all-seeing eye over nighttime art deco cityscape",
+                "caption": f"Watchers #{i+1}"
+            }
+            for i, img_path in enumerate(images)
+        ],
+        "tags": ["surveillance", "urban", "nocturnal", "art-deco", "all-seeing-eye", "cityscape", "architecture", "watching", "panopticon", "visibility"],
+        "published": True
+    }
+
 def main():
     """Generate and save metadata for all series."""
     metadata = {
         "alchemical-study": generate_alchemical_study_metadata(),
         "cubist-compositions": generate_cubist_compositions_metadata(),
         "portrait-series": generate_portrait_series_metadata(),
-        "visitation-series": generate_visitation_series_metadata()
+        "visitation-series": generate_visitation_series_metadata(),
+        "watchers-series": generate_watchers_series_metadata()
     }
     
     for series_id, data in metadata.items():

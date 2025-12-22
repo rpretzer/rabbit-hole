@@ -1,100 +1,126 @@
-/* ---- CSS: Personal Portfolio - Punk/Zine Aesthetic ---- */
+/* ---- CSS: Quiet Geometry Design System ---- */
+
+/* Color System - Muted Liturgical Neutrals */
 :root{
-  --bg: #ffffff; 
-  --fg: #0a0a0a; 
-  --muted:#666666; 
-  --soft:#e8e8e8; 
-  --card:#ffffff; 
-  --link:#ff0066;
-  --accent:#ff0066; 
-  --accent-alt: #0066ff;
-  --accent-yellow: #ffd600;
-  --accent-dark: #cc0052;
-  --radius: 4px; 
-  --shadow: 0 4px 20px rgba(0,0,0,.08), 0 1px 3px rgba(0,0,0,.1);
-  --maxw: 1100px; 
-  --lh: 1.6; 
-  --grid-gap: 32px;
-}
-
-/* Dark mode */
-@media (prefers-color-scheme: dark){
-  :root{ 
-    --bg:#0d0c0a; 
-    --fg:#e8e4dd; 
-    --muted:#8b8377; 
-    --soft:#1a1815; 
-    --card:#151311; 
-    --link:#c9a875;
-    --accent:#ff0066; 
-    --accent-alt: #0066ff;
-    --accent-yellow: #ffd600;
-    --accent-dark: #cc0052;
-  }
-}
-
-body.dark-mode {
-  --bg:#0d0c0a; 
-  --fg:#e8e4dd; 
-  --muted:#8b8377; 
-  --soft:#1a1815; 
-  --card:#151311; 
-  --link:#ff0066;
-  --accent:#ff0066; 
-  --accent-alt: #0066ff;
-  --accent-yellow: #ffd600;
-  --accent-dark: #cc0052;
-}
-
-/* GeoCities Mode Variables */
-body.geocities-mode {
-  --bg: #000080;
-  --fg: #00ff00;
-  --muted: #ffff00;
-  --soft: #ff00ff;
-  --card: #0000ff;
-  --link: #00ffff;
-  --accent: #ff00ff;
+  /* Core Neutrals */
+  --color-bg-primary: #F6F1EB;
+  --color-bg-secondary: #ECE6DE;
+  --color-bg-inverse: #111111;
+  
+  --color-text-primary: #1A1A1A;
+  --color-text-secondary: #4A4A4A;
+  --color-text-muted: #7A7A7A;
+  --color-text-inverse: #F6F1EB;
+  
+  --color-border-subtle: #D6D0C8;
+  --color-border-strong: #1A1A1A;
+  
+  /* Accent (Use Sparingly) */
+  --color-accent-ochre: #C9A24D;
+  --color-accent-oxide: #A34A2A;
+  --color-accent-cold: #6B7C85;
+  
+  /* Layout */
+  --layout-max-width: 720px;
+  --layout-wide: 960px;
+  --layout-gutter: 24px;
+  
+  /* Spacing */
+  --space-xs: 4px;
+  --space-sm: 8px;
+  --space-md: 16px;
+  --space-lg: 32px;
+  --space-xl: 64px;
+  --space-ritual: 96px;
+  
+  /* Typography Scale */
+  --type-xs: 12px;
+  --type-sm: 14px;
+  --type-base: 17px;
+  --type-md: 20px;
+  --type-lg: 26px;
+  --type-xl: 36px;
+  --type-display: 48px;
+  
+  /* Motion */
+  --motion-duration-fast: 120ms;
+  --motion-duration-normal: 200ms;
+  --motion-easing: cubic-bezier(0.2, 0, 0.1, 1);
+  
+  /* Legacy aliases for compatibility */
+  --bg: var(--color-bg-primary);
+  --fg: var(--color-text-primary);
+  --muted: var(--color-text-muted);
+  --soft: var(--color-bg-secondary);
+  --card: var(--color-bg-primary);
+  --link: var(--color-text-primary);
+  --accent: var(--color-accent-ochre);
+  --accent-alt: var(--color-accent-oxide);
+  --accent-yellow: var(--color-accent-ochre);
+  --maxw: var(--layout-max-width);
+  --lh: 1.6;
+  --grid-gap: var(--space-lg);
   --radius: 0px;
   --shadow: none;
+}
+
+/* Dark Mode - Inverse Liturgy */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-bg-primary: #111111;
+    --color-bg-secondary: #1A1A1A;
+    --color-text-primary: #EDE7DF;
+    --color-text-secondary: #C6C0B8;
+    --color-text-muted: #8A8A8A;
+    --color-border-subtle: #2A2A2A;
+    --color-accent-ochre: #C9A24D;
+  }
 }
 
 *,*::before,*::after{box-sizing:border-box}
 html,body{height:100%}
 body{
   margin:0; 
-  font-family:'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; 
-  background:var(--bg); 
-  color:var(--fg); 
-  line-height:var(--lh);
-  transition: background-color 0.3s ease, color 0.3s ease;
+  font-family:'Libre Baskerville', 'Canela', 'Tiempos Text', serif; 
+  background:var(--color-bg-primary); 
+  color:var(--color-text-primary); 
+  line-height:1.6;
+  font-size:var(--type-base);
+  font-weight: 400;
+  letter-spacing: 0.01em;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  font-weight: 400;
 }
 
-/* GeoCities Background Animation */
-body.geocities-mode {
-  background-image: 
-    repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,255,0,0.1) 2px, rgba(0,255,0,0.1) 4px),
-    repeating-linear-gradient(90deg, transparent, transparent 2px, rgba(255,0,255,0.1) 2px, rgba(255,0,255,0.1) 4px);
-  background-size: 20px 20px;
-  animation: geocities-bg 2s linear infinite;
+
+img{
+  max-width:100%; 
+  height:auto;
+  border: 1px solid var(--color-border-subtle);
+  padding: var(--space-sm);
+  background: var(--color-bg-secondary);
 }
 
-@keyframes geocities-bg {
-  0% { background-position: 0 0; }
-  100% { background-position: 20px 20px; }
+a{
+  color: var(--color-text-primary);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  transition: color var(--motion-duration-normal) var(--motion-easing);
 }
 
-img{max-width:100%; height:auto}
-a{color:var(--link); text-decoration:none; transition: color 0.2s ease}
-a:hover{color: var(--accent); text-decoration: underline; text-decoration-color: var(--accent); text-underline-offset: 3px;}
-.container{max-width:var(--maxw); margin:0 auto; padding:0 24px}
+a:hover{
+  color: var(--color-accent-ochre);
+}
 
-@media (min-width: 768px) {
+.container{
+  max-width: var(--layout-max-width);
+  margin: 0 auto;
+  padding: 0 var(--layout-gutter);
+}
+
+@media (min-width: 960px) {
   .container {
-    padding: 0 40px;
+    max-width: var(--layout-wide);
   }
 }
 
@@ -112,11 +138,12 @@ a:hover{color: var(--accent); text-decoration: underline; text-decoration-color:
   top:10px; 
   left:10px; 
   z-index:9999; 
-  padding:12px; 
-  background:var(--accent); 
-  color:var(--bg); 
+  padding:var(--space-sm) var(--space-md); 
+  background:var(--color-text-primary); 
+  color:var(--color-bg-primary); 
   width:auto; 
-  height:auto
+  height:auto;
+  text-decoration: none;
 }
 
 /* Header */
@@ -124,102 +151,43 @@ header{
   position:sticky; 
   top:0; 
   z-index:40; 
-  backdrop-filter:saturate(160%) blur(10px); 
-  background:color-mix(in oklab, var(--bg) 92%, transparent); 
-  border-bottom:2px solid var(--soft);
-  box-shadow: 0 1px 3px rgba(0,0,0,.04);
+  background:var(--color-bg-primary); 
+  border-bottom:1px solid var(--color-border-subtle);
 }
 
-body.geocities-mode header {
-  backdrop-filter: none;
-  background: var(--bg);
-  border: 3px dashed var(--fg);
-}
 
 .nav{
   display:flex; 
   align-items:center; 
   justify-content:space-between; 
-  height:64px;
-  gap: 16px;
+  min-height:64px;
+  gap: var(--space-md);
+  padding: var(--space-md) 0;
 }
 
 .brand{
   display:flex; 
-  gap:10px; 
   align-items:center; 
-  font-weight:700; 
-  letter-spacing:.5px;
   flex: 1;
-  font-size: 16px;
-  font-family: 'Space Grotesk', sans-serif;
-  text-transform: uppercase;
-  letter-spacing: 2px;
+  font-size: var(--type-base);
+  font-family: 'Inter', sans-serif;
+  font-weight: 450;
+  letter-spacing: 0.02em;
 }
 
 .brand a {
-  background: linear-gradient(135deg, var(--accent), var(--accent-alt));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  font-weight: 700;
+  color: var(--color-text-primary);
+  text-decoration: none;
+  font-weight: inherit;
 }
 
-body.geocities-mode .brand a {
-  text-shadow: 2px 2px 0px var(--muted), -2px -2px 0px var(--soft);
-  animation: blink 1s infinite;
+.brand a:hover {
+  color: var(--color-text-primary);
+  text-decoration: underline;
 }
 
-@keyframes blink {
-  0%, 50% { opacity: 1; }
-  51%, 100% { opacity: 0.5; }
-}
 
 /* GeoCities Toggle */
-.geocities-toggle {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  padding: 8px 12px;
-  border: 2px solid var(--fg);
-  background: var(--bg);
-  color: var(--fg);
-  cursor: pointer;
-  font-weight: 600;
-  font-size: 14px;
-  border-radius: 8px;
-  transition: all 0.2s ease;
-}
-
-.geocities-toggle:hover {
-  background: var(--soft);
-  transform: scale(1.05);
-}
-
-body.geocities-mode .geocities-toggle {
-  border: 3px dashed var(--fg);
-  background: var(--muted);
-  animation: pulse 1s infinite;
-}
-
-@keyframes pulse {
-  0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.1); }
-}
-
-.theme-icon {
-  font-size: 18px;
-}
-
-.theme-label {
-  display: none;
-}
-
-@media (min-width: 640px) {
-  .theme-label {
-    display: inline;
-  }
-}
 
 /* Mobile menu toggle */
 .menu-toggle{
@@ -230,17 +198,16 @@ body.geocities-mode .geocities-toggle {
   height:40px; 
   border:none; 
   background:transparent; 
-  color:var(--fg); 
+  color:var(--color-text-primary); 
   cursor:pointer; 
   padding:0;
-  border-radius:8px
 }
 .menu-toggle:hover,
 .menu-toggle:focus-visible{
-  background:var(--soft)
+  background:var(--color-bg-secondary)
 }
 .menu-toggle:focus-visible{
-  outline:2px solid var(--accent); 
+  outline:1px solid var(--color-text-primary); 
   outline-offset:2px
 }
 .menu-icon,
@@ -275,45 +242,28 @@ nav ul{
   padding:0
 }
 nav a{
-  font-weight:600; 
-  padding:6px 12px; 
-  border-radius:4px;
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: 13px;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  transition: all 0.2s ease;
-  border: 2px solid transparent;
+  font-family: 'Inter', sans-serif;
+  font-size: var(--type-sm);
+  font-weight: 450;
+  letter-spacing: 0.02em;
+  text-decoration: none;
+  color: var(--color-text-secondary);
+  transition: color var(--motion-duration-normal) var(--motion-easing);
 }
 
 nav a:hover {
-  color: var(--fg);
-  background: var(--accent-yellow);
-  border-color: var(--fg);
-  transform: translateY(-1px);
+  color: var(--color-text-primary);
 }
+
 nav a:focus-visible{
-  outline:2px solid var(--accent); 
+  outline:1px solid var(--color-text-primary); 
   outline-offset:2px
 }
+
 nav a[aria-current="page"]{
-  background:var(--soft)
+  color: var(--color-text-primary);
 }
 
-body.geocities-mode nav a {
-  text-decoration: underline;
-  text-decoration-style: wavy;
-}
-
-body.geocities-mode nav a:hover {
-  animation: shake 0.3s infinite;
-}
-
-@keyframes shake {
-  0%, 100% { transform: translateX(0); }
-  25% { transform: translateX(-2px); }
-  75% { transform: translateX(2px); }
-}
 
 /* Mobile navigation */
 @media (max-width:639px){
@@ -328,12 +278,12 @@ body.geocities-mode nav a:hover {
     left:0; 
     right:0; 
     bottom:0; 
-    background:var(--bg); 
+    background:var(--color-bg-primary); 
     transform:translateX(100%); 
-    transition:transform 0.3s ease, visibility 0.3s ease; 
+    transition:transform var(--motion-duration-normal) var(--motion-easing), visibility var(--motion-duration-normal) var(--motion-easing); 
     z-index:99; 
     overflow-y:auto; 
-    padding:80px 18px 24px;
+    padding:80px var(--space-md) var(--space-lg);
     visibility:hidden;
     opacity:0
   }
@@ -347,12 +297,12 @@ body.geocities-mode nav a:hover {
     gap:0
   }
   nav li{
-    border-bottom:1px solid var(--soft)
+    border-bottom:1px solid var(--color-border-subtle)
   }
   nav a{
     display:block; 
-    padding:16px 0; 
-    font-size:18px
+    padding:var(--space-md) 0; 
+    font-size:var(--type-base)
   }
 }
 @media (min-width:640px){
@@ -370,229 +320,96 @@ body.geocities-mode nav a:hover {
 
 /* Sections */
 .hero{
-  padding:100px 0 60px; 
-  border-bottom:4px solid var(--fg);
+  padding:var(--space-ritual) 0 var(--space-xl); 
+  border-bottom:1px solid var(--color-border-subtle);
   position: relative;
-  background: linear-gradient(180deg, var(--bg) 0%, rgba(255,214,0,0.05) 100%);
+  background: var(--color-bg-primary);
+  margin-bottom: var(--space-xl);
 }
 
-.hero::after {
-  content: '⚡';
-  position: absolute;
-  bottom: -18px;
-  left: 50%;
-  transform: translateX(-50%);
-  background: var(--bg);
-  padding: 0 20px;
-  font-size: 24px;
-}
-
-body.geocities-mode .hero {
-  border: 3px dashed var(--fg);
-  padding: 20px;
-  text-align: center;
-}
 
 h1{
-  font-size: clamp(48px, 8vw, 96px); 
-  line-height:1.05; 
-  margin:.2em 0 .3em;
-  font-weight: 700;
-  font-family: 'Space Grotesk', sans-serif;
-  letter-spacing: -0.03em;
-  color: var(--fg);
-  position: relative;
-  text-transform: uppercase;
-  background: linear-gradient(135deg, var(--accent) 0%, var(--accent-alt) 50%, var(--fg) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  font-size: var(--type-display); 
+  line-height:1.2; 
+  margin:0 0 var(--space-lg);
+  font-weight: 400;
+  font-family: 'Inter', sans-serif;
+  letter-spacing: 0.02em;
+  color: var(--color-text-primary);
 }
 
-body.geocities-mode h1 {
-  text-shadow: 3px 3px 0px var(--muted), -3px -3px 0px var(--soft);
-  animation: rainbow 3s infinite;
-}
-
-@keyframes rainbow {
-  0% { color: #ff0000; }
-  16% { color: #ff8800; }
-  33% { color: #ffff00; }
-  50% { color: #00ff00; }
-  66% { color: #0088ff; }
-  83% { color: #0000ff; }
-  100% { color: #ff0000; }
-}
 
 .lede{
-  font-size: clamp(18px, 2.6vw, 22px); 
-  color:var(--fg);
-  max-width: 650px;
-  font-weight: 500;
-  line-height: 1.7;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  font-size: 14px;
-}
-
-body.geocities-mode .lede {
-  font-family: 'Comic Sans MS', cursive;
+  font-size: var(--type-md); 
+  max-width: 65ch;
+  font-weight: 400;
+  line-height: 1.6;
+  letter-spacing: 0.01em;
+  color: var(--color-text-secondary);
+  margin: 0 0 var(--space-lg);
 }
 
 .section{
-  padding:72px 0;
+  padding:var(--space-xl) 0;
   scroll-margin-top: 80px;
   position: relative;
+  border-top: 1px solid var(--color-border-subtle);
+  background: var(--color-bg-primary);
 }
 
-.section::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 4px;
-  background: linear-gradient(90deg, var(--accent), var(--accent-yellow), var(--accent-alt), var(--accent));
-  opacity: 0.3;
-}
-
-body.geocities-mode .section {
-  border: 2px dotted var(--fg);
-  margin: 20px 0;
-  padding: 20px;
+.section:first-of-type {
+  border-top: none;
 }
 
 h2{
-  font-size: clamp(36px, 6vw, 56px); 
-  margin:0 0 32px;
-  font-weight: 700;
-  font-family: 'Space Grotesk', sans-serif;
-  letter-spacing: -0.02em;
-  position: relative;
-  padding-bottom: 16px;
-  text-transform: uppercase;
-  color: var(--fg);
-}
-
-h2::before {
-  content: '';
-  position: absolute;
-  top: -8px;
-  left: -12px;
-  width: 8px;
-  height: calc(100% + 16px);
-  background: var(--accent-yellow);
-  transform: skewX(-10deg);
-  z-index: -1;
-}
-
-h2::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 120px;
-  height: 4px;
-  background: linear-gradient(90deg, var(--accent), var(--accent-alt));
-}
-
-body.geocities-mode h2 {
-  text-decoration: underline;
-  text-decoration-style: double;
-  text-shadow: 2px 2px 0px var(--muted);
+  font-size: var(--type-xl); 
+  margin:0 0 var(--space-lg);
+  font-weight: 450;
+  font-family: 'Inter', sans-serif;
+  letter-spacing: 0.02em;
+  color: var(--color-text-primary);
+  border-bottom: 1px solid var(--color-border-subtle);
+  padding-bottom: var(--space-sm);
 }
 
 /* Content Grid */
 .content-grid{
   display:grid; 
   grid-template-columns:1fr; 
-  gap:var(--grid-gap)
+  gap:var(--space-xl)
 }
+
 @media (min-width:640px){ 
   .content-grid{
     grid-template-columns:repeat(2, 1fr);
-  } 
-}
-@media (min-width:960px){ 
-  .content-grid{
-    grid-template-columns:repeat(3, 1fr);
+    gap:var(--space-lg);
   } 
 }
 
 .card{
-  background:var(--card); 
-  border-radius:var(--radius); 
-  overflow:hidden; 
-  box-shadow:var(--shadow); 
   display:flex; 
-  flex-direction:column; 
-  border:1px solid var(--soft);
-  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
-  position: relative;
-}
-
-.card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 3px;
-  background: linear-gradient(90deg, var(--accent), var(--accent-dark), var(--accent));
-  opacity: 0;
-  transition: opacity 0.3s ease;
+  flex-direction:column;
+  border-top: 1px solid var(--color-border-subtle);
+  padding: var(--space-lg) 0;
+  transition: opacity var(--motion-duration-normal) var(--motion-easing);
 }
 
 .card:hover{
-  transform:translateY(-4px); 
-  box-shadow:0 12px 40px rgba(0,0,0,.12), 0 4px 12px rgba(0,0,0,.08);
-  border-color: var(--accent);
+  opacity: 0.7;
 }
 
 .poetry-card,
 .artwork-card {
   cursor: pointer;
-  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
 }
 
-.poetry-card:hover,
-.artwork-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 40px rgba(0,0,0,.12), 0 4px 12px rgba(0,0,0,.08);
-  border-color: var(--accent);
-}
-
-.poetry-card:active,
-.artwork-card:active {
-  transform: translateY(-2px);
-}
-
-.card:hover::before {
-  opacity: 0.6;
-}
-
-body.geocities-mode .card {
-  border: 3px solid var(--fg);
-  box-shadow: 5px 5px 0px var(--muted);
-  background: var(--card);
-}
-
-body.geocities-mode .card:hover {
-  animation: wiggle 0.5s infinite;
-  transform: none;
-}
-
-@keyframes wiggle {
-  0%, 100% { transform: rotate(0deg); }
-  25% { transform: rotate(2deg); }
-  75% { transform: rotate(-2deg); }
-}
 
 .card-image {
   width: 100%;
-  aspect-ratio: 4/3;
-  object-fit: cover;
-  background: var(--soft);
+  margin-bottom: var(--space-md);
+  border: 1px solid var(--color-border-subtle);
+  padding: var(--space-sm);
+  background: var(--color-bg-secondary);
   display: block;
 }
 
@@ -600,43 +417,45 @@ body.geocities-mode .card:hover {
   width: 100%;
   aspect-ratio: 4/3;
   display: flex;
+  border: 1px solid var(--color-border-subtle);
+  padding: var(--space-sm);
+  background: var(--color-bg-secondary);
+  align-items: center;
+  justify-content: center;
+  color: var(--color-text-muted);
+  font-size: var(--type-xs);
 }
 
 .card-body{
-  padding:20px
+  /* No padding - spacing handled by card */
 }
 
 .card-title{
-  margin:0 0 12px; 
-  font-size:22px;
-  font-weight: 700;
-  font-family: 'Space Grotesk', sans-serif;
-  line-height: 1.3;
-  color: var(--fg);
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
+  margin:0 0 var(--space-sm); 
+  font-size:var(--type-lg);
+  font-weight: 400;
+  font-family: 'Inter', sans-serif;
+  line-height: 1.4;
+  color: var(--color-text-primary);
+  letter-spacing: 0.02em;
 }
 
-body.geocities-mode .card-title {
-  font-family: 'Comic Sans MS', cursive;
-  text-transform: uppercase;
-}
 
 .card-description{
-  color:var(--fg); 
-  line-height:1.8;
+  color:var(--color-text-secondary); 
+  line-height:1.6;
   margin: 0;
-  font-size: 17px;
+  font-size: var(--type-base);
+  max-width: 65ch;
 }
 
 .card-meta{
-  font-family: 'JetBrains Mono', 'Space Mono', monospace;
-  font-size: 11px;
-  text-transform: uppercase;
-  letter-spacing: 1.5px;
-  color: var(--accent);
-  margin-bottom: 12px;
-  font-weight: 700;
+  font-family: 'Inter', sans-serif;
+  font-size: var(--type-xs);
+  letter-spacing: 0.02em;
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-md);
+  font-weight: 450;
 }
 
 /* Footer */
@@ -649,10 +468,6 @@ footer{
   text-align: center;
 }
 
-body.geocities-mode footer {
-  border: 3px dashed var(--fg);
-  background: var(--card);
-}
 
 .social-links{
   display:flex; 
@@ -664,50 +479,22 @@ body.geocities-mode footer {
 }
 
 .social-link{
-  color:var(--fg); 
-  text-decoration:none; 
-  font-weight:500;
-  padding: 4px 8px;
+  color:var(--color-text-secondary); 
+  text-decoration:underline; 
+  text-decoration-thickness: 1px;
+  font-weight:400;
+  padding: var(--space-xs) var(--space-sm);
 }
 
 .social-link:hover{
-  color:var(--muted); 
-  text-decoration:underline
+  color:var(--color-accent-ochre);
 }
 
-body.geocities-mode .social-link {
-  text-decoration: underline;
-  text-decoration-style: wavy;
-}
-
-/* GeoCities Marquee Effect */
-body.geocities-mode .marquee {
-  display: block;
-  white-space: nowrap;
-  overflow: hidden;
-  animation: marquee 10s linear infinite;
-}
-
-@keyframes marquee {
-  0% { transform: translateX(100%); }
-  100% { transform: translateX(-100%); }
-}
-
-/* Blink tag effect */
-body.geocities-mode .blink {
-  animation: blink 1s infinite;
-}
-
-/* Twinkle animation for stars */
-@keyframes twinkle {
-  0%, 100% { opacity: 0.3; }
-  50% { opacity: 0.8; }
-}
 
 /* About page */
 .about{
   display:grid; 
-  gap:24px; 
+  gap:var(--space-xl); 
   grid-template-columns:1fr
 }
 @media (min-width:900px){ 
@@ -718,33 +505,29 @@ body.geocities-mode .blink {
 .avatar{
   width:100%; 
   aspect-ratio:1; 
-  border-radius:16px; 
-  background:linear-gradient(135deg,#222,#000); 
+  border: 1px solid var(--color-border-subtle);
+  padding: var(--space-sm);
+  background: var(--color-bg-secondary);
   display:flex; 
   align-items:center; 
   justify-content:center; 
-  color:#fff; 
-  font-size:56px; 
-  font-weight:900;
+  color: var(--color-text-primary); 
+  font-size:var(--type-xl); 
+  font-weight:400;
   max-width: 200px;
 }
 
-body.geocities-mode .avatar {
-  border: 5px solid var(--fg);
-  background: var(--muted);
-  animation: rainbow 3s infinite;
-}
 
 /* Focus styles */
 :focus-visible{
-  outline: 2px solid var(--accent); 
+  outline: 1px solid var(--color-text-primary); 
   outline-offset: 2px
 }
 
 /* Motion */
 @media (prefers-reduced-motion: no-preference){
   .card{
-    transition:transform .2s ease, box-shadow .2s ease
+    transition:opacity var(--motion-duration-normal) var(--motion-easing);
   }
 }
 
@@ -787,56 +570,52 @@ body.geocities-mode .avatar {
   right: 0;
   bottom: 0;
   background: rgba(0, 0, 0, 0.7);
-  backdrop-filter: blur(4px);
 }
 
 .modal-content {
   position: relative;
-  background: var(--card);
-  border-radius: var(--radius);
-  max-width: 900px;
+  background: var(--color-bg-primary);
+  border: 1px solid var(--color-border-strong);
+  max-width: var(--layout-max-width);
   max-height: 90vh;
   width: 100%;
   overflow: hidden;
-  box-shadow: 0 20px 60px rgba(0,0,0,0.3);
   display: flex;
   flex-direction: column;
-  transform: scale(0.95);
-  transition: transform 0.3s ease;
+  opacity: 0;
+  transition: opacity var(--motion-duration-normal) var(--motion-easing);
 }
 
 .modal:not([hidden]) .modal-content {
-  transform: scale(1);
+  opacity: 1;
 }
 
 .modal-close {
   position: absolute;
-  top: 16px;
-  right: 16px;
+  top: var(--space-md);
+  right: var(--space-md);
   z-index: 10;
-  background: var(--card);
-  border: 2px solid var(--soft);
-  border-radius: 50%;
-  width: 40px;
-  height: 40px;
+  background: transparent;
+  border: 1px solid var(--color-border-subtle);
+  width: 32px;
+  height: 32px;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  color: var(--fg);
-  transition: all 0.2s ease;
+  color: var(--color-text-primary);
+  transition: opacity var(--motion-duration-normal) var(--motion-easing);
 }
 
 .modal-close:hover {
-  background: var(--soft);
-  border-color: var(--accent);
-  transform: rotate(90deg);
+  opacity: 0.6;
 }
 
 .modal-body {
-  padding: 40px;
+  padding: var(--space-xl);
   overflow-y: auto;
   flex: 1;
+  max-width: 65ch;
 }
 
 @media (max-width: 768px) {
@@ -846,78 +625,77 @@ body.geocities-mode .avatar {
   
   .modal-content {
     max-height: 100vh;
-    border-radius: 0;
+    border: none;
+    border-top: 1px solid var(--color-border-strong);
   }
   
   .modal-body {
-    padding: 24px;
+    padding: var(--space-lg);
   }
   
   .modal-close {
-    top: 12px;
-    right: 12px;
+    top: var(--space-md);
+    right: var(--space-md);
   }
 }
 
 /* Modal Poetry Content */
 .modal-poetry h2 {
-  font-size: 36px;
-  margin: 0 0 12px;
-  font-weight: 700;
-  font-family: 'Space Grotesk', sans-serif;
-  text-transform: uppercase;
-  letter-spacing: -0.01em;
+  font-size: var(--type-xl);
+  margin: 0 0 var(--space-md);
+  font-weight: 400;
+  font-family: 'Inter', sans-serif;
+  letter-spacing: 0.02em;
+  color: var(--color-text-primary);
 }
 
 .modal-poetry .poetry-meta {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 11px;
-  color: var(--accent);
-  text-transform: uppercase;
-  letter-spacing: 1.5px;
-  margin-bottom: 32px;
-  font-weight: 700;
+  font-family: 'Inter', sans-serif;
+  font-size: var(--type-xs);
+  color: var(--color-text-muted);
+  letter-spacing: 0.02em;
+  margin-bottom: var(--space-xl);
+  font-weight: 450;
 }
 
 .modal-poetry .poetry-text {
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: 18px;
-  line-height: 1.8;
+  font-family: 'Libre Baskerville', serif;
+  font-size: var(--type-base);
+  line-height: 1.6;
   white-space: pre-line;
-  color: var(--fg);
+  color: var(--color-text-primary);
   font-weight: 400;
+  max-width: 65ch;
 }
 
 /* Modal Manuscript Content */
 .modal-manuscript h2 {
-  font-size: 36px;
-  margin: 0 0 12px;
-  font-weight: 700;
-  font-family: 'Space Grotesk', sans-serif;
-  text-transform: uppercase;
-  letter-spacing: -0.01em;
+  font-size: var(--type-xl);
+  margin: 0 0 var(--space-md);
+  font-weight: 400;
+  font-family: 'Inter', sans-serif;
+  letter-spacing: 0.02em;
+  color: var(--color-text-primary);
 }
 
 .modal-manuscript .poetry-meta {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 11px;
-  color: var(--accent);
-  text-transform: uppercase;
-  letter-spacing: 1.5px;
-  margin-bottom: 24px;
-  font-weight: 700;
+  font-family: 'Inter', sans-serif;
+  font-size: var(--type-xs);
+  color: var(--color-text-muted);
+  letter-spacing: 0.02em;
+  margin-bottom: var(--space-lg);
+  font-weight: 450;
 }
 
 .manuscript-image-container {
-  border-radius: var(--radius);
-  overflow: hidden;
-  border: 3px solid var(--fg);
-  background: var(--soft);
+  border: 1px solid var(--color-border-subtle);
+  padding: var(--space-sm);
+  background: var(--color-bg-secondary);
   display: flex;
   align-items: center;
   justify-content: center;
   min-height: 400px;
-  box-shadow: 4px 4px 0px var(--accent-yellow);
+  margin-bottom: var(--space-lg);
 }
 
 .manuscript-image {
@@ -935,40 +713,40 @@ body.geocities-mode .avatar {
 
 /* Modal Artwork Content */
 .modal-artwork h2 {
-  font-size: 36px;
-  margin: 0 0 8px;
-  font-weight: 700;
-  font-family: 'Space Grotesk', sans-serif;
-  text-transform: uppercase;
-  letter-spacing: -0.01em;
+  font-size: var(--type-xl);
+  margin: 0 0 var(--space-sm);
+  font-weight: 400;
+  font-family: 'Inter', sans-serif;
+  letter-spacing: 0.02em;
+  color: var(--color-text-primary);
 }
 
 .modal-artwork .artwork-meta {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 11px;
-  color: var(--accent);
-  text-transform: uppercase;
-  letter-spacing: 1.5px;
-  margin-bottom: 24px;
-  font-weight: 700;
+  font-family: 'Inter', sans-serif;
+  font-size: var(--type-xs);
+  color: var(--color-text-muted);
+  letter-spacing: 0.02em;
+  margin-bottom: var(--space-lg);
+  font-weight: 450;
 }
 
 .modal-artwork .artwork-description {
-  font-size: 17px;
-  line-height: 1.8;
-  margin-bottom: 32px;
-  color: var(--fg);
+  font-size: var(--type-base);
+  line-height: 1.6;
+  margin-bottom: var(--space-xl);
+  color: var(--color-text-secondary);
+  max-width: 65ch;
 }
 
 .modal-artwork-gallery {
   display: grid;
-  gap: 24px;
+  gap: var(--space-xl);
 }
 
 .modal-artwork-image {
-  border-radius: var(--radius);
-  overflow: hidden;
-  border: 1px solid var(--soft);
+  border: 1px solid var(--color-border-subtle);
+  padding: var(--space-sm);
+  background: var(--color-bg-secondary);
 }
 
 .modal-artwork-image img {
@@ -976,27 +754,17 @@ body.geocities-mode .avatar {
   display: block;
   aspect-ratio: 4/3;
   object-fit: contain;
-  background: var(--soft);
+  background: var(--color-bg-secondary);
 }
 
 .modal-artwork-image figcaption {
-  padding: 16px;
-  font-size: 14px;
-  color: var(--muted);
-  font-style: italic;
-  border-top: 1px solid var(--soft);
+  padding: var(--space-md);
+  font-size: var(--type-sm);
+  color: var(--color-text-muted);
+  font-style: normal;
+  border-top: 1px solid var(--color-border-subtle);
+  margin-top: var(--space-sm);
 }
 
-body.geocities-mode .modal {
-  z-index: 9999;
-}
 
-body.geocities-mode .modal-content {
-  border: 5px solid var(--fg);
-  background: var(--card);
-}
 
-body.geocities-mode .modal-close {
-  background: var(--muted);
-  border: 3px dashed var(--fg);
-}

@@ -2,141 +2,6 @@
 const $ = (sel, root=document) => root.querySelector(sel);
 const $$ = (sel, root=document) => Array.from(root.querySelectorAll(sel));
 
-// Three-way Theme Toggle: Light → Dark → GeoCities → Light
-function initThemeToggle() {
-  const toggle = $('.theme-toggle');
-  if (!toggle) return;
-
-  const themeIcon = $('#theme-icon');
-  const themeLabel = $('#theme-label');
-  
-  // Check localStorage for saved preference
-  const savedTheme = localStorage.getItem('theme-mode') || 'auto';
-  
-  // Apply saved theme or respect system preference
-  if (savedTheme === 'geocities') {
-    document.body.classList.add('geocities-mode');
-    updateThemeUI('geocities', themeIcon, themeLabel);
-    addGeoCitiesEffects();
-  } else if (savedTheme === 'dark') {
-    document.body.classList.add('dark-mode');
-    document.body.classList.remove('geocities-mode');
-    updateThemeUI('dark', themeIcon, themeLabel);
-  } else if (savedTheme === 'light') {
-    document.body.classList.remove('dark-mode', 'geocities-mode');
-    updateThemeUI('light', themeIcon, themeLabel);
-  } else {
-    // Auto mode - respect system preference
-    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    if (prefersDark) {
-      document.body.classList.add('dark-mode');
-    }
-    updateThemeUI('auto', themeIcon, themeLabel);
-  }
-
-  toggle.addEventListener('click', () => {
-    const currentTheme = getCurrentTheme();
-    let nextTheme;
-    
-    // Cycle: light → dark → geocities → light
-    if (currentTheme === 'light') {
-      nextTheme = 'dark';
-    } else if (currentTheme === 'dark') {
-      nextTheme = 'geocities';
-    } else {
-      nextTheme = 'light';
-    }
-    
-    applyTheme(nextTheme);
-    updateThemeUI(nextTheme, themeIcon, themeLabel);
-  });
-}
-
-function getCurrentTheme() {
-  if (document.body.classList.contains('geocities-mode')) {
-    return 'geocities';
-  } else if (document.body.classList.contains('dark-mode')) {
-    return 'dark';
-  } else {
-    return 'light';
-  }
-}
-
-function applyTheme(theme) {
-  // Remove all theme classes
-  document.body.classList.remove('dark-mode', 'geocities-mode');
-  
-  // Remove GeoCities effects
-  const stars = $('.geocities-stars');
-  if (stars) stars.remove();
-  $$('h1, h2').forEach(heading => {
-    heading.classList.remove('blink');
-  });
-  
-  // Apply new theme
-  if (theme === 'dark') {
-    document.body.classList.add('dark-mode');
-    localStorage.setItem('theme-mode', 'dark');
-  } else if (theme === 'geocities') {
-    document.body.classList.add('geocities-mode');
-    localStorage.setItem('theme-mode', 'geocities');
-    addGeoCitiesEffects();
-  } else {
-    localStorage.setItem('theme-mode', 'light');
-  }
-}
-
-function updateThemeUI(theme, icon, label) {
-  if (!icon || !label) return;
-  
-  const icons = {
-    light: '☀️',
-    dark: '🌙',
-    geocities: '🌐',
-    auto: '🌓'
-  };
-  
-  const labels = {
-    light: 'Light',
-    dark: 'Dark',
-    geocities: 'GeoCities',
-    auto: 'Auto'
-  };
-  
-  icon.textContent = icons[theme] || icons.auto;
-  label.textContent = labels[theme] || labels.auto;
-}
-
-// Add extra GeoCities effects
-function addGeoCitiesEffects() {
-  // Only add stars if they don't exist
-  if ($('.geocities-stars')) return;
-  
-  // Add animated GIF-style elements
-  const stars = document.createElement('div');
-  stars.className = 'geocities-stars';
-  stars.innerHTML = '⭐'.repeat(20);
-  stars.style.cssText = `
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    z-index: 9998;
-    font-size: 20px;
-    opacity: 0.3;
-    animation: twinkle 2s infinite;
-  `;
-  document.body.appendChild(stars);
-
-  // Add blink tags to headings
-  $$('h1, h2').forEach(heading => {
-    if (!heading.classList.contains('blink')) {
-      heading.classList.add('blink');
-    }
-  });
-}
 
 // Content Management System - Load from JSON files
 const CONTENT = {
@@ -385,9 +250,12 @@ function initSmoothScroll() {
       const target = $(href);
       if (target) {
         e.preventDefault();
-        target.scrollIntoView({
-          behavior: 'smooth',
-          block: 'start'
+        const headerHeight = 64; // Header height
+        const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+        
+        window.scrollTo({
+          top: targetPosition,
+          behavior: 'smooth'
         });
       }
     });
@@ -523,9 +391,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     el.textContent = new Date().getFullYear();
   });
 
-  // Initialize theme toggle
-  initThemeToggle();
-  
   // Initialize mobile menu
   initMobileMenu();
   

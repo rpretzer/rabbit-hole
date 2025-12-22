@@ -89,12 +89,36 @@ def generate_portrait_series_metadata():
         "published": True
     }
 
+def generate_visitation_series_metadata():
+    """Generate metadata for Visitation Series."""
+    images = get_image_list("visitation-series")
+    
+    return {
+        "id": "visitation-series",
+        "title": "Visitation Series",
+        "date": "2022-2024",
+        "series": "Visitation Series",
+        "description": "Nocturnal studies of intrusion and presence. A slender, abnormally tall figure with spindly limbs occupies the corner of a bedroom—an observer, a witness, a presence that exists in the liminal space between sleep and wakefulness. These works explore the architecture of fear and the geometry of domestic spaces under the weight of the unseen. The corner itself becomes both refuge and trap, the figure both threat and guardian. The series engages with folklore, urban legend, and the persistence of figures that watch in darkness, examining how physical space becomes psychological territory when occupied by the unfamiliar form.",
+        "thumbnail": "images/artwork/visitation-series/thumbnail.jpg",
+        "images": [
+            {
+                "src": img_path,
+                "alt": f"Visitation scene {i+1} - slender tall figure in bedroom corner at night",
+                "caption": f"Visitation #{i+1}"
+            }
+            for i, img_path in enumerate(images)
+        ],
+        "tags": ["nocturnal", "visitation", "presence", "liminal", "domestic", "folklore", "witnessing", "darkness", "intrusion"],
+        "published": True
+    }
+
 def main():
     """Generate and save metadata for all series."""
     metadata = {
         "alchemical-study": generate_alchemical_study_metadata(),
         "cubist-compositions": generate_cubist_compositions_metadata(),
-        "portrait-series": generate_portrait_series_metadata()
+        "portrait-series": generate_portrait_series_metadata(),
+        "visitation-series": generate_visitation_series_metadata()
     }
     
     for series_id, data in metadata.items():

@@ -1,0 +1,82 @@
+{
+  "id": "visitation-series",
+  "title": "Visitation Series",
+  "date": "2022-2024",
+  "series": "Visitation Series",
+  "description": "Nocturnal studies of intrusion and presence. A slender, abnormally tall figure with spindly limbs occupies the corner of a bedroom—an observer, a witness, a presence that exists in the liminal space between sleep and wakefulness. These works explore the architecture of fear and the geometry of domestic spaces under the weight of the unseen. The corner itself becomes both refuge and trap, the figure both threat and guardian. The series engages with folklore, urban legend, and the persistence of figures that watch in darkness, examining how physical space becomes psychological territory when occupied by the unfamiliar form.",
+  "thumbnail": "images/artwork/visitation-series/thumbnail.jpg",
+  "images": [
+    {
+      "src": "images/artwork/visitation-series/1001782994_a_slender_man__abnormally_tall__with_spindly_arms_and_legs_stands_in_the_corner_of_my_bedroom_at_nig.png",
+      "alt": "Visitation scene 1 - slender tall figure in bedroom corner at night",
+      "caption": "Visitation #1"
+    },
+    {
+      "src": "images/artwork/visitation-series/1119058604_a_slender_man__abnormally_tall__with_spindly_arms_and_legs_stands_in_the_corner_of_my_bedroom_at_nig.png",
+      "alt": "Visitation scene 2 - slender tall figure in bedroom corner at night",
+      "caption": "Visitation #2"
+    },
+    {
+      "src": "images/artwork/visitation-series/1455399062_a_slender_man__abnormally_tall__with_spindly_arms_and_legs_stands_in_the_corner_of_my_bedroom_at_nig.png",
+      "alt": "Visitation scene 3 - slender tall figure in bedroom corner at night",
+      "caption": "Visitation #3"
+    },
+    {
+      "src": "images/artwork/visitation-series/1770655159_a_slender_man__abnormally_tall__with_spindly_arms_and_legs_stands_in_the_corner_of_my_bedroom_at_nig.png",
+      "alt": "Visitation scene 4 - slender tall figure in bedroom corner at night",
+      "caption": "Visitation #4"
+    },
+    {
+      "src": "images/artwork/visitation-series/2026500167_a_slender_man__abnormally_tall__with_spindly_arms_and_legs_stands_in_the_corner_of_my_bedroom_at_nig.png",
+      "alt": "Visitation scene 5 - slender tall figure in bedroom corner at night",
+      "caption": "Visitation #5"
+    },
+    {
+      "src": "images/artwork/visitation-series/2026822128_a_slender_man__abnormally_tall__with_spindly_arms_and_legs_stands_in_the_corner_of_my_bedroom_at_nig.png",
+      "alt": "Visitation scene 6 - slender tall figure in bedroom corner at night",
+      "caption": "Visitation #6"
+    },
+    {
+      "src": "images/artwork/visitation-series/2072959114_a_slender_man__abnormally_tall__with_spindly_arms_and_legs_stands_in_the_corner_of_my_bedroom_at_nig.png",
+      "alt": "Visitation scene 7 - slender tall figure in bedroom corner at night",
+      "caption": "Visitation #7"
+    },
+    {
+      "src": "images/artwork/visitation-series/2698810756_a_slender_man__abnormally_tall__with_spindly_arms_and_legs_stands_in_the_corner_of_my_bedroom_at_nig.png",
+      "alt": "Visitation scene 8 - slender tall figure in bedroom corner at night",
+      "caption": "Visitation #8"
+    },
+    {
+      "src": "images/artwork/visitation-series/2752337407_a_slender_man__abnormally_tall__with_spindly_arms_and_legs_stands_in_the_corner_of_my_bedroom_at_nig.png",
+      "alt": "Visitation scene 9 - slender tall figure in bedroom corner at night",
+      "caption": "Visitation #9"
+    },
+    {
+      "src": "images/artwork/visitation-series/3847449082_a_slender_man__abnormally_tall__with_spindly_arms_and_legs_stands_in_the_corner_of_my_bedroom_at_nig.png",
+      "alt": "Visitation scene 10 - slender tall figure in bedroom corner at night",
+      "caption": "Visitation #10"
+    },
+    {
+      "src": "images/artwork/visitation-series/4138125109_a_slender_man__abnormally_tall__with_spindly_arms_and_legs_stands_in_the_corner_of_my_bedroom_at_nig.png",
+      "alt": "Visitation scene 11 - slender tall figure in bedroom corner at night",
+      "caption": "Visitation #11"
+    },
+    {
+      "src": "images/artwork/visitation-series/4271893913_a_slender_man__abnormally_tall__with_spindly_arms_and_legs_stands_in_the_corner_of_my_bedroom_at_nig.png",
+      "alt": "Visitation scene 12 - slender tall figure in bedroom corner at night",
+      "caption": "Visitation #12"
+    }
+  ],
+  "tags": [
+    "nocturnal",
+    "visitation",
+    "presence",
+    "liminal",
+    "domestic",
+    "folklore",
+    "witnessing",
+    "darkness",
+    "intrusion"
+  ],
+  "published": true
+}

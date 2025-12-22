@@ -135,6 +135,29 @@ def generate_watchers_series_metadata():
         "published": True
     }
 
+def generate_table_series_metadata():
+    """Generate metadata for Table Series."""
+    images = get_image_list("table-series")
+    
+    return {
+        "id": "table-series",
+        "title": "Table Series",
+        "date": "2022-2024",
+        "series": "Table Series",
+        "description": "Table interactions as sites of ritual, power, and distortion. Two figures at shared tables—dining, conversing, confronting—with distorted features that transform domestic spaces into unsettling theaters. Elongated limbs, red eyes, pale skin, and exaggerated expressions mark these scenes of consumption and communion. The table functions as both stage and barrier, the shared meal both ritual and confrontation. Red appears as accent and warning, marking moments of intensity, consumption, and unease. These works examine how the most ordinary of domestic rituals—eating together—becomes charged with the grotesque, the theatrical, and the uncanny.",
+        "thumbnail": "images/artwork/table-series/thumbnail.jpg",
+        "images": [
+            {
+                "src": img_path,
+                "alt": f"Table scene {i+1} - two figures at table with distorted features",
+                "caption": f"Table #{i+1}"
+            }
+            for i, img_path in enumerate(images)
+        ],
+        "tags": ["table", "dining", "interaction", "distortion", "gothic", "domestic", "ritual", "red", "grotesque", "theatrical", "uncanny"],
+        "published": True
+    }
+
 def main():
     """Generate and save metadata for all series."""
     metadata = {
@@ -142,7 +165,8 @@ def main():
         "cubist-compositions": generate_cubist_compositions_metadata(),
         "portrait-series": generate_portrait_series_metadata(),
         "visitation-series": generate_visitation_series_metadata(),
-        "watchers-series": generate_watchers_series_metadata()
+        "watchers-series": generate_watchers_series_metadata(),
+        "table-series": generate_table_series_metadata()
     }
     
     for series_id, data in metadata.items():

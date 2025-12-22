@@ -30,7 +30,7 @@ async function loadManifest() {
   // Default manifest (fallback)
   contentManifest = {
     poetry: ['morning-song', 'jacob', 'offering-raw-things'],
-    artwork: ['alchemical-study', 'portrait-series', 'cubist-compositions'],
+    artwork: ['alchemical-study', 'portrait-series', 'cubist-compositions', 'visitation-series'],
     essays: ['making-things'],
     projects: ['agentic-job-pipeline', 'personal-website']
   };

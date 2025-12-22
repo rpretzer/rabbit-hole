@@ -303,16 +303,46 @@ function openManuscriptModal(poemId) {
   
   if (!modal || !modalBody) return;
   
-  modalBody.innerHTML = `
-    <div class="modal-manuscript">
-      <h2 id="modal-title">${escapeHtml(poem.title)} — Manuscript</h2>
-      <div class="poetry-meta">${escapeHtml(poem.date || '')}</div>
-      <div class="manuscript-image-container">
-        <img src="${escapeHtml(poem.manuscript)}" alt="Manuscript of ${escapeHtml(poem.title)}" class="manuscript-image" loading="lazy">
+  const manuscriptPath = poem.manuscript;
+  const isPdf = manuscriptPath.toLowerCase().endsWith('.pdf');
+  
+  // Clean up previous PDF viewer if any
+  if (typeof cleanupPdfViewer === 'function') {
+    cleanupPdfViewer();
+  }
+  
+  if (isPdf) {
+    // Render PDF viewer
+    modalBody.innerHTML = `
+      <div class="modal-manuscript">
+        <h2 id="modal-title">${escapeHtml(poem.title)} — Manuscript</h2>
+        <div class="poetry-meta">${escapeHtml(poem.date || '')}</div>
+        <div id="pdf-viewer-container" class="pdf-viewer-container"></div>
+        <a href="#" onclick="closeModal(); setTimeout(() => openPoetryModal('${escapeHtml(poemId)}'), 100); return false;" style="display: inline-block; margin-top: 24px; font-size: 16px; color: var(--accent); text-decoration: underline; text-underline-offset: 3px;">View typed text</a>
       </div>
-      <a href="#" onclick="closeModal(); setTimeout(() => openPoetryModal('${escapeHtml(poemId)}'), 100); return false;" style="display: inline-block; margin-top: 24px; font-size: 16px; color: var(--accent); text-decoration: underline; text-underline-offset: 3px;">View typed text</a>
-    </div>
-  `;
+    `;
+    
+    // Wait a moment for DOM to be ready, then render PDF
+    setTimeout(() => {
+      if (typeof renderPdfViewer === 'function') {
+        renderPdfViewer(manuscriptPath, 'pdf-viewer-container');
+      } else {
+        console.error('PDF viewer not loaded');
+      }
+    }, 100);
+  } else {
+    // Render image (existing behavior)
+    modalBody.innerHTML = `
+      <div class="modal-manuscript">
+        <h2 id="modal-title">${escapeHtml(poem.title)} — Manuscript</h2>
+        <div class="poetry-meta">${escapeHtml(poem.date || '')}</div>
+        <div class="manuscript-image-container">
+          <img src="${escapeHtml(manuscriptPath)}" alt="Manuscript of ${escapeHtml(poem.title)}" class="manuscript-image" loading="lazy">
+        </div>
+        <a href="#" onclick="closeModal(); setTimeout(() => openPoetryModal('${escapeHtml(poemId)}'), 100); return false;" style="display: inline-block; margin-top: 24px; font-size: 16px; color: var(--accent); text-decoration: underline; text-underline-offset: 3px;">View typed text</a>
+      </div>
+    `;
+  }
   
   modal.removeAttribute('hidden');
   document.body.style.overflow = 'hidden';

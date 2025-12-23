@@ -315,7 +315,7 @@ function openManuscriptModal(poemId) {
     // Render PDF viewer
     modalBody.innerHTML = `
       <div class="modal-manuscript">
-        <h2 id="modal-title">${escapeHtml(poem.title)} — Manuscript</h2>
+        <h2 id="modal-title">${escapeHtml(poem.title)} - Manuscript</h2>
         <div class="poetry-meta">${escapeHtml(poem.date || '')}</div>
         <div id="pdf-viewer-container" class="pdf-viewer-container"></div>
         <a href="#" onclick="closeModal(); setTimeout(() => openPoetryModal('${escapeHtml(poemId)}'), 100); return false;" style="display: inline-block; margin-top: 24px; font-size: 16px; color: var(--accent); text-decoration: underline; text-underline-offset: 3px;">View typed text</a>
@@ -334,7 +334,7 @@ function openManuscriptModal(poemId) {
     // Render image (existing behavior)
     modalBody.innerHTML = `
       <div class="modal-manuscript">
-        <h2 id="modal-title">${escapeHtml(poem.title)} — Manuscript</h2>
+        <h2 id="modal-title">${escapeHtml(poem.title)} - Manuscript</h2>
         <div class="poetry-meta">${escapeHtml(poem.date || '')}</div>
         <div class="manuscript-image-container">
           <img src="${escapeHtml(manuscriptPath)}" alt="Manuscript of ${escapeHtml(poem.title)}" class="manuscript-image" loading="lazy">
@@ -342,6 +342,29 @@ function openManuscriptModal(poemId) {
         <a href="#" onclick="closeModal(); setTimeout(() => openPoetryModal('${escapeHtml(poemId)}'), 100); return false;" style="display: inline-block; margin-top: 24px; font-size: 16px; color: var(--accent); text-decoration: underline; text-underline-offset: 3px;">View typed text</a>
       </div>
     `;
+    
+    // Enable zoom for manuscript images on mobile
+    setTimeout(() => {
+      const img = modalBody.querySelector('.manuscript-image');
+      if (img) {
+        img.style.touchAction = 'pan-x pan-y pinch-zoom';
+        img.style.webkitTouchCallout = 'none';
+        img.style.webkitUserSelect = 'none';
+        img.style.userSelect = 'none';
+        
+        // Prevent context menu (right-click)
+        img.addEventListener('contextmenu', (e) => {
+          e.preventDefault();
+          return false;
+        });
+        
+        // Prevent drag
+        img.addEventListener('dragstart', (e) => {
+          e.preventDefault();
+          return false;
+        });
+      }
+    }, 100);
   }
   
   modal.removeAttribute('hidden');
@@ -389,6 +412,30 @@ function openArtworkModal(artworkId) {
   modal.removeAttribute('hidden');
   document.body.style.overflow = 'hidden';
   
+  // Enable zoom for images on mobile
+  setTimeout(() => {
+    const images = modalBody.querySelectorAll('.modal-artwork-image img');
+    images.forEach(img => {
+      // Enable native pinch-to-zoom on mobile
+      img.style.touchAction = 'pan-x pan-y pinch-zoom';
+      img.style.webkitTouchCallout = 'none';
+      img.style.webkitUserSelect = 'none';
+      img.style.userSelect = 'none';
+      
+      // Prevent context menu (right-click)
+      img.addEventListener('contextmenu', (e) => {
+        e.preventDefault();
+        return false;
+      });
+      
+      // Prevent drag
+      img.addEventListener('dragstart', (e) => {
+        e.preventDefault();
+        return false;
+      });
+    });
+  }, 100);
+  
   // Focus management for accessibility
   modal.focus();
 }
@@ -414,12 +461,117 @@ document.addEventListener('keydown', (e) => {
   }
 });
 
+// Theme Toggle Functionality
+function initThemeToggle() {
+  const themeToggle = $('#theme-toggle');
+  if (!themeToggle) return;
+  
+  // Get saved theme preference or default to system preference
+  const savedTheme = localStorage.getItem('theme');
+  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  
+  // Set initial theme
+  if (savedTheme === 'dark' || savedTheme === 'light') {
+    document.documentElement.setAttribute('data-theme', savedTheme);
+  } else {
+    // No saved preference, use system preference (don't set data-theme)
+    document.documentElement.removeAttribute('data-theme');
+  }
+  
+  // Update toggle state based on current theme
+  function updateToggleState() {
+    const currentTheme = document.documentElement.getAttribute('data-theme');
+    const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    // Toggle is "on" when dark mode is active
+    const isDark = currentTheme === 'dark' || (!currentTheme && systemPrefersDark);
+    themeToggle.setAttribute('aria-pressed', isDark);
+  }
+  
+  updateToggleState();
+  
+  // Handle toggle click - simple toggle between dark and light
+  themeToggle.addEventListener('click', () => {
+    const currentTheme = document.documentElement.getAttribute('data-theme');
+    const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const currentlyDark = currentTheme === 'dark' || (!currentTheme && systemPrefersDark);
+    
+    // Toggle to opposite
+    if (currentlyDark) {
+      // Switch to light
+      document.documentElement.setAttribute('data-theme', 'light');
+      localStorage.setItem('theme', 'light');
+    } else {
+      // Switch to dark
+      document.documentElement.setAttribute('data-theme', 'dark');
+      localStorage.setItem('theme', 'dark');
+    }
+    
+    updateToggleState();
+  });
+  
+  // Listen for system preference changes (only if no manual preference is set)
+  window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
+    if (!document.documentElement.hasAttribute('data-theme')) {
+      updateToggleState();
+    }
+  });
+}
+
+// Prevent image downloads and right-click
+function preventAssetDownloads() {
+  // Prevent right-click context menu on images
+  document.addEventListener('contextmenu', (e) => {
+    if (e.target.tagName === 'IMG' || e.target.closest('img')) {
+      e.preventDefault();
+      return false;
+    }
+  }, false);
+  
+  // Prevent drag and drop of images
+  document.addEventListener('dragstart', (e) => {
+    if (e.target.tagName === 'IMG' || e.target.closest('img')) {
+      e.preventDefault();
+      return false;
+    }
+  }, false);
+  
+  // Add CSS to prevent image selection
+  const style = document.createElement('style');
+  style.textContent = `
+    img {
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+      -webkit-user-drag: none;
+      -khtml-user-drag: none;
+      -moz-user-drag: none;
+      -o-user-drag: none;
+      user-drag: none;
+      pointer-events: auto;
+    }
+    img::selection {
+      background: transparent;
+    }
+    img::-moz-selection {
+      background: transparent;
+    }
+  `;
+  document.head.appendChild(style);
+}
+
 // Initialize on page load
 document.addEventListener('DOMContentLoaded', async () => {
   // Update copyright year
   $$('.yr').forEach(el => {
     el.textContent = new Date().getFullYear();
   });
+
+  // Prevent asset downloads
+  preventAssetDownloads();
+
+  // Initialize theme toggle
+  initThemeToggle();
 
   // Initialize mobile menu
   initMobileMenu();

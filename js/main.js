@@ -153,7 +153,11 @@ const projectCardTemplate = (item) => {
     'stillgotit': 'https://stillgotitcollective.com',
     'usenet-reader': 'https://usenet.rspmgmt.com'
   };
+  const siteLabelMap = {
+    'usenet-reader': 'Launch Client'
+  };
   const siteUrl = siteUrlMap[projectId];
+  const siteLabel = siteLabelMap[projectId] || 'View Site';
   
   let linksHtml = '';
   if (item.url) {
@@ -163,7 +167,7 @@ const projectCardTemplate = (item) => {
   if (hasSummary) {
     linksHtml += `<a href="#" onclick="event.preventDefault(); openProjectSummaryModal('${escapedId}'); return false;" style="margin-top: 12px; display: inline-block; font-weight: 600; color: var(--color-accent-ochre);">View Project Summary</a>`;
   } else if (siteUrl && projectId !== 'personal-website') {
-    linksHtml += `<a href="${escapeHtml(siteUrl)}" target="_blank" rel="noopener" style="margin-top: 12px; display: inline-block; font-weight: 600; color: var(--color-accent-ochre);">View Site →</a>`;
+    linksHtml += `<a href="${escapeHtml(siteUrl)}" target="_blank" rel="noopener" style="margin-top: 12px; display: inline-block; font-weight: 600; color: var(--color-accent-ochre);">${escapeHtml(siteLabel)} →</a>`;
   }
   
   return `

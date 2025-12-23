@@ -3,7 +3,7 @@
   "title": "Usenet Reader",
   "date": "2024-2025",
   "description": "Web-based Usenet reader application. Browse and read Usenet newsgroups with an intuitive interface.",
-  "url": "https://github.com/rpretzer/usenet-reader",
+  "url": "https://github.com/rpretzer/usenet-newsreader",
   "tags": ["web", "usenet", "newsgroups"],
   "published": true
 }

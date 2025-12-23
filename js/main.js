@@ -32,7 +32,7 @@ async function loadManifest() {
     poetry: ['morning-song', 'jacob', 'offering-raw-things'],
     artwork: ['alchemical-study', 'portrait-series', 'cubist-compositions', 'visitation-series', 'watchers-series', 'table-series'],
     essays: ['making-things'],
-    projects: ['agentic-job-pipeline', 'personal-website', 'stillgotit', 'project-dawn', 'starfox-cal', 'rspmgmt', 'rspmgmt-consulting', 'rspmgmt-relocation', 'rspmgmt-media']
+    projects: ['agentic-job-pipeline', 'personal-website', 'stillgotit', 'project-dawn', 'starfox-cal', 'rspmgmt', 'rspmgmt-consulting', 'rspmgmt-relocation', 'rspmgmt-media', 'usenet-reader']
   };
   
   return contentManifest;
@@ -150,7 +150,8 @@ const projectCardTemplate = (item) => {
     'rspmgmt-consulting': 'https://consulting.rspmgmt.com',
     'rspmgmt-relocation': 'https://relocationservices.rspmgmt.com',
     'rspmgmt-media': 'https://media.rspmgmt.com',
-    'stillgotit': 'https://stillgotitcollective.com'
+    'stillgotit': 'https://stillgotitcollective.com',
+    'usenet-reader': 'https://usenet.rspmgmt.com'
   };
   const siteUrl = siteUrlMap[projectId];
   

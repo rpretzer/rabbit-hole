@@ -3,8 +3,26 @@
   "title": "Project Dawn",
   "date": "2024-2025",
   "description": "Python-based project exploring new approaches to digital workflows and automation.",
+  "summaryDescription": "Project Dawn is a Python-based exploration of new approaches to digital workflows and automation. This project investigates innovative methods for streamlining processes and enhancing productivity through thoughtful automation.",
   "url": "https://github.com/rpretzer/project-dawn",
   "tags": ["python", "automation"],
+  "screenshots": [
+    {
+      "src": "images/projects/project-dawn/screenshot-1.png",
+      "alt": "Project Dawn main interface",
+      "caption": ""
+    },
+    {
+      "src": "images/projects/project-dawn/screenshot-2.png",
+      "alt": "Project Dawn workflow example",
+      "caption": ""
+    },
+    {
+      "src": "images/projects/project-dawn/screenshot-3.png",
+      "alt": "Project Dawn automation features",
+      "caption": ""
+    }
+  ],
   "published": true
 }
 

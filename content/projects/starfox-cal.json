@@ -3,8 +3,31 @@
   "title": "Starfox Calendar",
   "date": "2024-2025",
   "description": "Calendar application built with Dart. Features scheduling, event management, and time-based organization tools.",
+  "summaryDescription": "Starfox Calendar is a modern calendar application built with Dart. The app provides comprehensive scheduling capabilities, intuitive event management, and powerful time-based organization tools. Designed with a focus on user experience and efficiency.",
   "url": "https://github.com/rpretzer/Starfox-cal",
   "tags": ["dart", "calendar", "mobile"],
+  "screenshots": [
+    {
+      "src": "images/projects/starfox-cal/screenshot-1.png",
+      "alt": "Starfox Calendar main view",
+      "caption": ""
+    },
+    {
+      "src": "images/projects/starfox-cal/screenshot-2.png",
+      "alt": "Event creation interface",
+      "caption": ""
+    },
+    {
+      "src": "images/projects/starfox-cal/screenshot-3.png",
+      "alt": "Calendar month view",
+      "caption": ""
+    },
+    {
+      "src": "images/projects/starfox-cal/screenshot-4.png",
+      "alt": "Event details and management",
+      "caption": ""
+    }
+  ],
   "published": true
 }
 

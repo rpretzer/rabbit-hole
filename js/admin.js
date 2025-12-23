@@ -14,6 +14,7 @@ const CONTENT_SCHEMAS = {
       { name: 'title', label: 'Title', type: 'text', required: true },
       { name: 'date', label: 'Date', type: 'text', required: true, help: 'Year or full date (e.g., "2024")' },
       { name: 'series', label: 'Series', type: 'text', help: 'Optional series name' },
+      { name: 'medium', label: 'Medium', type: 'text', help: 'Artwork medium (e.g., "Digital", "Oil on canvas", "Mixed media")' },
       { name: 'description', label: 'Description', type: 'textarea', required: true },
       { name: 'thumbnail', label: 'Thumbnail Path', type: 'text', help: 'e.g., "images/artwork/series-name/thumbnail.jpg"' },
       { name: 'images', label: 'Images', type: 'array', schema: [

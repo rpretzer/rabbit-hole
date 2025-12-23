@@ -3,8 +3,31 @@
   "title": "Agentic Job Pipeline",
   "date": "2024",
   "description": "Autonomous job sourcing and application system using AI agents. Handles sourcing, tailoring, and outreach with human-in-the-loop review.",
+  "summaryDescription": "Agentic Job Pipeline is an autonomous job sourcing and application system powered by AI agents. The system intelligently sources job opportunities, tailors applications to specific roles, and manages outreach workflows. All actions include human-in-the-loop review to ensure quality and appropriateness before sending.",
   "url": "https://github.com/rpretzer/curly-memory",
   "tags": ["ai", "automation", "python"],
+  "screenshots": [
+    {
+      "src": "images/projects/agentic-job-pipeline/screenshot-1.png",
+      "alt": "Agentic Job Pipeline dashboard",
+      "caption": ""
+    },
+    {
+      "src": "images/projects/agentic-job-pipeline/screenshot-2.png",
+      "alt": "Job sourcing interface",
+      "caption": ""
+    },
+    {
+      "src": "images/projects/agentic-job-pipeline/screenshot-3.png",
+      "alt": "Application tailoring workflow",
+      "caption": ""
+    },
+    {
+      "src": "images/projects/agentic-job-pipeline/screenshot-4.png",
+      "alt": "Human review interface",
+      "caption": ""
+    }
+  ],
   "published": true
 }
 

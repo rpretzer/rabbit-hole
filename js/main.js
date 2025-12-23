@@ -119,7 +119,7 @@ const artworkCardTemplate = (item) => {
       ${imageMarkup}
       <div class="card-body">
         <h3 class="card-title">${escapedTitle}</h3>
-        <p class="card-meta">${escapeHtml(item.date)}${item.series ? ` • ${escapeHtml(item.series)}` : ''}</p>
+        <p class="card-meta">${escapeHtml(item.date)}${item.series ? ` • ${escapeHtml(item.series)}` : ''}${item.medium ? ` • medium: ${escapeHtml(item.medium)}` : ''}</p>
         <p class="card-description">${escapeHtml(item.description)}</p>
       </div>
     </article>
@@ -136,16 +136,46 @@ const essayCardTemplate = (item) => `
   </article>
 `;
 
-const projectCardTemplate = (item) => `
-  <article class="card">
-    <div class="card-body">
-      <h3 class="card-title">${item.title}</h3>
-      <p class="card-meta">${item.date}</p>
-      <p class="card-description">${item.description}</p>
-      ${item.url ? `<a href="${item.url}" target="_blank" rel="noopener" style="margin-top: 12px; display: inline-block; font-weight: 600;">View project →</a>` : ''}
-          </div>
-        </article>
-      `;
+const projectCardTemplate = (item) => {
+  const escapedId = escapeHtml(item.id || '');
+  const projectId = item.id;
+  
+  // Projects that need "View Project Summary" modal
+  const summaryProjects = ['project-dawn', 'agentic-job-pipeline', 'starfox-cal'];
+  const hasSummary = summaryProjects.includes(projectId);
+  
+  // Projects that need "View Site" link (all except personal-website)
+  const siteUrlMap = {
+    'rspmgmt': 'https://rspmgmt.com',
+    'rspmgmt-consulting': 'https://consulting.rspmgmt.com',
+    'rspmgmt-relocation': 'https://relocationservices.rspmgmt.com',
+    'rspmgmt-media': 'https://media.rspmgmt.com',
+    'stillgotit': 'https://stillgotitcollective.com'
+  };
+  const siteUrl = siteUrlMap[projectId];
+  
+  let linksHtml = '';
+  if (item.url) {
+    linksHtml += `<a href="${escapeHtml(item.url)}" target="_blank" rel="noopener" style="margin-top: 12px; display: inline-block; font-weight: 600; margin-right: 16px;">View project →</a>`;
+  }
+  
+  if (hasSummary) {
+    linksHtml += `<a href="#" onclick="event.preventDefault(); openProjectSummaryModal('${escapedId}'); return false;" style="margin-top: 12px; display: inline-block; font-weight: 600; color: var(--color-accent-ochre);">View Project Summary</a>`;
+  } else if (siteUrl && projectId !== 'personal-website') {
+    linksHtml += `<a href="${escapeHtml(siteUrl)}" target="_blank" rel="noopener" style="margin-top: 12px; display: inline-block; font-weight: 600; color: var(--color-accent-ochre);">View Site →</a>`;
+  }
+  
+  return `
+    <article class="card">
+      <div class="card-body">
+        <h3 class="card-title">${escapeHtml(item.title)}</h3>
+        <p class="card-meta">${escapeHtml(item.date)}</p>
+        <p class="card-description">${escapeHtml(item.description)}</p>
+        ${linksHtml}
+      </div>
+    </article>
+  `;
+};
 
 // Render content sections
 function renderContent() {
@@ -402,7 +432,7 @@ function openArtworkModal(artworkId) {
     <div class="modal-artwork">
       <h2 id="modal-title">${escapeHtml(artwork.title)}</h2>
       <div class="artwork-meta">
-        ${escapeHtml(artwork.date || '')}${artwork.series ? ` • ${escapeHtml(artwork.series)}` : ''}
+        ${escapeHtml(artwork.date || '')}${artwork.series ? ` • ${escapeHtml(artwork.series)}` : ''}${artwork.medium ? ` • medium: ${escapeHtml(artwork.medium)}` : ''}
       </div>
       ${artwork.description ? `<div class="artwork-description">${escapeHtml(artwork.description)}</div>` : ''}
       ${imagesHTML ? `<div class="modal-artwork-gallery">${imagesHTML}</div>` : ''}
@@ -440,6 +470,71 @@ function openArtworkModal(artworkId) {
   modal.focus();
 }
 
+function openProjectSummaryModal(projectId) {
+  const project = CONTENT.projects.find(p => p.id === projectId);
+  if (!project) return;
+  
+  const modal = $('#modal');
+  const modalBody = $('#modal-body');
+  
+  if (!modal || !modalBody) return;
+  
+  // Build screenshots HTML if available
+  const screenshotsHTML = project.screenshots && project.screenshots.length > 0
+    ? project.screenshots.map(img => `
+        <figure class="modal-project-screenshot">
+          <img src="${escapeHtml(img.src)}" alt="${escapeHtml(img.alt || project.title)}" loading="lazy">
+          ${img.caption ? `<figcaption>${escapeHtml(img.caption)}</figcaption>` : ''}
+        </figure>
+      `).join('')
+    : '';
+  
+  // Use summary description if available, otherwise use regular description
+  const summaryDescription = project.summaryDescription || project.description;
+  
+  modalBody.innerHTML = `
+    <div class="modal-project-summary">
+      <h2 id="modal-title">${escapeHtml(project.title)}</h2>
+      <div class="project-meta">
+        ${escapeHtml(project.date || '')}${project.tags && project.tags.length > 0 ? ` • ${escapeHtml(project.tags.join(', '))}` : ''}
+      </div>
+      <div class="project-summary-description">
+        ${escapeHtml(summaryDescription)}
+      </div>
+      ${screenshotsHTML ? `<div class="modal-project-screenshots">${screenshotsHTML}</div>` : ''}
+      ${project.url ? `<div style="margin-top: 24px;"><a href="${escapeHtml(project.url)}" target="_blank" rel="noopener" style="font-weight: 600; color: var(--color-accent-ochre);">View project →</a></div>` : ''}
+    </div>
+  `;
+  
+  modal.removeAttribute('hidden');
+  document.body.style.overflow = 'hidden';
+  
+  // Enable zoom for screenshots on mobile
+  setTimeout(() => {
+    const images = modalBody.querySelectorAll('.modal-project-screenshot img');
+    images.forEach(img => {
+      img.style.touchAction = 'pan-x pan-y pinch-zoom';
+      img.style.webkitTouchCallout = 'none';
+      img.style.webkitUserSelect = 'none';
+      img.style.userSelect = 'none';
+      
+      img.addEventListener('contextmenu', (e) => {
+        e.preventDefault();
+        return false;
+      });
+      
+      img.addEventListener('dragstart', (e) => {
+        e.preventDefault();
+        return false;
+      });
+    });
+  }, 100);
+  
+  // Focus management for accessibility
+  const closeBtn = modal.querySelector('.modal-close');
+  if (closeBtn) closeBtn.focus();
+}
+
 function closeModal() {
   const modal = $('#modal');
   modal.setAttribute('hidden', '');
@@ -449,6 +544,7 @@ function closeModal() {
 // Make functions global for onclick handlers
 window.openPoetryModal = openPoetryModal;
 window.openArtworkModal = openArtworkModal;
+window.openProjectSummaryModal = openProjectSummaryModal;
 window.closeModal = closeModal;
 
 // Close modal on Escape key

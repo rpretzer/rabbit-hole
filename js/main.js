@@ -513,13 +513,16 @@ function openProjectSummaryModal(projectId) {
   
   if (!modal || !modalBody) return;
   
+  // Clear any stored project ID when opening a new project summary
+  currentProjectSummaryId = null;
+  
   // Build screenshots HTML if available
   const screenshotsHTML = project.screenshots && project.screenshots.length > 0
     ? project.screenshots.map((img, index) => {
         const description = img.caption || img.alt || '';
         return `
         <figure class="modal-project-screenshot">
-          <div class="screenshot-wrapper" onclick="openScreenshotLightbox('${escapeHtml(img.src)}', '${escapeHtml(description)}')" role="button" tabindex="0" aria-label="View ${escapeHtml(img.alt || description)} in lightbox">
+          <div class="screenshot-wrapper" onclick="openScreenshotLightbox('${escapeHtml(img.src)}', '${escapeHtml(description)}', '${escapedId}')" role="button" tabindex="0" aria-label="View ${escapeHtml(img.alt || description)} in lightbox">
             ${(() => {
               let imgPath = img.src;
               if (!imgPath.startsWith('http://') && !imgPath.startsWith('https://') && !imgPath.startsWith('/')) {
@@ -572,7 +575,7 @@ function openProjectSummaryModal(projectId) {
           if (img) {
             const src = img.getAttribute('src');
             const alt = img.getAttribute('alt') || '';
-            openScreenshotLightbox(src, alt);
+            openScreenshotLightbox(src, alt, projectId);
           }
         }
       });
@@ -604,16 +607,37 @@ function openProjectSummaryModal(projectId) {
 
 function closeModal() {
   const modal = $('#modal');
+  const modalBody = $('#modal-body');
+  
+  // Check if we're in a screenshot lightbox and should return to project summary
+  if (modalBody && modalBody.querySelector('.modal-screenshot-lightbox') && currentProjectSummaryId) {
+    // Return to project summary instead of closing
+    const projectId = currentProjectSummaryId;
+    currentProjectSummaryId = null; // Clear it
+    openProjectSummaryModal(projectId);
+    return;
+  }
+  
+  // Otherwise, close normally
   modal.setAttribute('hidden', '');
   document.body.style.overflow = '';
+  currentProjectSummaryId = null; // Clear any stored project ID
 }
 
+// Track which project summary is open (for returning after screenshot lightbox)
+let currentProjectSummaryId = null;
+
 // Screenshot lightbox
-function openScreenshotLightbox(imageSrc, description) {
+function openScreenshotLightbox(imageSrc, description, projectId = null) {
   const modal = $('#modal');
   const modalBody = $('#modal-body');
   
   if (!modal || !modalBody) return;
+  
+  // Store project ID if provided (so we can return to project summary)
+  if (projectId) {
+    currentProjectSummaryId = projectId;
+  }
   
   // Ensure path is absolute if it's relative
   let imagePath = imageSrc;

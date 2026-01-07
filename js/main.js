@@ -146,7 +146,7 @@ const projectCardTemplate = (item) => {
   
   // Projects that need "View Site" link (all except personal-website)
   const siteUrlMap = {
-    'rspmgmt': 'https://rspmgmt.com',
+    'rspmgmt': 'http://rspmgmt.com',
     'rspmgmt-consulting': 'https://consulting.rspmgmt.com',
     'rspmgmt-relocation': 'https://relocationservices.rspmgmt.com',
     'rspmgmt-media': 'https://media.rspmgmt.com',

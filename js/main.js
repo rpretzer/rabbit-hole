@@ -29,7 +29,7 @@ async function loadManifest() {
   
   // Default manifest (fallback)
   contentManifest = {
-    poetry: ['morning-song', 'jacob', 'offering-raw-things'],
+    poetry: ['morning-song', 'jacob', 'offering-raw-things', 'a-visitation', 'unbuckle-my-spine', 'radiators', 'shower', 'tobacco-stained-fingertips', 'alice', 'jazzed-about-the-hospital'],
     artwork: ['alchemical-study', 'portrait-series', 'cubist-compositions', 'visitation-series', 'watchers-series', 'table-series'],
     essays: ['making-things'],
     projects: ['agentic-job-pipeline', 'personal-website', 'stillgotit', 'project-dawn', 'starfox-cal', 'rspmgmt', 'rspmgmt-consulting', 'rspmgmt-relocation', 'rspmgmt-media', 'usenet-reader']
@@ -189,7 +189,7 @@ function renderContent() {
     if (CONTENT.poetry.length > 0) {
       poetryGrid.innerHTML = CONTENT.poetry.map(poetryCardTemplate).join('');
     } else {
-      poetryGrid.innerHTML = '<p style="color: var(--muted); font-style: italic;">Loading poetry...</p>';
+      poetryGrid.innerHTML = '<p style="color: var(--muted); font-style: italic;">Loading writing...</p>';
     }
   }
 
@@ -202,14 +202,15 @@ function renderContent() {
     }
   }
 
-  const essaysGrid = $('#essays-grid');
-  if (essaysGrid) {
-    if (CONTENT.essays.length > 0) {
-      essaysGrid.innerHTML = CONTENT.essays.map(essayCardTemplate).join('');
-    } else {
-      essaysGrid.innerHTML = '<p style="color: var(--muted); font-style: italic;">No essays published yet.</p>';
-    }
-  }
+  // Essays section commented out
+  // const essaysGrid = $('#essays-grid');
+  // if (essaysGrid) {
+  //   if (CONTENT.essays.length > 0) {
+  //     essaysGrid.innerHTML = CONTENT.essays.map(essayCardTemplate).join('');
+  //   } else {
+  //     essaysGrid.innerHTML = '<p style="color: var(--muted); font-style: italic;">No essays published yet.</p>';
+  //   }
+  // }
 
   const projectsGrid = $('#projects-grid');
   if (projectsGrid) {

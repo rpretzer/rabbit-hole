@@ -1,0 +1,11 @@
+{
+  "id": "alice",
+  "title": "Alice",
+  "date": "2024",
+  "excerpt": "Alice, Alice / Where is your rabbit hole? / Where does it lead,",
+  "fullText": "Alice\n\nAlice, Alice\nWhere is your rabbit hole?\nWhere does it lead,\nTo what\nDubious hue?\nRose petals peal\nLate orisons and\nCatcalls called",
+  "manuscript": "images/poetry/alice/manuscript.jpg",
+  "tags": ["alice", "wonderland"],
+  "published": true
+}
+

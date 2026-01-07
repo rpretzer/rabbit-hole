@@ -16,40 +16,57 @@ on:
 jobs:
   check-and-update:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
       
       - name: Fetch Substack RSS
         id: fetch-rss
         run: |
+          set -e
           RSS_URL="https://rspmgmt.substack.com/feed"
           PROXY_URL="https://api.rss2json.com/v1/api.json?rss_url=$(echo $RSS_URL | jq -sRr @uri)"
           
           echo "Fetching latest posts from Substack..."
-          RESPONSE=$(curl -s "$PROXY_URL")
+          RESPONSE=$(curl -s -f "$PROXY_URL" || echo "")
           
-          # Extract latest post date
-          LATEST_DATE=$(echo "$RESPONSE" | jq -r '.items[0].pubDate // empty')
-          LATEST_TITLE=$(echo "$RESPONSE" | jq -r '.items[0].title // empty')
-          
-          if [ -n "$LATEST_DATE" ]; then
-            echo "Latest post: $LATEST_TITLE"
-            echo "Published: $LATEST_DATE"
-            echo "latest_date=$LATEST_DATE" >> $GITHUB_OUTPUT
-            echo "latest_title=$LATEST_TITLE" >> $GITHUB_OUTPUT
-          else
-            echo "No posts found or error fetching RSS"
+          if [ -z "$RESPONSE" ]; then
+            echo "Error: Failed to fetch RSS feed"
             exit 1
           fi
+          
+          # Extract latest post date
+          LATEST_DATE=$(echo "$RESPONSE" | jq -r '.items[0].pubDate // empty' 2>/dev/null || echo "")
+          LATEST_TITLE=$(echo "$RESPONSE" | jq -r '.items[0].title // empty' 2>/dev/null || echo "")
+          
+          if [ -z "$LATEST_DATE" ] || [ "$LATEST_DATE" = "null" ]; then
+            echo "Error: No posts found or invalid RSS response"
+            echo "Response preview: $(echo "$RESPONSE" | head -c 200)"
+            exit 1
+          fi
+          
+          echo "Latest post: $LATEST_TITLE"
+          echo "Published: $LATEST_DATE"
+          echo "latest_date=$LATEST_DATE" >> $GITHUB_OUTPUT
+          echo "latest_title=$LATEST_TITLE" >> $GITHUB_OUTPUT
       
       - name: Check if update needed
         id: check-update
         run: |
+          LATEST_DATE="${{ steps.fetch-rss.outputs.latest_date }}"
+          
+          if [ -z "$LATEST_DATE" ]; then
+            echo "Error: No latest date from RSS fetch"
+            exit 1
+          fi
+          
           # Get the last checked date from a file (or use current time as fallback)
           if [ -f ".substack-last-check" ]; then
-            LAST_CHECK=$(cat .substack-last-check)
-            LATEST_DATE="${{ steps.fetch-rss.outputs.latest_date }}"
+            LAST_CHECK=$(cat .substack-last-check || echo "")
             
             if [ "$LATEST_DATE" != "$LAST_CHECK" ]; then
               echo "New post detected! Updating..."
@@ -58,21 +75,23 @@ jobs:
               git config user.name "github-actions[bot]"
               git config user.email "github-actions[bot]@users.noreply.github.com"
               git add .substack-last-check
-              git commit -m "Update: New Substack post detected" || exit 0
-              git push
+              if ! git diff --staged --quiet; then
+                git commit -m "Update: New Substack post detected" && git push || echo "Git operation completed or skipped"
+              else
+                echo "No changes to commit"
+              fi
             else
               echo "No new posts since last check"
               echo "update_needed=false" >> $GITHUB_OUTPUT
             fi
           else
             # First run - just record the current latest
-            echo "${{ steps.fetch-rss.outputs.latest_date }}" > .substack-last-check
+            echo "$LATEST_DATE" > .substack-last-check
             echo "update_needed=true" >> $GITHUB_OUTPUT
             git config user.name "github-actions[bot]"
             git config user.email "github-actions[bot]@users.noreply.github.com"
             git add .substack-last-check
-            git commit -m "Initialize Substack sync tracking" || exit 0
-            git push
+            git commit -m "Initialize Substack sync tracking" && git push || echo "Git operation completed or skipped"
           fi
       
       - name: Summary

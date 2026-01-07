@@ -10,22 +10,22 @@
     {
       "src": "images/projects/starfox-cal/screenshot-1.png",
       "alt": "Starfox Calendar main view",
-      "caption": ""
+      "caption": "Main calendar interface with monthly view and sidebar navigation"
     },
     {
       "src": "images/projects/starfox-cal/screenshot-2.png",
       "alt": "Event creation interface",
-      "caption": ""
+      "caption": "Event creation form with date, time, and details"
     },
     {
       "src": "images/projects/starfox-cal/screenshot-3.png",
       "alt": "Calendar month view",
-      "caption": ""
+      "caption": "Monthly calendar grid showing scheduled events"
     },
     {
       "src": "images/projects/starfox-cal/screenshot-4.png",
       "alt": "Event details and management",
-      "caption": ""
+      "caption": "Detailed event view with edit and management options"
     }
   ],
   "published": true

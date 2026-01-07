@@ -151,10 +151,12 @@ const projectCardTemplate = (item) => {
     'rspmgmt-relocation': 'https://relocationservices.rspmgmt.com',
     'rspmgmt-media': 'https://media.rspmgmt.com',
     'stillgotit': 'https://stillgotitcollective.com',
-    'usenet-reader': 'https://usenet.rspmgmt.com'
+    'usenet-reader': 'https://usenet.rspmgmt.com',
+    'starfox-cal': 'https://calendar.rspmgmt.com'
   };
   const siteLabelMap = {
-    'usenet-reader': 'Launch Client'
+    'usenet-reader': 'Launch Client',
+    'starfox-cal': 'Launch Calendar'
   };
   const siteUrl = siteUrlMap[projectId];
   const siteLabel = siteLabelMap[projectId] || 'View Site';
@@ -165,7 +167,11 @@ const projectCardTemplate = (item) => {
   }
   
   if (hasSummary) {
-    linksHtml += `<a href="#" onclick="event.preventDefault(); openProjectSummaryModal('${escapedId}'); return false;" style="margin-top: 12px; display: inline-block; font-weight: 600; color: var(--color-accent-ochre);">View Project Summary</a>`;
+    linksHtml += `<a href="#" onclick="event.preventDefault(); openProjectSummaryModal('${escapedId}'); return false;" style="margin-top: 12px; display: inline-block; font-weight: 600; color: var(--color-accent-ochre); margin-right: 16px;">View Project Summary</a>`;
+    // Add launch link for starfox-cal
+    if (projectId === 'starfox-cal' && siteUrl) {
+      linksHtml += `<a href="${escapeHtml(siteUrl)}" target="_blank" rel="noopener" style="margin-top: 12px; display: inline-block; font-weight: 600; color: var(--color-accent-ochre);">${escapeHtml(siteLabel)} →</a>`;
+    }
   } else if (siteUrl && projectId !== 'personal-website') {
     linksHtml += `<a href="${escapeHtml(siteUrl)}" target="_blank" rel="noopener" style="margin-top: 12px; display: inline-block; font-weight: 600; color: var(--color-accent-ochre);">${escapeHtml(siteLabel)} →</a>`;
   }
@@ -509,12 +515,29 @@ function openProjectSummaryModal(projectId) {
   
   // Build screenshots HTML if available
   const screenshotsHTML = project.screenshots && project.screenshots.length > 0
-    ? project.screenshots.map(img => `
+    ? project.screenshots.map((img, index) => {
+        const description = img.caption || img.alt || '';
+        return `
         <figure class="modal-project-screenshot">
-          <img src="${escapeHtml(img.src)}" alt="${escapeHtml(img.alt || project.title)}" loading="lazy">
+          <div class="screenshot-wrapper" onclick="openScreenshotLightbox('${escapeHtml(img.src)}', '${escapeHtml(description)}')" role="button" tabindex="0" aria-label="View ${escapeHtml(img.alt || description)} in lightbox">
+            ${(() => {
+              let imgPath = img.src;
+              if (!imgPath.startsWith('http://') && !imgPath.startsWith('https://') && !imgPath.startsWith('/')) {
+                imgPath = '/' + imgPath;
+              }
+              return `<img src="${escapeHtml(imgPath)}" alt="${escapeHtml(img.alt || project.title)}" loading="lazy" onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'800\' height=\'450\'%3E%3Crect fill=\'%23ccc\' width=\'800\' height=\'450\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' text-anchor=\'middle\' dy=\'.3em\' fill=\'%23999\' font-family=\'sans-serif\' font-size=\'18\'%3EImage not found%3C/text%3E%3C/svg%3E';">`;
+            })()}
+            <div class="screenshot-overlay">
+              <div class="screenshot-overlay-content">
+                <p class="screenshot-description">${escapeHtml(description)}</p>
+                <span class="screenshot-tap-hint">Tap to view full size</span>
+              </div>
+            </div>
+          </div>
           ${img.caption ? `<figcaption>${escapeHtml(img.caption)}</figcaption>` : ''}
         </figure>
-      `).join('')
+      `;
+      }).join('')
     : '';
   
   // Use summary description if available, otherwise use regular description
@@ -537,24 +560,40 @@ function openProjectSummaryModal(projectId) {
   modal.removeAttribute('hidden');
   document.body.style.overflow = 'hidden';
   
-  // Enable zoom for screenshots on mobile
+  // Enable zoom for screenshots on mobile and add keyboard support
   setTimeout(() => {
-    const images = modalBody.querySelectorAll('.modal-project-screenshot img');
-    images.forEach(img => {
-      img.style.touchAction = 'pan-x pan-y pinch-zoom';
-      img.style.webkitTouchCallout = 'none';
-      img.style.webkitUserSelect = 'none';
-      img.style.userSelect = 'none';
-      
-      img.addEventListener('contextmenu', (e) => {
-        e.preventDefault();
-        return false;
+    const wrappers = modalBody.querySelectorAll('.screenshot-wrapper');
+    wrappers.forEach(wrapper => {
+      // Keyboard support
+      wrapper.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          const img = wrapper.querySelector('img');
+          if (img) {
+            const src = img.getAttribute('src');
+            const alt = img.getAttribute('alt') || '';
+            openScreenshotLightbox(src, alt);
+          }
+        }
       });
       
-      img.addEventListener('dragstart', (e) => {
-        e.preventDefault();
-        return false;
-      });
+      const img = wrapper.querySelector('img');
+      if (img) {
+        img.style.touchAction = 'pan-x pan-y pinch-zoom';
+        img.style.webkitTouchCallout = 'none';
+        img.style.webkitUserSelect = 'none';
+        img.style.userSelect = 'none';
+        
+        img.addEventListener('contextmenu', (e) => {
+          e.preventDefault();
+          return false;
+        });
+        
+        img.addEventListener('dragstart', (e) => {
+          e.preventDefault();
+          return false;
+        });
+      }
     });
   }, 100);
   
@@ -569,10 +608,62 @@ function closeModal() {
   document.body.style.overflow = '';
 }
 
+// Screenshot lightbox
+function openScreenshotLightbox(imageSrc, description) {
+  const modal = $('#modal');
+  const modalBody = $('#modal-body');
+  
+  if (!modal || !modalBody) return;
+  
+  // Ensure path is absolute if it's relative
+  let imagePath = imageSrc;
+  if (!imagePath.startsWith('http://') && !imagePath.startsWith('https://') && !imagePath.startsWith('/')) {
+    imagePath = '/' + imagePath;
+  }
+  
+  modalBody.innerHTML = `
+    <div class="modal-screenshot-lightbox">
+      <div class="lightbox-image-container">
+        <img src="${escapeHtml(imagePath)}" alt="${escapeHtml(description)}" class="lightbox-image" loading="lazy" onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'800\' height=\'450\'%3E%3Crect fill=\'%23ccc\' width=\'800\' height=\'450\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' text-anchor=\'middle\' dy=\'.3em\' fill=\'%23999\' font-family=\'sans-serif\' font-size=\'18\'%3EImage not found%3C/text%3E%3C/svg%3E';">
+      </div>
+      ${description ? `<div class="lightbox-caption">${escapeHtml(description)}</div>` : ''}
+    </div>
+  `;
+  
+  modal.removeAttribute('hidden');
+  document.body.style.overflow = 'hidden';
+  
+  // Enable zoom for images on mobile
+  setTimeout(() => {
+    const img = modalBody.querySelector('.lightbox-image');
+    if (img) {
+      img.style.touchAction = 'pan-x pan-y pinch-zoom';
+      img.style.webkitTouchCallout = 'none';
+      img.style.webkitUserSelect = 'none';
+      img.style.userSelect = 'none';
+      
+      img.addEventListener('contextmenu', (e) => {
+        e.preventDefault();
+        return false;
+      });
+      
+      img.addEventListener('dragstart', (e) => {
+        e.preventDefault();
+        return false;
+      });
+    }
+  }, 100);
+  
+  // Focus management for accessibility
+  const closeBtn = modal.querySelector('.modal-close');
+  if (closeBtn) closeBtn.focus();
+}
+
 // Make functions global for onclick handlers
 window.openPoetryModal = openPoetryModal;
 window.openArtworkModal = openArtworkModal;
 window.openProjectSummaryModal = openProjectSummaryModal;
+window.openScreenshotLightbox = openScreenshotLightbox;
 window.closeModal = closeModal;
 
 // Close modal on Escape key

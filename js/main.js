@@ -554,7 +554,7 @@ function openProjectSummaryModal(projectId) {
         const description = img.caption || img.alt || '';
         return `
         <figure class="modal-project-screenshot">
-          <div class="screenshot-wrapper" onclick="openScreenshotLightbox('${escapeHtml(img.src)}', '${escapeHtml(description)}', '${escapedId}')" role="button" tabindex="0" aria-label="View ${escapeHtml(img.alt || description)} in lightbox">
+          <div class="screenshot-wrapper" onclick="openScreenshotLightbox('${escapeHtml(img.src)}', '${escapeHtml(description)}', '${escapeHtml(projectId)}')" role="button" tabindex="0" aria-label="View ${escapeHtml(img.alt || description)} in lightbox">
             ${(() => {
               let imgPath = img.src;
               if (!imgPath.startsWith('http://') && !imgPath.startsWith('https://') && !imgPath.startsWith('/')) {
@@ -600,7 +600,7 @@ function openProjectSummaryModal(projectId) {
     const wrappers = modalBody.querySelectorAll('.screenshot-wrapper');
     wrappers.forEach(wrapper => {
       // Keyboard support
-      wrapper.addEventListener('keydown', (e) => {
+          wrapper.addEventListener('keydown', (e) => {
         if (e.key === 'Enter' || e.key === ' ') {
           e.preventDefault();
           const img = wrapper.querySelector('img');

@@ -1,13 +1,18 @@
 #!/usr/bin/env python3
 """
 Process manuscript images: convert to PDF, stitch multiple images into multi-page PDFs.
+Supports JPG, JPEG, and PNG image formats.
 
 Usage:
-  # Convert single image to PDF
+  # Convert single image to PDF (auto-detects PNG, JPG, JPEG)
+  python3 scripts/process-manuscripts.py convert images/poetry/poem-id/manuscript.png
   python3 scripts/process-manuscripts.py convert images/poetry/poem-id/manuscript.jpg
 
+  # Auto-detect and convert first image found in directory
+  python3 scripts/process-manuscripts.py convert images/poetry/poem-id/
+
   # Stitch multiple images into one PDF
-  python3 scripts/process-manuscripts.py stitch images/poetry/poem-id/page1.jpg images/poetry/poem-id/page2.jpg -o images/poetry/poem-id/manuscript.pdf
+  python3 scripts/process-manuscripts.py stitch images/poetry/poem-id/page1.png images/poetry/poem-id/page2.jpg -o images/poetry/poem-id/manuscript.pdf
 """
 
 import sys
@@ -15,12 +20,53 @@ import argparse
 from pathlib import Path
 from PIL import Image
 
+# Supported image formats
+IMAGE_EXTENSIONS = {'.jpg', '.jpeg', '.png', '.JPG', '.JPEG', '.PNG'}
+
+def find_image_in_directory(directory):
+    """Find first image file (PNG, JPG, JPEG) in a directory."""
+    directory = Path(directory)
+    if not directory.is_dir():
+        return None
+    
+    # Look for common manuscript filenames first
+    common_names = ['manuscript', 'page1', 'image', 'img']
+    for name in common_names:
+        for ext in IMAGE_EXTENSIONS:
+            candidate = directory / f"{name}{ext}"
+            if candidate.exists():
+                return candidate
+    
+    # If no common name found, get first image file
+    for ext in IMAGE_EXTENSIONS:
+        images = list(directory.glob(f"*{ext}"))
+        if images:
+            return sorted(images)[0]
+    
+    return None
+
 def convert_image_to_pdf(input_path, output_path=None):
-    """Convert a single image to PDF."""
+    """Convert a single image to PDF. Supports PNG, JPG, and JPEG formats."""
     input_path = Path(input_path)
+    
+    # If input is a directory, find first image file
+    if input_path.is_dir():
+        found_image = find_image_in_directory(input_path)
+        if found_image:
+            print(f"Found image in directory: {found_image.name}")
+            input_path = found_image
+        else:
+            print(f"Error: No image files (PNG, JPG, JPEG) found in directory: {input_path}")
+            return False
     
     if not input_path.exists():
         print(f"Error: Input file not found: {input_path}")
+        return False
+    
+    # Check if file is a supported image format
+    if input_path.suffix not in IMAGE_EXTENSIONS:
+        print(f"Error: Unsupported file format. Supported formats: PNG, JPG, JPEG")
+        print(f"  Found: {input_path.suffix}")
         return False
     
     if output_path is None:
@@ -49,7 +95,7 @@ def convert_image_to_pdf(input_path, output_path=None):
         return False
 
 def stitch_images_to_pdf(image_paths, output_path):
-    """Stitch multiple images into a single multi-page PDF."""
+    """Stitch multiple images into a single multi-page PDF. Supports PNG, JPG, and JPEG formats."""
     output_path = Path(output_path)
     images = []
     
@@ -57,6 +103,12 @@ def stitch_images_to_pdf(image_paths, output_path):
         img_path = Path(img_path)
         if not img_path.exists():
             print(f"Warning: Image not found, skipping: {img_path}")
+            continue
+        
+        # Check if file is a supported image format
+        if img_path.suffix not in IMAGE_EXTENSIONS:
+            print(f"Warning: Unsupported file format, skipping: {img_path}")
+            print(f"  Supported formats: PNG, JPG, JPEG")
             continue
         
         try:
@@ -101,13 +153,13 @@ def main():
     subparsers = parser.add_subparsers(dest='command', help='Command to execute')
     
     # Convert command
-    convert_parser = subparsers.add_parser('convert', help='Convert single image to PDF')
-    convert_parser.add_argument('input', help='Input image file')
+    convert_parser = subparsers.add_parser('convert', help='Convert single image to PDF (supports PNG, JPG, JPEG)')
+    convert_parser.add_argument('input', help='Input image file or directory (will auto-detect image in directory)')
     convert_parser.add_argument('-o', '--output', help='Output PDF file (optional)')
     
     # Stitch command
-    stitch_parser = subparsers.add_parser('stitch', help='Stitch multiple images into PDF')
-    stitch_parser.add_argument('images', nargs='+', help='Input image files (in order)')
+    stitch_parser = subparsers.add_parser('stitch', help='Stitch multiple images into PDF (supports PNG, JPG, JPEG)')
+    stitch_parser.add_argument('images', nargs='+', help='Input image files in order (PNG, JPG, or JPEG)')
     stitch_parser.add_argument('-o', '--output', required=True, help='Output PDF file')
     
     args = parser.parse_args()

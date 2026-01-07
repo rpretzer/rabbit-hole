@@ -29,7 +29,7 @@ async function loadManifest() {
   
   // Default manifest (fallback)
   contentManifest = {
-    poetry: ['morning-song', 'jacob', 'offering-raw-things', 'a-visitation', 'unbuckle-my-spine', 'radiators', 'shower', 'tobacco-stained-fingertips', 'alice', 'jazzed-about-the-hospital'],
+    poetry: ['morning-song', 'jacob', 'offering-raw-things', 'a-visitation', 'unbuckle-my-spine', 'radiators', 'shower', 'tobacco-stained-fingertips', 'alice', 'jazzed-about-the-hospital', 'one-morning'],
     artwork: ['alchemical-study', 'portrait-series', 'cubist-compositions', 'visitation-series', 'watchers-series', 'table-series'],
     essays: ['making-things'],
     projects: ['agentic-job-pipeline', 'personal-website', 'stillgotit', 'project-dawn', 'starfox-cal', 'rspmgmt', 'rspmgmt-consulting', 'rspmgmt-relocation', 'rspmgmt-media', 'usenet-reader']

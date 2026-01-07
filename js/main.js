@@ -8,7 +8,8 @@ const CONTENT = {
   poetry: [],
   artwork: [],
   essays: [],
-  projects: []
+  projects: [],
+  publications: []
 };
 
 // Load manifest (either from file or use default)
@@ -32,7 +33,8 @@ async function loadManifest() {
     poetry: ['morning-song', 'jacob', 'offering-raw-things', 'a-visitation', 'unbuckle-my-spine', 'radiators', 'shower', 'tobacco-stained-fingertips', 'alice', 'jazzed-about-the-hospital', 'one-morning', 'tyger'],
     artwork: ['alchemical-study', 'portrait-series', 'cubist-compositions', 'visitation-series', 'watchers-series', 'table-series'],
     essays: ['making-things'],
-    projects: ['agentic-job-pipeline', 'personal-website', 'stillgotit', 'project-dawn', 'starfox-cal', 'rspmgmt', 'rspmgmt-consulting', 'rspmgmt-relocation', 'rspmgmt-media', 'usenet-reader']
+    projects: ['agentic-job-pipeline', 'personal-website', 'stillgotit', 'project-dawn', 'starfox-cal', 'rspmgmt', 'rspmgmt-consulting', 'rspmgmt-relocation', 'rspmgmt-media', 'usenet-reader'],
+    publications: ['blackberry-winter-2004', 'blackberry-winter-2005']
   };
   
   return contentManifest;
@@ -79,6 +81,7 @@ async function loadAllContent() {
   CONTENT.artwork = await loadContentFromDirectory('artwork');
   CONTENT.essays = await loadContentFromDirectory('essays');
   CONTENT.projects = await loadContentFromDirectory('projects');
+  CONTENT.publications = await loadContentFromDirectory('publications');
 }
 
 // Escape HTML helper (needed for templates)
@@ -135,6 +138,26 @@ const essayCardTemplate = (item) => `
             </div>
   </article>
 `;
+
+const publicationCardTemplate = (item) => {
+  const escapedId = escapeHtml(item.id || '');
+  let linksHtml = '';
+  
+  if (item.url) {
+    linksHtml += `<a href="${escapeHtml(item.url)}" target="_blank" rel="noopener" style="margin-top: 12px; display: inline-block; font-weight: 600; color: var(--color-accent-ochre);">View on WorldCat →</a>`;
+  }
+  
+  return `
+    <article class="card">
+      <div class="card-body">
+        <h3 class="card-title">${escapeHtml(item.title)}</h3>
+        <p class="card-meta">${escapeHtml(item.date)}</p>
+        <p class="card-description">${escapeHtml(item.description)}</p>
+        ${linksHtml}
+      </div>
+    </article>
+  `;
+};
 
 const projectCardTemplate = (item) => {
   const escapedId = escapeHtml(item.id || '');
@@ -224,6 +247,15 @@ function renderContent() {
       projectsGrid.innerHTML = CONTENT.projects.map(projectCardTemplate).join('');
     } else {
       projectsGrid.innerHTML = '<p style="color: var(--muted); font-style: italic;">Loading projects...</p>';
+    }
+  }
+
+  const publicationsGrid = $('#publications-grid');
+  if (publicationsGrid) {
+    if (CONTENT.publications.length > 0) {
+      publicationsGrid.innerHTML = CONTENT.publications.map(publicationCardTemplate).join('');
+    } else {
+      publicationsGrid.innerHTML = '<p style="color: var(--muted); font-style: italic;">No publications yet.</p>';
     }
   }
 }

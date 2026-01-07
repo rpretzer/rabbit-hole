@@ -4,15 +4,60 @@
  */
 
 // Load PDF.js from CDN if not already loaded
-if (typeof pdfjsLib === 'undefined') {
-  const script = document.createElement('script');
-  script.src = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js';
-  script.async = true;
-  document.head.appendChild(script);
+let pdfjsLoading = false;
+let pdfjsLoaded = false;
+
+async function ensurePdfJsLoaded() {
+  if (typeof pdfjsLib !== 'undefined' && pdfjsLoaded) {
+    return Promise.resolve();
+  }
   
-  script.onload = () => {
-    pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
-  };
+  if (pdfjsLoading) {
+    // Wait for existing load to complete
+    return new Promise((resolve) => {
+      const checkInterval = setInterval(() => {
+        if (pdfjsLoaded && typeof pdfjsLib !== 'undefined') {
+          clearInterval(checkInterval);
+          resolve();
+        }
+      }, 100);
+    });
+  }
+  
+  pdfjsLoading = true;
+  
+  return new Promise((resolve, reject) => {
+    if (typeof pdfjsLib !== 'undefined') {
+      pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+      pdfjsLoaded = true;
+      pdfjsLoading = false;
+      resolve();
+      return;
+    }
+    
+    const script = document.createElement('script');
+    script.src = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js';
+    script.async = true;
+    
+    script.onload = () => {
+      if (typeof pdfjsLib !== 'undefined') {
+        pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+        pdfjsLoaded = true;
+        pdfjsLoading = false;
+        resolve();
+      } else {
+        pdfjsLoading = false;
+        reject(new Error('PDF.js failed to load'));
+      }
+    };
+    
+    script.onerror = () => {
+      pdfjsLoading = false;
+      reject(new Error('Failed to load PDF.js script'));
+    };
+    
+    document.head.appendChild(script);
+  });
 }
 
 let currentPdf = null;
@@ -29,22 +74,25 @@ async function renderPdfViewer(pdfUrl, containerId) {
     return;
   }
 
+  // Show loading state
+  container.innerHTML = '<div style="padding: 40px; text-align: center; color: var(--color-text-muted);">Loading manuscript...</div>';
+
   try {
-    // Wait for PDF.js to load
+    // Ensure PDF.js is loaded
+    await ensurePdfJsLoaded();
+    
     if (typeof pdfjsLib === 'undefined') {
-      await new Promise((resolve) => {
-        const checkInterval = setInterval(() => {
-          if (typeof pdfjsLib !== 'undefined') {
-            clearInterval(checkInterval);
-            pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
-            resolve();
-          }
-        }, 100);
-      });
+      throw new Error('PDF.js library not available');
     }
 
-    // Load PDF
-    const loadingTask = pdfjsLib.getDocument(pdfUrl);
+    // Load PDF - ensure URL is absolute if needed
+    let pdfUrlToLoad = pdfUrl;
+    if (!pdfUrl.startsWith('http://') && !pdfUrl.startsWith('https://') && !pdfUrl.startsWith('/')) {
+      // Relative path - make it absolute from root
+      pdfUrlToLoad = '/' + pdfUrl.replace(/^\.\//, '');
+    }
+    
+    const loadingTask = pdfjsLib.getDocument(pdfUrlToLoad);
     currentPdf = await loadingTask.promise;
     totalPages = currentPdf.numPages;
     currentPage = 1;

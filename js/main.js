@@ -358,14 +358,36 @@ function openManuscriptModal(poemId) {
       </div>
     `;
     
-    // Wait a moment for DOM to be ready, then render PDF
-    setTimeout(() => {
-      if (typeof renderPdfViewer === 'function') {
-        renderPdfViewer(manuscriptPath, 'pdf-viewer-container');
-      } else {
-        console.error('PDF viewer not loaded');
+    // Wait for DOM and PDF viewer to be ready, then render PDF
+    const renderPdf = async () => {
+      const container = document.getElementById('pdf-viewer-container');
+      if (!container) {
+        console.error('PDF viewer container not found');
+        return;
       }
-    }, 100);
+      
+      // Wait for renderPdfViewer to be available
+      let attempts = 0;
+      while (typeof renderPdfViewer === 'undefined' && attempts < 50) {
+        await new Promise(resolve => setTimeout(resolve, 100));
+        attempts++;
+      }
+      
+      if (typeof renderPdfViewer === 'function') {
+        try {
+          await renderPdfViewer(manuscriptPath, 'pdf-viewer-container');
+        } catch (error) {
+          console.error('Error rendering PDF:', error);
+          container.innerHTML = `<div style="padding: 40px; text-align: center; color: var(--color-text-muted, #999);">Error loading manuscript: ${error.message}</div>`;
+        }
+      } else {
+        console.error('PDF viewer function not available');
+        container.innerHTML = '<div style="padding: 40px; text-align: center; color: var(--color-text-muted, #999);">PDF viewer not loaded. Please refresh the page.</div>';
+      }
+    };
+    
+    // Small delay to ensure DOM is ready
+    setTimeout(renderPdf, 100);
   } else {
     // Render image (existing behavior)
     modalBody.innerHTML = `

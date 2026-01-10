@@ -2,10 +2,10 @@
   "id": "project-dawn",
   "title": "Project Dawn",
   "date": "2024-2025",
-  "description": "Python-based project exploring new approaches to digital workflows and automation.",
-  "summaryDescription": "Project Dawn is a Python-based exploration of new approaches to digital workflows and automation. This project investigates innovative methods for streamlining processes and enhancing productivity through thoughtful automation.",
+  "description": "A decentralized AI node built on the Model Context Protocol (MCP). Reimagines the \"Large Language Model\" as a distributed, SETI-inspired mesh network.",
+  "summaryDescription": "Project Dawn is a decentralized AI node built on the Model Context Protocol (MCP). It reimagines the \"Large Language Model\" not as a centralized corporate service, but as a distributed, SETI-inspired mesh. By utilizing a P2P-sharded architecture, it allows individual nodes to contribute idle compute cycles to a collective network—creating a powerful, resilient AI that lives on the edge, not in a data center.",
   "url": "https://github.com/rpretzer/project-dawn",
-  "tags": ["python", "automation"],
+  "tags": ["ai", "mcp", "decentralized", "p2p", "distributed"],
   "screenshots": [
     {
       "src": "images/projects/project-dawn/screenshot-1.png",

@@ -9,18 +9,18 @@
   "screenshots": [
     {
       "src": "images/projects/project-dawn/screenshot-1.png",
-      "alt": "Project Dawn main interface",
-      "caption": ""
+      "alt": "Project Dawn web dashboard in Advanced mode showing network status, LLM settings, and MCP tools panel",
+      "caption": "Advanced mode with LLM configuration and MCP tools"
     },
     {
       "src": "images/projects/project-dawn/screenshot-2.png",
-      "alt": "Project Dawn workflow example",
-      "caption": ""
+      "alt": "Project Dawn web dashboard in Simple mode with clean chat interface",
+      "caption": "Simple mode for streamlined agent interaction"
     },
     {
       "src": "images/projects/project-dawn/screenshot-3.png",
-      "alt": "Project Dawn automation features",
-      "caption": ""
+      "alt": "Project Dawn CLI showing available commands for node management",
+      "caption": "Command-line interface for node administration"
     }
   ],
   "published": true

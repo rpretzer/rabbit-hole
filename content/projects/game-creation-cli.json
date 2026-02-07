@@ -1,0 +1,8 @@
+{
+  "id": "game-creation-cli",
+  "title": "Game Creation CLI",
+  "date": "2025",
+  "description": "Command-line tool for scaffolding and creating games with configurable templates.",
+  "tags": ["cli", "gamedev", "javascript"],
+  "published": true
+}

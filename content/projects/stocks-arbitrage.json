@@ -1,0 +1,8 @@
+{
+  "id": "stocks-arbitrage",
+  "title": "Stocks Arbitrage",
+  "date": "2025",
+  "description": "Tool for identifying and analyzing stock arbitrage opportunities across markets.",
+  "tags": ["finance", "python", "automation"],
+  "published": true
+}

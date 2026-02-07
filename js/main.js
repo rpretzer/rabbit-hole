@@ -33,7 +33,7 @@ async function loadManifest() {
     poetry: ['morning-song', 'jacob', 'offering-raw-things', 'a-visitation', 'unbuckle-my-spine', 'radiators', 'shower', 'tobacco-stained-fingertips', 'alice', 'jazzed-about-the-hospital', 'one-morning', 'tyger'],
     artwork: ['alchemical-study', 'portrait-series', 'cubist-compositions', 'visitation-series', 'watchers-series', 'table-series'],
     essays: ['making-things'],
-    projects: ['agentic-job-pipeline', 'personal-website', 'stillgotit', 'project-dawn', 'starfox-cal', 'rspmgmt', 'rspmgmt-consulting', 'rspmgmt-relocation', 'rspmgmt-media', 'usenet-reader'],
+    projects: ['agentic-job-pipeline', 'personal-website', 'stillgotit', 'project-dawn', 'starfox-cal', 'rspmgmt', 'rspmgmt-consulting', 'rspmgmt-relocation', 'rspmgmt-media', 'usenet-reader', 'stocks-arbitrage', 'prediction-market-scanner', 'game-creation-cli', 'stillgotit-infinite-runner', 'graphql-trainer', 'case-study-interview-practice'],
     publications: ['blackberry-winter-2004', 'blackberry-winter-2005']
   };
   
